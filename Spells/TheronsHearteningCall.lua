@@ -1,19 +1,20 @@
 --[[
-    Script Name    : Spells/Fighter/CalltoArms.lua
-    Script Author  : neatz09
-    Script Date    : 2020.01.02 03:01:58
+    Script Name    : Spells/TheronsHearteningCall.lua
+    Script Author  : LordPazuzu
+    Script Date    : 2024.05.30 08:05:22
     Script Purpose : 
                    : 
 --]]
 
--- Increases Crushing, Piercing and Slashing of group members (AE) by 1.9
-function cast(Caster, Target, SkillAmt)
+function cast(Caster, Target, SkillAmt, StaBonus)
     AddSkillBonus(Target, GetSkillIDByName("Slashing"), SkillAmt)
     AddSkillBonus(Target, GetSkillIDByName("Crushing"), SkillAmt)
     AddSkillBonus(Target, GetSkillIDByName("Piercing"), SkillAmt)
-
+    AddSpellBonus(Target, 1, StaBonus)
 end
 
 function remove(Caster, Target)
-    RemoveSkillBonus(Target)
+    RemoveSkillBonus()
+    RemoveSpellBonus()
 end
+

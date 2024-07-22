@@ -7,7 +7,7 @@
 --]]
 
 function cast(Caster, Target)
-    AddProc(Caster, 1, 5.0)
+    AddProc(Caster, 2, 5.0)
 end
 
 function proc(Caster, Target, Type)

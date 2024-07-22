@@ -1,14 +1,24 @@
 --[[
-    Script Name    : Spells/Scout/QuickStrike.lua
+    Script Name    : Spells/ElaasRelentlessAmbush.lua
     Script Author  : LordPazuzu
-    Script Date    : 12/8/2022
+    Script Date    : 2024.05.25 04:05:54
     Script Purpose : 
                    : 
 --]]
 
+function precast(Caster, Target)
+    -- You must be sneaking to use this ability.
+    if IsStealthed(Caster) then
+        return true
+    end
+
+    SendMessage(Caster, "You must be sneaking to use this ability.", "yellow")
+    return false
+end
+
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
     Level = GetLevel(Caster)
-    SpellLevel = 3
+    SpellLevel = 10
     Mastery = SpellLevel + 10
     StatBonus = GetStr(Caster) / 10
         
@@ -18,8 +28,9 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal)
     end
     
     DmgBonus = LvlBonus + StatBonus
-    MaxDmg = MaxVal + math.floor(DmgBonus)
-    MinDmg = MinVal + math.floor(DmgBonus)
+    MaxDmg = MaxVal + math.floor(DmgBonus * 2)
+    MinDmg = MinVal + math.floor(DmgBonus * 2)
     
     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
+ 
 end

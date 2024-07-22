@@ -1,16 +1,14 @@
 --[[
-    Script Name    : Spells/Mage/Sorcerer/IceSpike.lua
-    Script Author  : neatz09
-    Script Date    : 2020.11.05 02:11:15
+    Script Name    : Spells/SalmekiasSmitingSpark.lua
+    Script Author  : LordPazuzu
+    Script Date    : 2024.05.24 03:05:15
     Script Purpose : 
                    : 
 --]]
 
--- Inflicts 45 - 84 cold damage on target
-
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
     Level = GetLevel(Caster)
-    SpellLevel = 15
+    SpellLevel = 10
     Mastery = SpellLevel + 10
     StatBonus = GetInt(Caster) / 10
     
@@ -20,8 +18,9 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal)
     end
 
     DmgBonus = LvlBonus + StatBonus
-    MaxDmg = math.floor(DmgBonus) * 2 + MaxVal
-    MinDmg = math.floor(DmgBonus) * 2 + MinVal
+    MaxDmg = MaxVal + math.floor(DmgBonus * 2)
+    MinDmg = MinVal + math.floor(DmgBonus * 2)
     
-	SpellDamage(Target, DmgType, MinDmg, MaxDmg)
+    SpellDamage(Target, DmgType, MinDmg, MaxDmg) 
+
 end

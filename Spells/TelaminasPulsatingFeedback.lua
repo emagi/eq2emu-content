@@ -1,30 +1,31 @@
 --[[
-    Script Name    : Spells/TayilsSearingOrb.lua
+    Script Name    : Spells/TelaminasPulsatingFeedback.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.05.16 03:05:04
+    Script Date    : 2024.05.17 02:05:18
     Script Purpose : 
                    : 
 --]]
 
-function cast(Caster, Target, MinVal, MaxVal, Debuff)
+function cast(Caster, Target, MinVal, MaxVal, Snare)
     damage(Caster, Target, MinVal, MaxVal)
-    AddSpellBonus(Target, 201, Debuff)
-    AddSpellBonus(Target, 202, Debuff)
-    AddSpellBonus(Target, 203, Debuff)
+    SetSpellSnareValue(Target, Snare) 
+    AddControlEffect(Target, 11)
 end
 
 function tick(Caster, Target, MinVal, MaxVal)
     damage(Caster, Target, MinVal, MaxVal)
 end
 
-function remove(Caster, Target, DoTType, MinVal, MaxVal)
-    RemoveSpellBonus()
+function remove(Caster, Target)
+    SetInfoStructString(Target, "visual_state", "0")
+    SpawnSet(Target,"visual_state",0)
+    RemoveControlEffect(Target, 11)
 end
 
 function damage(Caster, Target, MinVal, MaxVal)
     Level = GetLevel(Caster)
     SpellLevel = 10
-    Mastery = SpellLevel + 10
+    Mastery = 20
     StatBonus = GetInt(Caster) / 10
     
     if Level < Mastery then
@@ -36,5 +37,5 @@ function damage(Caster, Target, MinVal, MaxVal)
     MaxDmg = MaxVal + math.floor(DmgBonus * 2)
     MinDmg = MinVal + math.floor(DmgBonus * 2)
     SpellDamage(Target, 3, MinDmg, MaxDmg)
+    SpawnSet(Target,"visual_state",626)
 end 
-

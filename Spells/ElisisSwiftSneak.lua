@@ -1,18 +1,17 @@
 --[[
-    Script Name    : Spells/Procs/RootImmunity.Lua
+    Script Name    : Spells/ElisisSwiftSneak.lua
     Script Author  : LordPazuzu
-    Script Date    : 2022.11.30 05:11:52
+    Script Date    : 2024.05.25 03:05:08
     Script Purpose : 
                    : 
 --]]
 
 function cast(Caster, Target)
-    AddImmunitySpell(5, Target)
+    Stealth(1)
 end
 
-
 function remove(Caster, Target)
-    RemoveImmunitySpell(5, Target)
+    RemoveStealth()
 end
 
 

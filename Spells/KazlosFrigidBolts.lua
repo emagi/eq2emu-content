@@ -18,8 +18,8 @@ function cast(Caster, Target, MinVal, MaxVal, MinDot, MaxDot)
     end
 
     DmgBonus = LvlBonus + StatBonus
-    MaxDmg = MaxVal + math.floor(DmgBonus)
-    MinDmg = MinVal + math.floor(DmgBonus)
+    MaxDmg = MaxVal + math.floor(DmgBonus * 2)
+    MinDmg = MinVal + math.floor(DmgBonus * 2)
     
     SpellDamage(Target, 4, MinDmg, MaxDmg) 
 

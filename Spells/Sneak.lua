@@ -11,11 +11,9 @@
 
 function cast(Caster, Target)
     Stealth(1)
-    
 end
 
 function remove(Caster, Target)
     RemoveStealth()
-   
 end
 

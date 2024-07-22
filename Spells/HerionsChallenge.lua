@@ -1,15 +1,14 @@
 --[[
-    Script Name    : Spells/Fighter/Shout.lua
-    Script Author  : neatz09
-    Script Date    : 2020.01.02 03:01:00
+    Script Name    : Spells/HerionsChallenge.lua
+    Script Author  : LordPazuzu
+    Script Date    : 2024.05.30 08:05:58
     Script Purpose : 
                    : 
 --]]
 
--- Increases Threat to target encounter by 350 - 427 
 function cast(Caster, Target, MinVal, MaxVal)
     Level = GetLevel(Caster)
-    SpellLevel = 8
+    SpellLevel = 10
     Mastery = SpellLevel + 10
     StatBonus = GetStr(Caster) / 10
         
@@ -22,5 +21,4 @@ function cast(Caster, Target, MinVal, MaxVal)
     MaxHate = MaxVal + HateBonus
     MinHate = MinVal + HateBonus
     AddHate(Caster, Target, math.random(MinHate,MaxHate),1)
-    
 end

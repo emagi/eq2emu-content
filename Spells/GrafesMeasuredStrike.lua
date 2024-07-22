@@ -1,27 +1,26 @@
 --[[
-    Script Name    : Spells/Priest/Smite.lua
+    Script Name    : Spells/GrafesMeasuredStrike.lua
     Script Author  : LordPazuzu
-    Script Date    : 12/6/2022
+    Script Date    : 2024.05.30 08:05:09
     Script Purpose : 
                    : 
 --]]
 
-
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
     Level = GetLevel(Caster)
-    SpellLevel = 3
+    SpellLevel = 10
     Mastery = SpellLevel + 10
-    StatBonus = GetInt(Caster) / 10
-    
+    StatBonus = GetStr(Caster) / 10
+        
     if Level < Mastery then
         LvlBonus = Level - SpellLevel
         else LvlBonus = Mastery - SpellLevel
     end
-
-    DmgBonus = LvlBonus + StatBonus
-    MaxDmg = MaxVal + math.floor(DmgBonus)
-    MinDmg = MinVal + math.floor(DmgBonus)
     
-    SpellDamage(Target, DmgType, MinDmg, MaxDmg) 
+    DmgBonus = LvlBonus + StatBonus
+    MaxDmg = MaxVal + math.floor(DmgBonus * 2)
+    MinDmg = MinVal + math.floor(DmgBonus * 2)
+    
+    SpellDamage(Target, DmgType, MinDmg, MaxDmg)
 
 end

@@ -1,15 +1,14 @@
 --[[
-    Script Name    : Spells/Fighter/Shout.lua
-    Script Author  : neatz09
-    Script Date    : 2020.01.02 03:01:00
+    Script Name    : Spells/Commoner/BeslinsBoastfulPosture.lua
+    Script Author  : LordPazuzu
+    Script Date    : 2024.05.30 03:05:48
     Script Purpose : 
                    : 
 --]]
 
--- Increases Threat to target encounter by 350 - 427 
-function cast(Caster, Target, MinVal, MaxVal)
+function cast(Caster, Target, MinVal, MaxVal, BonusAmt)
     Level = GetLevel(Caster)
-    SpellLevel = 8
+    SpellLevel = 10
     Mastery = SpellLevel + 10
     StatBonus = GetStr(Caster) / 10
         
@@ -21,6 +20,11 @@ function cast(Caster, Target, MinVal, MaxVal)
     HateBonus = LvlBonus * 2
     MaxHate = MaxVal + HateBonus
     MinHate = MinVal + HateBonus
-    AddHate(Caster, Target, math.random(MinHate,MaxHate),1)
     
+    AddHate(Caster, Target, math.random(MinHate, MaxHate),1)
+    AddSpellBonus(Target, 617, BonusAmt)
+end
+
+function remove(Caster, Target)
+    RemoveSpellBonus(Target)
 end

@@ -1,10 +1,11 @@
 --[[
-    Script Name    : Spells/ElAradsShielding.lua
+    Script Name    : Spells/BastensRunesofSurety.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.05.16 07:05:44
+    Script Date    : 2024.05.22 12:05:37
     Script Purpose : 
                    : 
 --]]
+
 function cast(Caster, Target)
     level = GetLevel(Caster)
     AddSpellBonus(Target, 500, math.ceil(level * 2.75))
@@ -24,3 +25,4 @@ function remove(Caster, Target)
     RemoveSpellBonus()
     RemoveProc()
 end
+
