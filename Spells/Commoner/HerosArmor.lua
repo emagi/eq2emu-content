@@ -7,16 +7,11 @@
 --]]
 
 function cast(Caster, Target, MinVal, MaxVal)
-	local Val1 = (GetLevel(Caster) * 1.08) * MinVal
-	local Val2 =  (GetLevel(Caster) * 1.08) * MaxVal    
-	local MitAmt = randomFloat(Val1, Val2)
-		AddSpellBonus(Target, 200, MitAmt)
-    Say(Caster, "MitAmt = " .. MitAmt)
-
-end
-
-function randomFloat(Val1, Val2)
-	return Val1 + math.random()  * (Val2 - Val1);
+	local MinMit = math.ceil((GetLevel(Caster) * 1.08) * MinVal)
+	local MaxMit =  math.ceil((GetLevel(Caster) * 1.08) * MaxVal)    
+	local MitAmt = MakeRandomInt(MinMit, MaxMit)
+	
+	AddSpellBonus(Target, 200, MitAmt)
 end
 
 function remove(Caster, Target)

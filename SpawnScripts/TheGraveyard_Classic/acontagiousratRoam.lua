@@ -9,7 +9,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
-    RandomMovement(NPC, Spawn, 3.5, -3.5, 2, 8, 15)
+    RandomMovement(NPC, Spawn, 3, -3, 2, 8, 15)
 end
 
 function respawn(NPC, Spawn)

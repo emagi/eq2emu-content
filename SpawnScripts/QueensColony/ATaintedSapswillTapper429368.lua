@@ -1,23 +1,20 @@
 --[[
-        Script Name    : SpawnScripts/QueensColony/ATaintedSapswillTapper429368.lua
-        Script Author  : Rylec
-        Script Date    : 2020.05.22 03:05:05
-        Script Purpose : Animations for Sapswills and despawn of Dead Deer
+	Script Name	: SpawnScripts/QueensColony/ataintedSapswillTapper.lua
+	Script Purpose	: aSapswillTapper Animation Script
+	Script Author	: premierio015
+	Script Date	: 2020.09.04
 --]]
 
 function spawn(NPC)
-        EmoteLoop(NPC) 
-end
-
-function hailed(NPC, Spawn)
---      FaceTarget(NPC, Spawn)
+	EmoteLoop(NPC)
 end
 
 function respawn(NPC)
-        spawn(NPC)
+	spawn(NPC)
 end
 
 function EmoteLoop (NPC)
+        math.randomseed(os.time())
         local choice = math.random(1,2)
         local timer = math.random(2500,3500)
   
@@ -29,16 +26,3 @@ function EmoteLoop (NPC)
                 AddTimer(NPC, timer, "EmoteLoop")
         end
 end
-
-function death(NPC, Spawn)
-        AddTimer(NPC, 10000, "DespawnDeadDeer")        
-end
-
-function DespawnDeadDeer(NPC)
-        local zone = GetZone(NPC)
-        local deadDeer = GetSpawnByLocationID(zone, 1587628)
-        if deadDeer ~= nil then
-            Despawn(deadDeer)
-        end
-end
-

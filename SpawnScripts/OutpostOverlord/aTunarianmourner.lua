@@ -11,7 +11,7 @@ local Mourner2LocID = 394725
 local MournerID = 2780007
 
 function spawn(NPC)
-        AddTimer(NPC, 5000, "EmoteLoop")
+        AddTimer(NPC, 5000, "EmoteLoop",1, NPC)
 end
 
 
@@ -19,31 +19,29 @@ function respawn(NPC)
 	spawn(NPC)
 end
 
-function EmoteLoop(NPC)      
-	  local WhichOne = GetSpawnLocationID(NPC)
+function EmoteLoop(NPC,Spawn)     
+
+	  local Mourner = GetSpawnID(NPC)
+Say(NPC, Mourner)
+local WhichOne = GetSpawnLocationID(NPC)
+Say(NPC, "WhichOne")
+Say(NPC, WhichOne)	  
 		if WhichOne == Mourner1LocID then
-			local emote1 = math.random(1, 2)
-                        if emote1 == 1 then
-			    PlayAnimation(NPC, 11275) -- Cry
-			    AddTimer(NPC, ((math.random(4, 9)*2000)+10000) , "EmoteLoop")
-                        elseif emote1 == 2 then
-                            PlayAnimation(NPC, 12166) -- Sad
-			    AddTimer(NPC, ((math.random(4, 9)*2000)+10000) , "EmoteLoop")
-                        end
+			Say(NPC, "1 chosen")
+			PlayAnimation(NPC, 11275) -- Cry, it was 13008, Idle
+			AddTimer(NPC, ((math.random(4 ,9)*2000)+10000) , "EmoteLoop")  
 			local WhichOne = nil
-
-                end
-
+                else
+			Say(NPC, "none chosen 2")
+		end
 		if WhichOne == Mourner2LocID then
-			local emote1 = math.random(1, 2)
-                        if emote1 == 1 then
-			    PlayAnimation(NPC, 11275) -- Cry
-			    AddTimer(NPC, ((math.random(3, 8)*1800)+11000) , "EmoteLoop")
-                        elseif emote1 == 2 then
-                            PlayAnimation(NPC, 11628) -- Frustrated
-			    AddTimer(NPC, (math.random(4, 9)*2500) , "EmoteLoop")
-                        end
+			Say(NPC, "2 chosen")
+			PlayAnimation(NPC, 11275) -- Cry, it was 13008, Idle
+			AddTimer(NPC, ((math.random(3 ,8)*2000)+10000) , "EmoteLoop")  
 			local WhichOne = nil
-               end
-	 
+		else
+			Say(NPC, "none chosen 2")
+		end
+      -- AddTimer(NPC, 18000, "EmoteLoop")
+	  
 end

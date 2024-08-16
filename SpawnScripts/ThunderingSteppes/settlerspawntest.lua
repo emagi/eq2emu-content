@@ -5,32 +5,8 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-    ChooseVariant(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 end
-
-function respawn(NPC)
-	spawn(NPC)
-end
-
-function ChooseVariant(NPC, Spawn)
-    variant = MakeRandomInt(1,1)
-    if variant == 1 then
-        Variant1(NPC)
-    else 
-    end
-    
-end
-
-function Variant1(NPC, Spawn)
-    local zone = GetZone(NPC)
-    TestGroup = SpawnGroupByID(zone, 1057658)
-end
-
-
-
-
-
-
-
