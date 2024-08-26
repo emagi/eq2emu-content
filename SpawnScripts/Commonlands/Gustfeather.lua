@@ -9,9 +9,10 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     dmgMod = GetStr(NPC)/10
+    Named(NPC, Spawn)
     SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
-    SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(85 + dmgMod)) 
-    SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(135 + dmgMod))
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(105 + dmgMod)) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(195 + dmgMod))
 end
 
 function hailed(NPC, Spawn)

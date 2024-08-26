@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/AntelopeHerdFollow1.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/AntelopeHerdFollow4.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.08.04 05:08:45
+    Script Date    : 2024.08.21 08:08:54
     Script Purpose : 
                    : 
 --]]
@@ -33,24 +33,3 @@ function movement(NPC, Spawn)
 	MovementLoopAddLocation(NPC, x - 15 , y, z + 15 , 2, 25)
 	MovementLoopAddLocation(NPC, x , y, z , 2, 25)
 end
-
-function swarm(NPC)
-	local zone = GetZone(NPC)
-	local controller = GetSpawnByLocationID(zone, 133793500)
-    local leaderX = GetX(controller)
-    local leaderY = GetY(controller)
-    local leaderZ = GetZ(controller)
-    local speed = 2
-        
-    if  controller ~=nil and not IsInCombat(NPC) then   
-	    if GetDistance(NPC, controller) >= 6 then
-		    speed = 2
-            MoveToLocation(NPC, leaderX + MakeRandomInt(-6, 6), leaderY, leaderZ + MakeRandomInt(-6, 6), speed)
-	    end 
-	end
-	
-	AddTimer(NPC, 4000, "swarm")	
-end
-    
-    
-    

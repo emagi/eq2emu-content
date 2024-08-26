@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/ahighlandhuntress.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/agriffawn.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.03.22 04:03:17
+    Script Date    : 2024.08.20 10:08:22
     Script Purpose : 
                    : 
 --]]

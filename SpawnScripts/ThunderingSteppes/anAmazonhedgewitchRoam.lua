@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/ahighlandhuntress.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/anAmazonhedgewitchRoam.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.03.22 04:03:17
+    Script Date    : 2024.08.20 11:08:32
     Script Purpose : 
                    : 
 --]]

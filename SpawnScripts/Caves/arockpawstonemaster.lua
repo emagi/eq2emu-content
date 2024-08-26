@@ -1,22 +1,20 @@
 --[[
-	Script Name		:	SpawnScripts/Caves/arockpawstonemaster.lua
-	Script Purpose	:	Activate Atramentor (1970035) when this spawn is killed
-	Script Author	:	Jabantiz
-	Script Date		:	2/23/2019
-	Script Notes	:	<special-instructions>
+    Script Name    : SpawnScripts/Caves/aRockpawstonemaster.lua
+    Script Author  : Dorbin
+    Script Date    : 2022.10.05 11:10:34
+    Script Purpose : 
+                   : 
 --]]
 
-function spawn(NPC)
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseGnoll1.lua")
+require "SpawnScripts/Generic/NPCModule"
+
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+
 end
+
 
 function respawn(NPC)
 	spawn(NPC)
-end
-
-function death(NPC, Spawn)
-	local Atramentor = GetSpawn(Spawn, 1970035)
-	if Atramentor ~= nil then
-		SpawnSet(Atramentor, "attackable", "1")
-		SpawnSet(Atramentor, "show_level", "1")
-	end
 end

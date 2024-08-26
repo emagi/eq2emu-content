@@ -25,18 +25,18 @@ function ChooseClass(NPC)
     SetClass = MakeRandomInt(1,4)
     if SetClass == 1 then
         SpawnSet(NPC, "class", 18)
-        SetSpellList(NPC, 453)
+        SetSpellList(NPC, 489)
         IdlePriest(NPC)
         DervishLeather(NPC)
     elseif SetClass == 2 then
         SpawnSet(NPC, "class", 28)
-        SetSpellList(NPC, 454)
-        CastSpell(NPC, 280025, 5)
+        SetSpellList(NPC, 494)
+        --CastSpell(NPC, 280025, 5)
         IdleAlert(NPC)
         DervishRobe(NPC)
     elseif SetClass == 3 then
         SpawnSet(NPC, "class", 12)
-        SetSpellList(NPC, 329)
+        SetSpellList(NPC, 485)
         IdlePriest(NPC)
         DervishLeather(NPC)
     elseif SetClass == 4 then

@@ -1,19 +1,16 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/Bloodtalon.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/BraeganatheGailspear.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.07.23 10:07:39
+    Script Date    : 2024.08.25 09:08:45
     Script Purpose : 
                    : 
 --]]
-require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC, Spawn)
-    dmgMod = GetStr(NPC)/10
-    Named(NPC, Spawn)
-    RandomMovement(NPC, Spawn, 50, -50, 2, 8, 15)
+function spawn(NPC)
     SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(140 + dmgMod)) 
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(300 + dmgMod))
+
 end
 
 function hailed(NPC, Spawn)

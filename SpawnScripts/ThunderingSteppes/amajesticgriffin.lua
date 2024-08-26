@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/ahighlandhuntress.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/amajesticgriffin.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.03.22 04:03:17
+    Script Date    : 2024.08.25 07:08:19
     Script Purpose : 
                    : 
 --]]
@@ -9,7 +9,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
-    RandomMovement(NPC, Spawn, 20, -20, 2, 8, 15)
+    RandomMovement(NPC, Spawn, 50, -50, 2, 8, 15)
 end
 
 function hailed(NPC, Spawn)

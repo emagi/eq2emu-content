@@ -1,30 +1,30 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/GnollCampController1.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/GnollCampController5.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.08.13 08:08:22
+    Script Date    : 2024.08.19 07:08:30
     Script Purpose : 
                    : 
 --]]
 
 function spawn(NPC, Spawn)
     local zone = GetZone(NPC)
-    ControlObject = 133793888   --Loc ID for camp controller.  Camp controller is an invisible cube spawn containing this script.
+    ControlObject = 133794018   --Loc ID for camp controller.  Camp controller is an invisible cube spawn containing this script.
     LevelMin = 20        --Min level for trash spawn groups
     LevelMax = 21        --Max level for trash spawn groups
     SubBossLevel = 22    --Level of SubBoss group
-    BossLevel = 22       --Level of BossGroup
-    SubBossGroup = 1057809    --GroupID for SubBoss Group
-    BossGroup = 1057810       --GroupID for Boss Group
-    PropGroup = 1057799       --GroupID for camp props i.e. tents, campfires, etc
-    BuffObject = 133793887      --LocID for buff object to spawn in place of named.  i.e. gnollish ark 
-    Prop1 = 1238124
-    Prop2 = 1238123
-    Prop3 = 1238122
+    BossLevel = 23       --Level of BossGroup
+    SubBossGroup = 1057853    --GroupID for SubBoss Group
+    BossGroup = 1057854       --GroupID for Boss Group
+    PropGroup = 1057844       --GroupID for camp props i.e. tents, campfires, etc
+    BuffObject = 133794017      --LocID for buff object to spawn in place of named.  i.e. gnollish ark 
+    Prop1 = 1238134
+    Prop2 = 1238135
+    Prop3 = 1238136
     
-    Group1(NPC, Spawn, 1057801, 1057802) --Enter in group IDs for variant groups in that spawn.  Default script is setup for 2 variants, more can be added.
-    Group2(NPC, Spawn, 1057803, 1057804)
-    Group3(NPC, Spawn, 1057805, 1057806)
-    Group4(NPC, Spawn, 1057807, 1057808)
+    Group1(NPC, Spawn, 1057845, 1057846) --Enter in group IDs for variant groups in that spawn.  Default script is setup for 2 variants, more can be added.
+    Group2(NPC, Spawn, 1057847, 1057848)
+    Group3(NPC, Spawn, 1057849, 1057850)
+    Group4(NPC, Spawn, 1057851, 1057852)
     
     SpawnGroupByID(zone, G1, MakeRandomInt(LevelMin, LevelMax))
     SpawnGroupByID(zone, G2, MakeRandomInt(LevelMin, LevelMax))
