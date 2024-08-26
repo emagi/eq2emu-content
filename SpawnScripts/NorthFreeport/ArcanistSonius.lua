@@ -53,6 +53,12 @@ function hailed(NPC, Spawn)
     if HasQuest(Spawn,Mage1) and GetQuestStep(Spawn,Mage1)==9 then 
     Dialog.AddOption("I have collected the information on what was summoned. It looks like three different things were summoned into existence.","Dialog5")	
     end
+    if HasCompletedQuest(Spawn,Summ) and GetQuestStepProgress(Spawn, Summ) ==2 then
+    Dialog.AddOption("I have created and destroyed my elemental creation. Here are the remains","SummFinish")	
+    end
+    if HasCompletedQuest(Spawn,Sorc) and GetQuestStepProgress(Spawn, Sorc) ==2 then
+    Dialog.AddOption("My duel has concluded and I am still standing. Some praise is in order!","SorcFinish")	
+    end
     if HasCompletedQuest(Spawn,Ench) or HasCompletedQuest(Spawn,Sorc) or HasCompletedQuest(Spawn,Summ) then
     Dialog.AddOption("Arcanist. I still reflect on your lessons. Thank you.")	
     end
@@ -291,22 +297,24 @@ function Enchanter2(NPC,Spawn)
     OfferQuest(NPC,Spawn,Ench)
 end
 
-function GoodbyeSumm(NPC,Spawn) -- ALSO SORC
+function SummFinish(NPC,Spawn) 
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("You don't need to return to me. You'll have proved your worth and readiness.  Take care, though.  You'll be alone and these elementals will not go down without a fight.  I hope to see you again one day.")
-  	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel031.mp3", 980785219, 3713600865)
-  PlayFlavor(NPC, "", "", "bye", 0, 0, Spawn)
-    Dialog.AddOption("Thank you Magister Niksel.")	
+ 	Dialog.AddDialog("Excellent. The earth still radiates with the mana that infused the minion with life.  Your skills are impressive. The fabric of the universe is yours to manipulate.  You have done well, summoner.")
+    PlayFlavor(NPC, "", "", "nod", 0, 0, Spawn)
+    Dialog.AddOption("Thank you Arcanist.")	
 	Dialog.Start()
+	SetStepComplete(Spawn, Summ,2)
 end
 
-
-function GoodbyeEnch(NPC,Spawn)
+function SorcFinish(NPC,Spawn) 
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Once you've quelled the crowd you'll have more than proven yourself to be a capable enchanter. You won't need to return to me, but I hope to see you again. Take care, and good luck!")
-    PlayFlavor(NPC, "", "", "bye", 0, 0, Spawn)
-    Dialog.AddOption("Thank you Magister Niksel.")	
+ 	Dialog.AddDialog("Surprising.  I thought Dasicar was stronger than you ... No matter, Freeport needs the strongest magic wielders to bolster its power, and you show great potential. Congratulations, sorcerer.")
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius020.mp3",  942452973, 1923028270)
+    PlayFlavor(NPC, "", "", "smirk", 0, 0, Spawn)
+    Dialog.AddOption("Thank you Arcanist.")	
 	Dialog.Start()
+	SetStepComplete(Spawn, Sorc,2)
 end
+
