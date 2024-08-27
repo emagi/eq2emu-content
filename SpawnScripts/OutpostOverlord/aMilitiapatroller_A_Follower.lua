@@ -5,8 +5,10 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 	AddTimer(NPC, 900, "followguard_A")
 end
 

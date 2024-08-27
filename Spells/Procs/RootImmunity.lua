@@ -15,4 +15,3 @@ function remove(Caster, Target)
     RemoveImmunitySpell(5, Target)
 end
 
-

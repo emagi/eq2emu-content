@@ -5,10 +5,10 @@
     Script Purpose : 
     Script Notes   : Hawk needs to turn around after the return flight to original location
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-    
-
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 end
 
 function respawn(NPC)

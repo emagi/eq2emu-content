@@ -10,8 +10,11 @@ local Mourner1LocID = 394723
 local Mourner2LocID = 394725
 local MournerID = 2780007
 
-function spawn(NPC)
-        AddTimer(NPC, 5000, "EmoteLoop")
+require "SpawnScripts/Generic/NPCModule"
+
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    AddTimer(NPC, 5000, "EmoteLoop")
 end
 
 

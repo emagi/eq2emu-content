@@ -14,7 +14,6 @@ function respawn(NPC)
 end
 
 function EmoteLoop (NPC)
-        math.randomseed(os.time())
         local choice = math.random(1,2)
         local timer = math.random(2500,3500)
   

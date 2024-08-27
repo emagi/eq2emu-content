@@ -5,10 +5,12 @@
     Script Purpose : To Ensure Ghost Despawns if not killed before Grave Digger Respawns
                    : 
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-      AddTimer(NPC, 5000, "WhatHappened", 1) -- Emote the ghost confusion
-      AddTimer(NPC, 200000, "Vanish", 1) -- To ensure ghost is gone before grave Digger Respawns
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    AddTimer(NPC, 5000, "WhatHappened", 1) -- Emote the ghost confusion
+    AddTimer(NPC, 200000, "Vanish", 1) -- To ensure ghost is gone before grave Digger Respawns
 end
 
 function Vanish(NPC)

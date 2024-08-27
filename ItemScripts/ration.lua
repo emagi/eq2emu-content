@@ -1,8 +1,8 @@
 --[[
-	Script Name		:	ItemScripts/Ration.lua
+	Script Name		:	ItemScripts/ration.lua
 	Script Purpose	:	
 	Script Author	:	Neatz09
-	Script Date		:	1/31/2021
+	Script Date		:	8.18.2019
 	Script Notes	:	
 --]]
 

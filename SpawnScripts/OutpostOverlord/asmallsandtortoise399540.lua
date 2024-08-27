@@ -5,9 +5,11 @@
 	Script Date	:	10-19-2019 12:42:23 
 	Script Notes	:	Locations collected from Live
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-	waypoints(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    AddTimer(NPC, 6000, "waypoints")
 end
 
 function hailed(NPC, Spawn)

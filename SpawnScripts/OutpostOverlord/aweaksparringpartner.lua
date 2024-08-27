@@ -5,14 +5,14 @@
     Script Purpose : 
                    : 
 --]]
-
+require "SpawnScripts/Generic/NPCModule"
 
 
 local TheArtOfCombat = 363
 
 
-function spawn(NPC)
-
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 end
   
    

@@ -10,8 +10,10 @@
 
 local TheTunarianPlot = 491
 local NameOfHonor = 490
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
    AddSpawnAccess(NPC, NPC)
    SetPlayerProximityFunction(NPC, 20, "SpawnAccess", "SpawnAccess")
 end

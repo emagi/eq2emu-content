@@ -5,8 +5,10 @@
 	Script Date	: 2009.03.27
 	Script Notes	: Figure out how to use one script for all Tunarian Horse Sentry NPCs
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 	SetMount(NPC, 6848)
 	SetMountColor(NPC, 255, 255, 255, 255, 255, 255)
 end

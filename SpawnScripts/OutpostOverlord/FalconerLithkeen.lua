@@ -5,8 +5,10 @@
 	Script Date	: 2018.10.14
 	Script Notes	: Auto-Generated Conversation from PacketParser Data
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 	SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")
 end
 

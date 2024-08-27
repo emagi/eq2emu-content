@@ -1,14 +1,14 @@
 --[[
-    Script Name    : SpawnScripts/OutpostOverlord/aTrainedWolf.lua
-    Script Author  : Cynnar
-    Script Date    : 2017.01.17 12:01:01
-    Script Purpose : Follow a Tunarian Wolfmaster
+    Script Name    : SpawnScripts/OutpostOverlord/atrainedwolf.lua
+    Script Author  : LordPazuzu
+    Script Date    : 2024.08.27 01:08:33
+    Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-
-
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 	AddTimer(NPC, 500, "followmaster")
 end
 

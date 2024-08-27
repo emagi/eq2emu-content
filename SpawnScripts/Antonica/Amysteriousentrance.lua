@@ -1,7 +1,7 @@
 --[[
     Script Name    : SpawnScripts/antonica/Amysteriousentrance.lua
     Script Author  : TyroneSWG
-    Script Date    : 2020.07.02 03:07:48
+    Script Date    : 2020.06.14 10:06:42
     Script Purpose : 
                    : 
 --]]
@@ -10,12 +10,14 @@ function spawn(NPC)
 
 end
 
-function used(NPC, Spawn)
-    Say(NPC, "-wind whistles through the entrance-")
-    Zone(Spawn, "antonica", 0, 0, 0)
+function hailed(NPC, Spawn)
+Say(NPC, "-the hatch appears to be locked...-")
 end
 
 function respawn(NPC)
+end
 
+function used(NPC, Spawn)
+Zone(1, Spawn, 0, 0, 0)
 end
 

@@ -8,7 +8,10 @@
 
 local a_Tunarian_scout = 2780067
 
-function spawn(NPC)
+require "SpawnScripts/Generic/NPCModule"
+
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 	SetPlayerProximityFunction(NPC, 30, "InRange", "LeaveRange")
 end
 

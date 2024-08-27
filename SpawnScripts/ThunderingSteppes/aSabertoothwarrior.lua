@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/aSabertoothwarrior.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/asabertoothwarrior.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.03.22 04:03:36
+    Script Date    : 2024.07.19 04:07:34
     Script Purpose : 
                    : 
 --]]
