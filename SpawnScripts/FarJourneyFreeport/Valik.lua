@@ -37,8 +37,7 @@ function waypoints2(NPC)
 	MoveToLocation(NPC, -4.09, -2.03, -1.27, 2, 0)
 	MoveToLocation(NPC, -4.22, -2.06, 2.78, 2, 0)
 	MoveToLocation(NPC, -6.62, -1.82, 5.12, 2)
-	MoveToLocation(NPC, -6.62, -1.82, 5.12, 2)
-	SetHeading(NPC,130)
+	MoveToLocation(NPC, -6.62, -1.82, 5.12, 2, "end_waypointset1")
     end
     AddTimer(NPC,26000,"waypoints")	
 end
@@ -47,10 +46,18 @@ function waypoints(NPC)
 	if GetSpawn(NPC, 270011) ~= nil and IsAlive(GetSpawn(NPC, 270008))== true or GetSpawn(NPC, 270011) == nil and IsAlive(GetSpawn(NPC, 270008))== false then
 	MoveToLocation(NPC, -4.64, -2.05, 2.64, 2)
 	MoveToLocation(NPC, -4.29, -2.03, -0.88, 2)
-	MoveToLocation(NPC, -6.34, -1.81, -3.6, 2)
-	SetHeading(NPC,-4)
+	MoveToLocation(NPC, -6.34, -1.81, -3.6, 2, "end_waypointset2")
 end
     AddTimer(NPC,26000,"waypoints2")	
+end
+
+function end_waypointset1(NPC)
+	SetHeading(NPC,130)
+end
+
+
+function end_waypointset2(NPC)
+	SetHeading(NPC,-4)
 end
 
 function respawn(NPC)
