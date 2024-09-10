@@ -13,6 +13,7 @@ function spawn(NPC, Spawn)
     SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(155 + dmgMod)) 
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(275 + dmgMod))
+    RandomMovement(NPC, Spawn, 8, -8, 2, 8, 15)
 end
 
 function hailed(NPC, Spawn)

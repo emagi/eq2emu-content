@@ -43,6 +43,10 @@ function AutoAttack(NPC, Spawn)
         TierThreeA(NPC)
     elseif level >= 25 and level  <= 29 then
         TierThreeB(NPC)
+    elseif level >= 30 and level  <= 34 then
+        TierFourA(NPC)
+    elseif level >= 35 and level  <= 39 then
+        TierFourB(NPC)
     end
 end
 
@@ -108,14 +112,25 @@ end
 --Health and power regeneration rates
 function Regen(NPC, Spawn)
     
-    -- In-combat health regeneration
-    SetInfoStructUInt(NPC, "hp_regen_override", 1)  -- Set to  0 to disable and allow the server to set the regen rate.
-    SetInfoStructSInt(NPC, "hp_regen", 0)           -- Set Regen Amount. Default 0
+    --if IsInCombat(NPC)  == true then    
+        -- In-combat health regeneration
+        SetInfoStructUInt(NPC, "hp_regen_override", 1)  -- Set to  0 to disable and allow the server to set the regen rate.
+        SetInfoStructSInt(NPC, "hp_regen", 0)           -- Set Regen Amount. Default 0
     
-    -- In-combat power regeneration
-    SetInfoStructUInt(NPC, "pw_regen_override", 1)  -- Set to  0 to disable and allow the server to set the regen rate.
-    SetInfoStructSInt(NPC, "pw_regen", 0)           -- Set Regen Amount. Default 0
+        -- In-combat power regeneration
+        SetInfoStructUInt(NPC, "pw_regen_override", 1)  -- Set to  0 to disable and allow the server to set the regen rate.
+        SetInfoStructSInt(NPC, "pw_regen", 0)           -- Set Regen Amount. Default 0
+    --else
+            -- In-combat health regeneration
+        --SetInfoStructUInt(NPC, "hp_regen_override", 1)  -- Set to  0 to disable and allow the server to set the regen rate.
+        --SetInfoStructSInt(NPC, "hp_regen", level * 10)           -- Set Regen Amount. Default 0
     
+        -- In-combat power regeneration
+        --SetInfoStructUInt(NPC, "pw_regen_override", 1)  -- Set to  0 to disable and allow the server to set the regen rate.
+        --SetInfoStructSInt(NPC, "pw_regen", level * 10)           -- Set Regen Amount. Default 0
+    
+    --end
+    --AddTimer(NPC, 6000, "Regen")
 end
 
 --Damage functions based on NPC level range.
@@ -134,7 +149,7 @@ function TierOneB(NPC, Spawn)
     elseif difficulty == 5 then 
         lowDmg = math.floor(1 * GlobalDmgMod + MeleeDmgMod)
         highDmg = math.floor(3 * GlobalDmgMod + MeleeDmgMod)
-    elseif difficulty >=6 and difficulty <=9 then 
+    elseif difficulty >=6 then 
         lowDmg = math.floor(2 * GlobalDmgMod + MeleeDmgMod)
         highDmg = math.floor(4 * GlobalDmgMod + MeleeDmgMod)
     end
@@ -143,16 +158,16 @@ end
 
 --Level 6-9
 function TierOneC(NPC, Spawn)
-    if difficulty <=4 then  -- 1-3 dif 1-4
+    if difficulty <=4 then  
         lowDmg = math.floor(1 * GlobalDmgMod + MeleeDmgMod) 
         highDmg =math.floor(3 * GlobalDmgMod + MeleeDmgMod)
-    elseif difficulty == 5 then -- 2-4 dif 5MeleeDmgMod
+    elseif difficulty == 5 then 
         lowDmg = math.floor(2 * GlobalDmgMod + MeleeDmgMod) 
         highDmg = math.floor(4 * GlobalDmgMod + MeleeDmgMod)
-    elseif difficulty ==6 then -- 2-7 damage- Dif 6
+    elseif difficulty ==6 then 
         lowDmg = math.floor(2 * GlobalDmgMod + MeleeDmgMod)
         highDmg = math.floor(7 * GlobalDmgMod + MeleeDmgMod)
-    elseif difficulty >=7 then -- 2-7 damage- Dif 7+
+    elseif difficulty >=7 then 
         lowDmg = math.floor(5 * GlobalDmgMod + MeleeDmgMod)
         highDmg = math.floor(10 * GlobalDmgMod + MeleeDmgMod)
     end
@@ -239,6 +254,48 @@ function TierThreeB(NPC, Spawn)
     elseif difficulty >= 8 then
         lowDmg = math.floor(35 * GlobalDmgMod + MeleeDmgMod)
         highDmg = math.floor(75 * GlobalDmgMod + MeleeDmgMod)
+    end
+    damage(NPC)
+end
+
+--Level 30-34
+function TierFourA(NPC, Spawn)
+    if difficulty <=4 then 
+        lowDmg = math.floor(7 * GlobalDmgMod + MeleeDmgMod) 
+        highDmg =math.floor(16 * GlobalDmgMod + MeleeDmgMod)
+    elseif difficulty == 5 then 
+        lowDmg = math.floor(10 * GlobalDmgMod + MeleeDmgMod) 
+        highDmg = math.floor(30 * GlobalDmgMod + MeleeDmgMod)
+    elseif difficulty ==6 then 
+        lowDmg = math.floor(24 * GlobalDmgMod + MeleeDmgMod)
+        highDmg = math.floor(48 * GlobalDmgMod + MeleeDmgMod)
+    elseif difficulty == 7 then
+        lowDmg = math.floor(30 * GlobalDmgMod + MeleeDmgMod)
+        highDmg = math.floor(65 * GlobalDmgMod + MeleeDmgMod)
+    elseif difficulty >= 8 then
+        lowDmg = math.floor(50 * GlobalDmgMod + MeleeDmgMod)
+        highDmg = math.floor(130 * GlobalDmgMod + MeleeDmgMod)
+    end
+    damage(NPC)
+end
+
+--Level 35-39
+function TierFourB(NPC, Spawn)
+    if difficulty <=4 then 
+        lowDmg = math.floor(8 * GlobalDmgMod + MeleeDmgMod) 
+        highDmg =math.floor(22 * GlobalDmgMod + MeleeDmgMod)
+    elseif difficulty == 5 then 
+        lowDmg = math.floor(10 * GlobalDmgMod + MeleeDmgMod) 
+        highDmg = math.floor(48 * GlobalDmgMod + MeleeDmgMod)
+    elseif difficulty ==6 then 
+        lowDmg = math.floor(24 * GlobalDmgMod + MeleeDmgMod)
+        highDmg = math.floor(66 * GlobalDmgMod + MeleeDmgMod)
+    elseif difficulty == 7 then
+        lowDmg = math.floor(30 * GlobalDmgMod + MeleeDmgMod)
+        highDmg = math.floor(90 * GlobalDmgMod + MeleeDmgMod)
+    elseif difficulty >= 8 then
+        lowDmg = math.floor(60 * GlobalDmgMod + MeleeDmgMod)
+        highDmg = math.floor(220 * GlobalDmgMod + MeleeDmgMod)
     end
     damage(NPC)
 end
@@ -371,9 +428,72 @@ function HealthPower(NPC, Spawn)
     elseif level == 29 then
         hp = 4240 * HPMod * GlobalHPMod
         pw = 835 * PWMod * GlobalPowerMod
-    else
-        hp = 5000 * HPMod * GlobalHPMod  --temp values
-        pw = 900 * PWMod * GlobalPowerMod -- temp values
+    elseif level == 30 then
+        hp = 4380 * HPMod * GlobalHPMod
+        pw = 895 * PWMod * GlobalPowerMod
+    elseif level == 31 then
+        hp = 4570 * HPMod * GlobalHPMod
+        pw = 935 * PWMod * GlobalPowerMod
+    elseif level == 32 then
+        hp = 4825 * HPMod * GlobalHPMod
+        pw = 985 * PWMod * GlobalPowerMod
+    elseif level == 33 then
+        hp = 5030 * HPMod * GlobalHPMod
+        pw = 1040 * PWMod * GlobalPowerMod
+    elseif level == 34 then
+        hp = 5240 * HPMod * GlobalHPMod
+        pw = 1070 * PWMod * GlobalPowerMod
+    elseif level == 35 then
+        hp = 5455 * HPMod * GlobalHPMod
+        pw = 1165 * PWMod * GlobalPowerMod
+    elseif level == 36 then
+        hp = 5735 * HPMod * GlobalHPMod
+        pw = 1290 * PWMod * GlobalPowerMod
+    elseif level == 37 then
+        hp = 5875 * HPMod * GlobalHPMod
+        pw = 1255 * PWMod * GlobalPowerMod
+    elseif level == 38 then
+        hp = 6095 * HPMod * GlobalHPMod
+        pw = 1335 * PWMod * GlobalPowerMod
+    elseif level == 39 then
+        hp = 6320 * HPMod * GlobalHPMod
+        pw = 1375 * PWMod * GlobalPowerMod
+    elseif level == 40 then
+        hp = 6550 * HPMod * GlobalHPMod
+        pw = 1475 * PWMod * GlobalPowerMod
+    elseif level == 41 then
+        hp = 6805 * HPMod * GlobalHPMod
+        pw = 1595 * PWMod * GlobalPowerMod
+    elseif level == 42 then
+        hp = 7260 * HPMod * GlobalHPMod
+        pw = 1640 * PWMod * GlobalPowerMod
+    elseif level == 43 then
+        hp = 7295 * HPMod * GlobalHPMod
+        pw = 1675 * PWMod * GlobalPowerMod
+    elseif level == 44 then
+        hp = 7835 * HPMod * GlobalHPMod
+        pw = 1750 * PWMod * GlobalPowerMod
+    elseif level == 45 then
+        hp = 7920 * HPMod * GlobalHPMod
+        pw = 1810 * PWMod * GlobalPowerMod
+    elseif level == 46 then
+        hp = 8125 * HPMod * GlobalHPMod
+        pw = 1875 * PWMod * GlobalPowerMod
+    elseif level == 47 then
+        hp = 8490 * HPMod * GlobalHPMod
+        pw = 2040 * PWMod * GlobalPowerMod
+    elseif level == 48 then
+        hp = 8785 * HPMod * GlobalHPMod
+        pw = 2110 * PWMod * GlobalPowerMod
+    elseif level == 49 then
+        hp = 9020 * HPMod * GlobalHPMod
+        pw = 2195 * PWMod * GlobalPowerMod
+    elseif level == 50 then
+        hp = 9325 * HPMod * GlobalHPMod
+        pw = 2675 * PWMod * GlobalPowerMod
+    elseif level > 50 then
+        hp = 9625 * HPMod * GlobalHPMod
+        pw = 2840 * PWMod * GlobalPowerMod
     end  
 
     ModifyMaxHP(NPC, math.floor(hp))
@@ -847,11 +967,12 @@ end
 
 function IdlePriest(NPC)
        if IsInCombat(NPC) == false then
-        choice = MakeRandomInt(1,5)
+        choice = MakeRandomInt(3,5)
         if choice == 1 then
             CastSpell(NPC, 110002, 5, NPC)
         elseif choice == 2 then
             CastSpell(NPC, 110003, 5, NPC)
+        elseif choice == 3 then
             PlayFlavor(NPC,"","","yawn",0,0)
 --          PlayAnimation(NPC, 891)
         elseif choice == 4 then
@@ -991,8 +1112,8 @@ function FollowNPC(NPC, Spawn, LocID, Speed, Distance)
 end
 
 function MovementMod(NPC, Spawn, NegDist, PosDist, Speed, MinDly, MaxDly)
-    MinNegDist = math.floor(NegDist/2) 
-	MinPosDist = math.floor(PosDist/2) 
+    MinNegDist = math.ceil(NegDist/2) 
+	MinPosDist = math.ceil(PosDist/2) 
 	MinX = MakeRandomInt(1,2)
 	MinZ = MakeRandomInt(1,2)
 	

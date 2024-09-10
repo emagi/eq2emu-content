@@ -9,7 +9,7 @@
 function cast(Caster, Target, DmgLow, DmgHigh)
     Level = GetLevel(Caster)
     SpellLevel = 20
-    Mastery = SpellLevel + 10
+    Mastery = SpellLevel + 30
     StatBonus = GetStr(Caster) / 10
         
     if Level < Mastery then

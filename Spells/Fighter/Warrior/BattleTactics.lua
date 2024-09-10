@@ -10,6 +10,11 @@
 
 function cast(Caster, Target, HP)
 	AddSpellBonus(Target, 500, HP)
+	hitpoints(Caster, Target)
+end
+
+function hitpoints(Caster, Target)
+    ModifyHP(Target, GetMaxHP(Target) - GetHP(Target))
 end
 
 function remove(Caster, Target)

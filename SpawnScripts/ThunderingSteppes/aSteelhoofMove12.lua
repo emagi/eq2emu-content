@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/ayoungwoodlandbear.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/aSteelhoofMove12.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.04.15 05:04:09
+    Script Date    : 2024.09.01 03:09:16
     Script Purpose : 
                    : 
 --]]

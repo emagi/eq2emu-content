@@ -28,6 +28,11 @@ function cast(Caster, Target, HP, OffSkill, Pierce)
     AddSkillBonus(Target, GetSkillIDByName("Slashing"), OffSkill)
     AddSkillBonus(Target, GetSkillIDByName("Crushing"), OffSkill)
     AddSkillBonus(Target, GetSkillIDByName("Piercing"), Pierce)
+    hitpoints(Caster, Target)
+end
+
+function hitpoints(Caster, Target)
+    ModifyHP(Target, GetMaxHP(Target) - GetHP(Target))
 end
 
 
