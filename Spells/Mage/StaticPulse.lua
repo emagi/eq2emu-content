@@ -43,6 +43,6 @@ function tick(Caster, Target, DoTType, MinVal, MaxVal, SpellLevel)
 end
 
 function remove(Caster, Target, DoTType, MinVal, MaxVal)
-    SetInfoStructString(Target, "visual_state", "0")
+    --SetInfoStructString(Target, "visual_state", "0")
      SpawnSet(Target,"visual_state",0)
 end

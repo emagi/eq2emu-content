@@ -766,6 +766,20 @@ function Ree(NPC, Spawn)
     --SpawnSet(NPC, "race_type", 20)
 end
 
+
+--Giants
+
+function HillGiantLesser(NPC, Spawn)
+    RandomModel = MakeRandomInt(1,2)
+    
+    if RandomModel == 1 then
+        SpawnSet(NPC,"model_type", 3805)
+    elseif RandomModel == 2 then
+        SpawnSet(NPC,"model_type", 3812)
+    end
+
+end
+
 -- DoF compatible hair functions
 function hair(NPC, Spawn)
     SpawnSet(NPC, "hair_type", MakeRandomInt(1125, 1139))

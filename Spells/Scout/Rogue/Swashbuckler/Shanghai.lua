@@ -12,12 +12,22 @@ function precast(Caster, Target)
 end
 
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
-    -- Inflicts 13 - 21 melee damage on target
-    if MaxVal ~= nil and MinVal < MaxVal then
-        SpellDamage(Target, DmgType, math.random(MinVal, MaxVal))
-    else
-        SpellDamage(Target, DmgType, MinVal)
+    Level = GetLevel(Caster)
+    SpellLevel = 21
+    Mastery = SpellLevel + 10
+    StatBonus = GetStr(Caster) / 10
+        
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
     end
+    
+    DmgBonus = LvlBonus + StatBonus
+    MaxDmg = MaxVal + math.floor(DmgBonus * 2.5)
+    MinDmg = MinVal + math.floor(DmgBonus * 2.5)
+    
+    SpellDamage(Target, DmgType, MinDmg, MaxDmg)
+
 
     -- Applies Knockdown on termination.  Lasts for 2.5 seconds.
     --     Blurs vision of target

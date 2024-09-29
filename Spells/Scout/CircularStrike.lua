@@ -11,7 +11,7 @@
 
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
     Level = GetLevel(Caster)
-    SpellLevel = 6
+    SpellLevel = 14
     Mastery = SpellLevel + 10
     StatBonus = GetStr(Caster) / 10
         
@@ -21,11 +21,11 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal)
     end
     
     DmgBonus = LvlBonus + StatBonus
-    MaxDmg = MaxVal + math.floor(DmgBonus)
-    MinDmg = MinVal + math.floor(DmgBonus)
+    MaxDmg = MaxVal + math.floor(DmgBonus * 2)
+    MinDmg = MinVal + math.floor(DmgBonus * 2)
     
     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
 		if LastSpellAttackHit() then
 			Interrupt(Caster, Target)
-				end
+		end
 end

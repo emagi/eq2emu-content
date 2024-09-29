@@ -18,3 +18,4 @@ end
 function respawn(NPC)
 	spawn(NPC)
 end
+

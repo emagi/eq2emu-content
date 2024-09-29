@@ -9,7 +9,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
-    AddTimer(NPC, 1500, "GiantStrength")
+    HillGiantLesser(NPC, Spawn)
 end
 
 function hailed(NPC, Spawn)
@@ -18,10 +18,4 @@ end
 
 function respawn(NPC)
 	spawn(NPC)
-end
-
-function GiantStrength(NPC, Spawn)
-    GiantStr = GetStr(NPC) + 100
-    SetInfoStructFloat(NPC, "str", GiantStr)
-    SetStrBase(NPC, GiantStr)
 end

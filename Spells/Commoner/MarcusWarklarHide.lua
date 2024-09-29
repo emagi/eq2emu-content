@@ -11,3 +11,8 @@ function cast(Caster, Target)
     AddSpellBonus(Caster, 641, 100)
 
 end
+
+function remove(Caster, Target)
+    RemoveSpellBonus()
+    RemoveImmunitySpell(4, Caster)
+end 

@@ -8,8 +8,8 @@
 require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
-    dmgMod = GetStr(NPC)/10
     Named(NPC, Spawn)
+    dmgMod = GetStr(NPC)/10
     RandomMovement(NPC, Spawn, 50, -50, 2, 8, 15)
     SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(140 + dmgMod)) 

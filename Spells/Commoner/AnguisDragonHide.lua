@@ -14,3 +14,8 @@ function cast(Caster, Target)
 
 end
 
+function remove(Caster, Target)
+    RemoveSpellBonus()
+    RemoveImmunitySpell(4, Caster)
+end 
+
