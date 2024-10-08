@@ -21,12 +21,8 @@ function cast(Caster, Target, DoTType, MinVal, MaxVal, DotMin, DotMax, SpellLeve
     MaxDmg = math.floor(DmgBonus) * 2 + MaxVal
     MinDmg = math.floor(DmgBonus) * 2 + MinVal
     
-    
-    
     SpellDamage(Target, DoTType, MinDmg, MaxDmg)
-    
 end
-
 
 function tick(Caster, Target, DoTType, MinVal, MaxVal, DotMin, DotMax, SpellLevel)
     Level = GetLevel(Caster)

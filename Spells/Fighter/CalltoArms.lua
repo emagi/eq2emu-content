@@ -6,7 +6,6 @@
                    : 
 --]]
 
--- Increases Crushing, Piercing and Slashing of group members (AE) by 1.9
 function cast(Caster, Target, SkillAmt)
     AddSkillBonus(Target, GetSkillIDByName("Slashing"), SkillAmt)
     AddSkillBonus(Target, GetSkillIDByName("Crushing"), SkillAmt)

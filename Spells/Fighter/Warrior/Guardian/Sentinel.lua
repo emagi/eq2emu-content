@@ -12,6 +12,11 @@
 -- If profession other than Fighter
 -- If profession other than Scout
 
+function precast(Caster, Target)
+    local class = GetClass(Target)
+    
+end
+
 function cast(Caster, Target)
 
 end

@@ -6,9 +6,9 @@
                    : 
 --]]
 
-function cast(Caster, Target, DmgType, DmgLow, DmgHigh, MinTauntVal, MaxTauntVal, SpellLevel)
-    
+function cast(Caster, Target, DmgType, DmgLow, DmgHigh, MinTauntVal, MaxTauntVal)
     Level = GetLevel(Caster)
+    SpellLevel = 10
     Mastery = SpellLevel + 10
     StatBonus = GetStr(Caster) / 10
         

@@ -1,34 +1,54 @@
 --[[
     Script Name    : Spells/Fighter/Warrior/Guardian/Ruin.lua
-    Script Author  : John Adams
-    Script Date    : 2013.12.08 02:12:50
+    Script Author  : LordPazuzu
+    Script Date    : 10/5/2024
     Script Purpose : 
                    : 
 --]]
 
 function cast(Caster, Target, DmgType, MinVal, MaxVal, DoTType, DoTMin, DoTMax, SkillAmt)
-    --Inflicts 23 - 39 slashing damage on target
-    if MaxVal ~= nil and MinVal < MaxVal then
-        SpellDamage(Target, DmgType, math.random(MinVal, MaxVal))
-    else
-        SpellDamage(Target, DmgType, MinVal)
+    Level = GetLevel(Caster)
+    SpellLevel = 25
+    Mastery = SpellLevel + 25
+    StatBonus = GetStr(Caster) / 10
+        
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
     end
+    
+    DmgBonus = LvlBonus + StatBonus
+    MinDmg = MinVal + math.floor(DmgBonus * 2.5)
+    MaxDmg = MaxVal + math.floor(DmgBonus * 2.5)
+    
+    SpellDamage(Target, 0, MinDmg, MaxDmg)
 
-    --Decreases Piercing of target by 1.5
-    --Decreases Slashing and Crushing of target by 1.5
-    AddSkillBonus(Target, GetSkillIDByName("Piercing"), SkillAmt)
-    AddSkillBonus(Target, GetSkillIDByName("Slashing"), SkillAmt)
-    AddSkillBonus(Target, GetSkillIDByName("Crushing"), SkillAmt)
+-- Decreases Slashing, Crushing and Piercing of target.
+    if LastSpellAttackHit() then
+        AddSkillBonus(Target, GetSkillIDByName("Slashing"), SkillAmt)
+        AddSkillBonus(Target, GetSkillIDByName("Crushing"), SkillAmt)
+        AddSkillBonus(Target, GetSkillIDByName("Piercing"), SkillAmt)
+    end
 end
 
 function tick(Caster, Target, DmgType, MinVal, MaxVal, DoTType, DoTMin, DoTMax, SkillAmt)
-    --Inflicts 10 - 12 slashing damage on target every 5 seconds
-    if DoTMax ~= nil and DoTMin < DoTMax then
-        SpellDamage(Target, DoTType, math.random(DoTMin, DoTMax))
-    else
-        SpellDamage(Target, DoTType, DoTMin)
+    Level = GetLevel(Caster)
+    SpellLevel = 25
+    Mastery = SpellLevel + 25
+    StatBonus = GetStr(Caster) / 10
+        
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
     end
+    
+    DmgBonus = LvlBonus + StatBonus
+    MinDoTDmg = DoTMin + math.floor(DmgBonus * 2.5)
+    MaxDoTDmg = DoTMax + math.floor(DmgBonus * 2.5)
+    
+    SpellDamage(Target, 0, DoTMin, DoTMax)
 end
+
 
 function remove(Caster, Target)
     RemoveSkillBonus(Target)

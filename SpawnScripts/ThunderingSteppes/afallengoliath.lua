@@ -9,6 +9,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
+    RandomMovement(NPC, Spawn, 6, -6, 2, 8, 15)
     ChooseClass(NPC)
 end
 

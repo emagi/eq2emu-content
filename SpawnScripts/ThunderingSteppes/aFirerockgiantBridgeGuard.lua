@@ -10,7 +10,7 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     HillGiantLesser(NPC, Spawn)
-    --AddTimer(NPC, 6000, "waypoints")
+    AddTimer(NPC, 6000, "waypoints")
 end
 
 function hailed(NPC, Spawn)

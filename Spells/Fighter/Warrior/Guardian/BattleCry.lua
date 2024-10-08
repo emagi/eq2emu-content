@@ -1,21 +1,16 @@
 --[[
     Script Name    : Spells/Fighter/Warrior/Guardian/BattleCry.lua
-    Script Author  : John Adams
-    Script Date    : 2013.12.08 03:12:06
+    Script Author  : LordPazuzu
+    Script Date    : 10/5/2024
     Script Purpose : 
                    : 
 --]]
 
-function cast(Caster, Target, BonusAmt)
-
-    -- Increases Mitigation of group members (AE) vs physical damage by 100
-    AddSpellBonus(Target, 200, BonusAmt)
-
+function cast(Caster, Target, Mit)
+    AddSpellBonus(Target, 200, Mit)
 end
 
 function remove(Caster, Target)
-
     RemoveSpellBonus(Target)
-
 end
 

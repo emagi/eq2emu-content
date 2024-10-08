@@ -21,18 +21,15 @@ function precast(Caster, Target)
     if IsEpic(Target) then
         return false, 43
     end
-
     return true
 end
 
 function cast(Caster, Target)
     -- Roots target
     AddControlEffect(Target, 5)
-    
 
     -- 10% chance to dispel when target takes damage
     AddProc(Target, 15, 10.0)
-
 end
 
 function proc(Caster, Target, Type)

@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/adrownedveteran.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/anearthrumblerBeachShorterRange.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.03.22 03:03:59
+    Script Date    : 2024.10.06 08:10:02
     Script Purpose : 
                    : 
 --]]
@@ -9,7 +9,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
-    RandomMovement(NPC, Spawn, 8, -8, 2, 8, 15)
+    RandomMovement(NPC, Spawn, 3, -3, 2, 8, 15)
 end
 
 function hailed(NPC, Spawn)

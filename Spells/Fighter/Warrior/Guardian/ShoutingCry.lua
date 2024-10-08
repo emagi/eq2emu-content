@@ -1,12 +1,12 @@
 --[[
-    Script Name    : Spells/Fighter/Warrior/Guardian/Bury.lua
+    Script Name    : Spells/Fighter/Warrior/Guardian/ShoutingCry.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.09.02 06:09:44
+    Script Date    : 2024.10.03 04:10:39
     Script Purpose : 
                    : 
 --]]
 
-function cast(Caster, Target, DmgType, MinVal, MaxVal)
+function cast(Caster, Target, MinVal, MaxVal)
     Level = GetLevel(Caster)
     SpellLevel = 22
     Mastery = SpellLevel + 10
@@ -17,11 +17,10 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal)
         else LvlBonus = Mastery - SpellLevel
     end
     
-    DmgBonus = LvlBonus + StatBonus
-    MaxDmg = MaxVal + math.floor(DmgBonus * 2.5)
-    MinDmg = MinVal + math.floor(DmgBonus * 2.5)
+    HateBonus = math.floor(LvlBonus * 2.5)
+    MaxHate = MaxVal + HateBonus
+    MinHate = MinVal + HateBonus
+    AddHate(Caster, Target, math.random(MinHate,MaxHate),1)
     
-    SpellDamage(Target, DmgType, MinDmg, MaxDmg)
- 
 end
 

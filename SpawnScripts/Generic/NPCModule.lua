@@ -777,6 +777,17 @@ function HillGiantLesser(NPC, Spawn)
     elseif RandomModel == 2 then
         SpawnSet(NPC,"model_type", 3812)
     end
+    
+    local color = MakeRandomInt(1,4)
+    if color == 1 then
+        SpawnSet(NPC, "skin_color", "102 36 18")
+    elseif color == 2 then
+        SpawnSet(NPC, "skin_color", "218 187 120")
+    elseif color == 3 then
+        SpawnSet(NPC, "skin_color", "51 18 8")
+    elseif color == 4 then
+        SpawnSet(NPC, "skin_color", "5 5 10")
+    end
 
 end
 

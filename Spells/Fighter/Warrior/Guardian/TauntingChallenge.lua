@@ -1,7 +1,7 @@
 --[[
-    Script Name    : Spells/Fighter/Warrior/Guardian/TauntingBlow.lua
+    Script Name    : Spells/Fighter/Warrior/Guardian/TauntingChallenge.lua
     Script Author  : LordPazuzu
-    Script Date    : 10/5/2024
+    Script Date    : 2024.10.05 07:10:41
     Script Purpose : 
                    : 
 --]]

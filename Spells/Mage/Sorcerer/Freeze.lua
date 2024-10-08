@@ -14,8 +14,8 @@
 function cast(Caster, Target, DmgType, MinVal, MaxVal, SpellLevel)
     Say(Caster, "Resistability not implemented.")
 	if not IsEpic() then
-		AddControlEffect(Target, 4)
-		end
+	    AddControlEffect(Target, 4)
+	end
 		
     Level = GetLevel(Caster)
     Mastery = SpellLevel + 10

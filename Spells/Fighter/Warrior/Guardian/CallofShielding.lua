@@ -6,15 +6,12 @@
                    : 
 --]]
 
-function cast(Caster, Target, MaxVal, DefSkills)
-
-    AddSpellBonus(Target, 1, MaxVal)
-
-    AddSkillBonus(Target, GetSkillIDByName("Defense"), DefSkills)
+function cast(Caster, Target, StaBonus, DefSkills)
+    AddSkillBonus(Target, GetSkillIDByName("Parry"), DefSkills)
+    --Sta bonus not used in classic.
 end
 
 
 function remove(Caster, Target)
     RemoveSkillBonus(Target)
-    RemoveSpellBonus(Target)
 end
