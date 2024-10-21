@@ -1161,7 +1161,9 @@ function Named(NPC, Spawn)
     level = GetLevel(NPC)
     difficulty =  GetDifficulty(NPC)
     NamedMod = 1.5
+    AttributeMod = NamedMod * 2
     HealthPower(NPC)
+    Attributes(NPC, Spawn)
     
     ModifyMaxHP(NPC, math.floor(hp * NamedMod))
     ModifyHP(NPC, math.floor(hp * NamedMod))
@@ -1172,8 +1174,24 @@ function Named(NPC, Spawn)
     SetInfoStructUInt(NPC, "hp_regen_override", 1)  
     SetInfoStructSInt(NPC, "hp_regen", (level * 2) + (difficulty * 2))           
     SetInfoStructUInt(NPC, "pw_regen_override", 1)  
-    SetInfoStructSInt(NPC, "pw_regen", (level * 2) + (difficulty * 2))           
+    SetInfoStructSInt(NPC, "pw_regen", (level * 2) + (difficulty * 2))      
+    
+    SetInfoStructFloat(NPC, "str", finalStat * AttributeMod)
+    SetStrBase(NPC, finalStat * AttributeMod)
+    SetInfoStructFloat(NPC, "agi", finalStat * AttributeMod)
+    SetAgiBase(NPC, finalStat * AttributeMod)
+    SetInfoStructFloat(NPC, "sta", finalStat * AttributeMod)
+    SetStaBase(NPC, finalStat * AttributeMod)
+    SetInfoStructFloat(NPC, "intel", finalStat * AttributeMod)
+    SetIntBase(NPC, finalStat * AttributeMod)
+    SetInfoStructFloat(NPC, "wis", finalStat * AttributeMod)
+    SetWisBase(NPC, finalStat * AttributeMod)
 end
+
+--Work In Progress, Do Not Use
+--Work In Progress, Do Not Use
+--Work In Progress, Do Not Use
+
 
 --Calculate Health, Power, and Autoattack damage for summoned pets.
 function PetModule(NPC, Spawn) 
@@ -1183,29 +1201,46 @@ function PetModule(NPC, Spawn)
     HealthPower(NPC, Spawn)    -- Calculates NPC's based on level and difficulty.
 end
 
-
-
--- Social Aggro by Faction- IN PROGRESS, DO NOT USE
-function Social(NPC, Spawn)
-    MyFaction = GetFactionID(NPC)
-    SocialRadius = GetAggroRadius(NPC) * 2
-    SetPlayerProximityFunction(NPC, SocialRadius, "CheckCombat")
-end
-
-function CheckCombat(NPC, Spawn)
-    Say(NPC, "Checking for combat.")
-    if IsInCombat(Spawn) then
-        Say(NPC, "You're in combat!")
-        SocialAggro(NPC, Spawn)
+--Calculate Autoattack Damage Based on Level and Difficulty
+function AutoAttackDamage(NPC, Spawn)
+    LowDmgMod = 0.75
+    HighDmgMod = 1.5
+    BaseDmgLow = math.floor(level * LowDmgMod)
+    BaseDmgHigh = math.floor(level * HighDmgMod)
+    
+    if difficulty <=3 then
+        DifMod = 0.15
+    elseif difficulty == 4 then 
+        DifMod = 0.25
+    elseif difficulty == 5 then 
+        DifMod = 0.75
+    elseif difficulty ==6 then 
+        DifMod = 1.0
+    elseif difficulty == 7 then
+        DifMod = 2.5
+    elseif difficulty >= 8 then
+        DifMod = 4.0
     end
+    
+    AutoDmgLow = BaseDmgLow * DifMod
+    AutoDmgHigh = BaseDmgHigh * DifMod
+    
+    TotalDmgLow = math.floor(AutoDmgLow * GlobalDmgMod + MeleeDmgMod)  
+    TotalDmgHigh = math.floor(AutoDmgHigh * GlobalDmgMod + MeleeDmgMod)  
+    
+    damage(NPC)
+    
 end
 
-function SocialAggro(NPC, Spawn)
-    local MobAssist = GetTarget(Spawn)
-    local AssistFaction = GetFactionID(MobAssist)
-    if MyFaction == AssistFaction then
-            Attack(NPC, Spawn)
-    end
-end
+
+
+
+
+
+
+
+
+
+
 
 

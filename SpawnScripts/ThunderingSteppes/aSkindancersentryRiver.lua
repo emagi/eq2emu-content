@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/aSkindancerknight.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/aSkindancersentryRiver.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.03.22 04:03:17
+    Script Date    : 2024.10.09 05:10:03
     Script Purpose : 
                    : 
 --]]

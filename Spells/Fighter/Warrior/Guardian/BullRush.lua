@@ -1,7 +1,7 @@
 --[[
-    Script Name    : Spells/Fighter/Warrior/Guardian/Bash.lua
-    Script Author  : Dello
-    Script Date    : 13/06/2014
+    Script Name    : Spells/Fighter/Warrior/Guardian/BullRush.lua
+    Script Author  : LordPazuzu
+    Script Date    : 2024.10.19 04:10:11
     Script Purpose : 
                    : 
 --]]
@@ -11,14 +11,15 @@ function precast(Caster, Target)
     if not item or GetItemType(item) ~= 4 then
         SendMessage(Caster, "Must have shield equipped", "yellow")
         return false, 70
+    else
+        return true
     end
-
-    return true
 end
 
-function cast(Caster, Target, DmgType, MinVal, MaxVal, SpellLevel)
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
     Level = GetLevel(Caster)
-    Mastery = SpellLevel + 27
+    SpellLevel = 27
+    Mastery = SpellLevel + 10
     StatBonus = GetStr(Caster) / 10
         
     if Level < Mastery then
@@ -26,7 +27,7 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal, SpellLevel)
         else LvlBonus = Mastery - SpellLevel
     end
     
-    DmgBonus = math.floor((LvlBonus + StatBonus) * 2)
+    DmgBonus = math.floor((LvlBonus + StatBonus) * 2.5)
     MinDmg = MinVal + DmgBonus
     MaxDmg = MaxVal + DmgBonus
     
@@ -35,6 +36,4 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal, SpellLevel)
     if not IsEpic(Target) then 
 		CastSpell(Target, 5001, GetSpellTier())
 	end
-    
-
 end

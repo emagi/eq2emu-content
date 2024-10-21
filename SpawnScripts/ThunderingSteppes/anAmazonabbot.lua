@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/aSkindancerknight.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/anAmazonabbot.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.03.22 04:03:17
+    Script Date    : 2024.10.17 02:10:19
     Script Purpose : 
                    : 
 --]]
