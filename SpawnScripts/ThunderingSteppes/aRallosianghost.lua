@@ -9,10 +9,17 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
+    AddTimer(NPC, 1500, "movement")
 end
 
 function hailed(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+end
+
+function movement(NPC, Spawn)
+    if IsHeroic(NPC) == false then
+        RandomMovement(NPC, Spawn, 20, -20, 2, 8, 15)
+    end
 end
 
 function respawn(NPC)

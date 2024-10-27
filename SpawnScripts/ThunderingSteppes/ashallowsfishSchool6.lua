@@ -1,18 +1,14 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/anAncientShoalFish5.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/ashallowsfishSchool6.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.09.09 05:09:41
+    Script Date    : 2024.10.26 10:10:21
     Script Purpose : 
                    : 
 --]]
 require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
-    Named(NPC, Spawn)
-    dmgMod = GetStr(NPC)/10
-    SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
-    SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(155 + dmgMod)) 
-    SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(275 + dmgMod))
+    NPCModule(NPC, Spawn)
     AddTimer(NPC, 8000, "swarm")
 end
 
@@ -26,7 +22,7 @@ end
 
 function swarm(NPC)
 	local zone = GetZone(NPC)
-	local controller = GetSpawnByLocationID(zone, 133794455)
+	local controller = GetSpawnByLocationID(zone, 133795156)
     local leaderX = GetX(controller)
     local leaderY = GetY(controller)
     local leaderZ = GetZ(controller)

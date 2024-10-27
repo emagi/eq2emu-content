@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/anAncientShoalFish5.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/anAncientShoalFish6.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.09.09 05:09:41
+    Script Date    : 2024.10.26 10:10:11
     Script Purpose : 
                    : 
 --]]
@@ -26,7 +26,7 @@ end
 
 function swarm(NPC)
 	local zone = GetZone(NPC)
-	local controller = GetSpawnByLocationID(zone, 133794455)
+	local controller = GetSpawnByLocationID(zone, 1337945156)
     local leaderX = GetX(controller)
     local leaderY = GetY(controller)
     local leaderZ = GetZ(controller)

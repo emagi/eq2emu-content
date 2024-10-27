@@ -105,7 +105,7 @@ function Attributes(NPC, Spawn)
 end
 
 function AttributeModifiers(NPC, Spawn)
-    MeleeDmgMod = GetStr(NPC) / 10  -- Determines strength bonus to auttoattack damage.
+    MeleeDmgMod = math.floor(GetStr(NPC) / 10)  -- Determines strength bonus to auttoattack damage.
     StaminaHPMod = GetSta(NPC) / 10  -- Determins stamina bonus to hitpoints.
 end
 
@@ -1174,9 +1174,11 @@ function Named(NPC, Spawn)
     SetInfoStructUInt(NPC, "hp_regen_override", 1)  
     SetInfoStructSInt(NPC, "hp_regen", (level * 2) + (difficulty * 2))           
     SetInfoStructUInt(NPC, "pw_regen_override", 1)  
-    SetInfoStructSInt(NPC, "pw_regen", (level * 2) + (difficulty * 2))      
+    SetInfoStructSInt(NPC, "pw_regen", (level * 2) + (difficulty * 2))  
     
-    SetInfoStructFloat(NPC, "str", finalStat * AttributeMod)
+    
+    --Disabled until named autoattack damage can be integrated into the Named() function.
+    --[[SetInfoStructFloat(NPC, "str", finalStat * AttributeMod)
     SetStrBase(NPC, finalStat * AttributeMod)
     SetInfoStructFloat(NPC, "agi", finalStat * AttributeMod)
     SetAgiBase(NPC, finalStat * AttributeMod)
@@ -1185,8 +1187,11 @@ function Named(NPC, Spawn)
     SetInfoStructFloat(NPC, "intel", finalStat * AttributeMod)
     SetIntBase(NPC, finalStat * AttributeMod)
     SetInfoStructFloat(NPC, "wis", finalStat * AttributeMod)
-    SetWisBase(NPC, finalStat * AttributeMod)
+    SetWisBase(NPC, finalStat * AttributeMod) --]]
 end
+
+
+
 
 --Work In Progress, Do Not Use
 --Work In Progress, Do Not Use
