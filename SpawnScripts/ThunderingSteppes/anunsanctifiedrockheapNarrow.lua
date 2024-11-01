@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/aDeadRivermanes.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/anunsanctifiedrockheapNarrow.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.03.22 03:03:14
+    Script Date    : 2024.10.31 07:10:58
     Script Purpose : 
                    : 
 --]]
@@ -9,7 +9,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
-    RandomMovement(NPC, Spawn, 12, -12, 2, 8, 15)
+    RandomMovement(NPC, Spawn, 6, -6, 2, 8, 15)
 end
 
 function hailed(NPC, Spawn)
