@@ -1123,19 +1123,6 @@ function RandomMovementFlight(NPC, Spawn, NegDist, PosDist, NegHeight, PosHeight
 	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y + MakeRandomInt(NegHeight, PosHeight), Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
 end
 
----Set an NPC to follow another NPC 
-function FollowNPC(NPC, Spawn, LocID, Speed, Distance)
-	local zone = GetZone(NPC)
-	local leader = GetSpawnByLocationID(zone, LocID)
-
-            if GetDistance(NPC, leader) >= Distance then
-        	        MovementLoopAddLocation (NPC, GetX(leader), GetY(leader), GetZ(leader), Speed, 0)
-        	end 
-	
-	    
-	    -- in progress, do not use
-end
-
 function MovementMod(NPC, Spawn, NegDist, PosDist, Speed, MinDly, MaxDly)
     MinNegDist = math.ceil(NegDist/2) 
 	MinPosDist = math.ceil(PosDist/2) 
@@ -1237,6 +1224,16 @@ function AutoAttackDamage(NPC, Spawn)
     
 end
 
+---Set an NPC to follow another NPC 
+function FollowNPC(NPC, Spawn, LocID, Speed, Distance)
+	local zone = GetZone(NPC)
+	local leader = GetSpawnByLocationID(zone, LocID)
+
+            if GetDistance(NPC, leader) >= Distance then
+        	        MovementLoopAddLocation (NPC, GetX(leader), GetY(leader), GetZ(leader), Speed, 0)
+        	end 
+	
+end
 
 
 

@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/ThunderingSteppes/anaccursedrockheapNarrow.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/adrownedNarrow.lua
     Script Author  : LordPazuzu
-    Script Date    : 2024.10.31 07:10:51
+    Script Date    : 2024.11.04 06:11:50
     Script Purpose : 
                    : 
 --]]
