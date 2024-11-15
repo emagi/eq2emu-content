@@ -6,32 +6,33 @@
                    : 
 --]]
 
-function cast(Caster, Target, DmgType, MinVal, MaxVal, SpellLevel)
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
 	AddProc(Target, 3, 19) 
 end
 
-function proc(Caster, Target, Type, DmgType, MinVal, MaxVal, SpellLevel)
+function proc(Caster, Target, Type, DmgType, MinVal, MaxVal)
     
     Spell = GetSpell(5436, GetSpellTier())
     Level = GetLevel(Caster)
+    SpellLevel = 11
     Mastery = SpellLevel + 10
-    StatBonus = GetInt(Caster) / 10
-    
+
     if Level < Mastery then
         LvlBonus = Level - SpellLevel
-        else LvlBonus = Mastery - SpellLevel
+    else 
+        LvlBonus = Mastery - SpellLevel
     end
 
-    DmgBonus = LvlBonus + StatBonus
-    MaxDmg = math.floor(DmgBonus) * 2 + MaxVal
-    MinDmg = math.floor(DmgBonus) * 2 + MinVal
+    DmgBonus = math.floor(LvlBonus * 2.5)
+    MaxDmg = MaxVal + DmgBonus
+    MinDmg = MinVal + DmgBonus
 
 	if Type == 3 then
 		SetSpellDataIndex(Spell, 0, DmgType)
 		SetSpellDataIndex(Spell, 1, MinDmg)
 		SetSpellDataIndex(Spell, 2, MaxDmg)
-			CastCustomSpell(Spell, Caster, Target)
-				end
+		CastCustomSpell(Spell, Caster, Target)
+	end
 end
 
 
