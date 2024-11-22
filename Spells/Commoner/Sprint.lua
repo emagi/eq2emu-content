@@ -12,12 +12,14 @@ function cast(Caster, Target)
 end
 
 function tick(Caster, Target)
-    if HasMoved(Caster) then
-        ModifyPower(Caster, math.floor(GetMaxPower(Caster) * -0.1))
-    end
-    
-    if GetPower(Caster) < (GetMaxPower(Caster) * 0.1) then
+    -- Check if the caster's power is below 10% of their maximum power
+    if GetPower(Caster) < math.floor(GetMaxPower(Caster) * 0.1) then
         CancelSpell()
+    else
+        -- If the caster has moved, reduce their power by 10% of the maximum power
+        if HasMoved(Caster) then
+            ModifyPower(Caster, math.floor(GetMaxPower(Caster) * -0.1))
+        end
     end
 end
 
