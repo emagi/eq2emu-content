@@ -20,7 +20,7 @@ function spawn(NPC)
     ProvidesQuest(NPC, Scout4)
     ProvidesQuest(NPC, Scout5)
     ProvidesQuest(NPC, Scout6)
-    CastSpell(NPC,8231)
+    --CastSpell(NPC,8231)
 end
 
 function InRange(NPC,Spawn)

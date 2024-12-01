@@ -73,7 +73,7 @@ function Step6Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 6, "I've placed the painting and spoken with the caretaker.")
 	UpdateQuestTaskGroupDescription(Quest, 6, "I've placed the painting and spoken with the caretaker.")
     UpdateQuestZone(Quest,"Forest Ruins")
-	AddQuestStepZoneLoc(Quest, 7, "I need to visit the gates to the Forest Ruins.",15,"\"Some people choose to adventure in the Forest Ruins.  It's a dangerous place, so watch yourself.  Here's where you can find the gates to the ruins.  I'll show you a few other places after you take a look at the gates.\" - Ms. Fairlee", 11,922.51, -20.99, -562.5,827)
+	AddQuestStepZoneLoc(Quest, 7, "I need to visit the gates to the Forest Ruins.",9999999,"\"Some people choose to adventure in the Forest Ruins.  It's a dangerous place, so watch yourself.  Here's where you can find the gates to the ruins.  I'll show you a few other places after you take a look at the gates.\" - Ms. Fairlee", 11,922.51, -20.99, -562.5,827)
 	AddQuestStepCompleteAction(Quest, 7, "Step7Complete")   
 end
 

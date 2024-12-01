@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/IsleRefuge1/atimberwolfpup1.lua
+    Script Name    : SpawnScripts/ThunderingSteppes/awoodlandbear8.lua
     Script Author  : LordPazuzu
-    Script Date    : 2022.09.05 08:09:31
+    Script Date    : 2024.11.29 10:11:02
     Script Purpose : 
                    : 
 --]]
@@ -12,11 +12,10 @@ function spawn(NPC, Spawn)
     RandomMovement(NPC, Spawn, 8, -8, 2, 8, 15)
 end
 
-
-function respawn(NPC, Spawn)
-    spawn(NPC)
+function hailed(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
 end
 
-function hailed(NPC, Spawn)
-    FaceTarget(NPC, Spawn)
+function respawn(NPC)
+	spawn(NPC)
 end

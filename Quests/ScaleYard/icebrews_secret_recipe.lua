@@ -14,7 +14,7 @@ require "SpawnScripts/Generic/DialogModule"
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Collect jars of rust monster blood", 10, 100, "Icebrew, the Bartender in Scale Yard, has asked me to gather together ten jars of rust monster blood.  He says that the blood is actually liquid rust. I'll take his word for it.", 180, 1240011, 1240013)
+	AddQuestStepKill(Quest, 1, "Collect jars of rust monster blood", 10, 100, "Icebrew, the Bartender in Scale Yard, has asked me to gather together ten jars of rust monster blood.  He says that the blood is actually liquid rust. I'll take his word for it.", 180, 8410008, 8410009)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
