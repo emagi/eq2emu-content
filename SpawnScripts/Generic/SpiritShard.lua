@@ -42,15 +42,13 @@ function recovershard(NPC, Spawn)
 end
 
 function CheckShardExpired(NPC)
-	local creationStamp = GetShardCreatedTimestamp(NPC)
-	local year_ = tonumber(string.sub(creationStamp, 1, 4))
-	local month_ = tonumber(string.sub(creationStamp, 6, 7))
-	local day_ = tonumber(string.sub(creationStamp, 9, 10))
-	local hour_ = tonumber(string.sub(creationStamp, 12, 13))
-	local min_ = tonumber(string.sub(creationStamp, 15, 16))
-	local sec_ = tonumber(string.sub(creationStamp, 18, 19))
+	local timestamp = GetShardCreatedTimestamp(NPC)
+	local dateTable = os.date("*t", timestamp)
+
+	-- Generate time
+	local creationTime = os.time{year=dateTable.year, month=dateTable.month, day=dateTable.day, hour=dateTable.hour, min=dateTable.min, sec=dateTable.sec}
+
 	local currentUTCTime = os.time(os.date('!*t'))
-	local creationTime = os.time{year=year_, month=month_, day=day_, hour=hour_, min=min_,sec=sec_}
 	
 	local resultDiff = currentUTCTime - creationTime;
 	local shardLifeTime = GetRuleFlagFloat("R_Combat", "ShardLifetime")
