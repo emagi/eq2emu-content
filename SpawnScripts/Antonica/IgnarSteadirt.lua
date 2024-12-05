@@ -29,7 +29,7 @@ function hailed(NPC, Spawn)
     Reports_Progress(NPC, Spawn)
     elseif GetQuestStep(Spawn, LordGrimrotsScythe) == 6 then
     Reports_Progress2(NPC, Spawn)
-    elseif GetQuestStep(Spawn, LordGrimrotsScythe) == 7 and GetQuestStep(Spawn, LordGrimrotsScythe) == 8  then
+    elseif GetQuestStep(Spawn, LordGrimrotsScythe) == 7 or GetQuestStep(Spawn, LordGrimrotsScythe) == 8  then
     Reports_Progress3(NPC, Spawn)
     elseif GetQuestStep(Spawn, LordGrimrotsScythe) == 9 then
     PlayFlavor(NPC, "voiceover/english/ignar_steadirt/antonica/quest/045_dwarf_ignar_steadirt_g1_onstage7_68f3d9e4.mp3", "Well? Have you spoken with the dwarven centurion yet?  His name's Grimbold Steadirt -- you can't miss him, he's near the gates to Firemyst.", "", 1513486151, 2077778983, Spawn)

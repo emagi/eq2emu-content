@@ -58,7 +58,7 @@ function Step4Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 4, "I spoke with Ignar.")
 	UpdateQuestTaskGroupDescription(Quest, 2, "I've spoken with Ignar Steadirt.")
 
-	AddQuestStepKill(Quest, 5, "The Sabertooth rune casters possess a part of the scythe.  They are northeast of Archer's Wood, east down the path, approaching Bramble Woods in Antonica.", 1, 100, "I need to obtain Lord Grimrot's scythe from the gnolls.", 640, 120300, 121409)
+	AddQuestStepKill(Quest, 5, "The Sabertooth rune casters possess a part of the scythe.  They are northeast of Archer's Wood, east down the path, approaching Bramble Woods in Antonica.", 1, 100, "I need to obtain Lord Grimrot's scythe from the gnolls.", 640, 120300, 121833)
 	AddQuestStepCompleteAction(Quest, 5, "Step5Complete")
 end
 
