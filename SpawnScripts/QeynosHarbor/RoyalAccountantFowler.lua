@@ -32,6 +32,16 @@ function hailed(NPC, Spawn)
 	StartConversation(conversation, NPC, Spawn, "Welcome back! I've an urgent message for you from the castle.  You'd better read it immediately!")
 end
 
+function casted_on(NPC, Spawn, GuildName)
+	local trimmedGuildName = string.gsub(GuildName, "^%s*(.-)%s*$", "%1")
+	ClearChoice(Spawn, "create guild", 0)
+	if trimmedGuildName == "create guild" then
+		CreateChoiceWindow(NPC, Spawn, "Create Guild Name:", "OK", "create guild", "Cancel", "", 0, 1, 1, 41)
+	else
+		PlayFlavor(NPC, "voiceover/english/royal_accountant_fowler/qey_harbor/100_soc_human_guild_registrar_fowler_faction_fe6dd39.mp3", "Congratulations on your new guild " .. GuildName .. "!", "", 1209391067, 1707010448, Spawn)
+	end
+end
+
 function dlg_14_1(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	conversation = CreateConversation()

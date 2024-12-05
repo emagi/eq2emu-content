@@ -10,16 +10,15 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal)
     Level = GetLevel(Caster)
     SpellLevel = 20
     Mastery = SpellLevel + 10
-    StatBonus = GetStr(Caster) / 10
-        
+
     if Level < Mastery then
         LvlBonus = Level - SpellLevel
         else LvlBonus = Mastery - SpellLevel
     end
     
-    DmgBonus = LvlBonus + StatBonus
-    MaxDmg = MaxVal + math.floor(DmgBonus * 2.5)
-    MinDmg = MinVal + math.floor(DmgBonus * 2.5)
+    DmgBonus = math.floor(LvlBonus * 2.5)
+    MinDmg = MinVal + DmgBonus
+    MaxDmg = MaxVal + DmgBonus
     
     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
 
