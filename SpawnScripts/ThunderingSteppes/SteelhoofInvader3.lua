@@ -9,6 +9,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
     local zone = GetZone(NPC)
+    ChooseWagon(NPC)
     SpawnVariant = MakeRandomInt(1,3)
     
     if SpawnVariant == 1 then 
@@ -33,4 +34,15 @@ end
 
 function respawn(NPC)
 	spawn(NPC)
+end
+function ChooseWagon(NPC)
+    wagon = MakeRandomInt(1,3)
+    if wagon == 1 then
+        SpawnSet(NPC,"model_type",2209)
+    elseif wagon == 2 then 
+        SpawnSet(NPC,"model_type",2242)
+    elseif wagon == 3 then
+        SpawnSet(NPC,"model_type",2243)
+    end
+    
 end

@@ -6,17 +6,17 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, DefSkills, OffSkills)
+    AddSkillBonus(Caster, GetSkillIDByName("Parry"), DefSkills)
+    AddSkillBonus(Caster, GetSkillIDByName("Defense"), DefSkills)
+    AddSkillBonus(Caster, GetSkillIDByName("Deflection"), DefSkills)
+    AddSkillBonus(Caster, GetSkillIDByName("Physicality"), DefSkills)
+    AddSkillBonus(Caster, GetSkillIDByName("Slashing"), OffSkills)
+    AddSkillBonus(Caster, GetSkillIDByName("Piercing"), OffSkills)
+    AddSkillBonus(Caster, GetSkillIDByName("Crushing"), OffSkills)
 
-*Reduces physical damage done to caster by 5%
-*Adds 1.3% to base avoidance.
-*Caster will deflect 9.0% of incoming attacks.
-*Increases Parry of caster by 8.1
-*Decreases Slashing, Piercing and Crushing of caster by 9.0
-*Increases Aggression of caster by 6.1
-*Increases Defense and Deflection of caster by 8.1
-*Increases Mitigation of caster vs noxious damage by 540
-*Increases the caster's effectiveness of worn armor vs physical damage by 25%
+end
 
---]]
-
+function remove(Caster, Target)
+    RemoveSkillBonus()
+end

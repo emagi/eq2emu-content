@@ -6,11 +6,13 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, Skills, Haste)
+    AddSkillBonus(Caster, GetSkillIDByName("Parry"), Skills)
+    AddSkillBonus(Caster, GetSkillIDByName("Deflection"), Skills)
+    AddSpellBonus(Caster, 617, Haste)
+end
 
-*Increases STR of caster by 18.2
-*Adds 2.5% to base avoidance.
-*Increases Mitigation of caster vs elemental, noxious and arcane damage by 365
-
---]]
-
+function remove(Caster, Target)
+    RemoveSkillBonus()
+    RemoveSpellBonus()
+end

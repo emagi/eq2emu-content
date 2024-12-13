@@ -6,10 +6,13 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, BonusAmt)
+    AddControlEffect(Caster, 5)
+    AddSpellBonus(Caster, 200, BonusAmt)
+end
 
-*Increases Mitigation of caster vs physical damage by 117
-*Roots caster
 
---]]
-
+function remove(Caster, Target)
+    RemoveControlEffect(Caster, 5)
+    RemoveSpellBonus(Caster)
+end

@@ -6,9 +6,10 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, Mit)
+    AddSpellBonus(Caster, 201, Mit)
+end
 
-*Increases Mitigation of caster vs physical damage by 164
-
---]]
-
+function remove(Caster, Target)
+    RemoveSpellBonus()
+end

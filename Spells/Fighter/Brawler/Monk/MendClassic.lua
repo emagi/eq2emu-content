@@ -6,12 +6,11 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, NoxNotUsed, MinVal, MaxVal)
+    MaxHP = GetMaxHP(Caster)
 
-*Dispels 22 levels of noxious hostile effects on target
-*Heals target for 8.1 - 9.9% of max health
-	*This effect cannot be critically applied.
-*The healing of this spell cannot be modified except by direct means
+    MinHeal = MaxHP * MinVal
+    MaxHeal = MaxHP * MaxVal
+    SpellHeal("Heal", MinHeal, MaxHeal)
 
---]]
-
+end

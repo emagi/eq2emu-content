@@ -6,10 +6,15 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, OffSkills, DefSkill, Mit)
+    AddSkillBonus(Target, GetSkillIDByName("Slashing"), OffSkills)
+    AddSkillBonus(Target, GetSkillIDByName("Crushing"), OffSkills)
+    AddSkillBonus(Target, GetSkillIDByName("Piercing"), OffSkills)
+    AddSkillBonus(Target, GetSkillIDByName("Defense"), DefSkill)
+    AddSpellBonus(Target, 201, Mit)
+end
 
-*On a melee hit this spell may cast Dragon Stance on target of attack.  Triggers about 10.0 times per minute. 
-	*Increases Threat to target by 1,364 
-
---]]
-
+function remove(Caster, Target)
+    RemoveSkillBonus()
+    RemoveSpellBonus()
+end

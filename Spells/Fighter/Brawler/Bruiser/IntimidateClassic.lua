@@ -6,13 +6,18 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target)
+    AddControlEffect(Target, 1)
+    AddProc(Target, 15, 100)
+end
 
-*Mesmerizes target
-*Prevents AOE (except when direct) 
-*Dispelled when target takes damage
-*Does not affect Epic targets
-*Resistibility increases against targets higher than level 29.
+function proc(Caster, Target, Type)
+    
+    if Type == 15 then
+        CancelSpell()
+    end
+end
 
---]]
-
+function remove(Caster, Target)
+    RemoveControlEffect(Target, 1)
+end

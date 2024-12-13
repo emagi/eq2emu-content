@@ -6,13 +6,17 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, SkillAmt, CrushBuff, MentalDebuff)
+    AddSkillBonus(Target, GetSkillIDByName("Slashing"), SkillAmt)
+    AddSkillBonus(Target, GetSkillIDByName("Crushing"), SkillAmt)
+    AddSkillBonus(Target, GetSkillIDByName("Piercing"), SkillAmt)
+    AddSkillBonus(Target, GetSkillIDByName("Ranged"), SkillAmt)
+    AddSpellBonus(Target, 205, CrushBuff)
+    AddSpellBonus(Target, 208, MentalDebuff)
 
-*Increases STR and AGI of raid and group members (AE) by 11.4
-*Adds 0.9% to base avoidance.
-*Improves the base amount of taunts by 9%.
-*Improves the base amount of spells by 0.85%.
-*Improves the base amount of combat arts by 2.81%.
+end
 
---]]
-
+function remove(Caster, Target)
+    RemoveSkillBonus()
+    RemoveSpellBonus()
+end

@@ -6,12 +6,21 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
+    Level = GetLevel(Caster)
+    SpellLevel = 25
+    Mastery = SpellLevel + 10
 
-*Dispels 29 levels of elemental, noxious and arcane hostile effects on caster
-*Makes caster immune to Root effects
-*Makes caster immune to Daze effects
-*Makes caster immune to Stun effects
-
---]]
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
+    end
+    
+    DmgBonus = math.floor(LvlBonus * 2.5)
+    MaxDmg = MaxVal + DmgBonus
+    MinDmg = MinVal + DmgBonus
+    
+    SpellDamage(Target, DmgType, MinDmg, MaxDmg)
+ 
+end
 

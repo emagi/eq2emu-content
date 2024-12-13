@@ -6,11 +6,12 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, FistBonus, DeflectionPenalty)
+    AddSkillBonus(Caster, 3177806075, FistBonus)
+    AddSkillBonus(Caster, 3850377186, DeflectionPenalty)
 
-*On a melee hit this spell may cast Roughhousing on target of attack.  Triggers about 5.0 times per minute. 
-	*Inflicts 12 - 20 melee damage on target
-	*Increases Threat to target by 430 
+end
 
---]]
-
+function remove(Caster, Target)
+    RemoveSkillBonus()
+end

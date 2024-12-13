@@ -6,10 +6,14 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, SkillAmt)
+    AddSkillBonus(Target, GetSkillIDByName("Slashing"), SkillAmt)
+    AddSkillBonus(Target, GetSkillIDByName("Crushing"), SkillAmt)
+    AddSkillBonus(Target, GetSkillIDByName("Piercing"), SkillAmt)
+    AddSkillBonus(Target, GetSkillIDByName("Ranged"), SkillAmt)
 
-*Increases Ability Casting Speed of raid and group members (AE) by 3.0%
-*Increases Haste of raid and group members (AE) by 7.5
+end
 
---]]
-
+function remove(Caster, Target)
+    RemoveSkillBonus()
+end

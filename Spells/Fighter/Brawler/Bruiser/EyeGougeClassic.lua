@@ -6,10 +6,30 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, DmgType, MinVal, MaxVal, SkillAmt)
+    Level = GetLevel(Caster)
+    SpellLevel = 28
+    Mastery = SpellLevel + 10
 
-*Inflicts 60 - 182 piercing damage on target
-*Decreases Slashing, Crushing, Piercing and Ranged of target by 11.3
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
+    end
+    
+    DmgBonus = math.floor(LvlBonus * 2.5)
+    MaxDmg = MaxVal + DmgBonus
+    MinDmg = MinVal + DmgBonus
+    
+    SpellDamage(Target, DmgType, MinDmg, MaxDmg)
+    
+    if LastSpellAttackHit() then    
+        AddSkillBonus(Target, GetSkillIDByName("Slashing"), SkillAmt)
+        AddSkillBonus(Target, GetSkillIDByName("Ranged"), SkillAmt)
+        AddSkillBonus(Target, GetSkillIDByName("Piercing"), SkillAmt)
+        AddSkillBonus(Target, GetSkillIDByName("Crushing"), SkillAmt)
+    end
+end
 
---]]
-
+function remove(Caster, Target)
+    RemoveSkillBonus(Target)
+end

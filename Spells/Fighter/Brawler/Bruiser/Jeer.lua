@@ -6,10 +6,25 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, MinVal, MaxVal)
+    Level = GetLevel(Caster)
+    SpellLevel = 22
+    Mastery = SpellLevel + 10
 
-*Interrupts target encounter
-*Increases Threat to target encounter by 967 - 1,182 
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
+    end
+    
+    HateBonus = math.floor(LvlBonus * 2.5)
+    MaxHate = MaxVal + HateBonus
+    MinHate = MinVal + HateBonus
+    AddHate(Caster, Target, math.random(MinHate,MaxHate),1)
+    AddControlEffect(Target, 6)
+    
 
---]]
+end
 
+function remove(Caster, Target)
+    RemoveControlEffect(Target, 6)
+end
