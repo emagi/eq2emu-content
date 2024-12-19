@@ -6,14 +6,24 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, DmgType, MinVal, MaxVal, AgiMod)
+    Level = GetLevel(Caster)
+    SpellLevel = 29
+    Mastery = SpellLevel + 10
 
-*Applies Knockdown on termination.  Lasts for 2.5 seconds.
-	*Throws target back
-	*Blurs vision of target
-	*Stuns target
-	*Does not affect Epic targets
-*Inflicts 43 - 72 melee damage on target
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
+    end
+    
+    DmgBonus = math.floor(LvlBonus * 2.5)
+    MaxDmg = MaxVal + DmgBonus
+    MinDmg = MinVal + DmgBonus
+    
+    SpellDamage(Target, DmgType, MinDmg, MaxDmg)
+    AddSpellBonus(Target, 2, AgiMod)
+end
 
---]]
-
+function remove(Caster, Target)
+    RemoveSpellBonus()
+end 

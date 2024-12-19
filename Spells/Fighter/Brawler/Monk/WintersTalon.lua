@@ -6,12 +6,25 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
+    Level = GetLevel(Caster)
+    SpellLevel = 21
+    Mastery = SpellLevel + 10
 
-*Inflicts 87 - 145 cold damage on target
-*Dazes target
-	*If Target is not Epic
-*Resistibility increases against targets higher than level 29.
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
+    end
+    
+    DmgBonus = math.floor(LvlBonus * 3.0)
+    MaxDmg = MaxVal + DmgBonus
+    MinDmg = MinVal + DmgBonus
+    
+    SpellDamage(Target, DmgType, MinDmg, MaxDmg)
+    AddControlEffect(Target, 3)
+end
 
---]]
+function remove(Caster, Target)
+    RemoveControlEffect(Target, 3)
+end 
 

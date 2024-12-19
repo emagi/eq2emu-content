@@ -6,12 +6,15 @@
                    : 
 --]]
 
-function cast(Caster, Target, OffSkills, DefSkill, Mit)
+function cast(Caster, Target, OffSkills, Mit, DefResists)
     AddSkillBonus(Target, GetSkillIDByName("Slashing"), OffSkills)
     AddSkillBonus(Target, GetSkillIDByName("Crushing"), OffSkills)
     AddSkillBonus(Target, GetSkillIDByName("Piercing"), OffSkills)
-    AddSkillBonus(Target, GetSkillIDByName("Defense"), DefSkill)
-    AddSpellBonus(Target, 201, Mit)
+    AddSkillBonus(Caster, 3177806075, OffSkills)-- Fists
+    AddSpellBonus(Target, 200, Mit)
+    AddSpellBonus(Target, 204, DefResists)
+    AddSpellBonus(Target, 205, DefResists)
+    AddSpellBonus(Target, 206, DefResists)
 end
 
 function remove(Caster, Target)
