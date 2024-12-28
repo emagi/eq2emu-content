@@ -10,12 +10,15 @@
 -- Increases Haste of target by 8.6
 -- Increases DPS of target by 8.6
 
-function cast(Caster, Target, Haste)
+function cast(Caster, Target, Haste, Defense)
     AddSpellBonus(Target, 617, Haste)
     AddSpellBonus(Target, 629, Haste)
+    AddSkillBonus(Target, GetSkillIDByName("Defense"), Defense)
+    AddSkillBonus(Target, GetSkillIDByName("Parry"), Defense)
 
 end
 
 function remove(Caster, Target)
     RemoveSpellBonus(Target)
+    RemoveSkillBonus(Target)
 end

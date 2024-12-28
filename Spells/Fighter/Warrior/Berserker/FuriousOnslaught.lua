@@ -6,14 +6,30 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, DmgType, MinVal, MaxVal, Haste, Defense)
+    Level = GetLevel(Caster)
+    SpellLevel = 21
+    Mastery = SpellLevel + 10
+    Berserk = MakeRandomInt(1,100)
+    Spell = GetSpell(5172, GetSpellTier())
 
-*Applies Knockdown on termination.  Lasts for 1.5 seconds.
-	*Throws target back
-	*Blurs vision of target
-	*Stuns target
-	*Does not affect Epic targets
-*Inflicts 50 - 151 melee damage on targets in Area of Effect
-
---]]
-
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
+    end
+    
+    DmgBonus = math.floor(LvlBonus * 2.5)
+    MaxDmg = MaxVal + DmgBonus
+    MinDmg = MinVal + DmgBonus
+    
+    SpellDamage(Target, DmgType, MinDmg, MaxDmg)
+    if LastSpellAttackHit() then
+        if Berserk <= 10 then
+        	SetSpellDataIndex(Spell, 0, Haste)
+        	SetSpellDataIndex(Spell, 1, Defense)
+			CastCustomSpell(Spell, Caster, Target)
+		else 
+		end
+	end
+ 
+end

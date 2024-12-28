@@ -17,17 +17,18 @@
 --     Increases DPS of target by 8.6
 
 
-function cast(Caster, Target, Haste)
+function cast(Caster, Target, Haste, Defense)
 	AddProc(Target, 1, 12.5) --Combat
-	AddProc(Target, 15, 30) --Damaged
+	AddProc(Target, 15, 10) --Damaged
 	AddProc(Target, 14, 100) --Kill
 end
 
 
-function proc(Caster, Target, Type, Haste)
+function proc(Caster, Target, Type, Haste, Defense)
 Spell = GetSpell(5172, GetSpellTier())
 	if Type == 1 or Type == 15 or Type == 14 then
 		SetSpellDataIndex(Spell, 0, Haste)
+		SetSpellDataIndex(Spell, 1, Defense)
 			CastCustomSpell(Spell, Caster, Target)
 				end
 	end
