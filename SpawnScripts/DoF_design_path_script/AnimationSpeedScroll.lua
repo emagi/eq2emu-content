@@ -29,12 +29,14 @@ function Dialog1(NPC, Spawn)
 	    Dialog.AddOption("Begin Movement","Movement")
 	    Dialog.AddOption("Change Spawn Type","SpawnType1")
 	    Dialog.AddOption("Change Spawn Size","Size1")
+	    Dialog.AddOption("Apply Spell Visual","DoSpellVisual")
 	    Dialog.AddOption("Reset the Spawns","Reset")
 	    Dialog.AddOption("Nevermind")
     else	    
     	Dialog.AddDialog("What would you like to do?")
 	    Dialog.AddOption("Change Spawn Type","SpawnType1")
 	    Dialog.AddOption("Change Spawn Size","Size1")
+	    Dialog.AddOption("Apply Spell Visual","DoSpellVisual")
 	    Dialog.AddOption("Reset the Spawns","Reset")
  	    Dialog.AddOption("Nevermind")
    end
@@ -174,7 +176,132 @@ function Size1(NPC,Spawn)
 	    Dialog.AddOption("Nevermind")
 	    Dialog.Start()
     end
+
+function DoSpellVisual(NPC,Spawn)
+	ClearChoice(Spawn, "select")
+	CreateChoiceWindow(NPC, Spawn, "Display Visual ID X, Visual ID Range X-Y, Visual ID String Wildcard, eg. heal", "OK", "select", "Cancel", "", 0, 1, 1, 14)
+end
+
+local tableResults;
+local tableNumber;
+
+-- Read table from a file
+local function readTable(filename)
+    local table_data = {}
+	local script_dir = debug.getinfo(1).source:match("@(.*[/\\])")
+	local filename = script_dir and script_dir .. filename or filename
+
+	local file = io.open(filename, "r")
+	if not file then
+		error("File not found: " .. filename)
+	end
     
+    for line in file:lines() do
+        -- Match lines that start with a number, followed by a string
+        local num, str = line:match("^(%d+)%s+(.*)$")
+        if num and str then
+            table.insert(table_data, { tonumber(num), str })
+        end
+    end
+    
+    file:close()
+    return table_data
+end
+
+-- Search by text or numeric range
+local function searchTable(NPC, table_data, query, max_results)
+    local results = {}
+    
+    -- Check for blank query
+    if not query or query == "" then
+        Say(NPC, "Error: Search query cannot be blank.")
+        return results
+    end
+    -- Check if the query is a single numeric ID
+    local single_num = tonumber(query)
+    if single_num then
+        -- Match single ID
+        for _, entry in ipairs(table_data) do
+            if entry[1] == single_num then
+                table.insert(results, entry)
+                break -- Single ID match, no need to continue
+            end
+        end
+    else
+        -- If query is numeric range, e.g., "5-13"
+        local start_num, end_num = query:match("^(%d+)%-(%d+)$")
+        if start_num and end_num then
+            start_num, end_num = tonumber(start_num), tonumber(end_num)
+            for _, entry in ipairs(table_data) do
+                if entry[1] >= start_num and entry[1] <= end_num then
+                    table.insert(results, entry)
+                    if #results >= max_results then break end
+                end
+            end
+        else
+            -- Text search
+            for _, entry in ipairs(table_data) do
+                if entry[2]:find(query) then
+                    table.insert(results, entry)
+                    if #results >= max_results then break end
+                end
+            end
+        end
+    end
+
+    return results
+end
+
+local function printVisualResults(NPC, results)
+    local zone = GetZone(NPC)
+    local Speed1 = GetSpawnByLocationID(zone, 133785989)
+    local Speed2 = GetSpawnByLocationID(zone, 133785990)
+    local Speed4 = GetSpawnByLocationID(zone, 133785991)
+    local Speed6 = GetSpawnByLocationID(zone, 133785992)
+	local num = 0
+    for _, entry in ipairs(results) do
+		if num == tableNumber then
+			if Speed1 ~=nil then
+			ApplySpellVisual(Speed1,entry[1])
+			end    
+			if Speed2 ~=nil then
+			ApplySpellVisual(Speed2,entry[1])
+			end  
+			if Speed4 ~=nil then
+			ApplySpellVisual(Speed4,entry[1])
+			end  
+			if Speed6 ~=nil then
+			ApplySpellVisual(Speed6,entry[1])
+			end
+			Say(NPC, "Visual " .. entry[1] .. " name " .. entry[2])
+			tableNumber = tableNumber + 1
+			AddTimer(NPC,5000,"RunSpellVisuals")
+			break
+		end
+			num = num + 1
+    end
+end
+
+function casted_on(NPC, Spawn, NewValue)
+
+    local filename = "visuals.txt" -- Change this if your file has a different name
+    local table_data = readTable(filename)
+
+    tableResults = searchTable(NPC, table_data, NewValue, 20)
+    if #tableResults > 0 then
+		tableNumber = 0;
+		AddTimer(NPC,2000,"RunSpellVisuals")
+    else
+        Say(NPC, "No results found for query: " .. NewValue)
+    end
+end
+
+function RunSpellVisuals(NPC,Spawn)
+    if #tableResults > 0 then
+		printVisualResults(NPC, tableResults)
+	end
+end
+
 function Small(NPC,Spawn)
     local zone = GetZone(NPC)
     local Speed1 = GetSpawnByLocationID(zone, 133785989)

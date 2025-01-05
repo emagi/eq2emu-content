@@ -12,3 +12,19 @@
 
 --]]
 
+function cast(Caster, Target, MinVal, MaxVal)
+    Level = GetLevel(Caster)
+    SpellLevel = 30
+    Mastery = SpellLevel + 10
+  
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
+    end
+
+    HealBonus = math.floor(LvlBonus * 2.5)
+    MinHeal = MinVal + HealBonus
+    MaxHeal = MaxVal + HealBonus
+    
+    SpellHeal("Heal", MinHeal, MaxHeal)
+end

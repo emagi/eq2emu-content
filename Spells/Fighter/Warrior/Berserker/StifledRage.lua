@@ -6,13 +6,14 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, Haste, DefSkills)
+    AddSpellBonus(Target, 617, Haste)
+    AddSkillBonus(Target, GetSkillIDByName("Defense"), DefSkills)
+    AddSkillBonus(Target, GetSkillIDByName("Parry"), DefSkills)
+end
 
-*Increases caster's chance to block by 10.0%
-*Decreases Haste of caster by 12.6
-*Decreases Multi Attack of caster by 12.6
-*Increases Parry of caster by 7.0
-*Increases Defense of caster by 7.0
-
---]]
+function remove(Caster, Target)
+    RemoveSpellBonus()
+    RemoveSkillBonus()
+end 
 

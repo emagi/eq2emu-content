@@ -7,6 +7,7 @@
 --]]
 
 function cast(Caster, Target, StaBonus, DefSkills)
+    AddSkillBonus(Target, GetSkillIDByName("Defense"), DefSkills)
     AddSkillBonus(Target, GetSkillIDByName("Parry"), DefSkills)
     --Sta bonus not used in classic.
 end

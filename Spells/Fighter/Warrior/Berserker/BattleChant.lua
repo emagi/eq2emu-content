@@ -6,9 +6,10 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, Bonus)
+    AddSpellBonus(Target, 0, Bonus)
+end
 
-*Increases STR and AGI of group members (AE) by 24.4
-
---]]
-
+function remove(Caster, Target)
+    RemoveSpellBonus()
+end 

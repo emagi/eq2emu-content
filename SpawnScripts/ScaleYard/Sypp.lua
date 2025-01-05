@@ -6,7 +6,10 @@
 	Script Notes	: Auto-Generated Conversation from PacketParser Data
 --]]
 
-function spawn(NPC)
+require "SpawnScripts/Generic/NPCModule"
+
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 end
 
 function respawn(NPC)
