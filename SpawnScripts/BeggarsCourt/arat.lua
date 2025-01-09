@@ -6,10 +6,12 @@
                    : 
 --]]
 
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-AddTimer(NPC,MakeRandomInt(3000,6000),"waypoints")
-AddTimer(NPC,MakeRandomInt(3000,6000),"CatCheck")
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    AddTimer(NPC,MakeRandomInt(3000,6000),"waypoints")
+    AddTimer(NPC,MakeRandomInt(3000,6000),"CatCheck")
 end
 
 

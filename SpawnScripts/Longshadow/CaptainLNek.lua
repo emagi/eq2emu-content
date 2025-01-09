@@ -7,11 +7,14 @@
 --]]
 dofile("SpawnScripts/Generic/GenericGuardVoiceOvers.lua")
 require "SpawnScripts/Generic/DialogModule"
+require "SpawnScripts/Generic/NPCModule"
 
 local TheTruthisoutThere = 5684
 local SilencedSpeech = 5685
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    FreeportGuard(NPC)
     ProvidesQuest(NPC, TheTruthisoutThere)
     ProvidesQuest(NPC, SilencedSpeech)
 	SetPlayerProximityFunction(NPC, 9, "InRange", "LeaveRange")
