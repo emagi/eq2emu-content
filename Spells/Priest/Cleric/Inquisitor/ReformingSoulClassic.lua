@@ -28,3 +28,7 @@
 
 --]]
 
+
+function cast(Caster, Target)
+    Resurrect(15, 15, 1, nil, "", 0, 0, 2550531, 1)
+end

@@ -11,5 +11,9 @@ function CalculateRateValue(spell_base_level, level, rate, val)
     if level_diff < 0 then
         level_diff = 0
     end
+    if rate < 0 then
+            return math.floor(val + rate * level_diff - 0.5) -- don't make a negative rate become a positive one -0.5 down not +0.5 up.
+    end
+
     return math.floor(val + rate * level_diff + 0.5)
 end

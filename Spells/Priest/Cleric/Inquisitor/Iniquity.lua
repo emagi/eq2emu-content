@@ -9,7 +9,17 @@
 --[[ Info from spell_display_effects (remove from script when done)
 
 *Decreases INT and STR of target by 15.0
-*Reduces the target's ability to bleed through wards by 1.3%
 
 --]]
 
+require "Spells/Generic/SpellCalcs"
+
+function cast(Caster, Target, DebuffVal)
+    DebuffVal = CalculateRateValue(GetSpellRequiredLevel(Caster), GetLevel(Caster), -0.5, DebuffVal)
+    AddSpellBonus(Target, 0, DebuffVal) -- STR
+    AddSpellBonus(Target, 4, DebuffVal) -- INT
+end
+
+function remove(Caster, Target)
+    RemoveSpellBonus()
+end
