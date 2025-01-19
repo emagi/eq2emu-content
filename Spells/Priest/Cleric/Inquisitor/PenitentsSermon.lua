@@ -11,20 +11,11 @@
 *Heals group members (AE) for 205 - 251
 
 --]]
+require "Spells/Generic/SpellCalcs"
 
 function cast(Caster, Target, MinVal, MaxVal)
-    Level = GetLevel(Caster)
-    SpellLevel = 30
-    Mastery = SpellLevel + 10
-  
-    if Level < Mastery then
-        LvlBonus = Level - SpellLevel
-        else LvlBonus = Mastery - SpellLevel
-    end
-
-    HealBonus = math.floor(LvlBonus * 2.5)
-    MinHeal = MinVal + HealBonus
-    MaxHeal = MaxVal + HealBonus
+    MinVal = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), 5, MinVal)
+    MaxVal = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), 5, MaxVal)
     
     SpellHeal("Heal", MinHeal, MaxHeal)
 end

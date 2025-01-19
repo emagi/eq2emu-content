@@ -13,3 +13,22 @@
 
 --]]
 
+require "Spells/Generic/SpellCalcs"
+
+function cast(Caster, Target, StaAmt, MitAmt)
+    StaAmt = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), 0.2, StaAmt)
+    MitAmt = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), 0.2, MitAmt/100)
+
+	AddSpellBonus(Target, 1, StaAmt)
+	AddSpellBonus(Target, 203, MitAmt)
+    AddProc(Target, 2, 100, nil, 1)
+end
+
+function proc(Caster, Target)
+    CastSpell(Caster, 140208, GetSpellTier())
+end
+
+function remove(Caster, Target)
+    RemoveSpellBonus(Target)
+    RemoveProc(Target)
+end

@@ -15,3 +15,18 @@
 
 --]]
 
+function cast(Caster, Target, Hate)
+    AddHate(Caster, Target, Hate)
+
+    -- Stuns targets in Area of Effect
+    --     If Target is not Epic
+    if not IsEpic(Target) then
+        AddControlEffect(Target, 4)
+    end
+
+    -- Decreases threat priority of targets in Area of Effect by 1 position
+end
+
+function remove(Caster, Target)
+    RemoveControlEffect(Target, 4)
+end

@@ -5,7 +5,11 @@
     Script Purpose : 
                    : 
 --]]
-function spawn(NPC)
+require "SpawnScripts/Generic/NPCModule"
+
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    FreeportGuard(NPC)
 end
 
 function respawn(NPC)

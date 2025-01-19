@@ -6,7 +6,7 @@
                    : 
 --]]
 
-function CalculateRateValue(spell_base_level, level, rate, val)
+function CalculateRateValue(Caster, Target, spell_base_level, level, rate, val)
     local level_diff = math.min(level - spell_base_level, 10)
     if level_diff < 0 then
         level_diff = 0

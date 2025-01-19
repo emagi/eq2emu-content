@@ -9,7 +9,23 @@
 --[[ Info from spell_display_effects (remove from script when done)
 
 *Inflicts 33 - 40 heat damage on target instantly and every 4 seconds
-*Decreases Mitigation of target vs arcane damage by 207
 
 --]]
+require "Spells/Generic/SpellCalcs"
 
+function cast(Caster, Target, DoTType, MinVal, MaxVal)
+    MinVal = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), 0.35, MinVal)
+    MaxVal = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), 0.35, MaxVal)
+
+    SpellDamage(Target, DoTType, MinVal, MaxVal)
+end
+
+
+function tick(Caster, Target, DoTType, MinVal, MaxVal)
+    SpawnSet(Target,"visual_state",185)
+    SpellDamage(Target, DoTType, MinVal, MaxVal)
+end
+
+function remove(Caster, Target)
+     SpawnSet(Target,"visual_state",0)
+end

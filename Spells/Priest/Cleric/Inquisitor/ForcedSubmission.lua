@@ -14,7 +14,7 @@
 require "Spells/Generic/SpellCalcs"
 
 function cast(Caster, Target, DebuffVal)
-    DebuffVal = CalculateRateValue(GetSpellRequiredLevel(Caster), GetLevel(Caster), -0.35, DebuffVal)
+    DebuffVal = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), -0.35, DebuffVal)
 
     AddSkillBonus(Target, GetSkillIDByName("Ranged"), DebuffVal)
     AddSkillBonus(Target, GetSkillIDByName("Piercing"), DebuffVal)

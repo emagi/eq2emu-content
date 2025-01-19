@@ -5,11 +5,12 @@
     Script Purpose : 
                    : 
 --]]
-
-
 require "SpawnScripts/Generic/DialogModule"
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    FreeportGuard(NPC)
 end
 
 function respawn(NPC)

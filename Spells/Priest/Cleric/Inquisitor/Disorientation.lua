@@ -7,7 +7,6 @@
 --]]
 
 function cast(Caster, Target, Hate)
-    -- Decreases Threat to targets in Area of Effect by 323 
     AddHate(Caster, Target, Hate)
 
     -- Stuns targets in Area of Effect

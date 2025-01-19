@@ -7,9 +7,12 @@
 --]]
 local InSearchofSpiritkeepers = 5513
 require "SpawnScripts/Generic/DialogModule"
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-ProvidesQuest(NPC, InSearchofSpiritkeepers)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    FreeportGuard(NPC)
+    ProvidesQuest(NPC, InSearchofSpiritkeepers)
 end
 
 function respawn(NPC)

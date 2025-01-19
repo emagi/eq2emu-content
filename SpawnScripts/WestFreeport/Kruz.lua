@@ -5,8 +5,10 @@
 	Script Date		:	01/19/2019 02:23:28 PM
 	Script Notes	:	Barron Narrog Bloodgulper and Kruz
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 	AddTimer(NPC, 900, "follow_Barron")
 end
 

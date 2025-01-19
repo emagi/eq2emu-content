@@ -12,3 +12,7 @@
 
 --]]
 
+function cast(Caster, Target, MinHeal, MaxHeal)
+    SpellHeal("Heal", MinHeal, MaxHeal)
+    CastSpell(Target, 140209, GetSpellTier())
+end

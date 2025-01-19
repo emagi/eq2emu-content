@@ -15,7 +15,7 @@
 require "Spells/Generic/SpellCalcs"
 
 function cast(Caster, Target, DebuffVal)
-    DebuffVal = CalculateRateValue(GetSpellRequiredLevel(Caster), GetLevel(Caster), -0.5, DebuffVal)
+    DebuffVal = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), -0.5, DebuffVal)
     AddSpellBonus(Target, 0, DebuffVal) -- STR
     AddSpellBonus(Target, 4, DebuffVal) -- INT
 end

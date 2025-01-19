@@ -8,8 +8,23 @@
 
 --[[ Info from spell_display_effects (remove from script when done)
 
-*Increases Swimming of group members (AE) by 62.1
-*Allows group members (AE) to breathe under water
+ An augmentation that grants water breathing and increases an ally's Elemental mitigation. 
 
 --]]
 
+require "Spells/Generic/SpellCalcs"
+
+
+function cast(Caster, Target, BonusAmt)
+    -- Allows target to breathe under water
+    BreatheUnderwater(Target, true)
+    
+    BonusAmt = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), 0.35, BonusAmt)
+
+	AddSpellBonus(Target, 201, BonusAmt)
+end
+
+function remove(Caster, Target)
+    BreatheUnderwater(Target, false)
+    RemoveSpellBonus()
+end

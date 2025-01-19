@@ -19,8 +19,8 @@ require "Spells/Generic/SpellCalcs"
 function cast(Caster, Target, HealMin, HealMax, PowerMin, PowerMax)
 local HealAmt = MakeRandomFloat(HealMin, HealMax)
 local PowerAmt = MakeRandomFloat(PowerMin, PowerMax)
-HealAmt = CalculateRateValue(GetSpellRequiredLevel(Caster), GetLevel(Caster), 29.9, HealAmt)
-PowerAmt = CalculateRateValue(GetSpellRequiredLevel(Caster), GetLevel(Caster), 6.6, PowerAmt)
+HealAmt = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), 29.9, HealAmt)
+PowerAmt = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), 6.6, PowerAmt)
 local canPowerSelfChance = MakeRandomInt(0,100)
 SpellHeal("Heal", HealAmt)
     if canPowerSelfChance < 10 then

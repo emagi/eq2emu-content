@@ -7,8 +7,11 @@
 --]]
 
 require "SpawnScripts/Generic/DialogModule"
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    FreeportGuard(NPC)
 end
 
 function respawn(NPC)
@@ -16,7 +19,7 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-Dialog2(NPC, Spawn)
+    Dialog2(NPC, Spawn)
 end
 
 function Dialog1(NPC, Spawn)

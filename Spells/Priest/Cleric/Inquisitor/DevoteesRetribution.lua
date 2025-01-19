@@ -14,3 +14,21 @@
 
 --]]
 
+
+function cast(Caster, Target)
+    SetSpellTriggerCount(5, 1)
+
+    AddProc(Target, 1, 100)
+end
+
+function proc(Caster, Target, Type, DmgType, DamageAmt)
+    local initial_caster = GetSpellCaster()
+    if initial_caster ~= nil and Type == 1 then
+        ProcDamage(initial_caster, Caster, "Vengeance", DmgType, DamageAmt, DamageAmt)
+        RemoveTriggerFromSpell(1)
+    end
+end
+
+function remove(Caster, Target)
+    RemoveProc(Target)
+end

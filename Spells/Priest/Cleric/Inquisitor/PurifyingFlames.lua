@@ -1,25 +1,24 @@
 --[[
     Script Name    : Spells/Priest/Cleric/Inquisitor/PurifyingFlames.lua
-    Script Author  : neatz09
-    Script Date    : 2019.10.15 09:10:35
-    Script Purpose : 
+    Script Author  : image
+    Script Date    : 2025.01.14
+    Script Purpose : Rebuilt for classic design, no mitigation debuff only dmg
                    : 
 --]]
 
-function cast(Caster, Target, DoTType, MinVal, MaxVal, BonusAmt)
--- Inflicts 33 - 40 heat damage on target instantly and every 4 seconds     
-SpellDamage(Target, DoTType, MinVal, MaxVal)
--- Decreases Mitigation of target vs arcane damage by 207
-    AddSpellBonus(Target, 203, BonusAmt)
+function cast(Caster, Target, DoTType, MinVal, MaxVal)
+    MinVal = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), 0.35, MinVal)
+    MaxVal = CalculateRateValue(Caster, Target, GetSpellRequiredLevel(Caster), GetLevel(Caster), 0.35, MaxVal)
 
+    SpellDamage(Target, DoTType, MinVal, MaxVal)
 end
+
 
 function tick(Caster, Target, DoTType, MinVal, MaxVal)
- SpellDamage(Target, DoTType, MinVal, MaxVal)
+    SpawnSet(Target,"visual_state",598)
+    SpellDamage(Target, DoTType, MinVal, MaxVal)
 end
 
-
 function remove(Caster, Target)
-    RemoveSpellBonus(Target)
-
+     SpawnSet(Target,"visual_state",0)
 end
