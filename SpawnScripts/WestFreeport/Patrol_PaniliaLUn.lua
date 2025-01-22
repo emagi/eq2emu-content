@@ -5,9 +5,12 @@
 	Script Date		:	01/19/2019 02:23:28 PM
 	Script Notes	:	<special-instructions>
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-	waypoints(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    FreeportGuard(NPC)
+	AddTimer(NPC, 6000, "waypoints")
 end
 
 function hailed(NPC, Spawn)

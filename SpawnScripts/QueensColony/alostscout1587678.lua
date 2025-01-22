@@ -42,6 +42,12 @@ end
 function casted_on(NPC, Spawn, Message)
 	local Cleric = GetSpawn(NPC, 2530111)
 	if Message == "Divine Smite" and CompareSpawns(Spawn, Cleric) then
+		local mostHated = GetMostHated(NPC)
+		if mostHated ~= nil and IsPlayer(mostHated) then
+			if HasQuest(mostHated, JoiningTheForwardRanks) and GetQuestStep(mostHated, JoiningTheForwardRanks) == 2 then
+				AddStepProgress(mostHated, JoiningTheForwardRanks, 2, 1)
+			end
+		end
 		local newScout = SpawnMob(GetZone(NPC), 2530196, false, GetX(NPC), GetY(NPC), GetZ(NPC), GetHeading(NPC))
 		if newScout ~= nil then
 			CopySpawnAppearance(newScout, NPC)
@@ -49,16 +55,10 @@ function casted_on(NPC, Spawn, Message)
                         SpawnSet(newScout, "attackable", "false")
 			AddTimer(newScout, 5000, "Speak")
 		end
-		local mostHated = GetMostHated(NPC)
-		if mostHated ~= nil and IsPlayer(mostHated) then
-			if HasQuest(mostHated, JoiningTheForwardRanks) and GetQuestStep(mostHated, JoiningTheForwardRanks) == 2 then
-				AddStepProgress(mostHated, JoiningTheForwardRanks, 2, 1)
-			end
-		end
 		Despawn(NPC)
 	end
 end
-
+ 
 function aggro(NPC, Spawn)
 	if not HasLanguage(Spawn, 1) then  -- IF PLAYER DOESN'T SPEAK HALASIAN THEN HE WILL HEAR THOSE VOICEOVERS.
 		local choice = math.random(1, 2)

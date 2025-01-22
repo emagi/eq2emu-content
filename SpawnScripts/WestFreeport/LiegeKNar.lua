@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/WestFreeport/GuardGigantok.lua
+    Script Name    : SpawnScripts/WestFreeport/LiegeKNar.lua
     Script Author  : LordPazuzu
-    Script Date    : 2025.01.16 05:01:09
+    Script Date    : 2025.01.20 04:01:00
     Script Purpose : 
                    : 
 --]]

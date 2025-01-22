@@ -6,8 +6,9 @@
                    : 
 --]]
 
+require "Spells/Generic/SpellCalcs"
 
-function cast(Caster, Target)
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
 -- Interrupts target encounter
 -- Inflicts 379 - 464 divine damage on target encounter    
 Interrupt(Caster, Target)

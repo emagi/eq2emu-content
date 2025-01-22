@@ -5,9 +5,15 @@
 	Script Date		:	09/08/2018 02:20:27 PM
 	Script Notes	:	<special-instructions>
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-	waypoints(NPC)
+function spawn(NPC, Spawn)
+    dmgMod = GetStr(NPC)/10
+    FreeportGuard(NPC)
+    waypoints(NPC)
+    SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(240 + dmgMod)) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(400 + dmgMod))
 end
 
 function hailed(NPC, Spawn)

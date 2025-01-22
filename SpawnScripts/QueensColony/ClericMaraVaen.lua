@@ -14,7 +14,7 @@ local TheSourceOfEvil = 164
 function spawn(NPC)
 	SetLuaBrain(NPC)
 	SetBrainTick(NPC, 500)
-	Think(NPC, Spawn)
+	Think(NPC)
 	ProvidesQuest(NPC, TheSourceOfEvil)
     SetTempVariable(NPC, "ResetTimer", "1")
     AddTimer(NPC, 10000, "TimerClear")         --Temp Fix for Cleric. Allows reset after 10 seconds. 
@@ -45,7 +45,6 @@ function aggro(NPC, Spawn)
 		SetTempVariable(NPC, "CASTING", "True")
 		CastSpell(Spawn, 130027, 1, NPC)
 		AddTimer(NPC, 1610, "FinishedCasting")
-
 	end
 end
 

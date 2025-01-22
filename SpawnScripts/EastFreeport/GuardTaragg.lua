@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/WestFreeport/GuardGigantok.lua
+    Script Name    : SpawnScripts/EastFreeport/GuardTaragg.lua
     Script Author  : LordPazuzu
-    Script Date    : 2025.01.16 05:01:09
+    Script Date    : 2025.01.22 02:01:36
     Script Purpose : 
                    : 
 --]]
@@ -11,7 +11,6 @@ function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     FreeportGuard(NPC)
 end
-
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 end

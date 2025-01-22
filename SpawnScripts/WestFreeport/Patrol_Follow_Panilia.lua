@@ -5,9 +5,12 @@
 	Script Date		:	01/19/2019 02:23:28 PM
 	Script Notes	:	Verus Caldus and Desia
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-	AddTimer(NPC, 900, "follow_Panilia")
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    FreeportGuard(NPC)
+	AddTimer(NPC, 6000, "follow_Panilia")
 end
 
 function respawn(NPC)
