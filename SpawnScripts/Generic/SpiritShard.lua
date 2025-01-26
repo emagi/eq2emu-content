@@ -15,7 +15,7 @@ function spawn(NPC)
 	local charID = GetShardCharID(NPC)
 	SetAccessToEntityCommandByCharID(NPC, charID, "recovershard", true)
 
-	CheckShardExpired(NPC) -- update 4/22/2023 to remove long standing shards
+	--CheckShardExpired(NPC) -- update 4/22/2023 to remove long standing shards
 end
 
 function recovershard(NPC, Spawn)
@@ -38,6 +38,7 @@ function recovershard(NPC, Spawn)
 		local shardid = GetShardID(NPC)
 		DeleteDBShardID(shardid)
 		Despawn(NPC)
+		ApplySpellVisual(Spawn, 995) -- npc_shard_recovery
 	end
 end
 

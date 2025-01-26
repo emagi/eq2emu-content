@@ -6,11 +6,11 @@
 	Script Notes	:
 --]]
 
-function cast(Caster, Target, HealthAmt, MitAmt)
+function cast(Caster, Target, HealthAmt, MitAmt, WardDamage)
     AddSpellBonus(Target, 500, HealthAmt, 1)
     AddSpellBonus(Target, 200, MitAmt, 11, 21, 31)
 end
 
-function remove(Caster, Target, HealthAmt, MitAmt)
+function remove(Caster, Target, HealthAmt, MitAmt, WardDamage)
     RemoveSpellBonus(Target)
 end

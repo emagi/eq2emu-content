@@ -6,8 +6,7 @@
                    : 
 --]]
 function Cast(Target, Player)
-Resurrect(15, 15, 1)
-    Say(Caster, "2 sub spells needed")
+    Resurrect(15, 15, 1, nil, "", 0, 0, 2550531, 1)
 end
 
 -- Applies Reforming Soul on termination.  Lasts for 1 minute.

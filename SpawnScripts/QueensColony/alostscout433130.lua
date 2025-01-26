@@ -46,6 +46,9 @@ end
 function casted_on(NPC, Spawn, Message)
 	local Cleric = GetSpawn(NPC, 2530111)
 	if Message == "Divine Smite" and CompareSpawns(Spawn, Cleric) then
+		SetRequiredHistory(NPC, 2530111, 1, 1, 1)
+		SetAttackable(NPC, 0)
+		SetVisualFlag(Spawn)
 		local mostHated = GetMostHated(NPC)
 		if mostHated ~= nil and IsPlayer(mostHated) then
 			if HasQuest(mostHated, JoiningTheForwardRanks) and GetQuestStep(mostHated, JoiningTheForwardRanks) == 2 then

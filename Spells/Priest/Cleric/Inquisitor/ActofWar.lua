@@ -7,7 +7,7 @@
 --]]
 
 
--- On any combat or spell hit this spell may cast Strike of Faith on target of attack.  Triggers about 1.0 times per minute. 
+-- On any combat or spell hit this spell may cast Strike of Faith on target of attack.  Triggers about 1.0 times per minute.
 --     Inflicts 83 divine damage on target
 
 function cast(Caster, Target, DmgType, Dmg)

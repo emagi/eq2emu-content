@@ -1180,64 +1180,6 @@ end
 
 
 
---Work In Progress, Do Not Use
---Work In Progress, Do Not Use
---Work In Progress, Do Not Use
-
-
---Calculate Health, Power, and Autoattack damage for summoned pets.
-function PetModule(NPC, Spawn) 
-    level = GetLevel(NPC)           -- NPC Level
-    difficulty = GetDifficulty(NPC) -- NPC Difficulty 
-    AutoAttack(NPC, Spawn)    -- Determines the NPC's tier for the purposes of autoattack damage.
-    HealthPower(NPC, Spawn)    -- Calculates NPC's based on level and difficulty.
-end
-
---Calculate Autoattack Damage Based on Level and Difficulty
-function AutoAttackDamage(NPC, Spawn)
-    LowDmgMod = 0.75
-    HighDmgMod = 1.5
-    BaseDmgLow = math.floor(level * LowDmgMod)
-    BaseDmgHigh = math.floor(level * HighDmgMod)
-    
-    if difficulty <=3 then
-        DifMod = 0.15
-    elseif difficulty == 4 then 
-        DifMod = 0.25
-    elseif difficulty == 5 then 
-        DifMod = 0.75
-    elseif difficulty ==6 then 
-        DifMod = 1.0
-    elseif difficulty == 7 then
-        DifMod = 2.5
-    elseif difficulty >= 8 then
-        DifMod = 4.0
-    end
-    
-    AutoDmgLow = BaseDmgLow * DifMod
-    AutoDmgHigh = BaseDmgHigh * DifMod
-    
-    TotalDmgLow = math.floor(AutoDmgLow * GlobalDmgMod + MeleeDmgMod)  
-    TotalDmgHigh = math.floor(AutoDmgHigh * GlobalDmgMod + MeleeDmgMod)  
-    
-    damage(NPC)
-    
-end
-
----Set an NPC to follow another NPC 
-function FollowNPC(NPC, Spawn, LocID, Speed, Distance)
-	local zone = GetZone(NPC)
-	local leader = GetSpawnByLocationID(zone, LocID)
-
-            if GetDistance(NPC, leader) >= Distance then
-        	        MovementLoopAddLocation (NPC, GetX(leader), GetY(leader), GetZ(leader), Speed, 0)
-        	end 
-	
-end
-
-
-
-
 
 
 
