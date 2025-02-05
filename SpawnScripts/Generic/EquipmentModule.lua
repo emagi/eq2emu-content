@@ -182,6 +182,7 @@ function FreeportGuard(NPC, Spawn)
     SetEquipment(NPC, 6, 931, 255, 255, 255, 255, 255, 255)
     SetEquipment(NPC, 7, 933, 255, 255, 255, 255, 255, 255)
     SetEquipment(NPC, 8, 929, 255, 255, 255, 255, 255, 255)
+    SetEquipment(NPC, 19, 0)
 end
 
 function QeynosGuard(NPC, Spawn)

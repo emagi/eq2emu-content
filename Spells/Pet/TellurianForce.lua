@@ -6,15 +6,9 @@
                    : 
 --]]
 
-function cast(Caster, Target, DmgType, MinVal, MaxVal)
-  local IntBonus = GetInt(Caster) / 10
-  local MinDmg = math.floor(MinVal + IntBonus)
-  local MaxDmg = math.floor(MaxVal + IntBonus)
-  
+function cast(Caster, Target, DmgType, MinDmg, MaxDmg)
     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
-
     AddControlEffect(Target, 4)
-
 end
     
 function remove(Caster, Target)

@@ -53,22 +53,34 @@ end
 -- Set attributes based on NPC level and difficulty
 function Attributes(NPC, Spawn)
     -- Calculate attributes
-    if  level <= 4 then
-        baseStat = 19 else
-            baseStat = level + 15
+    if level <= 5 then
+        baseStat = 22
+    else
+        baseStat = level + 22
     end
     
-    local low = baseStat - 15   -- Difficulty 1-3 vvv
-    local four = baseStat - 10  -- Difficulty 4 vv
-    local five = baseStat - 5   -- Difficulty 5 v
-    local seven = baseStat + 10 -- Difficulty 7 ^
-    local eight = baseStat + 20 -- Difficulty 8 ^^
-    local nine = baseStat + 30  -- Difficulty 9 ^^^
+    if level < 10 then
+        low = baseStat  -- Difficulty 1-3 vvv
+        four = baseStat   -- Difficulty 4 vv
+        five = baseStat    -- Difficulty 5 v
+        six = baseStat    -- Difficulty 6 -
+        seven = baseStat * 1.25 -- Difficulty 7 ^
+        eight = baseStat * 1.5 -- Difficulty 8 ^^
+        nine = baseStat * 2.0 -- Difficulty 9 ^^^
+    else
+        low = baseStat  -- Difficulty 1-3 vvv
+        four = baseStat * 1.5  -- Difficulty 4 vv
+        five = baseStat * 2.0   -- Difficulty 5 v
+        six = baseStat * 2.5   -- Difficulty 6 -
+        seven = baseStat * 3.0 -- Difficulty 7 ^
+        eight = baseStat * 3.5 -- Difficulty 8 ^^
+        nine = baseStat * 4.0 -- Difficulty 9 ^^^
+    end
     
     lowStat = math.floor(low * GlobalStatMod)
     fourStat = math.floor(four * GlobalStatMod)
     fiveStat = math.floor(five * GlobalStatMod)
-    sixStat = math.floor(baseStat * GlobalStatMod)
+    sixStat = math.floor(six * GlobalStatMod)
     sevenStat = math.floor(seven * GlobalStatMod)
     eightStat = math.floor(eight * GlobalStatMod)
     nineStat = math.floor(nine * GlobalStatMod)

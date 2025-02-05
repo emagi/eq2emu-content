@@ -9,7 +9,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
-    FreeportGuard(NPC)
+    
 end
 
 function hailed(NPC, Spawn)

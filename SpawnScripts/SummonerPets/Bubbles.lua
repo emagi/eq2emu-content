@@ -10,7 +10,7 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC, Spawn)
     NPCModule(NPC)
     DervishThug(NPC)
-    Social(NPC, Spawn)
+    
 end
 
 function attacked(NPC)

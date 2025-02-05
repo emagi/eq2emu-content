@@ -11,6 +11,7 @@ local Mage2 = 5768
 local Sorc = 5769
 local Summ = 5770
 local Ench = 5771
+local FinalClassTest = 5877
 
 function spawn(NPC)
     ProvidesQuest(NPC, Mage1)

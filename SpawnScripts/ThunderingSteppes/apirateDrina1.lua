@@ -9,6 +9,8 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
+    ChooseClass(NPC)
+    human(NPC)
     AddTimer(NPC, 6000, "Drinna")
 end
 
@@ -40,4 +42,15 @@ function Drinna(NPC)
 	end
 	
 	AddTimer(NPC, 1500, "Drinna")	
+end
+
+function ChooseClass(NPC, Spawn)
+    SetClass = MakeRandomInt(1,2)
+    if SetClass == 1 then
+        SpawnSet(NPC, "class", 3) -- Guardian
+        --Set spell list here
+    elseif SetClass == 2 then
+        SpawnSet(NPC, "class", 4) -- Berserker
+        --Set spell list here
+    end
 end

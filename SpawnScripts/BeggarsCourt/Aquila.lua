@@ -5,11 +5,12 @@
 	Script Date		: 2022.07.18
 	Script Notes	: 
 --]]
-
-
 dofile("SpawnScripts/Generic/GenericGuardVoiceOvers.lua")
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    FreeportGuard(NPC)
 end
 
 function respawn(NPC)

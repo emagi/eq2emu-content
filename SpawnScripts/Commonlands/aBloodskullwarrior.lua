@@ -13,7 +13,7 @@ function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     Bloodskull(NPC)
     OrcArmorCommon(NPC)
-    AddTimer(NPC, 1500, "movement")
+    AddTimer(NPC, 6000, "movement")
 end
 
 function hailed(NPC, Spawn)

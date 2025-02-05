@@ -6,8 +6,10 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/BaseDarkElf1.lua")
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
+    Named(NPC)
     dmgMod = GetStr(NPC)/10
     SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(24 + dmgMod)) 
