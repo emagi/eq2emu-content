@@ -6,7 +6,7 @@
                    : 
 --]]
 
-local TheLostReligionOfFallenGate = 5317
+local TheLostReligionOfFallenGate = 5967
 local QuestItemID = 5487 -- copied glyphs item
 
 function spawn(NPC)

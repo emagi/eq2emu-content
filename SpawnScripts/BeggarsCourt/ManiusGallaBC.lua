@@ -10,6 +10,7 @@ require "SpawnScripts/Generic/DialogModule"
 
 local JoiningtheGang = 5656
 local DonationsfromtheBanker = 5657
+local RorisProposal = 5955
 
 function spawn(NPC)
 	ProvidesQuest(NPC, JoiningtheGang)
@@ -21,6 +22,13 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
+
+if GetQuestStep(Spawn, RorisProposal)==1 then
+    SetStepComplete(Spawn,RorisProposal,1)
+    PlayFlavor(NPC, "","","laugh",0,0, Spawn)
+    Say(NPC, "Tell that pathetic Rori, if he wants to join me he can come talk to me himself! Sending you as a messenger and saying we should 'merge' ha ha ha!")
+end
+
 if GetFactionAmount(Spawn,12) <0 then
 	FaceTarget(NPC, Spawn)
     PlayFlavor(NPC, "","","taunt",0,0, Spawn)

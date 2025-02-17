@@ -9,9 +9,12 @@
 require "SpawnScripts/Generic/DialogModule"
 require "SpawnScripts/Generic/NPCModule"
 
+local Quest1 = 5978
+
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     FreeportGuard(NPC)
+    ProvidesQuest(NPC, Quest1)
 end
 
 function respawn(NPC)
@@ -19,7 +22,13 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-Dialog8(NPC, Spawn)
+    if CanReceiveQuest(Spawn, Quest1) and not HasCompletedQuest(Spawn, Quest1) then
+        Dialog8(NPC, Spawn)
+    elseif GetQuestStep(Spawn, Quest1) == 4 then
+        Dialog6(NPC, Spawn)
+    else
+        Say(NPC, "Move along citizen, I have work to tend to.")
+    end
 end
 
 function Dialog1(NPC, Spawn)
@@ -29,6 +38,7 @@ function Dialog1(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/optional1/sergeant_nominus/fprt_south/sergeantnominus005.mp3", 1774266460, 883209262)
 	Dialog.AddOption("It was my pleasure.")
 	Dialog.Start()
+	SetStepComplete(Spawn, Quest1, 4)
 end
 
 function Dialog2(NPC, Spawn)
@@ -57,6 +67,7 @@ function Dialog4(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/optional1/sergeant_nominus/fprt_south/sergeantnominus004.mp3", 1170045735, 1639080507)
 	Dialog.AddOption("I'll be back when I have Pythus' cap.")
 	Dialog.Start()
+	OfferQuest(NPC, Spawn, Quest1)
 end
 
 function Dialog5(NPC, Spawn)

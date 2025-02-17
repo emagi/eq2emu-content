@@ -5,8 +5,11 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    FreeportGuard(NPC)
     AddTimer(NPC, 6000, "waypoints")
 end
 

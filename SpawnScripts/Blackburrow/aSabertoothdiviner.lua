@@ -6,11 +6,11 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/SabertoothGnoll3.lua")
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 end
-
-
 
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)

@@ -5,9 +5,10 @@
 	Script Date		: 2022.07.13
 	Script Notes	: Auto-Generated Conversation from PacketParser Data
 --]]
-
 require "SpawnScripts/Generic/DialogModule"
+
 local MucksQuest = 5874
+local KazarAndTheVial = 5949
 
 function spawn(NPC)
 end
@@ -17,7 +18,11 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-    Dialog1(NPC, Spawn)
+    if HasQuest(Spawn, MucksQuest) then
+        Dialog1(NPC, Spawn)
+    elseif GetQuestStep(Spawn, KazarAndTheVial)==1 then
+        Dialog3(NPC, Spawn)
+    end
 end
 
 function Dialog1(NPC, Spawn)
@@ -43,4 +48,14 @@ function Dialog2(NPC,Spawn)
 	Dialog.AddOption("Err... Thanks.")
 	Dialog.Start()
     SetStepComplete(Spawn, MucksQuest, 1)
+end
+
+function Dialog3(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+ 	PlayFlavor(NPC, "voiceover/english/crantik_the_crazed/fprt_hood02/quests/kazar/crantik_kazar_x1_initial.mp3", "", "no",  146488314, 1942964512, Spawn, 0)
+ 	Dialog.AddDialog("Wee-hoo-hoo-hee-hee-hoo-hoo-hoo! Crantik no have any! Hee-hee-hee-hee! Crantik need to eat a tasty little morsel to make more of the bile! Wee-ha-ha-ha! No squirming and flamming morsels around! Hee-ha-ha-ha! Other sides of walkers make even greater bile, but not from Crantik! Enjoy the sauce! Hee-ha-ha-ha-ha!")
+	Dialog.AddOption("Err... Thanks.")
+	Dialog.Start()
+    SetStepComplete(Spawn, KazarAndTheVial, 1)
 end

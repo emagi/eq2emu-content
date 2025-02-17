@@ -5,9 +5,12 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    Ree(NPC)
+    OrcArmorCommon(NPC)
 end
 
 function hailed(NPC, Spawn)
@@ -19,7 +22,7 @@ function respawn(NPC)
 end
 
 function aggro(NPC, Spawn)
-CastSpell(Spawn, 230170, 1, NPC)
+    CastSpell(Spawn, 230170, 1, NPC)
 end
 
 

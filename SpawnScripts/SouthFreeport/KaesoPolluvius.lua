@@ -8,6 +8,8 @@
 
 require "SpawnScripts/Generic/DialogModule"
 
+local Quest1 = 5978
+
 function spawn(NPC)
 end
 
@@ -16,7 +18,11 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-Dialog6(NPC, Spawn)
+    if GetQuestStep(Spawn, Quest1) == 1 then
+        Dialog6(NPC, Spawn)
+    else
+        Say(NPC, "Sorry I am terribly busy right now, no time to chat.")
+    end
 end
 
 function Dialog1(NPC, Spawn)
@@ -26,6 +32,8 @@ function Dialog1(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/optional1/kaeso_polluvius/fprt_south/kaesopolluvius004.mp3", 3213604743, 1494043932)
 	Dialog.AddOption("Very well.  I'll go speak to her.")
 	Dialog.Start()
+	SetStepComplete(Spawn, Quest1, 1)
+	
 end
 
 function Dialog2(NPC, Spawn)

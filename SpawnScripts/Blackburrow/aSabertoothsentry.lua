@@ -5,10 +5,11 @@
     Script Purpose : 
                    : 
 --]]
-    dofile("SpawnScripts/Generic/MonsterCallouts/BaseGnoll1.lua")
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseGnoll1.lua")
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 end
 
 function hailed(NPC, Spawn)

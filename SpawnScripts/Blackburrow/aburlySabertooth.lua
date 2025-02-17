@@ -5,9 +5,11 @@
     Script Purpose : a burly Sabertooth
                    : 
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-VoiceBox(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    VoiceBox(NPC)
 end
 
 function VoiceBox(NPC)

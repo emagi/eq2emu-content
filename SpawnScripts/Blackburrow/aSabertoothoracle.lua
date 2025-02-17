@@ -5,8 +5,11 @@
     Script Purpose : 
                    : 
 --]]
-function spawn(NPC)
-VoiceBox(NPC)
+require "SpawnScripts/Generic/NPCModule"
+
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    VoiceBox(NPC)
 end
 
 function VoiceBox(NPC)

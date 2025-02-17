@@ -6,7 +6,7 @@
 	Script Notes	: Auto-Generated Conversation from PacketParser Data
 --]]
 
-local TheSteinOfMoggok = 5511
+local TheSteinOfMoggok = 5975
 
 require "SpawnScripts/Generic/DialogModule"
 

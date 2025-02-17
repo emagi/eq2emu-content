@@ -5,7 +5,7 @@
     Script Purpose : 
                    : 
 --]]
-QUEST = 572
+QUEST = 5969
 
 
 function spawn(NPC)

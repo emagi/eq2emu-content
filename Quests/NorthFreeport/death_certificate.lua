@@ -7,7 +7,7 @@
         Zone       : NorthFreeport
         Quest Giver: 
         Preceded by: None
-        Followed by: 
+        Followed by: Graverobber Spoils
 --]]
 require "SpawnScripts/Generic/DialogModule"
 

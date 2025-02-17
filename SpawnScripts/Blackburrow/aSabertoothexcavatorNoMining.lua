@@ -7,10 +7,10 @@
 --]]
 
 dofile("SpawnScripts/Generic/MonsterCallouts/BaseGnoll1.lua")
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-    --AddTimer(NPC,math.random(2500,6000),"AttackRocks")
-
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 end
 
 function hailed(NPC, Spawn)

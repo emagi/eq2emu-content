@@ -13,17 +13,6 @@ function init_zone_script(zone)
 end
 
 function preinit_zone_script(Zone)
-    RemoveWidgetFromZoneMap(Zone, 292225973)
-    RemoveWidgetFromZoneMap(Zone, 1195020552)
-    RemoveWidgetFromZoneMap(Zone, 2452631038)
-    RemoveWidgetFromZoneMap(Zone, 1085410624)
-    RemoveWidgetFromZoneMap(Zone, 2595023780)
-    RemoveWidgetFromZoneMap(Zone, 2225405333)
-    RemoveWidgetFromZoneMap(Zone, 3609788169)
-    RemoveWidgetFromZoneMap(Zone, 2419473829)
-    RemoveWidgetFromZoneMap(Zone, 3875468399)
-    RemoveWidgetFromZoneMap(Zone, 1413099403)
-    --RemoveWidgetFromZoneMap(Zone, 2747268298)
     
 end
 

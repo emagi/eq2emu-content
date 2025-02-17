@@ -8,8 +8,8 @@
 require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
- NPCModule(NPC, Spawn)
- movement(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    movement(NPC, Spawn)
 end
 
 function hailed(NPC, Spawn)

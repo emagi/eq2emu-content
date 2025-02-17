@@ -5,9 +5,11 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function prespawn(NPC)
-SetSpawnAnimation(NPC, 13016)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    SetSpawnAnimation(NPC, 13016)
 end
 
 function spawn(NPC)

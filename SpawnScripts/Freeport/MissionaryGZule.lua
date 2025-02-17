@@ -10,15 +10,29 @@ require "SpawnScripts/Generic/DialogModule"
 local RustySymbolOfMarr = 584
 local DeathCert = 5872
 
+local GraverobSpoils = 5970
+
 function spawn(NPC)
 ProvidesQuest(NPC,DeathCert)
+ProvidesQuest(NPC,GraverobSpoils)
 end
 
 function hailed(NPC, Spawn)
  if GetFactionAmount(Spawn,12)<0 then
      PlayFlavor(NPC,"","","cutthroat",0,0,Spawn)
+ elseif HasCompletedQuest(Spawn, DeathCert) and CanReceiveQuest(Spawn, GraverobSpoils) then
+        Dialog.New(NPC, Spawn)
+	    Dialog.AddDialog("What do you want from me now?")
+        Dialog.AddOption("I want another task something with adventure, not being your errand runner.", "Dialog4")
+        Dialog.Start()
+ elseif GetQuestStep(Spawn, GraverobSpoils)==2 then
+        Dialog.New(NPC, Spawn)
+	    Dialog.AddDialog("Have you returned with the spoils of your victory?")
+        Dialog.AddOption("Yeah and you have been just wasting my time with these 'Tasks'.", "FinishQuest2")
+        Dialog.Start()
  else
      Dialog1(NPC,Spawn)
+     
 end
 end
 
@@ -27,6 +41,9 @@ function respawn(NPC)
 
 end
 
+--------------------------------------------------------------------------------------------------------------------------------
+--					QUEST 1
+--------------------------------------------------------------------------------------------------------------------------------
 
 function Dialog1(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
@@ -88,4 +105,30 @@ function complete(NPC, Spawn)
     Dialog.AddOption("A pleasure doing business with you.")
     Dialog.Start()
   SetStepComplete(Spawn, RustySymbolOfMarr, 1)
+end
+
+--------------------------------------------------------------------------------------------------------------------------------
+--					QUEST 2
+--------------------------------------------------------------------------------------------------------------------------------
+function Dialog4(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    Dialog.New(NPC, Spawn)
+    PlayFlavor(NPC, "voiceover/english/missionary_g_zule/fprt_north/qst_gzule007.mp3", "", "nod", 1887518719, 1521313683, Spawn, 0)
+	Dialog.AddDialog("Adventure, you say? Well, let's see what you're made of. Grave robbers are desecrating our cemetery for the bones of the recently deceased. You must stop these scoundrels' looting and return with their spoils. If you can't complete this menial task, don't bother returning.")
+    Dialog.AddOption("I shall return once I have retrieved the spoils from the Graverobbers.", "AcceptedQuest2")
+    Dialog.Start()
+end
+
+function AcceptedQuest2(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    OfferQuest(NPC, Spawn, GraverobSpoils)
+end
+
+function FinishQuest2(NPC, Spawn)
+    SetStepComplete(Spawn, GraverobSpoils, 2)
+    FaceTarget(NPC, Spawn)
+    Dialog.New(NPC, Spawn)
+    PlayFlavor(NPC, "voiceover/english/missionary_g_zule/fprt_north/qst_gzule008.mp3", "", "curse", 515108139, 969887952, Spawn, 0)
+    Say(NPC, "You insolent worm! You dare to address me in this manner? Relieve me of the bones you recovered and leave. Now, take this reward and go without my gratitude.")
+    Dialog.Start()
 end

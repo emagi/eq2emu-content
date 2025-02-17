@@ -5,8 +5,7 @@
     Script Purpose : 
                    : 
 --]]
-
-
+require "SpawnScripts/Generic/NPCModule"
 
 blackguard3_ID = 133769612
 blackguard4_ID = 133769613
@@ -14,15 +13,21 @@ blackguard1_ID = 404841
 blackguard2_ID = 404844
 
 function spawn(NPC)
-SetAggroRadius(NPC, 20, true)    
-SetTempVariable(NPC, "HAILED1", "true") -- IMPORTANT, USED TO RESTRICT PLAYERS TO TALK WITH BOSS AND LAUNCH THE BOSS SCRIPT AGAIN UNTIL HE RESPAWNS
-if GetTempVariable(NPC, "HAILED1") == "false" then
-AddTimer(NPC, 1800000, "reset")
+    dmgMod = GetStr(NPC)/10
+    SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(75+ dmgMod)) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(115 + dmgMod))
+    
+    SetAggroRadius(NPC, 20, true)    
+    SetTempVariable(NPC, "HAILED1", "true") -- IMPORTANT, USED TO RESTRICT PLAYERS TO TALK WITH BOSS AND LAUNCH THE BOSS SCRIPT AGAIN UNTIL HE RESPAWNS
+    
+    if GetTempVariable(NPC, "HAILED1") == "false" then
+        AddTimer(NPC, 1800000, "reset")
+    end
 end
-   end
 
 function reset(NPC, Spawn)
-SetTempVariable(NPC, "HAILED1", "true")
+    SetTempVariable(NPC, "HAILED1", "true")
 end
 
 function hailed(NPC, Spawn)

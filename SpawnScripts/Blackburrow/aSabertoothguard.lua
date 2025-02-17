@@ -5,8 +5,11 @@
     Script Purpose : 
                    : 
 --]]
-function spawn(NPC)
-AddTimer(NPC,1000,"VoiceBox")
+require "SpawnScripts/Generic/NPCModule"
+
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    AddTimer(NPC,1000,"VoiceBox")
 end
 
 function VoiceBox(NPC)

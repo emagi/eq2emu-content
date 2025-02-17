@@ -5,7 +5,8 @@
 	Script Date		: 2022.04.26
 	Script Notes	: Auto-Generated Conversation from PacketParser Data
 --]]
-local InSearchofSpiritkeepers = 5513
+local InSearchofSpiritkeepers = 5965
+local ArmorDelivery = 5977
 require "SpawnScripts/Generic/DialogModule"
 require "SpawnScripts/Generic/NPCModule"
 
@@ -31,6 +32,9 @@ end
 	Dialog.AddOption("Perhaps.  What is the duty?", "Dialog25")
 	elseif GetQuestStep(Spawn, InSearchofSpiritkeepers) == 2 then
 	Dialog.AddOption("I have gathered the five scalps from the Wailing Caves.", "Dialog1")
+	elseif GetQuestStep(Spawn, ArmorDelivery)==1 then
+	Dialog.AddOption("I have a delivery for you from Armorsmith Nipius Malchus actually. ", "Dialog26")
+	
 	end
 	Dialog.AddOption("I have found my purpose, Lieutenant. ")
 	Dialog.Start()    
@@ -267,7 +271,15 @@ function Dialog25(NPC, Spawn)
 	Dialog.Start()
 end
 
+function Dialog26(NPC, Spawn)
+    SetStepComplete(Spawn, ArmorDelivery, 1)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("Thank you adventurer, speak to me if you are looking for.. More opportunity.")
+	Dialog.AddOption("Thanks, I have to return to Nipius")
+	Dialog.Start()
+end
 
 function offer(NPC, Spawn)
-OfferQuest(NPC, Spawn, InSearchofSpiritkeepers)
+    OfferQuest(NPC, Spawn, InSearchofSpiritkeepers)
 end    

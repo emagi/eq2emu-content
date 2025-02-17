@@ -5,8 +5,10 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 	SpawnSet(NPC, "visual_state", 228)
     VoiceBox(NPC)
 end

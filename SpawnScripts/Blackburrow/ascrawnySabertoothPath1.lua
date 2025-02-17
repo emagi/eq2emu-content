@@ -5,10 +5,11 @@
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseGnoll1.lua")
+require "SpawnScripts/Generic/NPCModule"
 
- dofile("SpawnScripts/Generic/MonsterCallouts/BaseGnoll1.lua")
-
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
     AddTimer(NPC, 6000, "waypoints")
 end
 

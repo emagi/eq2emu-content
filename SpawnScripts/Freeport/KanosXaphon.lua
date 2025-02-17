@@ -5,7 +5,7 @@
     Script Purpose : 
                    : 
 --]]
-local KeyToFallenGate = 5252
+local KeyToFallenGate = 5966
 
 function spawn(NPC)
 AddSpawnAccess(NPC, NPC)

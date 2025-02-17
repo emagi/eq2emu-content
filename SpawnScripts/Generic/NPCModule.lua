@@ -244,7 +244,7 @@ function TierThreeA(NPC, Spawn)
         highDmg = math.floor(32 * GlobalDmgMod + MeleeDmgMod)
     elseif difficulty >= 8 then
         lowDmg = math.floor(25 * GlobalDmgMod + MeleeDmgMod)
-        highDmg = math.floor(55 * GlobalDmgMod + MeleeDmgMod)
+        highDmg = math.floor(75 * GlobalDmgMod + MeleeDmgMod)
     end
     damage(NPC)
 end
@@ -265,7 +265,7 @@ function TierThreeB(NPC, Spawn)
         highDmg = math.floor(32 * GlobalDmgMod + MeleeDmgMod)
     elseif difficulty >= 8 then
         lowDmg = math.floor(35 * GlobalDmgMod + MeleeDmgMod)
-        highDmg = math.floor(75 * GlobalDmgMod + MeleeDmgMod)
+        highDmg = math.floor(105 * GlobalDmgMod + MeleeDmgMod)
     end
     damage(NPC)
 end
@@ -317,6 +317,7 @@ function damage(NPC, Spawn)
     SetInfoStructUInt(NPC, "override_primary_weapon", 1) --Set to 1 enables override for autoattack damage.  Set to 0 to allow server to set damage.
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
+    SetInfoStructUInt(NPC, "primary_weapon_delay", 3000)
 end
 
 --Calculate Hitpoints and Power
@@ -775,7 +776,8 @@ end
 
 function Ree(NPC, Spawn)
     SpawnSet(NPC,"model_type",137)
-    --SpawnSet(NPC, "race_type", 20)
+    SpawnSet(NPC, "skin_color", "50 60 50")
+    SpawnSet(NPC, "eye_color", "98 63 28")
 end
 
 

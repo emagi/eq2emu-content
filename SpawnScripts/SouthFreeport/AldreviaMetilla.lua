@@ -8,6 +8,8 @@
 
 require "SpawnScripts/Generic/DialogModule"
 
+local Quest1 = 5978
+
 function spawn(NPC)
 end
 
@@ -16,7 +18,11 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-Dialog2(NPC, Spawn)
+    if GetQuestStep(Spawn, Quest1)==2 then
+        Dialog2(NPC, Spawn)
+    else
+        Say(NPC, "Sorry but I must tend to these pies!")
+    end
 end
 
 function Dialog1(NPC, Spawn)
@@ -65,5 +71,6 @@ function Dialog5(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/optional1/flavia_metilla/fprt_south/flaviametilla003.mp3", 577465053, 3798308392)
 	Dialog.AddOption("Oh, I will.")
 	Dialog.Start()
+	SetStepComplete(Spawn, Quest1, 2)
 end
 

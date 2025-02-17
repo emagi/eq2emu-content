@@ -7,15 +7,34 @@
 --]]
 require "SpawnScripts/Generic/DialogModule"
 
+local GolemResearch = 5974
+local GolemTesting = 5973
+
 function spawn(NPC)
+    ProvidesQuest(NPC, GolemResearch)
+    ProvidesQuest(NPC, GolemRTesting)
 end
 
 function respawn(NPC)
 	spawn(NPC)
 end
 
-function hailed(NPC, Spawn)
-Dialog5(NPC, Spawn)
+function hailed(NPC, Spawn) --setup dialog options/results based on quests complete.
+    if HasQuest(Spawn, GolemResearch, 3) then
+        Dialog4(NPC, Spawn)
+    elseif HasQuest(Spawn, GolemResearch, 2) or HasQuest(Spawn, GolemResearch, 1) then
+        Dialog10(NPC, Spawn)
+    elseif HasCompletedQuest(Spawn, GolemResearch) and CanReceiveQuest(Spawn, GolemTesting) then
+        Dialog12(NPC, Spawn)
+    elseif GetQuestStep(Spawn, GolemTesting)==3 then
+        Dialog8(NPC, Spawn)
+    elseif HasCompletedQuest(Spawn, GolemResearch) and not CanReceiveQuest(Spawn, GolemTesting) then
+        Dialog3(NPC, Spawn)
+    elseif HasQuest(Spawn, GolemTesting, 1) or HasQuest(Spawn, GolemTesting, 2) then
+        Dialog6(NPC, Spawn)
+    else
+        Dialog5(NPC, Spawn)
+    end
 end
 
 function RandomGreeting(NPC, Spawn)
@@ -37,6 +56,7 @@ function Dialog1(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/euphemius_granius/fprt_north/quests/euphemiusgranius/euphemiusgranius008.mp3", 1258003805, 1541074837)
 	Dialog.AddOption("You can count on me.")
 	Dialog.Start()
+    OfferQuest(NPC, Spawn, GolemTesting)
 end
 
 function Dialog2(NPC, Spawn)
@@ -88,6 +108,8 @@ end
 function Dialog7(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
+	--Complete Golem Research here
+	SetStepComplete(Spawn, GolemResearch, 3)
 	Dialog.AddDialog("Excellent!  I'll produce regeants with these cadavers. My methods shall revolutionize golem creation! My name shall be honored throughout Freeport! I need nothing more from you; I've work to do. Be gone.")
 	Dialog.AddVoiceover("voiceover/english/euphemius_granius/fprt_north/quests/euphemiusgranius/euphemiusgranius006.mp3", 2913012525, 3358874287)
 	Dialog.AddOption("Okay.")
@@ -125,6 +147,7 @@ end
 function Dialog11(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
+	SetStepComplete(Spawn, GolemTesting, 3)
 	Dialog.AddDialog("That's great news!  I knew I could succeed where the others had failed.  Consider yourself fortunate, you are in the presence of one of the greatest minds in Freeport history.  The academy knows how to reward those who persevere.  Take heart that even one such as yourself had a role to play in my ascendance.  ")
 	Dialog.AddVoiceover("voiceover/english/euphemius_granius/fprt_north/quests/euphemiusgranius/euphemiusgranius010.mp3", 1598582616, 3261831074)
 	Dialog.AddOption("Okay.")
@@ -144,6 +167,7 @@ end
 function Dialog13(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
+	OfferQuest(NPC, Spawn, GolemResearch)
 	Dialog.AddDialog("I require samples of several troll and ogre zombies. I can use only pristine specimens so do not damage the bodies. When you collect these corpses, return to me. Now, don't waste my time, get moving!")
 	Dialog.AddVoiceover("voiceover/english/euphemius_granius/fprt_north/quests/euphemiusgranius/euphemiusgranius003.mp3", 479128782, 4029940593)
 	Dialog.AddOption("I'm on my way.")

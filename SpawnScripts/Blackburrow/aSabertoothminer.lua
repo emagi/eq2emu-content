@@ -5,13 +5,14 @@
     Script Purpose : 
                    : 
 --]]
- 	dofile("SpawnScripts/Generic/MonsterCallouts/SabertoothGnoll2.lua")
+dofile("SpawnScripts/Generic/MonsterCallouts/SabertoothGnoll2.lua")
+require "SpawnScripts/Generic/NPCModule"
  	
- local TheChomper = 5696
+local TheChomper = 5696
 
-function spawn(NPC)
-        AddTimer(NPC,math.random(2500,6000),"AttackRocks")
-
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    AddTimer(NPC,math.random(2500,6000),"AttackRocks")
 end
 
 function hailed(NPC, Spawn)
