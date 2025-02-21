@@ -194,6 +194,7 @@ function QeynosGuard(NPC, Spawn)
     SetEquipment(NPC, 6, 712, 255, 255, 255, 255, 255, 255)
     SetEquipment(NPC, 7, 714, 255, 255, 255, 255, 255, 255)
     SetEquipment(NPC, 8, 710, 255, 255, 255, 255, 255, 255)
+    SetEquipment(NPC, 19, 0)
 end
 
 function OrcChainCommon(NPC, Spawn)

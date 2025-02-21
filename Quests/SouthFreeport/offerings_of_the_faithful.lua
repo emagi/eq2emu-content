@@ -14,12 +14,12 @@
 local QuestID = 5983
 
 function Init(Quest)
-	AddQuestStepChat(Quest, 1, "I need to collect the offering from Missionary G'Zule near the Temple of War.", 1, "I need to speak with several people in Freeport and collect offerings for Dismal Rage.", 11, 1440056)
+	AddQuestStepChat(Quest, 1, "I need to collect the offering from Missionary G'Zule near the Temple of War of North Freeport.", 1, "I need to speak with several people in Freeport and collect offerings for Dismal Rage.", 11, 1440056)
 	AddQuestStepChat(Quest, 2, "I need to collect the offering from Bruccius Capito is in East Freeport by the docks.", 1, "I need to speak with several people in Freeport and collect offerings for Dismal Rage.", 11, 1280032)
 	AddQuestStepChat(Quest, 3, "I need to collect the offering from Banker Magia Cotta in West Freeport near the bank.", 1, "I need to speak with several people in Freeport and collect offerings for Dismal Rage.", 11, 1680025)
-	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
-	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
-	AddQuestStepCompleteAction(Quest, 3, "QuestComplete")
+	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
+	AddQuestStepCompleteAction(Quest, 3, "Step3Complete")
 end
 
 function Accepted(Quest, QuestGiver, Player)
@@ -46,8 +46,6 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have collected G'Zule's offering.")
 	CompleteStage1Check(Quest, Player)
 
-	--AddQuestStepKill(Quest, 2, "I need to kill ten snakes.", 10, 100, "I need to head out into Antonica and kill the vermin that infest the land; rats, snakes and beetles. Knight-Lieutenant Alesso said I should kill about ten of each.", 1908, 120068, 121226, 121347)
-	--AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
 end
 
 function Step2Complete(Quest, QuestGiver, Player)

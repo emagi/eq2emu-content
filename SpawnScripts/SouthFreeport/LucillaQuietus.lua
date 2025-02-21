@@ -10,10 +10,12 @@ require "SpawnScripts/Generic/DialogModule"
 local  RewardForAMissingMusicBox = 5261
 local HuntingHenchmen = 5979
 local MessageForValary = 5981
+local NoteForSergius = 5982
 
 function spawn(NPC)
     ProvidesQuest(NPC, Spawn, HuntingHenchmen)
     ProvidesQuest(NPC, Spawn, MessageForValary)
+    ProvidesQuest(NPC, Spawn, NoteForSergius)
 end
 
 function hailed(NPC, Spawn)
@@ -28,7 +30,7 @@ function hailed(NPC, Spawn)
         PlayFlavor(NPC,"","","ponder",0,0,Spawn)
     	Dialog.AddOption("Yes, I killed a handful of them. They should be less of a problem, now where's my reward?","FinishQuest2")
     	Dialog.Start()
-    elseif CanReceiveQuest(Spawn, HuntingHenchmen) or CanReceiveQuest(Spawn, MessageForValary) then
+    elseif CanReceiveQuest(Spawn, HuntingHenchmen) or CanReceiveQuest(Spawn, MessageForValary) or CanReceiveQuest(Spawn, NoteForSergius) then
         Dialog5(NPC, Spawn)
     else
     end
@@ -88,6 +90,8 @@ function Dialog5(NPC, Spawn)
         Dialog.AddOption("I could help, as long as theres something in it for me.", "Dialog6")
     elseif CanReceiveQuest(Spawn, MessageForValary) then
         Dialog.AddOption("I could help, as long as theres something in it for me.", "Dialog7")
+    elseif CanReceiveQuest(Spawn, NoteForSergius) then
+        Dialog.AddOption("I could help, as long as theres something in it for me.", "Dialog8")
     end
     Dialog.AddOption("Sorry but I dont have time.", "No")
     Dialog.Start()
@@ -128,4 +132,19 @@ end
 function AcceptedQuest3(NPC, Spawn)
     FaceTarget(NPC, Spawn)
     OfferQuest(NPC, Spawn, MessageForValary)
+end
+
+function Dialog8(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    Dialog.New(NPC, Spawn)
+    Dialog.AddDialog("I can offer a small reward but it wont be much.. I simply need you to deliver this note to Sergius Mordanticus located in West Freeport. If you're looking for more work perhaps he can help you.")
+    Dialog.AddOption("Sure.. I guess it cant hurt.", "AcceptedQuest4")
+    Dialog.AddOption("I have to go.", "No")
+    Dialog.Start()
+    
+end
+
+function AcceptedQuest4(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    OfferQuest(NPC, Spawn, NoteForSergius)
 end

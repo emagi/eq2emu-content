@@ -93,7 +93,7 @@ end
 function Step9Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 9, "I've found the enterence to the Thieve's Way.")
 	UpdateQuestTaskGroupDescription(Quest, 9, "I've visisted three of four locations Valthun has told me about.")
-	AddQuestStep(Quest, 10, "I need to locate the gates to North Freeport.",1,100, "\"Only citizens like myself can come and go as they please.  The rest of you refugees are corralled into the districts.  If you'd like to see what door you're not allowed to travel through, take a look for the city gates.  You'll be able to find it here.  By the time you look at it, I should be done wi----- waiting for you.\" - Valthun", 11)
+	AddQuestStepZoneLoc(Quest, 10, "I need to locate the gates to North Freeport.",10,"\"Only citizens like myself can come and go as they please.  The rest of you refugees are corralled into the districts.  If you'd like to see what door you're not allowed to travel through, take a look for the city gates.  You'll be able to find it here.  By the time you look at it, I should be done wi----- waiting for you.\" - Valthun", 0, 65.73, -7.08, 108.75, 137)
 	AddQuestStepCompleteAction(Quest, 10, "Step10Complete")   
 end
 

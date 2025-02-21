@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepChat(Quest, 1, "I've been told Nyjuss can be found at the Market Square.", 100, "	I need to speak with Nyjuss.", 11, 1440008)
+	AddQuestStepChat(Quest, 1, "I've been told Nyjuss can be found at the Market Square.", 1, "	I need to speak with Nyjuss.", 11, 1440008)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
@@ -31,7 +31,11 @@ end
 
 function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
-	GiveQuestReward(Quest, Player)
+	UpdateQuestStepDescription(Quest, 2, "I've spoken with Nyjuss.")
+	UpdateQuestTaskGroupDescription(Quest, 2, "I have delivered the message to Nyjuss.")
+    UpdateQuestDescription(Quest, "Dalal Akilia has given an odd message to Nyjuss. The message pertained to seabirds roosting, and I'm not sure what it meant. This is something I might want to look into at a later time.")
+
+    GiveQuestReward(Quest, Player)
 end
 
 function Reload(Quest, QuestGiver, Player, Step)
@@ -43,9 +47,8 @@ function Reload(Quest, QuestGiver, Player, Step)
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
-    UpdateQuestStepDescription(Quest, 1, "I've spoken to Nyjuss.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I've given the note to Nyjuss.")
-	UpdateQuestDescription(Quest, "Dalal Akilia has given an odd message to Nyjuss. The message pertained to seabirds roosting, and I'm not sure what it meant. This is something I might want to look into at a later time.")
-    SetStepComplete(Quest, 2)
+
 	
+	AddQuestStepChat(Quest, 2, "I should speak with Preceptor Nyjuss and hand him the message from Dalal.", 1, "Speak with Nyjuss.", 11, 1440008)
+	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end

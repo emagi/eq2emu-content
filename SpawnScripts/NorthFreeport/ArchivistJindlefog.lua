@@ -1,15 +1,13 @@
 --[[
-    Script Name    : SpawnScripts/Stonestair/WensoSwindlehassle.lua
+    Script Name    : SpawnScripts/NorthFreeport/ArchivistJindlefog.lua
     Script Author  : LordPazuzu
-    Script Date    : 2025.02.16 12:02:09
+    Script Date    : 2025.02.21 02:02:11
     Script Purpose : 
                    : 
 --]]
-require "SpawnScripts/Generic/NPCModule"
 dofile("SpawnScripts/Generic/GenericEcologyVoiceOvers.lua")
 
 function spawn(NPC, Spawn)
-    IdleAngry(NPC)
     SetPlayerProximityFunction(NPC, 5, "InRange", "LeaveRange")	
 end
 

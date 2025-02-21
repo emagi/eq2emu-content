@@ -11,6 +11,7 @@ local RustySymbolOfMarr = 584
 local DeathCert = 5872
 
 local GraverobSpoils = 5970
+local OfferingsOfTheFaithful = 5983
 
 function spawn(NPC)
 ProvidesQuest(NPC,DeathCert)
@@ -29,6 +30,12 @@ function hailed(NPC, Spawn)
         Dialog.New(NPC, Spawn)
 	    Dialog.AddDialog("Have you returned with the spoils of your victory?")
         Dialog.AddOption("Yeah and you have been just wasting my time with these 'Tasks'.", "FinishQuest2")
+        Dialog.Start()
+ elseif GetQuestStep(Spawn, OfferingsOfTheFaithful)==1 then
+        Dialog.New(NPC, Spawn)
+	    Dialog.AddDialog("What do you want citizen, can you not see that I am far to busy for the likes of you?")
+        Dialog.AddOption("I'm here to collect offerings for the Dismal Rage, on behalf of Clara Maius.", "Dialog5")
+        Dialog.AddOption("On second thought, I dont need anything.", "No")
         Dialog.Start()
  else
      Dialog1(NPC,Spawn)
@@ -132,3 +139,31 @@ function FinishQuest2(NPC, Spawn)
     Say(NPC, "You insolent worm! You dare to address me in this manner? Relieve me of the bones you recovered and leave. Now, take this reward and go without my gratitude.")
     Dialog.Start()
 end
+
+--------------------------------------------------------------------------------------------------------------------------------
+--					QUEST 3
+--------------------------------------------------------------------------------------------------------------------------------
+
+function Dialog5(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    Dialog.New(NPC, Spawn)
+    Dialog.AddDialog("Great, that wretched hag... Unfit for this city.. And how she even has the nerve to send couriers on her behalf to collect for the Dismal Rage?! How dare she!")
+    Dialog.AddOption("I'm no courier... And I offered my help, just hand over the offering so we can move on..", "Dialog6")
+    Dialog.AddOption("You can keep your offering then, I'm sure the Dismal Rage will be pleased to hear that.", "No")
+    Dialog.Start()
+end
+
+function Dialog6(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    Dialog.New(NPC, Spawn)
+    Dialog.AddDialog("How dare you, do you even understand who I am whelp? However, the last thing I need right now is to give the Dismal Rage more reason to breathe down my neck... Take this and begone... And tell Clara that her days are limited...")
+    Dialog.AddOption("I'll be sure to do that.", "UpdateQuest3")
+    Dialog.Start()
+    
+end
+
+function UpdateQuest3(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    SetStepComplete(Spawn, OfferingsOfTheFaithful, 1)
+end
+

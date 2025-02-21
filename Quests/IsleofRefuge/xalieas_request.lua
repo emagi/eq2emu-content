@@ -16,7 +16,7 @@ local a_fallen_pirate = 3250145
 local Graybeard = 3250143
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to find three bonechips for Xaliea. Perhaps I can obtain some from the undead pirates on the northeastern shore of the bay.", 3, 25, "I need to acquire three bone chips for Xaliea.", 322, a_fallen_pirate, Graybeard)
+	AddQuestStepKill(Quest, 1, "I need to find three bonechips for Xaliea. Perhaps I can obtain some from the undead pirates on the northeastern shore of the bay.", 3, 50, "I need to acquire three bone chips for Xaliea.", 322, a_fallen_pirate, Graybeard)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 

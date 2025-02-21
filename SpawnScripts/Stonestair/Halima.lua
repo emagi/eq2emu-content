@@ -1,15 +1,13 @@
 --[[
-    Script Name    : SpawnScripts/Stonestair/WensoSwindlehassle.lua
+    Script Name    : SpawnScripts/Stonestair/Halima.lua
     Script Author  : LordPazuzu
-    Script Date    : 2025.02.16 12:02:09
+    Script Date    : 2025.02.21 03:02:33
     Script Purpose : 
                    : 
 --]]
-require "SpawnScripts/Generic/NPCModule"
 dofile("SpawnScripts/Generic/GenericEcologyVoiceOvers.lua")
 
-function spawn(NPC, Spawn)
-    IdleAngry(NPC)
+function spawn(NPC)
     SetPlayerProximityFunction(NPC, 5, "InRange", "LeaveRange")	
 end
 
@@ -22,6 +20,6 @@ function respawn(NPC)
 	spawn(NPC)
 end
 
-function InRange(NPC, Spawn)
+function InRange(NPC,Spawn)
     GenericEcologyCallout(NPC, Spawn, faction)
 end
