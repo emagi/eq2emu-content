@@ -6,7 +6,7 @@
 	Script Notes	:	Auto generated with QuestParser.
 
 	Zone			:	West Freeport
-	Quest Giver		:	
+	Quest Giver		:	Lieutenant Darrius
 	Preceded by		:	None
 	Followed by		:	None
 --]]

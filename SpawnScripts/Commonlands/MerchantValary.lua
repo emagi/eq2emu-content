@@ -7,6 +7,7 @@
 --]]
 
 local MessageForValary = 5981
+local Quest2 = 5987
 
 function spawn(NPC)
 
@@ -17,6 +18,10 @@ function hailed(NPC, Spawn)
 	local conversation = CreateConversation()
 	if GetQuestStep(Spawn, MessageForValary)==1 then
 	   AddConversationOption(conversation, "I actually have a letter for you from Lucilla in South Freeport.", "Dialog1")
+	elseif GetQuestStep(Spawn, Quest2)==1 then
+	   PlayFlavor(NPC, "voiceover/english/merchant_valary/commonlands/quests/merchantvalary/vidiciusfestus_merchantvalary_x1_initial.mp3", "", "nod", 1558017824, 4223669556, Spawn, 0)
+	   Say(NPC, "It's about time. I was beginning to wonder if he was ever going to send this. Wait a minute, he wants me to pay you? He didn't pay you? Honestly, now. Here, take this for your troubles and be on your way.")
+	   SetStepComplete(Spawn, Quest2, 1)
 	end
 	AddConversationOption(conversation, "I might take a look at what you are selling.")
 	StartConversation(conversation, NPC, Spawn, "My wares are the finest in the land. Won't you look?")

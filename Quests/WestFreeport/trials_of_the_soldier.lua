@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must find some orcs and destroy 10 of them for Sergius.", 1, 100, "Sergius Mordanticus of the Freeport Militia has asked me to kill ten orcs.", 611, 330126, 330268, 330326, 330123, 330125,
+	AddQuestStepKill(Quest, 1, "I must find some orcs and destroy 10 of them for Sergius.", 10, 100, "Sergius Mordanticus of the Freeport Militia has asked me to kill ten orcs.", 611, 330126, 330268, 330326, 330123, 330125,
 	    330202, 330204, 330249, 330265, 330268, 330288, 330289, 330295, 330323, 330327, 330335, 331151, 331152, 331157, 330068)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end

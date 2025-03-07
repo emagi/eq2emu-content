@@ -6,9 +6,8 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
-
-*Inflicts 135 - 251 melee damage on targets in Area of Effect
-
---]]
-
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
+    if IsFlanking(Caster, Target) or IsFront(Caster, Target) then
+        SpellDamage(Target, DmgType, MinVal, MaxVal)
+    end
+end

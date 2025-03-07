@@ -6,14 +6,14 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+    if not IsEpic(Target) then
+        AddControlEffect(Target, 4)
+        Knockback(Caster, Target, 2500)
+    end
+end
 
-*Throws target back
-	*If Target is not Epic
-*Inflicts 32 - 97 crushing damage on target
-*Stuns target
-	*If Target is not Epic
-*Resistibility increases against targets higher than level 29.
-
---]]
-
+function remove(Caster, Target)
+    RemoveControlEffect(Target, 4)
+end

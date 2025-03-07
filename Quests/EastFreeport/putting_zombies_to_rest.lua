@@ -13,8 +13,8 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill twelve zombies in the Graveyard.", 12, 100, "I must slay twelve putrid zombies in the Graveyard.", 611, 8390012, 8390013)
-	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
+	AddQuestStepKill(Quest, 1, "I must kill twelve zombies in the Graveyard.", 1, 100, "I must slay twelve putrid zombies in the Graveyard.", 611, 8390012, 8390013)
+	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
 function Accepted(Quest, QuestGiver, Player)
@@ -31,8 +31,6 @@ end
 
 function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
-	UpdateQuestStepDescription(Quest, 1, "I have killed all twelve zombies.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I have slain twelve putrid zombies in the Graveyard.")
 
 	UpdateQuestDescription(Quest, "I have slain twelve putrid zombies in the Graveyard.")
 	GiveQuestReward(Quest, Player)
@@ -40,6 +38,17 @@ end
 
 function Reload(Quest, QuestGiver, Player, Step)
 	if Step == 1 then
+	   Step1Complete(Quest, QuestGiver, Player, Step)
+	elseif Step==2 then
 		QuestComplete(Quest, QuestGiver, Player)
 	end
+end
+
+function Step1Complete(Quest, QuestGiver, Player, Step)
+    UpdateQuestStepDescription(Quest, 1, "I have killed all twelve zombies.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I have slain twelve putrid zombies in the Graveyard.")
+	
+	AddQuestStepChat(Quest, 2, "I should return to Tyhpoeus.", 1, "I have completed the task Sergeant Typhoeus has given me. I should return to him.", 11, 1280021)
+	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
+
 end

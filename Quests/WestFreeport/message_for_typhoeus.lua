@@ -31,7 +31,7 @@ end
 
 function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
-	UpdateQuestStepDescription(Quest, 1, "I have delivered the message to Sergeant Typhoeus.")
+    UpdateQuestStepDescription(Quest, 1, "I have delivered the message to Sergeant Typhoeus.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've delivered Anessa Bonefetter's message to Sergeant Typhoeus.")
 
 	UpdateQuestDescription(Quest, "I've delivered the message to Sergeant Typhoeus at the docks.")

@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill one Marius Darkblade.", 1, 100, "I'm to find Marius Darkblade in Thieves Way and retrieved the stolen goods and his head.", 10, 8430018)
+	AddQuestStepKill(Quest, 1, "I must kill one Marius Darkblade.", 1, 100, "I'm to find Marius Darkblade in Thieves Way and retrieved the stolen goods and his head.", 10, 1540025)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
@@ -46,6 +46,7 @@ end
 function Step1Complete(Quest, QuestGiver, Player)
     UpdateQuestStepDescription(Quest, 1, "I have killed one Marius Darkblade.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've the head of Marius and the sack stolen goods.")
+	
 	AddQuestStepChat(Quest, 2, "I should return to Lieutenant Darrius.", 1, "I need to return to Lieutenant Darrius with the stolen good I have recovered.", 11, 1680056)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end

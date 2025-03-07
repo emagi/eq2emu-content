@@ -14,7 +14,7 @@
 
 function Init(Quest)
 	AddQuestStepChat(Quest, 1, "I need to find Engineer Veebert.", 1, "I need to find Engineer Veebert in the Thieves' Way and find out what problems the sewer is having.", 11, 8430047)
-	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
+	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
 function Accepted(Quest, QuestGiver, Player)
@@ -40,6 +40,12 @@ end
 
 function Reload(Quest, QuestGiver, Player, Step)
 	if Step == 1 then
+	    Step1Complete(Quest, QuestGiver, Player)
+	elseif Step == 2 then
+	    Step2Complete(Quest, QuestGiver, Player)
+	elseif Step == 3 then
+	    Step3Complete(Quest, QuestGiver, Player)
+	elseif Step == 4 then
 		QuestComplete(Quest, QuestGiver, Player)
 	end
 end

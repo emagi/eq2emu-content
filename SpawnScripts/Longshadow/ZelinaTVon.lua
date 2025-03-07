@@ -142,6 +142,7 @@ function Dialog2b(NPC,Spawn)
 	Dialog.New(NPC, Spawn)
 	PlayFlavor(NPC, "", "", "happy", 0, 0, Spawn)
 	Dialog.AddDialog("Let me have them. Yes, indeed ... he'll never know the difference. These are perfect! Now, I need to distill the slow-acting toxins from the rest of the juices -- so it's not harmful, of course. Thank you so much, my dear friend. Here are the coins I promised you earlier. Now leave me as I concoct this ... perfume.")
+	Dialog.AddVoiceover("voiceover/english/optional5/standard_dark_elf_female/fprt_hood05/quests/zelinatvon/zelina_x1_finish.mp3", 2118273676, 22907273139)
     Dialog.AddOption("We'll see about that, Zelina.")
 	Dialog.Start()
 end

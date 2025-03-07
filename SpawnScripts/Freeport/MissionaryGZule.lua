@@ -62,7 +62,7 @@ function Dialog1(NPC, Spawn)
     Dialog.AddOption("I found something that may be of interest to you.", "quest")
     end
     if CanReceiveQuest(Spawn,DeathCert) then
-    Dialog.AddOption("Give me a task worthy of proving myself then!","Offer")
+    Dialog.AddOption("Everyone has a warning of some kind around here. I am just looking for some work.","Offer")
     end
     Dialog.AddOption("I think I can handle myself just fine, thanks.")
 	Dialog.Start()
@@ -71,6 +71,9 @@ end
 function Offer(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
     OfferQuest(NPC,Spawn,DeathCert)
+    Dialog.New(NPC, Spawn)
+    Dialog.AddDialog("I wouldnt take these warnings lightly... Watch yourself, not everyone in Freeport is as forgiving as I. Take this death certificate to merchant Talia. You'll find her peddling her wares in the ruins.")
+    Dialog.AddOption("I will take the certificate to her.")
 end
 
 function Dialog2(NPC, Spawn)

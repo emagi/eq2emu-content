@@ -5,19 +5,19 @@
     Script Purpose : 
                    : 
 --]]
-
-
 dofile("SpawnScripts/Generic/GenericEcologyVoiceOvers.lua")
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-    SetPlayerProximityFunction(NPC, 6, "InRange", "LeaveRange")		
+function spawn(NPC, Spawn)
+    SetPlayerProximityFunction(NPC, 6, "InRange", "LeaveRange")	
+    RandomMovement(NPC, Spawn, 8, -8, 2, 8, 15)
 end
 
 function hailed(NPC, Spawn)
-FaceTarget(NPC,Spawn)
-GenericRaceCheckHail(NPC, Spawn, faction)
+    FaceTarget(NPC,Spawn)
+    GenericRaceCheckHail(NPC, Spawn, faction)
 end
 
 function InRange(NPC,Spawn)
-GenericRaceCheckCallout(NPC, Spawn, faction)
+    GenericRaceCheckCallout(NPC, Spawn, faction)
 end

@@ -5,7 +5,7 @@
     Script Purpose : 
 
         Zone       : NorthFreeport
-        Quest Giver: 
+        Quest Giver: Missionary G`Zule
         Preceded by: None
         Followed by: Graverobber Spoils
 --]]

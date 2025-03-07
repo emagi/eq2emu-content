@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to collect five ectoplasmic cores from Shin'Ree spirits.", 5, 15, "I need to.  At the bottom of that pit, I should find some spirits of the long-dead orcs.", 1162, 2580034)
+	AddQuestStepKill(Quest, 1, "I need to collect five ectoplasmic cores from Shin'Ree spirits.", 1, 100, "I need to.  At the bottom of that pit, I should find some spirits of the long-dead orcs.", 1162, 2580034)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 

@@ -6,9 +6,14 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, Mit, Str)
+    AddSpellBonus(Target, 200, Mit)
+    AddSpellBonus(Target, 0, Str)
+end
 
-*Increases Mitigation of group members (AE) vs physical damage by 176
+function remove(Caster, Target)
+    RemoveSpellBonus(Target)
+end
 
---]]
+
 

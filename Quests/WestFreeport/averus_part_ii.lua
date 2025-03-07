@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to kill the living orcs until I find something to prove that I killed them in the caves.", 1, 100, "I need to.  I need to find proof that these orcs are different than the ones in the Commonlands.", 1270, 2580033,
+	AddQuestStepKill(Quest, 1, "I need to kill the living orcs until I find something to prove that I killed them in the caves.", 1, 15, "I need to.  I need to find proof that these orcs are different than the ones in the Commonlands.", 1270, 2580033,
 	2580002, 2580044, 2580043, 2580038, 2580000, 2580008, 2580015, 2580039)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end

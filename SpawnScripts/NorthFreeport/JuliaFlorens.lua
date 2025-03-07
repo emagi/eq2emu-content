@@ -8,6 +8,8 @@
 
 require "SpawnScripts/Generic/DialogModule"
 
+local Quest2 = 5998
+
 function spawn(NPC)
 end
 
@@ -27,7 +29,10 @@ function Dialog1(NPC, Spawn)
 	Dialog.AddOption("What's a Jade Tiger cocktail?", "Dialog2")
     if HasQuest(Spawn,5906) and GetQuestStep(Spawn,5906) == 3 then
 	Dialog.AddOption("Have you been selling any type of foreign plant?", "Plant")
-    end        
+    end
+    if HasQuest(Spawn,5998) and GetQuestStep(Spawn,5998) == 1 then
+	Dialog.AddOption("I have a letter for you from Aelia.", "Dialog3")
+    end
     Dialog.AddOption("Argh!  Leave me be....")
 	Dialog.Start()
 end
@@ -51,3 +56,12 @@ function Plant(NPC, Spawn)
 	Dialog.Start()
 end
 
+
+function Dialog3(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("[Place Holder]: Great what does she want now? More idle threats? And sending some 'Commoner' to do her dirty work at that... Hand that letter over and begone from my tavern!")
+	Dialog.AddOption("Right.")
+	SetStepComplete(Spawn, Quest2, 1)
+	Dialog.Start()
+end

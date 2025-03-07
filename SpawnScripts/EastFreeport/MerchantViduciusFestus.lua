@@ -17,9 +17,9 @@ function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	if CanReceiveQuest(Spawn, Quest1) then
 	    Dialog.New(NPC, Spawn)
-	    PlayFlavor(NPC, "voiceover/english/merchant_valary/commonlands/quests/merchantvalary/vidiciusfestus_merchantvalary_x1_initial.mp3", "", "nod", 1558017824, 4223669556, Spawn, 0)
-        Dialog.AddDialog("")
-        Dialog.AddOption("", "Dialog2")
+        Dialog.AddDialog("You there, adventurer. You look like you could hold your own. Perhaps you could handle a simple task for me?")
+        Dialog.AddOption("Sure, what do you need from me?", "Dialog1")
+        Dialog.AddOption("Sorry, I have better things to do.", "No")
         Dialog.Start()
     else
     end
@@ -28,3 +28,26 @@ end
 function respawn(NPC)
 	spawn(NPC)
 end
+
+--------------------------------------------------------------------------------------------------------------------------------
+--					QUEST 1
+--------------------------------------------------------------------------------------------------------------------------------
+
+function Dialog1(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    Dialog.New(NPC, Spawn)
+    Dialog.AddDialog("It's nothing to crazy so don't be gettin' to excited. I just need someone to deliver this message for me to Valary at the Crossroads out in the Commonlands, I would do it but I can't be making money if I'm not here. You understand right?")
+    Dialog.AddOption("Sure I guess... I could take the letter for you.", "AcceptedQuest1")
+    Dialog.AddOption("That does seem to be quite the problem.. but I cant help you.", "No")
+    Dialog.Start()
+end
+
+function AcceptedQuest1(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    OfferQuest(NPC, Spawn, Quest1)
+    Dialog.New(NPC, Spawn)
+    Dialog.AddDialog("Perfect, I'll make sure Valary rewards you for your time.")
+    Dialog.AddOption("Someone better pay me!")
+    Dialog.Start()
+end
+

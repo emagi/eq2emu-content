@@ -6,8 +6,9 @@
                    : 
 --]]
 
-function cast(Caster, Target, Mit)
+function cast(Caster, Target, Mit, Sta)
     AddSpellBonus(Target, 200, Mit)
+    AddSpellBonus(Target, 1, Sta)
 end
 
 function remove(Caster, Target)

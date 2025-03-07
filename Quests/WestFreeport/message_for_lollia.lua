@@ -11,10 +11,11 @@
 	Followed by		:	None
 --]]
 
+local Quest = 6002
 
 function Init(Quest)
-	AddQuestStepChat(Quest, 1, "I need to deliver a message to Lollia Parnesius.", 100, "I need to deliver Anessa Bonefetter's message to Lollia Parnesius.", 11, 1440008)
-	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	AddQuestStepChat(Quest, 1, "I need to deliver a message to Lollia Parnesius.", 1, "I need to deliver Anessa Bonefetter's message to Lollia Parnesius.", 11, 1440008)
+	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 
 function Accepted(Quest, QuestGiver, Player)
@@ -31,21 +32,14 @@ end
 
 function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
+    UpdateQuestStepDescription(Quest, 1, "I have delivered the message to Lollia Parnesius.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I've delivered Anessa Bonefetter's message to Lollia Parnesius.")
+	UpdateQuestDescription(Quest, "I've delivered the message to Lollia Parnesius and all I got was grief for the messages timeliness.")
 	GiveQuestReward(Quest, Player)
 end
 
 function Reload(Quest, QuestGiver, Player, Step)
 	if Step == 1 then
-	    Step1Complete(Quest, QuestGiver, Player)
-	elseif Step == 2 then
 		QuestComplete(Quest, QuestGiver, Player)
 	end
-end
-
-function Step1Complete(Quest, QuestGiver, Player)
-    UpdateQuestStepDescription(Quest, 1, "I have delivered the message to Lollia Parnesius.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I've delivered Anessa Bonefetter's message to Lollia Parnesius.")
-	UpdateQuestDescription(Quest, "I've delivered the message to Lollia Parnesius and all I got was grief for the messages timeliness.")
-    SetStepComplete(Quest, 2)
-	
 end

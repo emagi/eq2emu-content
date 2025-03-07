@@ -6,10 +6,7 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
-
-*Inflicts 51 - 85 disease damage on targets in Area of Effect
-*Inflicts 22 - 27 disease damage on targets in Area of Effect every 6 seconds
-
---]]
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+end
 

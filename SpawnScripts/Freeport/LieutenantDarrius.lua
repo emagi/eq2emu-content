@@ -7,6 +7,7 @@
 --]]
 local InSearchofSpiritkeepers = 5965
 local ArmorDelivery = 5977
+local HeadOfMarius = 5999
 require "SpawnScripts/Generic/DialogModule"
 require "SpawnScripts/Generic/NPCModule"
 
@@ -14,6 +15,7 @@ function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     FreeportGuard(NPC)
     ProvidesQuest(NPC, InSearchofSpiritkeepers)
+    ProvidesQuest(NPC, HeadOfMarius)
 end
 
 function respawn(NPC)
@@ -34,7 +36,10 @@ end
 	Dialog.AddOption("I have gathered the five scalps from the Wailing Caves.", "Dialog1")
 	elseif GetQuestStep(Spawn, ArmorDelivery)==1 then
 	Dialog.AddOption("I have a delivery for you from Armorsmith Nipius Malchus actually. ", "Dialog26")
-	
+	elseif CanReceiveQuest(Spawn, HeadOfMarius) then
+	Dialog.AddOption("I was hoping you had some more work that I could handle for you, sir.", "Dialog27")
+    elseif GetQuestStep(Spawn, HeadOfMarius) == 2 then
+    Dialog.AddOption("I have returned, with Marius' head as you asked.", "CompleteQuest3")  
 	end
 	Dialog.AddOption("I have found my purpose, Lieutenant. ")
 	Dialog.Start()    
@@ -283,3 +288,34 @@ end
 function offer(NPC, Spawn)
     OfferQuest(NPC, Spawn, InSearchofSpiritkeepers)
 end    
+
+function Dialog27(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("[Place Holder]Good, I would expect nothing less then offering your endless service to the Overlord. Now that you mention it, I do actually have one other matter I need handled with haste.")
+	Dialog.AddOption("Great... How can I be of service this time, sir Darrius.", "Dialog28")
+	Dialog.AddOption("Actually I have other matters to tend to.", "No")
+	Dialog.Start()
+end
+
+function Dialog28(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("[Place Holder]I need you to find someone by the name of Marius Darkblade. He is a theif and a thug. You can find this worthless worm, crawling through the Thieves' Way I'm sure of it. Find this thorn in our side, dispatch him from the Overlords walls and return his head to me as proof of your success along with anything he might have stolen with his last 'visit' to the city.")
+	Dialog.AddOption("Always a pleasure to server his majesty... and you.", "OfferQuest3")
+	Dialog.AddOption("Actually I have other matters to tend to.", "No")
+	Dialog.Start()
+end
+
+function OfferQuest3(NPC, Spawn)
+    OfferQuest(NPC, Spawn, HeadOfMarius)
+end
+
+function CompleteQuest3(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("[Place Holder]Good to see that you didn't die on your mission.. That would've been a real shame... None the less here is your reward commoner. Now begon from my sight.")
+	Dialog.AddOption("You certainly are a people person.")
+    SetStepComplete(Spawn, HeadOfMarius, 2)
+	Dialog.Start()
+end

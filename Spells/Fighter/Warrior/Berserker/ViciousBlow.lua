@@ -6,11 +6,22 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, DmgType, MinVal, MaxVal, TickVal, Haste, Defense)
+    Berserk = MakeRandomFloat(1.0,100.0)
+    Spell = GetSpell(5172, GetSpellTier())
+    
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+    
+    if LastSpellAttackHit() then
+        if Berserk <= 12.5 then
+        	SetSpellDataIndex(Spell, 0, Haste)
+        	SetSpellDataIndex(Spell, 1, Defense)
+			CastCustomSpell(Spell, Caster, Target)
+		else 
+		end
+	end
+end
 
-*Inflicts 10 - 30 slashing damage on target
-*Inflicts 20 slashing damage on target instantly and every 4 seconds
-*Decreases Haste of target by 5.8
-
---]]
-
+function tick(Caster, Target, DmgType, MinVal, MaxVal, TickVal)
+    SpellDamage(Target, DmgType, TickVal, TickVal)
+end

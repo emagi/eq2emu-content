@@ -14,8 +14,8 @@
 local QuestID = 6005
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to kill ten of the skeletal undead inside the Wailing Caves.", 10, 100, "Averus claims that there is a forgotten cache of armor in the Wailing Caves, a system of caves to the north of Freeport.  Before I search for this cache, I need to make sure I can deal with the undead that still roam within the caverns.", 611, 2580033, 2580002, 2580044, 2580043, 2580038, 2580043, 2580000, 2580008, 2580015, 2580039)
-    AddQuestStepKill(Quest, 2, "I need to kill ten of the ghostly undead inside the Wailing Caves.", 10, 100, "Averus claims that there is a forgotten cache of armor in the Wailing Caves, a system of caves to the north of Freeport.  Before I search for this cache, I need to make sure I can deal with the undead that still roam within the caverns.", 611, 2580005)
+	AddQuestStepKill(Quest, 1, "I need to kill ten of the skeletal undead inside the Wailing Caves.", 1, 100, "Averus claims that there is a forgotten cache of armor in the Wailing Caves, a system of caves to the north of Freeport.  Before I search for this cache, I need to make sure I can deal with the undead that still roam within the caverns.", 611, 2580033, 2580002, 2580044, 2580043, 2580038, 2580043, 2580000, 2580008, 2580015, 2580039)
+    AddQuestStepKill(Quest, 2, "I need to kill ten of the ghostly undead inside the Wailing Caves.", 1, 100, "Averus claims that there is a forgotten cache of armor in the Wailing Caves, a system of caves to the north of Freeport.  Before I search for this cache, I need to make sure I can deal with the undead that still roam within the caverns.", 611, 2580005)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 	AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
 	

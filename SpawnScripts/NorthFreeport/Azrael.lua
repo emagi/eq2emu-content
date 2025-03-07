@@ -5,10 +5,11 @@
     Script Purpose : 
                    : 
 --]]
-
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
-	
+    RandomMovement(NPC, Spawn, 6, -6, 1, 8, 15)
+
 end
 
 function hailed(NPC, Spawn)

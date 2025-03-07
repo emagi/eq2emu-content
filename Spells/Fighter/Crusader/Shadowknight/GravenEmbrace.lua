@@ -6,9 +6,19 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, Chance)
+	-- Die animtaion and restricts movement
+	SetServerControlFlag(Target, 5, 1, 1);
+	
+	local roll = math.random(1, 100);
+	if roll <= Chance then
+		ClearHate(NPC, Target)
+		SendMessage(Target, "Your feign death succeeded", "yellow")
+	else
+		SendMessage(Target, "Your feign death attempt failed", "yellow")
+	end
+end
 
-*Feigns Death with 58% chance of success
-
---]]
-
+function remove(Caster, Target)
+	SetServerControlFlag(Target, 5, 1, 0);
+end

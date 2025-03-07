@@ -13,8 +13,8 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to collect 25 pieces of tattered armor from ghostly orcs in the Siege Lands ruins.", 25, 80, "I must get no less than twenty-five pieces of tattered armor from ghostly orcs in the Siege Land ruins.", 166, 330034)
-	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
+	AddQuestStepKill(Quest, 1, "I need to collect 25 pieces of tattered armor from ghostly orcs in the Siege Lands ruins.", 1, 100, "I must get no less than twenty-five pieces of tattered armor from ghostly orcs in the Siege Land ruins.", 166, 330034)
+	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
 function Accepted(Quest, QuestGiver, Player)
@@ -31,15 +31,24 @@ end
 
 function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
-	UpdateQuestStepDescription(Quest, 1, "I collected enough pieces of tattered armor.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I've collected twenty-five pieces of tattered orc armor out in the ruins.")
 
-	UpdateQuestDescription(Quest, "I've returned to Sergeant Typhoeus with the tattered orc armor as proof. I should be more careful of what I say to the militia in the future.   <br>")
+
+	UpdateQuestDescription(Quest, "I've returned to Sergeant Typhoeus with the tattered orc armor as proof. I should be more careful of what I say to the militia in the future")
 	GiveQuestReward(Quest, Player)
 end
 
 function Reload(Quest, QuestGiver, Player, Step)
 	if Step == 1 then
-		QuestComplete(Quest, QuestGiver, Player)
+	   Step1Complete(Quest, QuestGiver, Player)
+	elseif Step == 2 then
+	   QuestComplete(Quest, QuestGiver, Player)
 	end
+end
+
+function Step1Complete(Quest, QuestGiver, Player)
+    UpdateQuestStepDescription(Quest, 1, "I collected enough pieces of tattered armor.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I've collected twenty-five pieces of tattered orc armor out in the ruins.")
+	
+	AddQuestStepChat(Quest, 2, "I should speak with Sergeant Typhoeus", 1, "I hope that I have enough to please Sergeant Typhoeus and sway him into forgiving me. I should speak with him before he changes his mind.", 11, 1280021)
+	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end

@@ -6,7 +6,7 @@
 	Script Notes	:	Auto generated with QuestParser.
 
 	Zone			:	The City of Freeport
-	Quest Giver		:	Alchemist Zizwold
+	Quest Giver		:	Scribe Zizwold
 	Preceded by		:	None
 	Followed by		:	None
 --]]
@@ -32,7 +32,7 @@ end
 function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have slain an ash owlbear.")
 
-	AddQuestStepKill(Quest, 2, "I must hunt Sullian fairies for five rare shimmering blue wings.", 5, 15, "I must gather the items on the list.", 152, 1790211 	)
+	AddQuestStepKill(Quest, 2, "I must hunt Sullian fairies for five rare shimmering blue wings.", 5, 15, "I must gather the items on the list.", 152, 1790211)
 	AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
 end
 
@@ -47,7 +47,7 @@ function Step3Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 3, "I have killed some dusk leapers and collected the rare hairs.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I have gathered the items on the list.")
 
-	AddQuestStepChat(Quest, 4, "I must return to scribe Zizwold.", 1, "I must return to scribe Zizwold.", 10, 1280056)
+	AddQuestStepChat(Quest, 4, "I must return to Scribe Zizwold.", 1, "I must return to scribe Zizwold.", 10, 1280056)
 	AddQuestStepCompleteAction(Quest, 4, "QuestComplete")
 end
 

@@ -47,6 +47,6 @@ function Step1Complete(Quest, QuestGiver, Player)
     UpdateQuestStepDescription(Quest, 1, "I've killed the swarm of bats.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I have killed the bats in the Commonlands for Sergius Mordanticus.")
 	
-	AddQuestStepChat(Quest, 2, "I must kill ten bats in the Commonlands.", 1,"Sergius Mordanticus wants me to slay a bunch of swarm bats out in the Commonlands.", 11, 1680144)
+	AddQuestStepChat(Quest, 2, "I need to return to Sergius for my reward.", 1, "I have kill the bats that Sergius Modanticus has asked of me. I should return to him.", 11, 1680144)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end

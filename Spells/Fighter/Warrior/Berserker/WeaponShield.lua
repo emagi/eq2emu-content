@@ -6,11 +6,11 @@
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
+function cast(Caster, Target, Parry)
+    AddSkillBonus(Target, GetSkillIDByName("Parry"), Parry)
+end
 
-*When damaged with a melee weapon this spell will cast Counterattack on target's attacker.  
-	*Inflicts 43 - 72 melee damage on target
-	*Grants a total of 3 triggers of the spell.
-
---]]
+function remove(Caster, Target)
+    RemoveSkillBonus()
+end
 

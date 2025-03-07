@@ -7,7 +7,10 @@
 --]]
 require "SpawnScripts/Generic/DialogModule"
 
+local Quest1 = 5989
+
 function spawn(NPC)
+    ProvidesQuest(NPC, Quest1)
 end
 
 function respawn(NPC)
@@ -15,7 +18,15 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-Dialog3(NPC, Spawn)
+    if CanReceiveQuest(Spawn, Quest1) then
+        Dialog3(NPC, Spawn)
+    elseif GetQuestStep(Spawn, Quest1)==1 then
+        Dialog6(NPC, Spawn)
+    elseif GetQuestStep(Spawn, Quest1)==2 then
+        Dialog7(NPC, Spawn)
+    else
+        Dialog1(NPC, Spawn)
+    end
 end
 
 
@@ -60,6 +71,7 @@ end
 function Dialog5(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
+	OfferQuest(NPC, Spawn, Quest1)
 	Dialog.AddDialog("Good!  Be careful.  Those marauders are sneaky.")
 	Dialog.AddVoiceover("voiceover/english/kouryick/fprt_east/qst_kouryick002.mp3", 414993411, 1936857844)
 	Dialog.AddOption("Goodbye.")
@@ -73,4 +85,22 @@ function Dialog6(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/kouryick/fprt_east/qst_kouryick004.mp3", 1561165149, 1345431663)
 	Dialog.AddOption("Okay.")
 	Dialog.Start()
+end
+
+function Dialog7(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    Dialog.New(NPC, Spawn)
+    Dialog.AddDialog("What are you doing here?  Where's that cargo?  Don't come back unless you have it.")
+    Dialog.AddVoiceover("voiceover/english/kouryick/fprt_east/qst_kouryick004.mp3", 1561165149, 1345431663)
+    Dialog.AddOption("I have it right here, you wanted this manifest right?", "Dialog8")
+    Dialog.Start()
+end
+
+function Dialog8(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    Dialog.New(NPC, Spawn)
+    Dialog.AddDialog("That's it! I cant believe you were *hick* able to recover it! I knew those cursed Nerius were responsible for this...Here take this as a reward, and many thanks to you long legs!")
+    Dialog.AddOption("It was nothing, but hand over that reward.")
+    SetStepComplete(Spawn, Quest1, 2)
+    Dialog.Start()
 end

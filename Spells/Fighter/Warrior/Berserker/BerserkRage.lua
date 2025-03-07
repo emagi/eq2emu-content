@@ -25,7 +25,7 @@ end
 
 
 function proc(Caster, Target, Type, Haste, Defense)
-Spell = GetSpell(5172, GetSpellTier())
+    Spell = GetSpell(5172, GetSpellTier())
 	if Type == 1 or Type == 15 or Type == 14 then
 		SetSpellDataIndex(Spell, 0, Haste)
 		SetSpellDataIndex(Spell, 1, Defense)
