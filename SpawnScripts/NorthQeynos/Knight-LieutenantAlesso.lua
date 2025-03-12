@@ -9,8 +9,10 @@ require "SpawnScripts/Generic/DialogModule"
 
 
 local QeynosianCivilService = 463
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 	ProvidesQuest(NPC, QeynosianCivilService)
 end
 

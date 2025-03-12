@@ -8,16 +8,17 @@
 
 dofile("SpawnScripts/Generic/GenericGuardVoiceOvers.lua")
 dofile("SpawnScripts/Generic/ExpelNonCitizen.lua")
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 	SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")
-    waypoints(NPC)
+    AddTimer(NPC, 6000, "waypoints")
 end
 
 function respawn(NPC)
 	spawn(NPC)
 end
-
 
 function InRange(NPC, Spawn)
     NonCitizen(NPC,Spawn)    
@@ -36,10 +37,8 @@ end
 
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
-		GenericGuardHail(NPC, Spawn)
-	end
-
-
+	GenericGuardHail(NPC, Spawn)
+end
 
 function waypoints(NPC)
 	MovementLoopAddLocation(NPC, 309.84, -21.61, 23.07, 2, 0)

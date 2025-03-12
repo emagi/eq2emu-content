@@ -33,7 +33,7 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have spoken with Kaeso Polluvius.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "Kaeso had very little to say about Pythus, but was obviously afraid of the burglar.")
 
-	AddQuestStepChat(Quest, 2, "Speak to Aldrevia Metilla", 1, "I need to speak with Aldrevia Metilla, and ask her the whereabouts of Pythus.  She can be found in the Jade Tiger's Den.", 11, 1660004)
+	AddQuestStepChat(Quest, 2, "Speak to Aldrevia Metilla", 1, "I need to speak with Aldrevia Metilla, and ask her the whereabouts of Pythus.  She can be found in the Jade Tiger's Den.", 11, 1440468)
 	AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
 end
 

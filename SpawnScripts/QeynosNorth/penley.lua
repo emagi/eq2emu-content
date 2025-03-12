@@ -8,10 +8,12 @@
 
 dofile("SpawnScripts/Generic/GenericGuardVoiceOvers.lua")
 dofile("SpawnScripts/Generic/ExpelNonCitizen.lua")
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 	SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")
-    waypoints(NPC)
+    AddTimer(NPC, 6000, "waypoints")
 end
 
 function InRange(NPC, Spawn)

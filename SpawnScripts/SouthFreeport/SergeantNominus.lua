@@ -27,7 +27,8 @@ function hailed(NPC, Spawn)
     elseif GetQuestStep(Spawn, Quest1) == 4 then
         Dialog6(NPC, Spawn)
     else
-        Say(NPC, "Move along citizen, I have work to tend to.")
+        PlayFlavor(NPC, "voiceover/english/optional1/sergeant_nominus/fprt_south/sergeantnominus000.mp3", "", "nod", 2687891400, 2549215959, Spawn, 0)
+
     end
 end
 

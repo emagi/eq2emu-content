@@ -7,12 +7,14 @@
 --]]
 
 require "SpawnScripts/Generic/DialogModule"
+require "SpawnScripts/Generic/NPCModule"
 
 local Gnolls = 5543
 local Quest2 = 5788 --Fighter Quest pt2
 
-function spawn(NPC)
-ProvidesQuest(NPC,Gnolls)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+     ProvidesQuest(NPC,Gnolls)
 end
 
 function respawn(NPC)

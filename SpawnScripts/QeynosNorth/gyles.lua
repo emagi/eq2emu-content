@@ -8,22 +8,24 @@
 dofile("SpawnScripts/Generic/GenericGuardVoiceOvers.lua")
 dofile("SpawnScripts/Generic/ExpelNonCitizen.lua")
 
-
-function spawn(NPC)
+require "SpawnScripts/Generic/NPCModule"
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
 	AddTimer(NPC, 1900, "follow_Icebear")
 	SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")
 end
 
 function hailed(NPC, Spawn)
     if GetFactionAmount(Spawn,11)<0 then
-        else
+        
+    else
     FaceTarget(NPC, Spawn)
     GenericGuardHail(NPC,Spawn)
     end
 end
 
 function respawn(NPC)
-spawn(NPC)
+    spawn(NPC)
 end
 
 function InRange(NPC, Spawn)

@@ -11,6 +11,7 @@ local InSearchOfTheFeerrott = 5637
 
 function spawn(NPC) -- declare spawn behavior. offer quest
 	ProvidesQuest(NPC, InSearchOfTheFeerrott)
+	AddTimer(NPC, 6000, "waypoints")
 end
 
 function hailed(NPC, Spawn)
@@ -44,4 +45,17 @@ end
 
 function offer(NPC, Spawn)
     OfferQuest(NPC, Spawn, InSearchOfTheFeerrott)
+end
+
+function waypoints(NPC)
+	MovementLoopAddLocation(NPC, -300.77, -56.07, -75.09, 2, 0)
+	MovementLoopAddLocation(NPC, -298.71, -56.07, -75.93, 2, 0)
+	MovementLoopAddLocation(NPC, -213.12, -56.07, -75.51, 2, 90)
+	MovementLoopAddLocation(NPC, -213.12, -56.07, -75.51, 2, 0)
+	MovementLoopAddLocation(NPC, -247.61, -56.07, -74.35, 2, 0)
+	MovementLoopAddLocation(NPC, -249.41, -56.07, -72.33, 2, 0)
+	MovementLoopAddLocation(NPC, -249.41, -56.07, -72.33, 2, 90)
+	MovementLoopAddLocation(NPC, -250.47, -56.07, -73.81, 2, 0)
+	MovementLoopAddLocation(NPC, -300.77, -56.07, -75.09, 2, 0)
+	MovementLoopAddLocation(NPC, -300.77, -56.07, -75.09, 2, 90)
 end

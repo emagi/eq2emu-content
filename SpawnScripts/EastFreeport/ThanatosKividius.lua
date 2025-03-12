@@ -7,16 +7,18 @@
 --]]
 
 dofile("SpawnScripts/Generic/GenericEcologyVoiceOvers.lua")
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
-    SetPlayerProximityFunction(NPC, 5, "InRange", "LeaveRange")		
+function spawn(NPC, Spawn)
+    SetPlayerProximityFunction(NPC, 5, "InRange", "LeaveRange")	
+    IdleAggressive(NPC)
 end
 
 function hailed(NPC, Spawn)
-FaceTarget(NPC, Spawn)
-GenericEcologyHail(NPC, Spawn, faction)
+    FaceTarget(NPC, Spawn)
+    GenericEcologyHail(NPC, Spawn, faction)
 end
 
 function InRange(NPC,Spawn)
-GenericEcologyCallout(NPC, Spawn, faction)
+    GenericEcologyCallout(NPC, Spawn, faction)
 end

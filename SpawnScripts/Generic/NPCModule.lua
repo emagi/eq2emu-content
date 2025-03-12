@@ -118,7 +118,7 @@ end
 
 function AttributeModifiers(NPC, Spawn)
     MeleeDmgMod = math.floor(GetStr(NPC) / 10)  -- Determines strength bonus to auttoattack damage.
-    StaminaHPMod = GetSta(NPC) / 10  -- Determins stamina bonus to hitpoints.
+    StaminaHPMod = GetSta(NPC) / 10  -- Determins stamina bonus to hitpoints. Not implemented.
 end
 
 --Health and power regeneration rates
@@ -132,17 +132,6 @@ function Regen(NPC, Spawn)
         -- In-combat power regeneration
         SetInfoStructUInt(NPC, "pw_regen_override", 1)  -- Set to  0 to disable and allow the server to set the regen rate.
         SetInfoStructSInt(NPC, "pw_regen", 0)           -- Set Regen Amount. Default 0
-    --else
-            -- In-combat health regeneration
-        --SetInfoStructUInt(NPC, "hp_regen_override", 1)  -- Set to  0 to disable and allow the server to set the regen rate.
-        --SetInfoStructSInt(NPC, "hp_regen", level * 10)           -- Set Regen Amount. Default 0
-    
-        -- In-combat power regeneration
-        --SetInfoStructUInt(NPC, "pw_regen_override", 1)  -- Set to  0 to disable and allow the server to set the regen rate.
-        --SetInfoStructSInt(NPC, "pw_regen", level * 10)           -- Set Regen Amount. Default 0
-    
-    --end
-    --AddTimer(NPC, 6000, "Regen")
 end
 
 --Damage functions based on NPC level range.
