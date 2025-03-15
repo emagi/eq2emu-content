@@ -1,20 +1,34 @@
 --[[
-    Script Name    : Quests/SouthQeynos/attack_of_the_zombies.lua
-    Script Author  : bogusmeatfactory
-    Script Date    : 2025.01.29 04:01:28
-    Script Purpose : Handles the quest, "Attack of the Zombies"
+	Script Name		:	attack_of_the_zombies.lua
+	Script Purpose	:	Handles the quest, "Attack of the Zombies"
+	Script Author	:   Xiki
+	Script Date		:	3/14/2025
+	Script Notes	:	Auto generated with QuestParser.
 
-        Zone       : SouthQeynos
-        Quest Giver: Pupil Adept Wazzlefop
-        Preceded by: None
-        Followed by: None
+	Zone			:	South Qeynos
+	Quest Giver		:	Pupil Adept Wazzlefop
+	Preceded by		:	None
+	Followed by		:	None
 --]]
 
 
-
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to forestall an attack by slaying zombie knights within Stormhold.", 10, 100, "I need to kill zombie knights.", 611, 150028, 150243)
+	SetQuestFeatherColor(Quest, 3)
+	SetQuestRepeatable(Quest)
+	AddQuestStepKill(Quest, 1, "I need to kill zombie knights.", 12, 100, "I need to forestall an attack by slaying zombie knights within Stormhold.", 611, 150028, 150243)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
+end
+
+function Accepted(Quest, QuestGiver, Player)
+	-- Add dialog here for when the quest is accepted
+end
+
+function Declined(Quest, QuestGiver, Player)
+	-- Add dialog here for when the quest is declined
+end
+
+function Deleted(Quest, QuestGiver, Player)
+	-- Remove any quest specific items here when the quest is deleted
 end
 
 function QuestComplete(Quest, QuestGiver, Player)
@@ -28,16 +42,6 @@ end
 
 function Reload(Quest, QuestGiver, Player, Step)
 	if Step == 1 then
-		Step1Complete(Quest, QuestGiver, Player)
-	elseif Step == 2 then
 		QuestComplete(Quest, QuestGiver, Player)
 	end
-end
-
-function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
-end
-
-function Declined(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is declined
 end

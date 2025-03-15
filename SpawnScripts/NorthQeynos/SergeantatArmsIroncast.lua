@@ -8,6 +8,11 @@
 
 require "SpawnScripts/Generic/DialogModule"
 
+local questsByLevel = {
+    ["30-34"] = {6025, 6026, 6027, 6028},  -- Quests for levels 30-34
+    ["35-39"] = {6029, 6030, 6031, 6032, 6033}  -- Quests for levels 35-39
+}
+
 function spawn(NPC)
 end
 
@@ -16,7 +21,32 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-	PlayFlavor(NPC, "voiceover/english/sergeant-at-arms_ironcast/qey_north/100_soc_dwarf_guard_officer_ironcast_no_181290a1.mp3", "Hail, citizen. I'm on duty and can't speak.  If you need the assistance of the guard,  let us know.", "", 904288338, 3551828428, Spawn, 0)
+    local playerLevel = GetLevel(Spawn)
+    local quests = nil
+
+    -- Determine the quests based on the player's level (30-39)
+    if playerLevel >= 30 and playerLevel <= 34 then
+        quests = questsByLevel["30-34"]
+    elseif playerLevel >= 35 and playerLevel <= 39 then
+        quests = questsByLevel["35-39"]
+    end
+
+    if quests then
+        -- Check if the player already has any quest from the list
+        for _, questID in ipairs(quests) do
+            if HasQuest(Spawn, questID) then
+                -- If the player has any quest from the list, exit early
+                Say(NPC, "You're already on a task. Finish it first before taking another.")
+                return
+            end
+        end
+        -- If no quest was found, offer a new one
+        local newQuestID = quests[math.random(#quests)]
+        OfferQuest(NPC, Spawn, newQuestID)
+        Say(NPC, "I have a task for someone of your experience. Will you take it?")
+    else
+        Say(NPC, "I have no tasks suitable for your level. You may need to seek another challenge.")
+    end
 end
 
 function RandomGreeting(NPC, Spawn)
