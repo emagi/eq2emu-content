@@ -47,17 +47,3 @@ function Reload(Quest, QuestGiver, Player, Step)
 end
 
 
-end
-
-function Declined(Quest, QuestGiver, Player)
-
-end
-
-function quest_complete(Quest, QuestGiver, Player)
-
-end
-
-function Reload(Quest, QuestGiver, Player, Step)
-
-end
-

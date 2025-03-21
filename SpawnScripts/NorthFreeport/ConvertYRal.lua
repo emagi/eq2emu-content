@@ -1,14 +1,14 @@
 --[[
-    Script Name    : SpawnScripts/NorthFreeport/BlightSageDestroz.lua
-    Script Author  : Dorbin
-    Script Date    : 2022.06.19 01:06:47
+    Script Name    : SpawnScripts/NorthFreeport/ConvertYRal.lua
+    Script Author  : Xiki
+    Script Date    : 2025.03.15 11:03:36
     Script Purpose : 
                    : 
 --]]
 
 local questsByLevel = {
-    ["30-34"] = {6233, 6234, 6235, 6236},  -- Quests for levels 30-34
-    ["35-39"] = {6237, 6238, 6239, 6240, 6241}  -- Quests for levels 35-39
+    ["10-14"] = {6218, 6219},  -- Quests for levels 10-14
+    ["15-19"] = {6220, 6221, 6222}  -- Quests for levels 15-19
 }
 
 function spawn(NPC)
@@ -19,11 +19,11 @@ function hailed(NPC, Spawn)
     local playerLevel = GetLevel(Spawn)
     local quests = nil
 
-    -- Determine the quests based on the player's level (30-39)
-    if playerLevel >= 30 and playerLevel <= 34 then
-        quests = questsByLevel["30-34"]
-    elseif playerLevel >= 35 and playerLevel <= 39 then
-        quests = questsByLevel["35-39"]
+    -- Determine the quests based on the player's level (10-19)
+    if playerLevel >= 10 and playerLevel <= 14 then
+        quests = questsByLevel["10-14"]
+    elseif playerLevel >= 15 and playerLevel <= 19 then
+        quests = questsByLevel["15-19"]
     end
 
     if quests then
@@ -46,7 +46,6 @@ function hailed(NPC, Spawn)
         Say(NPC, "I have no tasks suitable for your level. You may need to seek another challenge.")
     end
 end
-
 function respawn(NPC)
 	spawn(NPC)
 end

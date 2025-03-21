@@ -1,15 +1,18 @@
 --[[
-    Script Name    : SpawnScripts/EastFreeport/GuardMuciaDama.lua
+    Script Name    : SpawnScripts/EastFreeport/aguarddog2.lua
     Script Author  : LordPazuzu
-    Script Date    : 2025.01.22 02:01:40
+    Script Date    : 2025.03.16 08:03:38
     Script Purpose : 
                    : 
 --]]
 require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
-    NPCModule(NPC, Spawn)
-    FreeportGuard(NPC)
+    Named(NPC, Spawn)
+    dmgMod = GetStr(NPC)/10
+    SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(140 + dmgMod)) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(300 + dmgMod))
     AddTimer(NPC, 6000, "follow")
 end
 
@@ -23,7 +26,7 @@ end
 
 function follow(NPC)
 	local zone = GetZone(NPC)
-	local controller = GetSpawnByLocationID(zone, 390871)
+	local controller = GetSpawnByLocationID(zone, 133795697)
     local leaderX = GetX(controller)
     local leaderY = GetY(controller)
     local leaderZ = GetZ(controller)

@@ -1,14 +1,14 @@
 --[[
-    Script Name    : SpawnScripts/NorthFreeport/BlightSageDestroz.lua
-    Script Author  : Dorbin
-    Script Date    : 2022.06.19 01:06:47
+    Script Name    : SpawnScripts/NorthFreeport/ThaumaturgeRanollious.lua
+    Script Author  : Xiki
+    Script Date    : 2025.03.15 11:03:48
     Script Purpose : 
                    : 
 --]]
 
 local questsByLevel = {
-    ["30-34"] = {6233, 6234, 6235, 6236},  -- Quests for levels 30-34
-    ["35-39"] = {6237, 6238, 6239, 6240, 6241}  -- Quests for levels 35-39
+    ["40-44"] = {6207, 6208, 6209},  -- Quests for levels 40-44
+    ["45-50"] = {6210, 6211, 6212, 6213, 6214, 6215, 6216, 6217}   -- Quests for levels 45-50
 }
 
 function spawn(NPC)
@@ -19,11 +19,11 @@ function hailed(NPC, Spawn)
     local playerLevel = GetLevel(Spawn)
     local quests = nil
 
-    -- Determine the quests based on the player's level (30-39)
-    if playerLevel >= 30 and playerLevel <= 34 then
-        quests = questsByLevel["30-34"]
-    elseif playerLevel >= 35 and playerLevel <= 39 then
-        quests = questsByLevel["35-39"]
+    -- Determine the quests based on the player's level (40-50)
+    if playerLevel >= 40 and playerLevel <= 44 then
+        quests = questsByLevel["40-44"]
+    elseif playerLevel >= 45 and playerLevel <= 50 then
+        quests = questsByLevel["45-50"]
     end
 
     if quests then

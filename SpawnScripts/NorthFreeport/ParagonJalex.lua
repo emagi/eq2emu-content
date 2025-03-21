@@ -1,14 +1,14 @@
 --[[
-    Script Name    : SpawnScripts/NorthFreeport/BlightSageDestroz.lua
-    Script Author  : Dorbin
-    Script Date    : 2022.06.19 01:06:47
+    Script Name    : SpawnScripts/NorthFreeport/ParagonJalex.lua
+    Script Author  : Xiki
+    Script Date    : 2025.03.15 11:03:41
     Script Purpose : 
                    : 
 --]]
 
 local questsByLevel = {
-    ["30-34"] = {6233, 6234, 6235, 6236},  -- Quests for levels 30-34
-    ["35-39"] = {6237, 6238, 6239, 6240, 6241}  -- Quests for levels 35-39
+    ["30-34"] = {6198, 6199, 6200, 6201},  -- Quests for levels 30-34
+    ["35-39"] = {6202, 6203, 6204, 6205, 6206}  -- Quests for levels 35-39
 }
 
 function spawn(NPC)

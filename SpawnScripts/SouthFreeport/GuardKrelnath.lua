@@ -1,14 +1,14 @@
 --[[
-    Script Name    : SpawnScripts/SouthFreeport/GuardVibiusMansuetus.lua
+    Script Name    : SpawnScripts/SouthFreeport/GuardKrelnath.lua
     Script Author  : LordPazuzu
-    Script Date    : 2025.01.27 02:01:02
+    Script Date    : 2025.03.16 08:03:34
     Script Purpose : 
                    : 
 --]]
 require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
-    Named(NPC, Spawn)
+    NPCModule(NPC, Spawn)
     FreeportGuard(NPC)
 end
 
