@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/VerminsSnye_Classic/agravelech.lua
-    Script Author  : Neifion
-    Script Date    : 2024.04.26 06:04:28
+    Script Name    : SpawnScripts/SerpentSewerClassic/apestilentratonga.lua
+    Script Author  : LordPazuzu
+    Script Date    : 2025.03.25 11:03:47
     Script Purpose : 
                    : 
 --]]
@@ -9,6 +9,8 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
+    ratonga(NPC)
+    Beggar(NPC)
 end
 
 function hailed(NPC, Spawn)
@@ -18,4 +20,3 @@ end
 function respawn(NPC)
 	spawn(NPC)
 end
-

@@ -7,8 +7,8 @@
 --]]
 
 local questsByLevel = {
-    ["20-24"] = {6050, 6051, 6052},  -- Quests for levels 20-24
-    ["25-29"] = {6053, 6054, 6055, 6056}  -- Quests for levels 25-29
+    ["20-24"] = {6050, 6051, 6052, 6053},  -- Quests for levels 20-24
+    ["25-29"] = {6054, 6055, 6056}  -- Quests for levels 25-29
 }
 
 function spawn(NPC)
@@ -27,11 +27,14 @@ function hailed(NPC, Spawn)
     end
 
     if quests then
-        -- Check if the player already has any quest from the list
+        -- Check if the player already has an active quest
         for _, questID in ipairs(quests) do
             if HasQuest(Spawn, questID) then
-                -- If the player has any quest from the list, exit early
+                -- If the player has an active quest, inform them and exit
                 Say(NPC, "You're already on a task. Finish it first before taking another.")
+                return
+            elseif HasPendingQuest(Spawn, questID) then
+                -- If the player has a pending quest, do nothing and exit
                 return
             end
         end

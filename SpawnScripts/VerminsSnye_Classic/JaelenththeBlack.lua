@@ -1,18 +1,18 @@
 --[[
-    Script Name    : SpawnScripts/VerminsSnye_Classic/AlethRillixtheFesteringSeer.lua
+    Script Name    : SpawnScripts/VerminsSnye_Classic/JaelenththeBlack.lua
     Script Author  : LordPazuzu
-    Script Date    : 2025.03.14 09:03:32
+    Script Date    : 2025.03.24 02:03:18
     Script Purpose : 
                    : 
 --]]
 require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
-    Named(NPC)
+    Named(NPC, Spawn)
     dmgMod = GetStr(NPC)/10
     SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
-    SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(55 + dmgMod)) 
-    SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(105 + dmgMod))
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(30 + dmgMod)) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(60 + dmgMod))
 end
 
 function hailed(NPC, Spawn)
