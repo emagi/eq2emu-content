@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to slay twelve ravenous cubes in Vermin's Snye.", 12, 100, "Someone has infested Vermin's Snye with ravenous cubes, so I have decided to eradicate them.", 168, 1540012, 2000005)
+	AddQuestStepKill(Quest, 1, "I need to slay twelve ravenous cubes in Vermin's Snye.", 12, 100, "Someone has infested Vermin's Snye with ravenous cubes, so I have decided to eradicate them.", 168, 8430026, 8480013)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

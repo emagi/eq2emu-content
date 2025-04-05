@@ -15,7 +15,7 @@
 function Init(Quest)
 	SetQuestFeatherColor(Quest, 3)
 	SetQuestRepeatable(Quest)
-	AddQuestStepKill(Quest, 1, "Look for more unusual coins on the outlaw adepts", 6, 100, "I found a rather unusual coin on one of the Bloodsaber adpets. I'm going to try and find more.", 1763, 2000016)
+	AddQuestStepKill(Quest, 1, "Look for more unusual coins on the outlaw adepts", 6, 100, "I found a rather unusual coin on one of the Bloodsaber adpets. I'm going to try and find more.", 1763, 8480019)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

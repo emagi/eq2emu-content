@@ -15,7 +15,7 @@
 function Init(Quest)
 	SetQuestFeatherColor(Quest, 3)
 	SetQuestRepeatable(Quest)
-	AddQuestStepKill(Quest, 1, "Look for chair legs and a back", 1, 100, "I'm looking for replacement pieces for a tomb guard chair down here in the Vermin's Snye.", 2364, 2000012, 2000020)
+	AddQuestStepKill(Quest, 1, "Look for chair legs and a back", 1, 100, "I'm looking for replacement pieces for a tomb guard chair down here in the Vermin's Snye.", 2364, 84800014)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 

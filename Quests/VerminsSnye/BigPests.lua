@@ -15,7 +15,7 @@
 function Init(Quest)
 	SetQuestFeatherColor(Quest, 3)
 	SetQuestRepeatable(Quest)
-	AddQuestStepKill(Quest, 1, "Terminate some large tomb vermin", 5, 100, "This note was apparently meant for someone else here in these catacombs.", 611, 2000014)
+	AddQuestStepKill(Quest, 1, "Terminate some large tomb vermin", 5, 100, "This note was apparently meant for someone else here in these catacombs.", 611, 8480017)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

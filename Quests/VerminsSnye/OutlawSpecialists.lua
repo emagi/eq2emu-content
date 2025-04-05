@@ -15,7 +15,7 @@
 function Init(Quest)
 	SetQuestFeatherColor(Quest, 3)
 	SetQuestRepeatable(Quest)
-	AddQuestStepKill(Quest, 1, "Eliminate Bloodsaber specialists", 8, 100, "This note was apparently meant for someone else here in these catacombs.", 611, 2000017)
+	AddQuestStepKill(Quest, 1, "Eliminate Bloodsaber specialists", 8, 100, "This note was apparently meant for someone else here in these catacombs.", 611, 8480021)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

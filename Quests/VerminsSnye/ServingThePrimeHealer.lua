@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to collect twenty grave scorpius' venom sacs.", 20, 100, "I need to collect venom sacs from some of the grave scorpius and giant burrowers here in the Vermin's Snye for Brother Garvis.", 1151, 2000003)
+	AddQuestStepKill(Quest, 1, "I need to collect twenty grave lech's venom sacs.", 20, 100, "I need to collect venom sacs from some of the grave lech's and giant burrowers here in the Vermin's Snye for Brother Garvis.", 1151, 84800012)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
@@ -30,9 +30,9 @@ function Deleted(Quest, QuestGiver, Player)
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
-	UpdateQuestStepDescription(Quest, 1, "I have all the grave scorpius' venom sacs I need.")
+	UpdateQuestStepDescription(Quest, 1, "I have all the grave lech's venom sacs I need.")
 
-	AddQuestStepKill(Quest, 2, "I need to collect ten giant burrower venom sacs.", 10, 100, "I need to collect venom sacs from some of the grave scorpius and giant burrowers here in the Vermin's Snye for Brother Garvis.", 201, 2000004)
+	AddQuestStepKill(Quest, 2, "I need to collect ten giant burrower venom sacs.", 10, 100, "I need to collect venom sacs from some of the grave lech's and giant burrowers here in the Vermin's Snye for Brother Garvis.", 201, 2000004)
 	AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
 end
 

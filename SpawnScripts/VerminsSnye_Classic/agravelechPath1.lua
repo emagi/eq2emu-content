@@ -21,11 +21,13 @@ function respawn(NPC)
 end
 
 function ChoosePath(NPC)
-    SetPath = MakeRandomInt(1,2)
+    SetPath = MakeRandomInt(1,3)
     if SetPath == 1 then 
         Path1(NPC)
     elseif SetPath == 2 then 
         Path2(NPC)
+    elseif SetPath == 3 then
+        Path3(NPC)
     end
 end
 
@@ -49,4 +51,21 @@ function Path2(NPC)
 	MovementLoopAddLocation(NPC, 161.87 + MakeRandomInt(-2,2), -7.01, -108.82 + MakeRandomInt(-2,2), 2, 0)
 	MovementLoopAddLocation(NPC, 157.49 + MakeRandomInt(-2,2), -6.34, -107.89 + MakeRandomInt(-2,2), 2, 0, "ChoosePath")
 end
+
+function Path3(NPC)
+	MovementLoopAddLocation(NPC, 161.76, -7.02, -108.58, 2, 0)
+	MovementLoopAddLocation(NPC, 167.61 + MakeRandomInt(-2,2), -7.81, -108.74 + MakeRandomInt(-2,2), 2, 0)
+	MovementLoopAddLocation(NPC, 175.58 + MakeRandomInt(-2,2), -7.64, -108.08 + MakeRandomInt(-2,2), 2, 0)
+	MovementLoopAddLocation(NPC, 183.76 + MakeRandomInt(-2,2), -7.1, -109.03 + MakeRandomInt(-2,2), 2, MakeRandomInt(5,10))
+	MovementLoopAddLocation(NPC, 173.98 + MakeRandomInt(-2,2), -7.8, -108.62 + MakeRandomInt(-2,2), 2, 0)
+	MovementLoopAddLocation(NPC, 170.71 + MakeRandomInt(-2,2), -7.49, -108.53 + MakeRandomInt(-2,2), 2, MakeRandomInt(5,10))
+	MovementLoopAddLocation(NPC, 161.85 + MakeRandomInt(-2,2), -7.01, -108.62 + MakeRandomInt(-2,2), 2, 0)
+	MovementLoopAddLocation(NPC, 157.62 + MakeRandomInt(-2,2), -6.32, -108.13 + MakeRandomInt(-2,2), 2, 0)
+	MovementLoopAddLocation(NPC, 152.87 + MakeRandomInt(-2,2), -7.11, -104.18 + MakeRandomInt(-2,2), 2, 0)
+	MovementLoopAddLocation(NPC, 148.66 + MakeRandomInt(-2,2), -7.02, -100.69 + MakeRandomInt(-2,2), 2, MakeRandomInt(5,10))
+	MovementLoopAddLocation(NPC, 151.77 + MakeRandomInt(-2,2), -7.05, -103.54 + MakeRandomInt(-2,2), 2, 0)
+	MovementLoopAddLocation(NPC, 153.71 + MakeRandomInt(-2,2), -7.08, -105.32 + MakeRandomInt(-2,2), 2, MakeRandomInt(5,10))
+	MovementLoopAddLocation(NPC, 161.73 + MakeRandomInt(-2,2), -7.02, -108.27 + MakeRandomInt(-2,2), 2, 0, "ChoosePath")
+end
+
 

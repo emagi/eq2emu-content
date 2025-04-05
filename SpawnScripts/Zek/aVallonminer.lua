@@ -10,6 +10,7 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     Deathfist(NPC)
+    OrcArmorCommon(NPC)
 end
 
 function hailed(NPC, Spawn)

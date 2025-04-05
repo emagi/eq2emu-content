@@ -12,7 +12,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to slay twenty rabid shrillers in Vermin's Snye.", 20, 100, "The rabid shrillers in Vermin's Snye need to be exterminated as soon as possible.", 140, 2000025)
+	AddQuestStepKill(Quest, 1, "I need to slay twenty rabid shrillers in Vermin's Snye.", 20, 100, "The rabid shrillers in Vermin's Snye need to be exterminated as soon as possible.", 140, 84800011)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

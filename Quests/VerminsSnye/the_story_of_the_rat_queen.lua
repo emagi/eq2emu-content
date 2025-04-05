@@ -12,7 +12,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to kill 7 crumbling tomb guards.", 7, 100, "I'll find more pages of this book in Vermin's Snye.", 91, 2000012,2000020)
+	AddQuestStepKill(Quest, 1, "I need to kill 7 crumbling tomb guards.", 7, 100, "I'll find more pages of this book in Vermin's Snye.", 91, 84800014)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 

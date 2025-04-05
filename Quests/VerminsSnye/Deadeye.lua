@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I should try to gather enough guts from the vermin in the catacombs to make a drawstring.", 10, 25, "I'm going to need a bowstring to attach to this bow shaft.  I'm fairly certain that I can draw enough gut from the vermin running around the catacombs to make a nice drawstring.", 382, 2000014, 2000009)
+	AddQuestStepKill(Quest, 1, "I should try to gather enough guts from the vermin in the catacombs to make a drawstring.", 10, 25, "I'm going to need a bowstring to attach to this bow shaft.  I'm fairly certain that I can draw enough gut from the vermin running around the catacombs to make a nice drawstring.", 382, 8480014, 8480018)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 

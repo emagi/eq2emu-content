@@ -15,7 +15,7 @@
 function Init(Quest)
 	SetQuestFeatherColor(Quest, 3)
 	SetQuestRepeatable(Quest)
-	AddQuestStepKill(Quest, 1, "Destroy ravenous cubes", 6, 100, "This note was apparently meant for someone else here in these catacombs.", 611, 2000005)
+	AddQuestStepKill(Quest, 1, "Destroy ravenous cubes", 6, 100, "This note was apparently meant for someone else here in these catacombs.", 611, 8480013, 8430026)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepChat(Quest, 1, "I need to find someone that can make use of this bone.", 1, "I need to find someone that could tell me what to do with this bone.  Maybe someone who knows a little about Lika the Tortured can help me out.", 322, 2000007)
+	AddQuestStepChat(Quest, 1, "I need to find someone that can make use of this bone.", 1, "I need to find someone that could tell me what to do with this bone.  Maybe someone who knows a little about Lika the Tortured can help me out.", 322, 84800010)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 

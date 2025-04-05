@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to slay some large tomb vermin in Vermin's Snye.", 20, 100, "I need to slay as many large tomb vermin as I am able in Vermin's Snye.", 98, 2000014)
+	AddQuestStepKill(Quest, 1, "I need to slay some large tomb vermin in Vermin's Snye.", 20, 100, "I need to slay as many large tomb vermin as I am able in Vermin's Snye.", 98, 8480017)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

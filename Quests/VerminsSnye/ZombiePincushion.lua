@@ -15,7 +15,7 @@
 function Init(Quest)
 	SetQuestFeatherColor(Quest, 3)
 	SetQuestRepeatable(Quest)
-	AddQuestStepKill(Quest, 1, "Kill zombies for more throwing daggers", 10, 100, "I'm looking for throwing daggers that may be stuck in other zombies down here that aren't covered and ruined by rot.", 362, 2000027, 2000018, 2000011)
+	AddQuestStepKill(Quest, 1, "Kill zombies for more throwing daggers", 10, 100, "I'm looking for throwing daggers that may be stuck in other zombies down here that aren't covered and ruined by rot.", 362, 84800013)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

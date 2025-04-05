@@ -8,8 +8,13 @@
 
 local GateLower = 1900304
 local GateOpenedY = -38
+require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    NPCModule(NPC, Spawn)
+    Deathfist(NPC)
+    OrcArmorCommon(NPC)
+
 	local bridgeGate = GetSpawn(NPC, GateLower)
 	if bridgeGate ~= nil and GetY(bridgeGate) == GateOpenedY then
 		UseWidget(bridgeGate)

@@ -15,7 +15,7 @@
 function Init(Quest)
 	SetQuestFeatherColor(Quest, 3)
 	SetQuestRepeatable(Quest)
-	AddQuestStepKill(Quest, 1, "Look for the missing pieces of this journal entry", 5, 100, "I'm looking for scraps of paper that make up a journal entry.", 2179, 2000014, 2000009, 2000005, 2000003)
+	AddQuestStepKill(Quest, 1, "Look for the missing pieces of this journal entry", 5, 100, "I'm looking for scraps of paper that make up a journal entry.", 2179, 8480017, 8480014, 8430026, 8480013)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

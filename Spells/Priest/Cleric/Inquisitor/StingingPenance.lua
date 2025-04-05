@@ -22,11 +22,12 @@ function cast(Caster, Target)
     AddProc(Target, 2, 100)
 end
 
-function proc(Caster, Target, Type, MinHeal, MaxHeal)
+function proc(Caster, Target, Type, MinHeal, MaxHeal, DmgType, Dmg)
     -- When any damage is received this spell will cast Vengeful Faith on target.  
     if Type == 2 then
         --     Heals target for 38 - 46
         SpellHeal("Heal", MinHeal, MaxHeal, Caster)
+        ProcDamage(Caster, Target, "Stinging Penance", DmgType, Dmg)
         RemoveTriggerFromSpell(1)
     end
 end

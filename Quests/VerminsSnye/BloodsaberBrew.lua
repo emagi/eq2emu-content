@@ -15,7 +15,7 @@
 function Init(Quest)
 	SetQuestFeatherColor(Quest, 3)
 	SetQuestRepeatable(Quest)
-	AddQuestStepKill(Quest, 1, "Look for more bottles of Bloodsaber brew", 5, 100, "I had found the first sample of Bloodsaber brew from a Bloodsaber proficient that I had defeated. I'm sure other Bloodsabers will have some of this tasty brew.", 2209, 2000019)
+	AddQuestStepKill(Quest, 1, "Look for more bottles of Bloodsaber brew", 5, 100, "I had found the first sample of Bloodsaber brew from a Bloodsaber proficient that I had defeated. I'm sure other Bloodsabers will have some of this tasty brew.", 2209, 8480020)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

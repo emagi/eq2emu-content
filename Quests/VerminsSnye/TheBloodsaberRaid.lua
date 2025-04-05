@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to slay fifteen Bloodsaber proficients in Vermin's Snye.", 15, 100, "The Bloodsaber proficients in Vermin's Snye are planning on being part of an attack on the Irontoe estate in Qeynos.  I will stop them and ruin their plans.", 611, 2000019)
+	AddQuestStepKill(Quest, 1, "I need to slay fifteen Bloodsaber proficients in Vermin's Snye.", 15, 100, "The Bloodsaber proficients in Vermin's Snye are planning on being part of an attack on the Irontoe estate in Qeynos.  I will stop them and ruin their plans.", 611, 8480020)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

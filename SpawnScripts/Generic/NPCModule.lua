@@ -739,6 +739,8 @@ end
 -- Classic Orcs
 function Deathfist(NPC, Spawn)
     SpawnSet(NPC,"model_type",137)
+    SpawnSet(NPC, "skin_color", "50 60 50")
+    SpawnSet(NPC, "eye_color", "98 63 28")
     --SpawnSet(NPC, "race_type", 20)
 end
 

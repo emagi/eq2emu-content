@@ -14,7 +14,7 @@ conversation = CreateConversation()
 
 AddConversationOption(conversation, "Read on.", "Terminate")
 AddConversationOption(conversation, "Put the note away.", "CloseItemConversation")
-StartDialogConversation(conversation, 2, Item, Player, "The grave scorpius population has grown out of hand down in the Vermin's Snye...")
+StartDialogConversation(conversation, 2, Item, Player, "The grave lech population has grown out of hand down in the Vermin's Snye...")
     elseif HasQuest(Player, quest) then
 RemoveItem(Player, 10086)
 end 
