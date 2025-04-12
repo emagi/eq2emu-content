@@ -1183,7 +1183,34 @@ function Named(NPC, Spawn)
 end
 
 
+--[[
+New AutoAttack function.
 
+AutoAttack(NPC, Spawn)
+    if difficulty <= 4 then
+        tierMod = 0.3
+    elseif difficulty == 5 then
+        tierMod = 0.7
+    elseif difficulty == 6 then
+        tierMod = 1.0
+    elseif difficulty == 7 then
+        tierMod = 1.5
+    elseif difficulty == 8 then
+        tierMod = 2.25
+    elseif difficulty == 9 then
+        tierMod = 3.5
+    end
+    
+    minDmg = (level * 0.6) * tierMod
+    maxDmg = (level * 1.6) * tierMod
+    
+    lowDmg = math.floor((minDmg + MeleeDmgMod) * GlobalDmgMod)
+    highDmg = math.floor((maxDmg + MeleeDmgMod) * GlobalDmgMod)
+    
+    damage(NPC)
+end
+
+--]]
 
 
 

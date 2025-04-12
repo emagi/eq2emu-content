@@ -174,7 +174,7 @@ function Dialog10(NPC, Spawn)
 	Dialog.AddOption("How can I place an item in my house?", "Dialog7")
 	Dialog.AddOption("What is the marketboard for?", "Dialog6")
 	Dialog.AddOption("What is my house for?", "Dialog5")
-	Dialog.AddOption("Thatâ€™s enough for now, thanks.")
+	Dialog.AddOption("That's enough for now, thanks.")
 	Dialog.Start()
 end
 
