@@ -3,7 +3,7 @@
 	Script Author   : Cynnar
 	Script Date     : 2019.09.28 03:09:56
 	Script Notes    : 
-	Script Purpose  : 
+	Script Purpose  : Starting boat
 --]]
 dofile("SpawnScripts/Generic/SubClassToCommoner.lua")
 
