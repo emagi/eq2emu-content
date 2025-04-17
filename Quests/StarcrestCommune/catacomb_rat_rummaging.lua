@@ -15,7 +15,7 @@ require "SpawnScripts/Generic/DialogModule"
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I must kill and bring back four of any type of rat in the catacombs.", 4, 100, "I need to hunt down any four rats in the Down Below for a spectator at the King's Field game.", 127, 8340033, 8340034, 8340043, 8340041)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
-	UpdateQuestZone(Quest, "Down Below")	
+	UpdateQuestZone(Quest, "The Down Below")	
 end
 
 function Accepted(Quest, QuestGiver, Player)

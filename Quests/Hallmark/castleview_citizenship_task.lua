@@ -14,7 +14,7 @@
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "Gather five tokens from the creatures in the Down Below.", 5, 34, "The catacombs have been seeded with tokens for the citizens of Castleview Hamlet to gather. These tokens may be found on any creatures in the Down Below.", 1334, 8340015, 8340016, 8340017, 8340018, 8340019, 8340020, 8340021, 8340022, 8340023, 8340025, 8340026, 8340027, 8340028, 8340029, 8340030, 8340031, 8340032, 8340033, 8340034, 8340035, 8340036, 8340037, 8340038, 8340039, 8340040, 8340041, 8340042, 8340043, 8340044, 8340045, 8340046, 8340047, 8340048, 8340049, 8340050, 8340051, 8340052, 8340053, 8340054, 8340055)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")   
-    UpdateQuestZone(Quest,"Down Below")
+    UpdateQuestZone(Quest,"The Down Below")
 end
 
 function Accepted(Quest, QuestGiver, Player)
