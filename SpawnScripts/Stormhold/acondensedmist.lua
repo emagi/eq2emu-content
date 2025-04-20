@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/Stormhold/acaveroothorror.lua
-    Script Author  : Dorbin
-    Script Date    : 2022.03.24 12:03:44
+    Script Name    : SpawnScripts/Stormhold/acondensedmist.lua
+    Script Author  : lordpazuzu
+    Script Date    : 2025.04.19 03:04:06
     Script Purpose : 
                    : 
 --]]
@@ -9,11 +9,11 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
+    RandomMovement(NPC, Spawn, 4, -4, 2, 8, 15)
 end
 
 function hailed(NPC, Spawn)
-    FaceTarget(NPC, Spawn)
-
+	FaceTarget(NPC, Spawn)
 end
 
 function respawn(NPC)

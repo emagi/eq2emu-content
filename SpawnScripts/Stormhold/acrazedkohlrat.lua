@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/Stormhold/acaveroothorror.lua
-    Script Author  : Dorbin
-    Script Date    : 2022.03.24 12:03:44
+    Script Name    : SpawnScripts/Stormhold/acrazedkohlrat.lua
+    Script Author  : lordpazuzu
+    Script Date    : 2025.04.19 03:04:50
     Script Purpose : 
                    : 
 --]]
@@ -12,8 +12,7 @@ function spawn(NPC, Spawn)
 end
 
 function hailed(NPC, Spawn)
-    FaceTarget(NPC, Spawn)
-
+	FaceTarget(NPC, Spawn)
 end
 
 function respawn(NPC)
