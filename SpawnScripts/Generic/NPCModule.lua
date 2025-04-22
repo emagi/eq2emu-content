@@ -1188,24 +1188,26 @@ New AutoAttack function.
 
 AutoAttack(NPC, Spawn)
     if difficulty <= 4 then
-        tierMod = 0.3
+        difMod = 0.3
     elseif difficulty == 5 then
-        tierMod = 0.7
+        difMod = 0.7
     elseif difficulty == 6 then
-        tierMod = 1.0
+        difMod = 1.0
     elseif difficulty == 7 then
-        tierMod = 1.5
+        difMod = 1.5
     elseif difficulty == 8 then
-        tierMod = 2.25
+        difMod = 2.25
     elseif difficulty == 9 then
-        tierMod = 3.5
+        difMod = 3.5
     end
     
-    minDmg = (level * 0.6) * tierMod
-    maxDmg = (level * 1.6) * tierMod
+
+    LevelDmgMod = level * 0.01 + 1
+    minDmg = (level * 0.6) * difMod
+    maxDmg = ((level * 1.6) * difMod) * LevelDmgMod
     
     lowDmg = math.floor((minDmg + MeleeDmgMod) * GlobalDmgMod)
-    highDmg = math.floor((maxDmg + MeleeDmgMod) * GlobalDmgMod)
+    highDmg = math.ceil((maxDmg + MeleeDmgMod) * GlobalDmgMod)
     
     damage(NPC)
 end
