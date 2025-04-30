@@ -275,7 +275,7 @@ local function printVisualResults(NPC, results)
 			end
 			Say(NPC, "Visual " .. entry[1] .. " name " .. entry[2])
 			tableNumber = tableNumber + 1
-			AddTimer(NPC,5000,"RunSpellVisuals")
+			AddTimer(NPC,10000,"RunSpellVisuals")
 			break
 		end
 			num = num + 1
@@ -287,7 +287,7 @@ function casted_on(NPC, Spawn, NewValue)
     local filename = "visuals.txt" -- Change this if your file has a different name
     local table_data = readTable(filename)
 
-    tableResults = searchTable(NPC, table_data, NewValue, 20)
+    tableResults = searchTable(NPC, table_data, NewValue, 9999)
     if #tableResults > 0 then
 		tableNumber = 0;
 		AddTimer(NPC,2000,"RunSpellVisuals")
