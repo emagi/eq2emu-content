@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/NektulosClassic/aNeriusTactician.lua
+    Script Name    : SpawnScripts/NektulosClassic/aNeriuspirate.lua
     Script Author  : lordpazuzu
-    Script Date    : 2025.04.25 06:04:51
+    Script Date    : 2025.04.30 07:04:39
     Script Purpose : 
                    : 
 --]]
@@ -10,8 +10,8 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
     NPCModule(NPC, Spawn)
+    IdleBored(NPC)
     human(NPC)
-    IdleAlert(NPC)
 end
 
 function hailed(NPC, Spawn)
