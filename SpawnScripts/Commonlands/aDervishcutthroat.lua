@@ -30,16 +30,24 @@ end
 function ChooseRace(NPC)
     local SetRace = MakeRandomInt(1,6)
     
-    if SetRace >= 1 and SetRace <=  3 then
+    if SetRace >= 1 and SetRace <=  2 then
         SpawnSet(NPC, "class",  38)
-        SetSpellList(NPC,  458)
+        SetSpellList(NPC,  332)
         human(NPC)
         DervishLeather(NPC)
         IdleSneaky(NPC)
         
+    elseif SetRace == 3 then
+        SpawnSet(NPC, "class",  5)
+        SetSpellList(NPC,  451)
+        SpawnSet(NPC,"size", 38)
+        human(NPC)
+        DervishLeather(NPC)
+        IdleAggressive(NPC)    
+        
     elseif SetRace == 4 then
         SpawnSet(NPC, "class",  2)
-        SetSpellList(NPC,  451)
+        SetSpellList(NPC,  477)
         SpawnSet(NPC,"size", 36)
         barbarian(NPC)
         DervishChain(NPC)

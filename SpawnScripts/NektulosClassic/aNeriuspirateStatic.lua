@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/NektulosClassic/aforestleaper.lua
+    Script Name    : SpawnScripts/NektulosClassic/aNeriuspirateStatic.lua
     Script Author  : lordpazuzu
-    Script Date    : 2025.04.27 03:04:21
+    Script Date    : 2025.05.01 04:05:02
     Script Purpose : 
                    : 
 --]]
@@ -10,7 +10,8 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
     NPCModule(NPC, Spawn)
-    RandomMovement(NPC, Spawn, 8, -8, 2, 8, 15)
+    IdleBored(NPC)
+    human(NPC)
 end
 
 function hailed(NPC, Spawn)
