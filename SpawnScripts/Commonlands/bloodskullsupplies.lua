@@ -16,7 +16,7 @@ end
 function InRange(NPC, Spawn)
 if HasQuest(Spawn, BloodskullDisruption)  then
 AddPrimaryEntityCommand(Spawn, NPC, "Destroy")
-AddPrimaryEntityCommand(SPawn, NPC, "Search for Explosives")
+AddPrimaryEntityCommand(Spawn, NPC, "Search for Explosives")
 SpawnSet(NPC, "display_hand_icon", 1)
 SpawnSet(NPC, "show_command_icon", 1)
 SetVisualFlag(NPC)
