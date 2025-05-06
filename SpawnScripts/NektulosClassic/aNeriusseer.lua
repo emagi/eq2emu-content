@@ -10,6 +10,8 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
     NPCModule(NPC, Spawn)
+    human(NPC)
+    IdleAlert(NPC)
 end
 
 function hailed(NPC, Spawn)

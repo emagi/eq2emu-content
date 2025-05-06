@@ -11,6 +11,8 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC)
     NPCModule(NPC, Spawn)
     ChooseClass(NPC)
+    human(NPC)
+    IdleAggressive(NPC)
 end
 
 function hailed(NPC, Spawn)

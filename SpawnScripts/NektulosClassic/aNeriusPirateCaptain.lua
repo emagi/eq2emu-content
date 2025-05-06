@@ -14,6 +14,8 @@ function spawn(NPC)
     SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(45 + dmgMod)) 
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(85 + dmgMod))
+    human(NPC)
+    IdleAggressive(NPC)
 end
 
 function hailed(NPC, Spawn)
