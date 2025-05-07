@@ -1,13 +1,14 @@
 --[[
-    Script Name    : SpawnScripts/NektulosClassic/aflamelitshriller.lua
+    Script Name    : SpawnScripts/NektulosClassic/aflamelightshriller.lua
     Script Author  : lordpazuzu
-    Script Date    : 2025.04.24 07:04:15
+    Script Date    : 2025.05.06 08:05:17
     Script Purpose : 
                    : 
 --]]
+
 require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC, Spawn)
+function spawn(NPC)
     NPCModule(NPC, Spawn)
     RandomMovement(NPC, Spawn, 12, -12, 2, 8, 15)
 end
