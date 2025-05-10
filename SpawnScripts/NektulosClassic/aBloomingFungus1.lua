@@ -9,9 +9,9 @@ function spawn(NPC, Spawn)
     local zone = GetZone(NPC)
     ControlObject = 133796142   --Loc ID for camp controller.  Camp controller is an invisible cube spawn containing this script.
     LevelMin = 22        --Min level for trash spawn groups
-    LevelMax = 24       --Max level for trash spawn groups
-    SubBossLevel = 24    --Level of SubBoss group
-    BossLevel = 25       --Level of BossGroup
+    LevelMax = 23       --Max level for trash spawn groups
+    SubBossLevel = 23    --Level of SubBoss group
+    BossLevel = 24       --Level of BossGroup
     SubBossGroup = 1058090    --GroupID for SubBoss Group
     BossGroup = 1058091       --GroupID for Boss Group
     --PropGroup = xx       --GroupID for camp props i.e. tents, campfires, etc
