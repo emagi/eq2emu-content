@@ -5,124 +5,140 @@
     Script Purpose : 
                    : 
 --]]
-
 function spawn(NPC, Spawn)
-    zone = GetZone(NPC)
-    ControlObject = x   --Loc ID for camp controller.  Camp controller is an invisible cube spawn containing this script.
-    LevelMin = x        --Min level for trash spawn groups
-    LevelMax = x        --Max level for trash spawn groups
-    SubBossLevel = x    --Level of SubBoss group
-    BossLevel = x       --Level of BossGroup
-    SubBossGroup = x    --GroupID for SubBoss Group
-    BossGroup = x       --GroupID for Boss Group
-    PropGroup = x       --GroupID for camp props i.e. tents, campfires, etc
-    BuffObject = x      --LocID for buff object to spawn in place of named.  i.e. gnollish ark 
+    local zone = GetZone(NPC)
+    ControlObject = xx   --Loc ID for camp controller.  Camp controller is an invisible cube spawn containing this script.
+    LevelMin = xx        --Min level for trash spawn groups
+    LevelMax = xx       --Max level for trash spawn groups
+    SubBossLevel = xx    --Level of SubBoss group
+    BossLevel = xx       --Level of BossGroup
+    SubBossGroup = xx    --GroupID for SubBoss Group
+    BossGroup = xx       --GroupID for Boss Group
+    --PropGroup = xx       --GroupID for camp props i.e. tents, campfires, etc
+    --BuffObject = xx      --LocID for buff object to spawn in place of named.  i.e. gnollish ark 
+    --Prop1 = xx
+    --Prop2 = xx
+    --Prop3 = xx
     
-    Group1(NPC, Spawn, x, x) --Enter in group IDs for variant groups in that spawn.  Default script is setup for 2 variants, more can be added.
-    Group2(NPC, Spawn, x, x)
-    Group3(NPC, Spawn, x, x)
-    Group4(NPC, Spawn, x, x)
+    Group1(NPC, Spawn, xx, xx) --Enter in group IDs for variant groups in that spawn.  Default script is setup for 2 variants, more can be added.
+    Group2(NPC, Spawn, xx, xx)
+    Group3(NPC, Spawn, xx, xx)
+    Group4(NPC, Spawn, xx, xx)
     
-    SpawnGroupByID(zone, Group1, MakeRandomInt(LevelMin, LevelMax))
-    SpawnGroupByID(zone, Group2, MakeRandomInt(LevelMin, LevelMax))
-    SpawnGroupByID(zone, Group3, MakeRandomInt(LevelMin, LevelMax))
-    SpawnGroupByID(zone, Group4, MakeRandomInt(LevelMin, LevelMax))
-    SpawnGroupByID(zone, PropGroup, 0)
+    SpawnGroupByID(zone, G1, MakeRandomInt(LevelMin, LevelMax))
+    SpawnGroupByID(zone, G2, MakeRandomInt(LevelMin, LevelMax))
+    SpawnGroupByID(zone, G3, MakeRandomInt(LevelMin, LevelMax))
+    SpawnGroupByID(zone, G4, MakeRandomInt(LevelMin, LevelMax))
+    --SpawnGroupByID(zone, PropGroup, 0)
 
     AddTimer(NPC, 6000, "SubBossCheck")
 end
 
-function Group1(NPC, Spawn, Var1, Var2)
+function Group1(NPC, Spawn, G1Var1, G1Var2)
     local VariantCheck = MakeRandomInt(1,2)
     
     if VariantCheck == 1 then
-        Group1 = Var1
+        G1 = G1Var1
     else
-        Group1 = Var2
+        G1 = G1Var2
     end
 end
 
-function Group2(NPC, Spawn, Var1, Var2)
+function Group2(NPC, Spawn, G2Var1, G2Var2)
     local VariantCheck = MakeRandomInt(1,2)
     
     if VariantCheck == 1 then
-        Group2 = Var1
+        G2 = G2Var1
     else
-        Group2 = Var2
+        G2 = G2Var2
     end
 end
 
-function Group3(NPC, Spawn, Var1, Var2)
+function Group3(NPC, Spawn, G3Var1, G3Var2)
     local VariantCheck = MakeRandomInt(1,2)
     
     if VariantCheck == 1 then
-        Group3 = Var1
+        G3 = G3Var1
     else
-        Group3 = Var2
+        G3 = G3Var2
     end
 end
 
-function Group4(NPC, Spawn, Var1, Var2)
+function Group4(NPC, Spawn, G4Var1, G4Var2)
     local VariantCheck = MakeRandomInt(1,2)
     
     if VariantCheck == 1 then
-        Group4 = Var1
+        G4 = G4Var1
     else
-        Group4 = Var2
+        G4 = G4Var2
     end
 end
 
 function SubBossCheck(NPC, Spawn)
-    if  GetSpawnByGroupID(zone, Group1) ~=nil and 
-        GetSpawnByGroupID(zone, Group2) ~=nil and
-        GetSpawnByGroupID(zone, Group3) ~=nil and
-        GetSpawnByGroupID(zone, Group4) ~=nil then
-        AddTimer(NPC, 6000, "SubBossCheck")
+    local zone = GetZone(NPC)
+    if  IsSpawnGroupAlive(zone, G1) == true then
+        AddTimer(NPC, 6000, "SubBossCheck", 1, Spawn)
+    elseif
+        IsSpawnGroupAlive(zone, G2) == true then
+        AddTimer(NPC, 6000, "SubBossCheck", 1, Spawn)
+    elseif
+        IsSpawnGroupAlive(zone, G3) == true then
+        AddTimer(NPC, 6000, "SubBossCheck", 1, Spawn)
+    elseif
+        IsSpawnGroupAlive(zone, G4) == true then
+        AddTimer(NPC, 6000, "SubBossCheck", 1, Spawn)
     else 
-        SubBoss(NPC)
+        AddTimer(NPC, 6000, "SubBoss")
     end
 end
 
 function SubBoss(NPC, Spawn)
-    SpawnGroupByID(zone,SubBossGroup, SubBossLevel)
+    local zone = GetZone(NPC)
+    SpawnGroupByID(zone, SubBossGroup, SubBossLevel)
     AddTimer(NPC, 6000, "BossCheck")
 end
 
 function BossCheck(NPC, Spawn)
-    if GetSpawnByGroupID(zone, SubBossGroup) ~=nil then
-        AddTimer(NPC, 6000, "BossCheck")
+    local zone = GetZone(NPC)
+    if IsSpawnGroupAlive(zone, SubBossGroup) == true then
+        AddTimer(NPC, 6000, "BossCheck", 1, Spawn)
     else 
-        Boss(NPC)
+        AddTimer(NPC, 6000, "Boss")
     end
 end
 
 function Boss(NPC, Spawn)
+    local zone = GetZone(NPC)
     local BossChance = MakeRandomInt(1,100)
     
     if BossChance <= 33 then
         SpawnGroupByID(zone, BossGroup, BossLevel)
         AddTimer(NPC, 6000, "EndCheck")
     else 
-        SpawnByLocationID(zone, BuffObject)
-        CloseEvent(NPC)
+        --SpawnByLocationID(zone, BuffObject)
+        AddTimer(NPC, 6000, "CloseEvent")
     end
 end
 
 function EndCheck(NPC, Spawn)
-    if GetSpawnByGroupID(zone, BossGroup) ~=nil then
+    local zone = GetZone(NPC)
+    if IsSpawnGroupAlive(zone, BossGroup) == true then
         AddTimer(NPC, 6000, "EndCheck")
     else 
-        CloseEvent(NPC)
+        AddTimer(NPC, 6000, "CloseEvent")
     end
 end
 
 function CloseEvent(NPC)
-    Despawn(ControlObject)
-    Despawn(#PropGroup)
-    --Despawn control and prop objects
+    local zone = GetZone(NPC)
+    Despawn(GetSpawnByLocationID(zone, ControlObject))
+    --Despawn(GetSpawnByLocationID(zone, Prop1))
+    --Despawn(GetSpawnByLocationID(zone, Prop2))
+    --Despawn(GetSpawnByLocationID(zone, Prop3))
+
+
 end
 
 function respawn(NPC)
 	spawn(NPC)
 end
-
