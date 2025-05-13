@@ -7,12 +7,10 @@
     Script Notes   : Created client versioning & added interactions between NPCs.  MISSING INGRED CHASE AROUND BOAT, but not necessary. - Dorbin 08.14.22  
 --]]
 local legacy = true -- Client check.  True == DoF or Classic
-require "SpawnScripts/Generic/CombatModule"
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
-    SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
-    SetInfoStructUInt(NPC, "primary_weapon_damage_low", 1) 
-    SetInfoStructUInt(NPC, "primary_weapon_damage_high", 3)
+    NPCModule(NPC)
     CageCollision(NPC)
 
 end
