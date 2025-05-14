@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/NektulosClassic/aGulThexsentry.lua
+    Script Name    : SpawnScripts/NektulosClassic/aGulThexrage.lua
     Script Author  : lordpazuzu
-    Script Date    : 2025.04.25 06:04:27
+    Script Date    : 2025.05.13 11:05:36
     Script Purpose : 
                    : 
 --]]

@@ -48,8 +48,6 @@ Dialog1(NPC, Spawn)
 end
 
 
---You look lost refugee.  All newcomers must first register with Garven Tralk at the beach.
-
 function Dialog1(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
@@ -64,7 +62,7 @@ end
 
 function hailed(NPC, Spawn)
 if GetClass(Spawn)>0 then
-if not HasQuest(Spawn,5758) and not HasQuest(Spawn,5717) and not HasCompletedQuest(Spawn,5758)  and not HasCompletedQuest(Spawn,5717) and not  HasItem(Spawn, 1413,1) and GetFactionAmount(Spawn,11) >=0  then
+if not HasQuest(Spawn,5758) and not HasQuest(Spawn,5717) and not HasCompletedQuest(Spawn,5758)  and not HasCompletedQuest(Spawn,5717) and GetFactionAmount(Spawn,11) >=0  then
    if GetRace(Spawn) == BARBARIAN or GetRace(Spawn) == DWARF or GetRace(Spawn) == ERUDITE or GetRace(Spawn) ==GNOME or GetRace(Spawn) == HALF_ELF or GetRace(Spawn) == HUMAN or GetRace(Spawn) == FROGLOK or GetRace(Spawn) == KERRA or GetRace(Spawn) == HIGH_ELF or GetRace(Spawn) == HALFLING or GetRace(Spawn) == WOOD_ELF or GetRace(Spawn) == FAE or GetRace(Spawn) == VAMPIRE or GetRace(Spawn) == AERAKYN then
         Dialog1(NPC, Spawn)
         else
@@ -73,7 +71,7 @@ if not HasQuest(Spawn,5758) and not HasQuest(Spawn,5717) and not HasCompletedQue
     elseif HasQuest(Spawn,5717) or HasCompletedQuest(Spawn,5717) then
         DialogDone(NPC,Spawn)
     else
-     NotRace(NPC, Spawn) --Completed FP Quest or Has FP Quest
+        NotRace(NPC, Spawn) --Completed FP Quest or Has FP Quest
     end
 else
     PlayFlavor(NPC, "voiceover/english/highelf_eco_good_1/ft/highelf/highelf_eco_good_1_hail_gf_869cb34a.mp3", "Hello, young adventurer. It is with the utmost delight that I greet you.", "curtsey", 1236739692, 2465236460, Spawn) --COMMONER RESPONSE
