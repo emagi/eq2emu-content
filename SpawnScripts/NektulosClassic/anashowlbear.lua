@@ -23,6 +23,6 @@ end
 
 function movement(NPC)
     if GetDifficulty(NPC) == 8 then
-        RandomMovement(NPC, Spawn, 12, -12, 2, 8, 15)
+        RandomMovement(NPC, Spawn, 10, -10, 2, 8, 15)
     end 
 end
