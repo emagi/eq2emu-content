@@ -9,6 +9,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
+    ChooseIdle(NPC)
 end
 
 function hailed(NPC, Spawn)
@@ -18,3 +19,15 @@ end
 function respawn(NPC)
 	spawn(NPC)
 end
+
+function ChooseIdle(NPC)
+    SetIdle = MakeRandomInt(1,3)
+    if SetIdle == 1 then
+        IdleAngry(NPC)
+    elseif SetIdle == 2 then
+        IdleBored(NPC)
+    elseif SetIdle == 3 then
+        IdleAlert(NPC)
+    end
+end
+
