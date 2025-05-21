@@ -24,7 +24,7 @@ zone[2] = 8 --y coord
 zone[3] = 9 --z coord
 zone[4] = 0 --height coord
 end
-Bind(Spawn, zone[0], zone[1], zone[2], zone[3], zone[4])
+-- Bind(Spawn, zone[0], zone[1], zone[2], zone[3], zone[4])
 end
 
 
