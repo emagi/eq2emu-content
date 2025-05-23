@@ -10,6 +10,7 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     ChooseClass(NPC)
+    AddTimer(NPC, 6000, "movement")
 end
 
 function hailed(NPC, Spawn)
@@ -28,3 +29,11 @@ function ChooseClass(NPC)
         SpawnSet(NPC, "class", 27) -- Coercer
     end 
 end 
+
+function movement(NPC)
+    if GetDifficulty(NPC) == 8 then
+        RandomMovement(NPC, Spawn, 8, -8, 2, 8, 15)
+    else 
+    
+    end
+end

@@ -1,10 +1,11 @@
 --[[
-    Script Name    : SpawnScripts/NektulosClassic/aGulThexcleric.lua
+    Script Name    : SpawnScripts/NektulosClassic/aGulThexlieutenant.lua
     Script Author  : lordpazuzu
-    Script Date    : 2025.04.24 07:04:09
+    Script Date    : 2025.05.22 08:05:22
     Script Purpose : 
                    : 
 --]]
+
 require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)

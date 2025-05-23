@@ -53,13 +53,13 @@ function hailed(NPC, Spawn)
     if HasQuest(Spawn,Mage1) and GetQuestStep(Spawn,Mage1)==9 then 
     Dialog.AddOption("I have collected the information on what was summoned. It looks like three different things were summoned into existence.","Dialog5")	
     end
-    if HasCompletedQuest(Spawn,Summ) and GetQuestStepProgress(Spawn, Summ) ==2 then
+    if HasQuest(Spawn,Summ) and GetQuestStepProgress(Spawn, Summ) ==2 then
     Dialog.AddOption("I have created and destroyed my elemental creation. Here are the remains","SummFinish")	
     end
-    if HasCompletedQuest(Spawn,Sorc) and GetQuestStepProgress(Spawn, Sorc) ==2 then
+    if HasQuest(Spawn,Sorc) and GetQuestStepProgress(Spawn, Sorc) ==2 then
     Dialog.AddOption("My duel has concluded and I am still standing. Some praise is in order!","SorcFinish")	
     end
-    if HasCompletedQuest(Spawn,Ench) or HasCompletedQuest(Spawn,Sorc) or HasCompletedQuest(Spawn,Summ) then
+    if HasQuest(Spawn,Ench) or HasCompletedQuest(Spawn,Sorc) or HasCompletedQuest(Spawn,Summ) then
     Dialog.AddOption("Arcanist. I still reflect on your lessons. Thank you.")	
     end
     if GetLevel(Spawn) <9 and HasCompletedQuest(Spawn,Mage1) and GetClass(Spawn)==21 and not HasQuest(Spawn, Ench) and not HasQuest(Spawn, Sorc) and not HasQuest(Spawn, Summ) then
