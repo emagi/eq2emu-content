@@ -13,7 +13,7 @@ function spawn(NPC, Spawn)
     LevelMax = 30   
     BossLevel = 30
     Wave1 = 1058173
-    Wave2 = 1057174 
+    Wave2 = 1058174 
     Wave3 = 1058175       
 
     SpawnGroupByID(zone, Wave1, MakeRandomInt(LevelMin, LevelMax))
@@ -23,14 +23,15 @@ end
 
 function Wave2Check(NPC, Spawn)
     local zone = GetZone(NPC)
+    
     if  IsSpawnGroupAlive(zone, Wave1) == true then
-        AddTimer(NPC, 6000, "Wave2Check", 1, Spawn)
+        AddTimer(NPC, 6000, "Wave2Check")
     else 
-        AddTimer(NPC, 6000, "Wave2")
+        AddTimer(NPC, 6000, "SecondWave")
     end
 end
 
-function Wave2(NPC, Spawn)
+function SecondWave(NPC, Spawn)
     local zone = GetZone(NPC)
     local Wave2Chance = MakeRandomInt(1,100)
     
@@ -44,14 +45,15 @@ end
 
 function Wave3Check(NPC, Spawn)
     local zone = GetZone(NPC)
+    
     if IsSpawnGroupAlive(zone, Wave2) == true then
-        AddTimer(NPC, 6000, "Wave3Check", 1, Spawn)
+        AddTimer(NPC, 6000, "Wave3Check")
     else 
-        AddTimer(NPC, 6000, "Wave3")
+        AddTimer(NPC, 6000, "ThirdWave")
     end
 end
 
-function Wave3(NPC, SPawn)
+function ThirdWave(NPC, SPawn)
     zone= GetZone(NPC)
     SpawnGroupByID(zone, Wave3, BossLevel)
     AddTimer(NPC, 6000, "EndCheck")
@@ -74,3 +76,4 @@ end
 function respawn(NPC)
 	spawn(NPC)
 end
+

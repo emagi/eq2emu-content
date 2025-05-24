@@ -18,6 +18,7 @@ function NPCModule(NPC, Spawn)
     difficulty = GetDifficulty(NPC) -- NPC Difficulty 
 
     --Included functions.  Comment out a function to disable.
+    SpawnAnimations(NPC, Spawn) -- Special spawn animations by model type.
     Attributes(NPC, Spawn)     -- Determines basic stats of the NPC(str, agi, sta, int, wis)
     AutoAttack(NPC, Spawn)    -- Determines the NPC's tier for the purposes of autoattack damage.
     Regen(NPC, Spawn)          -- Sets NPC's health and/or power regeneration rates or disables regeneration entirely.
@@ -1213,6 +1214,39 @@ AutoAttack(NPC, Spawn)
 end
 
 --]]
+
+function SpawnAnimations(NPC, Spawn)
+    
+    if GetModelType(NPC) == 138 then
+        SetSpawnAnimation(NPC, 13016)
+    end
+    
+    if GetModelType(NPC) == 1521 then
+        SetSpawnAnimation(NPC, 13016)
+    end
+    
+    if GetModelType(NPC) == 140 then
+        SetSpawnAnimation(NPC, 13016)
+    end
+    
+    if GetModelType(NPC) == 1584 then
+        SetSpawnAnimation(NPC, 13016)
+    end
+    
+    if GetModelType(NPC) == 2411 then
+        SetSpawnAnimation(NPC, 13016)
+    end
+    
+    if GetModelType(NPC) == 2412 then
+        SetSpawnAnimation(NPC, 13016)
+    end
+    
+    if GetModelType(NPC) == 2413 then
+        SetSpawnAnimation(NPC, 13016)
+    end
+
+    
+end
 
 
 

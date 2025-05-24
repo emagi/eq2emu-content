@@ -12,7 +12,6 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     RandomMovement(NPC, Spawn, 7, -7, 2, 8, 15)
-    SetSpawnAnimation(NPC, 13016)
 end
 
 function respawn(NPC, Spawn)

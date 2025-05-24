@@ -11,8 +11,6 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
-    SetSpawnAnimation(NPC, 13016)
-  
 end
 
 function hailed(NPC, Spawn)
