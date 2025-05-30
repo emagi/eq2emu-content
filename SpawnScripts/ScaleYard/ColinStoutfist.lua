@@ -27,8 +27,8 @@ function hailed(NPC, Spawn)
             OfferQuest(NPC, Spawn, WillFightforFun)
 	    end
     end 
-    if GetQuestStep(Spawn, WillWorkforWar) == 3 then
-        SetStepComplete(Spawn, WillWorkforWar, 3)
+    if GetQuestStep(Spawn, WillWorkforWar) == 2 then
+        SetStepComplete(Spawn, WillWorkforWar, 2)
     end
 	if GetQuestStep(Spawn, WillFightforFun) == 2 then
         SetStepComplete(Spawn, WillFightforFun, 2)

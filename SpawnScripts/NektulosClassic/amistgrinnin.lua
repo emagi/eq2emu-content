@@ -11,7 +11,7 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC)
     NPCModule(NPC, Spawn)
     ChooseIdle(NPC)
-   AddTimer(NPC, 6000, "movement")
+    AddTimer(NPC, 6000, "movement")
 end
 
 function hailed(NPC, Spawn)

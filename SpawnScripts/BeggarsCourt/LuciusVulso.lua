@@ -71,6 +71,8 @@ elseif CanReceiveQuest(Spawn,IntoTheSewersForLucius) then
 elseif GetQuestStep(Spawn, IntoTheSewersForLucius)==1 then
 	FaceTarget(NPC, Spawn)
     PlayFlavor(NPC, "","Hmmm ... maybe you're not the new guy. You did have the password, but you didn't deliver Mirini's package. Deliver it now, or I'll have you arrested!","glare",0,0, Spawn)
+elseif GetQuestStep(Spawn, IntoTheSewersForLucius)==2 then
+    Dialog4(NPC, Spawn)
 else
     Dialog1(NPC, Spawn)  
 end

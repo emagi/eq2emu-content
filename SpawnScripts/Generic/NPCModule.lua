@@ -30,9 +30,9 @@ end
 
 --Determine damage function based on NPC level.
 function AutoAttack(NPC, Spawn)
-    if  level  <= 2 then
+    if  level  == 1 then
         TierOneA(NPC)
-    elseif level >= 3 and level  <= 5 then
+    elseif level >= 2 and level  <= 5 then
         TierOneB(NPC)
     elseif level >= 6 and level  <= 9 then
         TierOneC(NPC)
@@ -136,14 +136,14 @@ function Regen(NPC, Spawn)
 end
 
 --Damage functions based on NPC level range.
---Level 1-2
+--Level 1
 function TierOneA(NPC, Spawn)
     lowDmg = math.floor(1 * GlobalDmgMod)
     highDmg = math.floor(3 * GlobalDmgMod)
     damage(NPC)
 end
 
---Level 3-5
+--Level 2-5
 function TierOneB(NPC, Spawn)
     if difficulty <=4 then -- 
         lowDmg = math.floor(1 * GlobalDmgMod + MeleeDmgMod)
@@ -1247,6 +1247,7 @@ function SpawnAnimations(NPC, Spawn)
 
     
 end
+
 
 
 

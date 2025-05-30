@@ -3,7 +3,7 @@
 	Script Purpose	: Quintius Calacicus
 	Script Author	: Dorbin
 	Script Date		: 2023.06.28
-	Script Notes	: 
+	Script Notes	:  NEEDS DIALOG FOR PayingTheTab
 --]]
 
 require "SpawnScripts/Generic/DialogModule"
@@ -99,5 +99,9 @@ function Dialog1(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/banker_quintius_calacicus/fprt_hood1/bnk_quintiuscalacicus_hail.mp3", 3742555178, 748563821)
 	Dialog.AddOption("Thank you.")
 	Dialog.Start()
+   if HasQuest(Spawn, PayingTheTab) and GetQuestStep(Spawn, PayingTheTab)==1 then
+        SetStepComplete(Spawn, PayingTheTab, 1)
+    end	
+	
 end
 
