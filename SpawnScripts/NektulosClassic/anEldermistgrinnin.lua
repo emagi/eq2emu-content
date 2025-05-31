@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/NektulosClassic/aPaintedmistgrinninW.lua
+    Script Name    : SpawnScripts/NektulosClassic/anEldermistgrinnin.lua
     Script Author  : lordpazuzu
-    Script Date    : 2025.05.29 09:05:04
+    Script Date    : 2025.05.30 02:05:34
     Script Purpose : 
                    : 
 --]]
@@ -10,7 +10,6 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
     NPCModule(NPC, Spawn)
-    worship(NPC)
 end
 
 function hailed(NPC, Spawn)
@@ -19,9 +18,4 @@ end
 
 function respawn(NPC)
 	spawn(NPC)
-end
-
-function worship(NPC)
-    PlayFlavor(NPC,"","","notworthy",0,0)
-    AddTimer(NPC, 8000, "worship")
 end
