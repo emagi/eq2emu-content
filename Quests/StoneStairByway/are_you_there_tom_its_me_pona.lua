@@ -1,7 +1,7 @@
 --[[
 	Script Name		:	are_you_there_tom_its_me_pona..lua
 	Script Purpose	:	Handles the quest, "Are You There, Tom? It's Me, Pona."
-	Script Author	:	QuestParser (Replace this)
+	Script Author	:	Xiki
 	Script Date		:	2/11/2025
 	Script Notes	:	Auto generated with QuestParser.
 
@@ -14,7 +14,7 @@
 
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I must kill ten undead fighters", 1, 100, "I don't want to be all day, so I figure ten undead fighters should be enough.", 611, 8390022)
-	AddQuestStepCompleteAction(Quest, 1, "step1_complete_talktoPona")
+	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
 function Accepted(Quest, QuestGiver, Player)
@@ -29,7 +29,7 @@ function Deleted(Quest, QuestGiver, Player)
 	-- Remove any quest specific items here when the quest is deleted
 end
 
-function step1_complete_talktoPona(Quest, QuestGiver, Player)
+function Step1Complete(Quest, QuestGiver, Player)
     UpdateQuestStepDescription(Quest, 1, "I have killed the undead fighters")
 	
 	
@@ -38,12 +38,14 @@ function step1_complete_talktoPona(Quest, QuestGiver, Player)
 end
 
 function QuestComplete(Quest, QuestGiver, Player)
+    UpdateQuestStepDescription(Quest, 2, "I returned to Pona.")
+    UpdateQuestDescription(Quest, "I have dispatched the undead for Pona. Hopefully this will ease her mind.")
 	GiveQuestReward(Quest, Player)
 end
 
 function Reload(Quest, QuestGiver, Player, Step)
 	if Step == 1 then
-		step1_complete_talktoPona(Quest, QuestGiver, Player)
+		Step1Complete(Quest, QuestGiver, Player)
 	elseif Step == 2 then
 	    QuestComplete(Quest, QuestGiver, Player)
 	end

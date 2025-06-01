@@ -26,7 +26,7 @@ function hailed(NPC, Spawn)
 	elseif GetQuestStep(Spawn, AreYouThereTom) == 2 then
 	    FaceTarget(NPC, Spawn)
         Dialog.New(NPC, Spawn)
-	    Dialog.AddDialog(NPC, "You back? Have you dealt with those undead?")
+	    Dialog.AddDialog("You back? Have you dealt with those undead?")
 	    Dialog.AddOption("Yes I have, I have slain undead fighters within the Graveyard for you and Tom.", "FinishQuest1")
         Dialog.Start()
 	else
@@ -72,6 +72,6 @@ end
 
 function FinishQuest1(NPC, Spawn)
     FaceTarget(NPC, Spawn)
-    SetStepComplete(Spawn, AreYouThereTom, 2)
     Say(NPC,"Thank you so much for getting revenge on those undead for me and my beloved Tom, may he rest in peace now.")
+    SetStepComplete(Spawn, AreYouThereTom, 2)
 end
