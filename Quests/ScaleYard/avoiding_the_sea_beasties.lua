@@ -14,7 +14,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to kill ten orcs in the Commonlands.", 10, 100, "I need to travel to the Commonlands and kill ten orcs.", 611, 330068, 330126, 330128, 330129, 330202, 330204, 330218, 330249, 330250, 330268, 330265, 330323, 330327)
+	AddQuestStepKill(Quest, 1, "I need to kill ten orcs in the Commonlands.", 10, 100, "I need to travel to the Commonlands and kill ten orcs.", 611, 330068, 330126, 330128, 330129, 330202, 330204, 330218, 330249, 330250, 330268, 330265, 330323, 330327, 331157, 330289, 330295, 331151, 330288, 330335, 330202, 330123, 330264, 330266, 330124, 330324, 330333)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
     UpdateQuestZone(Quest,"The Commonlands")
 end
