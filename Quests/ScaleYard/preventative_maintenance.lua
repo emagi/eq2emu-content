@@ -13,13 +13,13 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill ten orcs.", 10, 100, "I need to travel to the Ruins and start killing those orcs that hide out there.", 611, 1270005, 1270006, 1270007, 1270009, 1270013, 1270014, 1270017, 1270022, 1270021, 1270023, 1270025, 1270026, 1270028, 1270032, 1270036, 1270037, 1270038, 1270040)
+	AddQuestStepKill(Quest, 1, "I must kill ten orc exiles.", 10, 100, "I need to travel to the Ruins and start killing those orcs that hide out there.", 611, 8420025)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have killed the orcs.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I have killed ten orcs.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I have killed ten orc exiles.")
 	
 	AddQuestStepChat(Quest, 2, "I should return to Verin Ithelz.", 1, "I should return to Verin Ithelz in Scale Yard.", 11, 1390020)
     AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
