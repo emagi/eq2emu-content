@@ -14,8 +14,8 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need monitor behemoth tears from the Commonlands.", 2, 100, "I need to collect the required ingredients for ZaZa's potion.", 176, 330065, 330738)
-		AddQuestStepKill(Quest, 2, "I need seven vials of coagulated blood from the giant vulrich in the Commonlands.", 7, 100, "I need to collect the required ingredients for ZaZa's potion.", 8, 330087, 330774)
+	AddQuestStepKill(Quest, 1, "I need monitor behemoth tears from the Commonlands.", 2, 100, "I need to collect the required ingredients for ZaZa's potion.", 176, 330065)
+		AddQuestStepKill(Quest, 2, "I need seven vials of coagulated blood from the giant vulrich in the Commonlands.", 7, 100, "I need to collect the required ingredients for ZaZa's potion.", 8, 330087, 331164)
 			AddQuestStepKill(Quest, 3, "I need to get four drops of gloom venom from gloom snakes in Fallen Gate.", 4, 100, "I need to collect the required ingredients for ZaZa's potion.", 177, 1190019)
 
 

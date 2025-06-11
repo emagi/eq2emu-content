@@ -59,7 +59,7 @@ end
 function Dialog1(NPC, Spawn)
     FaceTarget(NPC, Spawn)
     Dialog.New(NPC, Spawn)
-    Dialog.AddDialog("Really? Ha ha ha! Why dont you prove your better then me, go out and kill me some orcs. They're plenty tough, as proof of your victory over those brutes bring me back 10 of their fingers.")
+    Dialog.AddDialog("Really? Ha ha ha! Why dont you prove your better then me, go out and kill me some exiled orcs. They're plenty tough, as proof of your victory over those brutes bring me back 10 of their fingers.")
     Dialog.AddOption("Sure thing! Orc's dont scare me!", "AcceptedQuest1")
     Dialog.Start()
 end
@@ -90,7 +90,7 @@ end
 function Dialog2(NPC, Spawn)
     FaceTarget(NPC, Spawn)
     Dialog.New(NPC, Spawn)
-    Dialog.AddDialog("Ha ha ha! This time I will really put your 'skills' to the test then. Why dont you go out to the Sprawl, there you can pick a fight with some of the Dervish Crooks, dont worry they should be easy for someone as skilled as you compared to some half-wit orcs! What do you say? ")
+    Dialog.AddDialog("Ha ha ha! This time I will really put your 'skills' to the test then. Why dont you go out to the Sprawl, there you can pick a fight with some of the vagrant squatters, dont worry they should be easy for someone as skilled as you compared to some half-wit orcs! What do you say? ")
     Dialog.AddOption("Sounds easy enough! I can take on anything.", "Dialog2")
     Dialog.Start()
 end

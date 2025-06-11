@@ -70,7 +70,7 @@ end
 function DialogWait_Quest1(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Well? Are the worthless Crooks dead and in the ground yet? Don't come back until you've killed the 'lot!")
+	Dialog.AddDialog("Well? Are the worthless Guttersnipes dead and in the ground yet? Don't come back until you've killed the 'lot!")
 	PlayFlavor(NPC, "", "", "tapfoot", 0, 0, Spawn)
     Dialog.AddOption("Soon enough.")
     Dialog.Start()

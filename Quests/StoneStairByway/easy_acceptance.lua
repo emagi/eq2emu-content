@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Slay Dervish crooks until the Hunter's Mantle is located.", 1, 15, "I should find these crooks and take care of them until I locate the one who has the Mantle.  I fully expect this to be a trap.", 6, 1260000)
+	AddQuestStepKill(Quest, 1, "Slay vagrant squatters until the Hunter's Mantle is located.", 1, 15, "I should find these squatters and take care of them until I locate the one who has the Mantle.  I fully expect this to be a trap.", 6, 8420023, 8420066)
 	AddQuestStepCompleteAction(Quest, 1, "ReturnToLirosi")
 end
 

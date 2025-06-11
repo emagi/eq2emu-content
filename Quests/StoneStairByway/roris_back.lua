@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill ten orcs in the Ruins.", 10, 55, "Rori wants me to gather orc hides from the Ruins.", 168, 8420025)
+	AddQuestStepKill(Quest, 1, "I must kill ten exiled orcs in the Ruins.", 10, 55, "Rori wants me to gather orc hides from the Ruins.", 168, 8420025)
 	AddQuestStepCompleteAction(Quest, 1, "step1_complete_gatherhides")
 end
 
@@ -31,7 +31,7 @@ end
 
 function step1_complete_gatherhides(Quest, QuestGiver, Player)
     UpdateQuestStepDescription(Quest, 1, "I have gathered the orc hides")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I have collected the hides from the orcs in the Ruins.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I have collected the hides from the exiled orcs in the Ruins.")
 
 	AddQuestStepChat(Quest, 2, "I need to return to Rori and give him the orc hides", 1, "Rori is waiting for the hides.", 11, 1350034)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")

@@ -12,14 +12,14 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I've offered to kill Dervish crooks.", 10, 100, "I've offered to kill ten Dervish crooks so that she can have her revenge. I've heard on the streets they can be found hanging out in the Sprawl.", 611, 8400010)
+	AddQuestStepKill(Quest, 1, "I've offered to kill Guttersnipes.", 10, 100, "I've offered to kill ten Guttersnipes so that she can have her revenge. I've heard on the streets they can be found hanging out in the Sprawl.", 611, 8400010, 8400011)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
     UpdateQuestZone(Quest,"Sprawl")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
-	UpdateQuestStepDescription(Quest, 1, "I've killed Dervish crooks.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I've taken care of the Dervish crooks like I told Frizi I would.")
+	UpdateQuestStepDescription(Quest, 1, "I've killed the Guttersnipes.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I've taken care of the Guttersnipes like I told Frizi I would.")
     UpdateQuestZone(Quest,"Temple Street")
 	AddQuestStepChat(Quest, 2, "I need to speak with Frizi.", 1, "I should return to Frizi and let her know the Guttersnipes are dealt with.", 11, 1360053)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
@@ -29,7 +29,7 @@ end
 function Accepted(Quest, QuestGiver, Player)
 	FaceTarget(QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)
-	Dialog.AddDialog("I appreciate the offer, but you're too late. The crooks who took them said they were going to use the pages to clean their ... backsides! Ooooh, it makes me so mad!! ... Kill them! YES! KILL them for me and I'll be more than happy. They ran off to the Sprawl. You'll find them wallowing in their own filth...")
+	Dialog.AddDialog("I appreciate the offer, but you're too late. The Guttersnipes who took them said they were going to use the pages to clean their ... backsides! Ooooh, it makes me so mad!! ... Kill them! YES! KILL them for me and I'll be more than happy. They ran off to the Sprawl. You'll find them wallowing in their own filth...")
     PlayFlavor(QuestGiver,"","","grumble",0,0,Player)
     Dialog.AddOption("Err... Sure. Good as dead.")
 	Dialog.Start()
@@ -46,9 +46,9 @@ end
 function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
 	UpdateQuestStepDescription(Quest, 2, "I have spoken with Frizi.")
-	UpdateQuestTaskGroupDescription(Quest, 2, "I've informed Frizi that the Guttersnipe crooks are dead.")
+	UpdateQuestTaskGroupDescription(Quest, 2, "I've informed Frizi that the Guttersnipes are dead.")
 
-	UpdateQuestDescription(Quest, "I've killed the Dervish for Frizi. That should be enough to pay them back for stealing her books.  Maybe I'll kill some more to sweeten the deal.")
+	UpdateQuestDescription(Quest, "I've killed the Guttersnipes for Frizi. That should be enough to pay them back for stealing her books.  Maybe I'll kill some more to sweeten the deal.")
 	GiveQuestReward(Quest, Player)
 end
 

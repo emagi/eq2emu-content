@@ -13,8 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Slay orcs and gather their fingers.", 10, 33, "I think orcs in the Ruins should be the ones to die. I'll collect their fingers after I kill them.", 87, 8420001, 8420002, 8420003, 8420004, 8420005, 8420006,
-	8420007, 8420009, 8420010, 8420011, 8420012, 8420013, 8420014, 8420042, 8420043, 8420069)
+	AddQuestStepKill(Quest, 1, "Slay exiled orcs and gather their fingers.", 10, 33, "I think the exiled orcs in the Ruins should be the ones to die. I'll collect their fingers after I kill them.", 87, 8420025)
 	AddQuestStepCompleteAction(Quest, 1, "ReturnToLirosi")
 
 end

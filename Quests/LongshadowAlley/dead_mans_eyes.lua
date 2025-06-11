@@ -14,7 +14,7 @@ require "SpawnScripts/Generic/DialogModule"
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must collect two zombie eyes", 2, 20, "I need to kill zombies, then choose the least rotted pair of eyes. I should be able to find some in the Graveyard.", 83, 1250008, 1250011, 1250018, 1250024, 1250028, 1250030)
+	AddQuestStepKill(Quest, 1, "I must collect two zombie eyes", 2, 20, "I need to kill zombies, then choose the least rotted pair of eyes. I should be able to find some in the Sunken City.", 83, 8410071, 8410023, 8410029, 8410024, 8410025, 8410028, 8410030, 8410026)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
@@ -38,7 +38,7 @@ end
 function Accepted(Quest, QuestGiver, Player)
 	FaceTarget(QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)
-	Dialog.AddDialog("I need a pair of eyes from a zombie's skull.  The eyes will allow me to peer into the spirit realm and locate my brother's soul.  Go to the graveyard and extract one pair of zombie eyes.  They must be whole and intact, with minimal decay.")
+	Dialog.AddDialog("I need a pair of eyes from a zombie's skull.  The eyes will allow me to peer into the spirit realm and locate my brother's soul.  Go to the Sunken City and extract one pair of zombie eyes.  They must be whole and intact, with minimal decay.")
    Dialog.AddOption("Finding your brother's spirit better be worth it!")
 	Dialog.Start()
 end
