@@ -14,9 +14,9 @@
  require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill ten Black Magis insurgents", 10, 100, "I should travel to the Sprawl and kill those Black Magi. I won't be done until I've killed at least ten of them.", 611, 1260012)
+	AddQuestStepKill(Quest, 1, "I must kill ten Black Magis insurgents", 10, 100, "I should travel to the Sprawl and kill those Black Magi. I won't be done until I've killed at least ten of them.", 611, 8400004)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
-    UpdateQuestZone(Quest,"Sprawl")
+    UpdateQuestZone(Quest,"The Sprawl")
 end
 
 

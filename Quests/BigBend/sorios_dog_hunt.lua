@@ -7,14 +7,15 @@
 
 	Zone			:	Big Bend
 	Quest Giver		:	Captain Sorio
-	Preceded by		:	Sorio's Ciantslayer Problem
+	Preceded by		:	Sorio's Giantslayer Problem
 	Followed by		:	None
 --]]
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill ten wild dogs in the Sprawl.", 10, 100, "I need to kill ten Wild Dogs to prevent them from breeding any further.", 611, 1260005)
+	AddQuestStepKill(Quest, 1, "I must kill ten wild dogs in the Sprawl.", 10, 100, "I need to kill ten Wild Dogs to prevent them from breeding any further.", 611, 8400013, 8400023)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest, "The Sprawl")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
@@ -22,6 +23,7 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed the wild dogs as Sorio had asked.")
 
     AddQuestStepChat(Quest, 2, "I should return to Captain Sorio.", 1, "I should return to Captain Sorio.", 11, 1340032)
+    UpdateQuestZone(Quest, "Big Bend")
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 

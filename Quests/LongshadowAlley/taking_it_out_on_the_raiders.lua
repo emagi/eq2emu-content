@@ -14,14 +14,15 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill 10 Blackshield pirates.", 10, 100, "Kill 10 Blackshield pirates, they are in the Sunken City. I should be able to find them there.", 611, 1240000, 1240001, 1240002, 1240009, 1240010, 1240012)
+	AddQuestStepKill(Quest, 1, "I must kill 10 menacing raiders.", 10, 100, "Kill 10 menacing raiders, they are in the Sunken City. I should be able to find them there.", 611, 8410039, 8410040, 8410074)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest,"The Sunken City")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
-	UpdateQuestStepDescription(Quest, 1, "I have killed enough pirates.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I have killed enough pirates in the Sunken City.")
-    
+	UpdateQuestStepDescription(Quest, 1, "I have killed enough menacing raiders.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I have killed enough menacing raiders in the Sunken City.")
+    UpdateQuestZone(Quest,"Longshadow Alley")
     AddQuestStepChat(Quest, 2, "I should return to Maliz T`Raan.", 1, "I should return to Maliz T`Raan in Longshadow Alley.", 11, 1380030)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end

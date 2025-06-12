@@ -13,8 +13,9 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to slay rats.", 10, 100, "I should kill rats to make Muzmog happy. There are rats everywhere throughout the city of Freeport and the Thieves Way.", 99, 1540004, 1250014, 1250016, 1250035, 1540031)
+	AddQuestStepKill(Quest, 1, "I need to slay rats.", 10, 100, "I should kill rats to make Muzmog happy. There are rats everywhere throughout the city of Freeport and the Thieves Way.", 99, 8420017, 8430028, 8430029)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest,"The Thieves's Way")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
@@ -22,6 +23,7 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed the rats like Muzmog suggested.")
 	
 	AddQuestStepChat(Quest, 2, "I need to return to Muzmog.", 1, "I need to return to Muzmog.", 11, 1340020)
+	UpdateQuestZone(Quest,"Big Bend")
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end 
 

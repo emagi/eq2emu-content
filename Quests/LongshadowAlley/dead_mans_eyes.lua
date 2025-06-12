@@ -16,6 +16,7 @@ require "SpawnScripts/Generic/DialogModule"
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I must collect two zombie eyes", 2, 20, "I need to kill zombies, then choose the least rotted pair of eyes. I should be able to find some in the Sunken City.", 83, 8410071, 8410023, 8410029, 8410024, 8410025, 8410028, 8410030, 8410026)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest,"Sunken City")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
@@ -24,6 +25,7 @@ function Step1Complete(Quest, QuestGiver, Player)
     
     AddQuestStepChat(Quest, 2, "I should return to Divek.", 1, "I will need to now bring these eyes back to Divek for my payment.", 11, 1380029)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
+	UpdateQuestZone(Quest,"Longshadow Alley")
 end
 
 

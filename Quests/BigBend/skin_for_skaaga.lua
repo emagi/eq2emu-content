@@ -13,14 +13,15 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to find a large swath of zombie skin", 1, 10, "I should kill some zombies until I find a skin large enough for Skagga's uses.", 138, 1250011, 1250024, 1250030, 1250008, 1250021)
+	AddQuestStepKill(Quest, 1, "I need to find a large swath of zombie skin", 1, 10, "I should kill some decaying deadlings until I find a skin large enough for Skagga's uses.", 138, 8410023, 8410024, 8410025, 8410028, 8410029, 8410030)
     AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+    UpdateQuestZone(Quest,"The Sunken City")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have found a large swath of zombie skin.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I have found a large swath of zombie skin.")
-	
+	UpdateQuestZone(Quest,"Big Bend")
 	AddQuestStepChat(Quest, 2, "I should return to Skagga.", 1, "I should return to Skagga.", 11, 1340008)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end

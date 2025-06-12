@@ -12,7 +12,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to collect a meaty shark fin", 10, 85, "I should start looking for the dusk sharks. I'll need a big enough fin to bring back to Tilzak.", 122, 1240025, 8410007	)
+	AddQuestStepKill(Quest, 1, "I need to collect a meaty shark fin", 10, 85, "I should start looking for the dusk sharks. I'll need a big enough fin to bring back to Tilzak.", 122, 8410007	)
 	AddQuestStepCompleteAction(Quest, 1, "Step1_Complete_KilledSharks")
     UpdateQuestZone(Quest,"Sunken City")
 end

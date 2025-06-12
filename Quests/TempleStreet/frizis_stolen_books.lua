@@ -14,7 +14,7 @@ require "SpawnScripts/Generic/DialogModule"
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I've offered to kill Guttersnipes.", 10, 100, "I've offered to kill ten Guttersnipes so that she can have her revenge. I've heard on the streets they can be found hanging out in the Sprawl.", 611, 8400010, 8400011)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
-    UpdateQuestZone(Quest,"Sprawl")
+    UpdateQuestZone(Quest,"The Sprawl")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)

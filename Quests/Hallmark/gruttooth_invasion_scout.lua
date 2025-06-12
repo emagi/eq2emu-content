@@ -16,6 +16,13 @@ function Init(Quest)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
+function SendWeaponRackUpdate(Zone)
+	local weaponRack = GetSpawnByLocationID(Zone, 133788943)
+	if weaponRack ~= nil then
+		SetInfoFlag(weaponRack)
+	end
+end
+
 function Accepted(Quest, QuestGiver, Player)
 	FaceTarget(QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)
@@ -23,6 +30,7 @@ function Accepted(Quest, QuestGiver, Player)
 	Dialog.AddVoiceover("voiceover/english/garven_tralk/tutorial_island02/garventralk007.mp3",1992820005, 4073887802)
 	Dialog.AddOption("Very well.", "VeryWell")
 	Dialog.Start()
+	SendWeaponRackUpdate(GetZone(Player))
 end
 
 function Declined(Quest, QuestGiver, Player)

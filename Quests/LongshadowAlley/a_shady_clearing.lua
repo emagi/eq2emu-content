@@ -13,7 +13,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill ten diseased ratonga", 10, 100, " I need to venture to the sewers and kill ten diseased ratonga", 611, 1540002, 1540021, 1540022, 1540024, 1540028, 1540072, 1540073)
+	AddQuestStepKill(Quest, 1, "I must kill ten diseased ratonga", 10, 100, " I need to venture to the sewers and kill ten diseased ratonga", 611, 8430010)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 	UpdateQuestZone(Quest,"Thieves Way")
 end

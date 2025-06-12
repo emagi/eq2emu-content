@@ -12,8 +12,9 @@
 --]]
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Slay ten ratonga", 10, 100, "Slay ratonga in the Sprawl. Many can be found throughout the area.", 611, 1260008, 1260010, 1260012, 1260014, 1260032)
+	AddQuestStepKill(Quest, 1, "Slay ten ratonga", 10, 100, "Slay ratonga in the Sprawl. Many can be found throughout the area.", 611, 8400001, 8400002, 8400003, 8400004)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
+	UpdateQuestZone(Quest,"The Sprawl")
 end
 
 function QuestComplete(Quest, QuestGiver, Player)
