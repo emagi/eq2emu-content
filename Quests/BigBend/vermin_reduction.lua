@@ -15,8 +15,9 @@
 function Init(Quest)
 	SetQuestFeatherColor(Quest, 3)
 	SetQuestRepeatable(Quest)
-	AddQuestStepKill(Quest, 1, "I need to kill rats in Big Bend and the Thieves Way.", 6, 100, "Zarbt the Ratcatcher wants me to help him kill rats in Big Bend and the Thieves Way.", 99, 1540004, 1340004, 1340045)
+	AddQuestStepKill(Quest, 1, "I need to kill sewage rats in the Thieves Way.", 6, 100, "Zarbt the Ratcatcher wants me to help him kill sewage rats in the Thieves Way.", 99, 8430028)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest, "The Thieves Way")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
@@ -24,6 +25,7 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed the rats Zarbt wanted help with.")
 
 	AddQuestStepChat(Quest, 2, "I need to speak to Zarbt.", 1, "Now that I've killed all these rats I should go back to Zarbt.", 11, 1340017)
+	UpdateQuestZone(Quest, "Big Bend")
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 

@@ -14,9 +14,9 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill some brine sifters.", 5, 100, "I need to travel to the Sunken City and kill brine sifters until I have a big handful of sand from their gizzards. When they're dead, I'll collect the sand that's in their gizzards.", 77, 8410001, 8410001)
+	AddQuestStepKill(Quest, 1, "I must kill some bulky brine sifters.", 5, 100, "I need to travel to the Sunken City and kill bulky brine sifters until I have a big handful of sand from their gizzards. When they're dead, I'll collect the sand that's in their gizzards.", 77, 8410001, 8410001)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
-    UpdateQuestZone(Quest,"Sunken City")	
+    UpdateQuestZone(Quest,"The Sunken City")	
 
 end
 

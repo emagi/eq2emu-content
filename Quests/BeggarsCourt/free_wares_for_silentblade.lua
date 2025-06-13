@@ -14,7 +14,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill undead battlepriests and collect ten maces.", 10, 100, "I should head over to the Graveyard and collect ten maces from undead battlepriests.", 34, 1250008, 1250018)
+	AddQuestStepKill(Quest, 1, "I must kill undead battlepriests and collect ten maces.", 10, 100, "I should head over to the Graveyard and collect ten maces from undead battlepriests.", 34, 8390020)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
     UpdateQuestZone(Quest,"The Graveyard")
 end

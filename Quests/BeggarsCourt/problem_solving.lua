@@ -16,7 +16,7 @@ require "SpawnScripts/Generic/DialogModule"
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "Kill vagrant squatters", 10, 100, "I need to send a message to the vagrant squatters in the Ruins.  The message will involve a lot of them breathing dirt.  I can reach the Ruins by using any of the bells in and around the City of Freeport.", 611, 8420023,8420066)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
-    UpdateQuestZone(Quest,"Ruins")	
+    UpdateQuestZone(Quest,"The Ruins")	
         
 end
 

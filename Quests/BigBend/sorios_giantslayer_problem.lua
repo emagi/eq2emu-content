@@ -13,15 +13,17 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill ten Giantslayer Brutes.", 10, 100, "I need to kill ten of the Giantslayer Thugs to send them a message that the Freeport Militia shouldn't be messed with.", 611, 1260013)
+	AddQuestStepKill(Quest, 1, "I must kill ten Giantslayer thugs.", 10, 100, "I need to kill ten of the Giantslayer thugs to send them a message that the Freeport Militia shouldn't be messed with.", 611, 8400015)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest, "The Sprawl")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
-	UpdateQuestStepDescription(Quest, 1, "I have killed ten Giantslayer Brutes.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed ten members of the Giantslayer Thug gang.")
+	UpdateQuestStepDescription(Quest, 1, "I have killed ten Giantslayer thugs.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed ten members of the Giantslayer gang.")
 	
 	AddQuestStepChat(Quest, 2, "I should return to Captain Sorio.", 1, "I should return to Captain Sorio.", 11, 1340032)
+	UpdateQuestZone(Quest, "Big Bend")
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 

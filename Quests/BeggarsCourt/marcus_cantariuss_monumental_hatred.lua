@@ -14,7 +14,7 @@ require "SpawnScripts/Generic/DialogModule"
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to collect twenty dervish thug scalps.", 20, 100, "I need to collect scalps from the dervish thugs in the Commonlands for Marcus Cantarius.", 138, 330096, 330105)
+	AddQuestStepKill(Quest, 1, "I need to collect fourty five dervish thug scalps.", 45, 100, "I need to collect scalps from the dervish thugs in the Commonlands for Marcus Cantarius.", 138, 330105)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
     UpdateQuestZone(Quest,"The Commonlands")
 end

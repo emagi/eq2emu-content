@@ -15,6 +15,7 @@ require "SpawnScripts/Generic/DialogModule"
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I must kill five Giantslayer bashers", 5, 100, "I need to venture to the Sprawl and kill five Giantslayer bashers.", 611, 8400027)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest, "The Sprawl")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
@@ -22,6 +23,7 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed the Giantslayer bashers as part of the trick I'm playing on the mad woman.")
 
 	AddQuestStepChat(Quest, 2, "I should return to Tullia Domna.", 1, "I should return to Tullia Domna and let her know that... her guards are dead.", 11, 1370000)
+	UpdateQuestZone(Quest, "Beggar's Court")
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 

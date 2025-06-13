@@ -14,9 +14,9 @@ require "SpawnScripts/Generic/DialogModule"
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Kill Blackshield raiders", 10, 100, "I need to kill some of the Freeport raiders in the Sunken City.  I can reach the Sunken City by using any of outside of Freeport bells.", 611, 	8410035,8410036,8410038,8410041,8410042,8410070	)
+	AddQuestStepKill(Quest, 1, "Kill Freeport raiders", 10, 100, "I need to kill some of the Freeport raiders in the Sunken City.  I can reach the Sunken City by using any of outside of Freeport bells.", 611, 	8410035,8410036,8410038,8410041,8410042,8410070	)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
-    UpdateQuestZone(Quest,"Sunken City")
+    UpdateQuestZone(Quest,"The Sunken City")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
