@@ -13,8 +13,9 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Find Kouryick's cargo on the Nerius pirates.", 1, 15, "Kouryick said the Nerius pirates are sneaky so the cargo may be hard to find or gone for good.", 75, 1790052)
+	AddQuestStepKill(Quest, 1, "Find Kouryick's cargo on the Nerius pirates.", 1, 15, "Kouryick said the Nerius pirates are sneaky so the cargo may be hard to find or gone for good.", 75, 8520111)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest, "Nektulos Forest")
 end
 
 function Accepted(Quest, QuestGiver, Player)

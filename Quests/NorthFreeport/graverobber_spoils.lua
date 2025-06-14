@@ -13,8 +13,9 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Retrieve the grave robbers' spoils.", 1, 100, "I must venture to the cemetery out in the Commonlands, dispatch the grave robbers, and return with what they've stolen.", 91, 330233)
+	AddQuestStepKill(Quest, 1, "Retrieve the grave robbers' spoils.", 1, 25, "I must venture to the cemetery out in the Commonlands, dispatch the grave robbers, and return with what they've stolen.", 91, 330233)
 	AddQuestStepCompleteAction(Quest, 1, "step1_complete_talktoMissionary")
+	UpdateQuestZone(Quest, "The Commonlands")
 end
 
 function Accepted(Quest, QuestGiver, Player)

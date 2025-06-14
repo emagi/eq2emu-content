@@ -13,8 +13,9 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to collect 25 pieces of tattered armor from ghostly orcs in the Siege Lands ruins.", 1, 100, "I must get no less than twenty-five pieces of tattered armor from ghostly orcs in the Siege Land ruins.", 166, 330034)
+	AddQuestStepKill(Quest, 1, "I need to collect 25 pieces of tattered armor from exiled orcs in the Ruins.", 1, 100, "I must get no less than twenty-five pieces of tattered armor from exiled orcs in the Ruins.", 166, 8420025)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest, "The Ruins")
 end
 
 function Accepted(Quest, QuestGiver, Player)
@@ -47,7 +48,7 @@ end
 
 function Step1Complete(Quest, QuestGiver, Player)
     UpdateQuestStepDescription(Quest, 1, "I collected enough pieces of tattered armor.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I've collected twenty-five pieces of tattered orc armor out in the ruins.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I've collected twenty-five pieces of tattered orc armor out in the Ruins.")
 	
 	AddQuestStepChat(Quest, 2, "I should speak with Sergeant Typhoeus", 1, "I hope that I have enough to please Sergeant Typhoeus and sway him into forgiving me. I should speak with him before he changes his mind.", 11, 1280021)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")

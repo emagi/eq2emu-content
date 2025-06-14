@@ -15,6 +15,7 @@
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I need to collect fifteen armadillo hides for Nipius", 15, 100, "I need to collect the armadillo hides for Nipius.", 2047, 330024, 330028, 331148, 331149)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest, "The Commonlands")
 end
 
 function Accepted(Quest, QuestGiver, Player)

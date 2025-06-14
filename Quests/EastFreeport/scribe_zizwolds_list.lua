@@ -13,8 +13,9 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must hunt down an ash owlbear to collect one grizzly feather.", 1, 33, "I must gather the items on the list.", 96, 1790131)
+	AddQuestStepKill(Quest, 1, "I must hunt down an ash owlbear to collect one grizzly feather.", 1, 15, "I must gather the items on the list.", 96, 8520118)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest, "Nektulos Forest")
 end
 
 function Accepted(Quest, QuestGiver, Player)
@@ -32,22 +33,23 @@ end
 function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have slain an ash owlbear.")
 
-	AddQuestStepKill(Quest, 2, "I must hunt Sullian fairies for five rare shimmering blue wings.", 5, 15, "I must gather the items on the list.", 152, 1790211)
+	AddQuestStepKill(Quest, 2, "I must hunt Asilian fairies for five rare shimmering blue wings.", 5, 15, "I must gather the items on the list.", 152, 8520175, 8520174, 8520176, 8520177)
 	AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
 end
 
 function Step2Complete(Quest, QuestGiver, Player)
-	UpdateQuestStepDescription(Quest, 2, "I have slain some Sullian fairies and collected the rare shimmering blue wings.")
+	UpdateQuestStepDescription(Quest, 2, "I have slain some Asilian fairies and collected the rare shimmering blue wings.")
 
-	AddQuestStepKill(Quest, 3, "I must hunt dusk leapers to collect five rare leaper blood hairs.", 5, 15, "I must gather the items on the list.", 97, 1790127)
+	AddQuestStepKill(Quest, 3, "I must hunt Arachneidae hatchlings to collect five rare Arachneidae blood hairs.", 5, 15, "I must gather the items on the list.", 97, 8520178)
 	AddQuestStepCompleteAction(Quest, 3, "Step3Complete")
 end
 
 function Step3Complete(Quest, QuestGiver, Player)
-	UpdateQuestStepDescription(Quest, 3, "I have killed some dusk leapers and collected the rare hairs.")
+	UpdateQuestStepDescription(Quest, 3, "I have killed some Arachneidae hatchlings and collected the rare hairs.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I have gathered the items on the list.")
 
 	AddQuestStepChat(Quest, 4, "I must return to Scribe Zizwold.", 1, "I must return to scribe Zizwold.", 10, 1280056)
+	UpdateQuestZone(Quest, "East Freeport")
 	AddQuestStepCompleteAction(Quest, 4, "QuestComplete")
 end
 
