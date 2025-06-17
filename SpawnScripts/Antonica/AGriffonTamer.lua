@@ -6,7 +6,7 @@
 	Script Notes	: 
 --]]
 
-local GriffonEggs = 112
+--local GriffonEggs = 112
 
 function spawn(NPC)
 	ProvidesQuest(NPC, GriffonEggs)
@@ -23,7 +23,7 @@ function hailed(NPC, Spawn)
 	if CanReceiveQuest(Spawn, GriffonEggs) then
 		-- Start Quest
 		PlayFlavor(NPC, "voiceover/english/voice_emotes/greetings/greetings_2_1052.mp3", "", "", 0, 0, Spawn)
-		AddConversationOption(conversation, "I was wondering if there were any errands you needed help with.", "dlg_0_1")
+--		AddConversationOption(conversation, "I was wondering if there were any errands you needed help with.", "dlg_0_1")
 		AddConversationOption(conversation, "I would like to travel.", "dlg_1_1")
 		AddConversationOption(conversation, "I am fine staying here, thanks.")
 		StartConversation(conversation, NPC, Spawn, "Greetings traveler, how can I assist you today?")

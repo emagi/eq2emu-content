@@ -79,7 +79,7 @@ function Step7Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 7, "I visited the Qeynos Hill Claymore.")
 	UpdateQuestTaskGroupDescription(Quest, 7, "I visited the Qeynos Hill.")
 
-	AddQuestStepZoneLoc(Quest, 8, "I must visit Archer's Wood", 15, "I must visit the glade in Archer Woods located in Antonica.", 11, -593.42, -11.00, 664.09, 12)
+	AddQuestStepZoneLoc(Quest, 8, "I must visit Archer's Wood", 15, "I must visit the glade in Archer Woods located in Antonica.", 11, -659, -8, 509, 15)
 	AddQuestStepCompleteAction(Quest, 8, "Step8Complete")
 end
 
