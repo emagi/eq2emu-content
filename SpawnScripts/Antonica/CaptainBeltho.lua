@@ -23,12 +23,12 @@ function LeaveRange(NPC, Spawn)
 end
 
 function hailed(NPC, Spawn)
-    SetPlayerHistory(Spawn, 8, 0)
+--[[    SetPlayerHistory(Spawn, 8, 0)
     if GetPlayerHistory(Spawn, 8) == nil then
     Say(Spawn, "ur player history is nil")
     elseif GetPlayerHistory(Spawn, 8) then
     Say(Spawn, "ur player history is not nil")
-    end
+    end]]--
 	FaceTarget(NPC, Spawn)
 	conversation = CreateConversation()
 

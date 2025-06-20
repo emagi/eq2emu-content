@@ -16,7 +16,7 @@ function cast(Caster, Target, Dmg1, Dmg1Min, Dmg1Max, Dmg2, Dmg2Min, Dmg2Max)
     Mastery = SpellLevel + 10
     StrBonus = GetStr(Caster) / 10
     IntBonus = GetInt(Caster) / 10
-    Spell = GetSpell(2550392, GetSpellTier())  
+    Spell = GetSpell(2550392, 1)  -- Blessed Strike (2550392) only has tier 1 apprentice, use GetSpellTier() should we implement all tiers
     
     if Level < Mastery then
         LvlBonus = Level - SpellLevel

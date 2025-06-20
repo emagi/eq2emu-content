@@ -85,12 +85,12 @@ StartDialogConversation(conversation, 2, Item, Player, "Qeynos is proud of its d
 end
 
 function Page10(Item, Player)
+conversation = CreateConversation()
 if CanReceiveQuest(Player,5766) then
     OfferQuest(nil,Player,5766)
 elseif GetQuestStep(Player,5766) ==8 then    
 AddConversationOption(conversation, "Next Page","Page11")
 end
-conversation = CreateConversation()
 AddConversationOption(conversation, "Previous Page","Page9")
 AddConversationOption(conversation, "Close the book.","CloseItemConversation")
 StartDialogConversation(conversation, 2, Item, Player, "Training in your chosen life's path enables you to help others to the best of your abilities by giving you a focus.\n\nFighters should speak with Master-at-Arms Dagorel in South Qeynos.\n\nMages, you will learn much with Magister Niksel, also in South Qeynos.\n\nPriests should seek the counsel of Hierophant Aldalad in North Qeynos.\n\nScouts, seek Vemerik the Counselor in Qeynos North.\n\nTrain hard, act wisely and help your neighbors.")
