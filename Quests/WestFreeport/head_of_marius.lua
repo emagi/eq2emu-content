@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill one Marius Darkblade.", 1, 100, "I'm to find Marius Darkblade in Thieves Way and retrieved the stolen goods and his head.", 10, 1540025)
+	AddQuestStepKill(Quest, 1, "I must kill one Marius Darkblade.", 1, 100, "I'm to find Marius Darkblade in Thieves Way and retrieved the stolen goods and his head.", 10, 8430018)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 

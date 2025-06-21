@@ -12,7 +12,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to find five pirate coins.", 5, 75, "I need to find five pirate coins.", 1763, 1240044, 1240035, 1240036,8410004)
+	AddQuestStepKill(Quest, 1, "I need to find five pirate coins.", 5, 35, "I need to find five pirate coins.", 1763, 1240044, 1240035, 1240036,8410004)
 	AddQuestStepCompleteAction(Quest, 1, "Step1_Complete_FoundCoins")
 end
 

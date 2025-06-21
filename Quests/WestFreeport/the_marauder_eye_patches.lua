@@ -13,7 +13,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must slay some Nerius marauders.", 1, 100, "I must slay six Nerius marauders along the beaches of Nektulos.", 2128, 1790264, 1790269)
+	AddQuestStepKill(Quest, 1, "I must slay some Nerius marauders.", 1, 100, "I must slay six Nerius marauders along the beaches of Nektulos.", 2128, 8520111)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
