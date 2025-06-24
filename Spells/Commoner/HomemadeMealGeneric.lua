@@ -6,7 +6,7 @@
 	Script Notes	:
 --]]
 
-function cast(Caster, Target, Regen) -- Add more params as needed for the values from the db
+function cast(Caster, Target, Regen, OmitValue) -- Add more params as needed for the values from the db
 	AddSpellBonus(Target, 602, Regen)
 end
 

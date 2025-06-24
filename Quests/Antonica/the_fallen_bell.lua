@@ -34,13 +34,13 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 1, "I have destroyed a good portion of the gnoll population in Antonica, I hope this helps.")
     SendMessage(Player,"You feel a slight shifting of weight in one of your pockets.")
     if GetClass(Player)>=1 and GetClass(Player)<=10 then
-        SummonItem(Player,135400,1)
+        SummonItem(Player, 135400 ,1)
     elseif GetClass(Player)>=11 and GetClass(Player)<=20 then
         SummonItem(Player,155598,1)
     elseif GetClass(Player)>=21 and GetClass(Player)<=30 then
         SummonItem(Player,191961,1)
     else
-        SummonItem(Player,155599,1)
+        SummonItem(Player,155598,1)
     end
 	UpdateQuestDescription(Quest, "I have slain quite a few gnolls, I hope my efforts do not go unnoticed. There are so many of them!")
 	GiveQuestReward(Quest, Player)

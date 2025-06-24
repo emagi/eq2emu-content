@@ -12,7 +12,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Slay gnolls in and around Archer Woods.", 12, 100, "I must slay gnolls in and around the Archer Woods until Dancer whistles her song for me to return to her.", 611, 120295, 120296, 121404, 121405)
+	AddQuestStepKill(Quest, 1, "Slay gnolls in and around Archer Woods.", 12, 100, "I must slay gnolls in and around the Archer Woods until Dancer whistles her song for me to return to her.", 611, 120295, 120296)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 

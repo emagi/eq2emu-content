@@ -13,7 +13,7 @@
 
 local itemId = 3767
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill some diseased ratongas.", 10, 100, "I must kill ten diseased ratonga to unlock the power in this blade.", 611, 1540002, 1540022, 1540072, 1540024, 1540028, 1540021, 1540073)
+	AddQuestStepKill(Quest, 1, "I must kill some diseased ratongas.", 10, 100, "I must kill ten diseased ratonga to unlock the power in this blade.", 611, 8430010)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

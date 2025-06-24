@@ -1,0 +1,16 @@
+-- Effects extracted from item_effects table:
+-- Increases Out-of-Combat Power Regeneration of target by 15.0
+
+function cast(Item, Player)
+    Spell = GetSpell(5463, 1, "Spells/Commoner/HomemadeDrinkGeneric.lua")
+    SetSpellData(Spell, "name", "a pint of grendik's dastardly concoction")
+    SetSpellData(Spell, "description", "Grendik "the Mad" was often seen muttering to himself deep within his home in Kaladim.  It was through his long-standing friendship with some gnomes in Ak'Anon that this dastardly concoction was created.  The gnomes thought his formula was disgusting, but still used it to remove rust from old gears within the city walls.  
+")
+    newDuration = 18000.0
+    SetSpellData(Spell, "duration1", newDuration)
+    SetSpellData(Spell, "duration2", newDuration)
+    Regen = 15.0
+    SetSpellDataIndex(Spell, 0, Regen)
+    SetSpellDisplayEffect(Spell, 0, "description", "Increases Out-of-Combat Health Regeneration of target by " .. Regen)
+    CastCustomSpell(Spell, Player, Player)
+end

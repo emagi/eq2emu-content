@@ -13,7 +13,7 @@
 
 local itemId = 2115
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill one darkblade brigand.", 1, 100, "I must kill a darkblade brigand.", 11, 1540018,1540023)
+	AddQuestStepKill(Quest, 1, "I must kill one darkblade brigand.", 1, 100, "I must kill a darkblade brigand.", 11, 1540018,1540023, 8430003)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
