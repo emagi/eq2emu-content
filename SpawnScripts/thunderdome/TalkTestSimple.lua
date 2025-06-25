@@ -17,6 +17,9 @@ function hailed(NPC, Spawn)
 		AddConversationOption(conversation, "Dance. [OPTION 1]", "Option1")
 		AddConversationOption(conversation, "I don't know. [OPTION 2]","Option2")     --Notice the "Option#" is the followup dialogue function
 		AddConversationOption(conversation, "Say something. [OPTION 3]","Option3")  
+		if HasQuest(Spawn,117) then
+		AddConversationOption(conversation, "Delete my Quest. [OPTION 4]","Option4")  
+		end
 		AddConversationOption(conversation, "Do nothing.")                            --Notice NO followup function
 		StartConversation(conversation, NPC, Spawn, "What would you like to do?")     --Required to start a dialogue.  Place it at the bottom of your dialogue.
 end
@@ -62,7 +65,17 @@ function Option3(NPC, Spawn)
 		StartConversation(conversation, NPC, Spawn, "Understood me?")     
 end
 
-
+-- OPTION 4 attempts to remove the Lousy Fairies quest
+function Option3(NPC, Player)
+	FaceTarget(NPC, Player) 
+	conversation = CreateConversation()        
+		if HasQuest(Player,117) then
+		    DeleteQuest(Player, 117, true)
+		end
+		AddConversationOption(conversation, "Yes")
+		AddConversationOption(conversation, "No","hailed")                  
+		StartConversation(conversation, NPC, Player, "Attempting. Did it work?")     
+end
 
 
 
