@@ -6,7 +6,9 @@
                    : Supersedes CombatModule.lua
                    : Consult LordPazuzu before modifying
 --]]
-require "SpawnScripts/Generic/EquipmentModule"
+
+--Add plugin modules as a require below.
+require "SpawnScripts/Generic/EquipmentModule"  -- NPC equipment appearance presets.
 
 GlobalDmgMod = 1.0      -- Global Damage Multiplier- make global adjustments to all NPC autoattack damage.
 GlobalStatMod = 1.0     -- Global Attribute Multiplier- make global adjustments to NPC attribute scores.
@@ -20,10 +22,10 @@ function NPCModule(NPC, Spawn)
     --Included functions.  Comment out a function to disable.
     SpawnAnimations(NPC, Spawn) -- Special spawn animations by model type.
     Attributes(NPC, Spawn)     -- Determines basic stats of the NPC(str, agi, sta, int, wis)
-    AutoAttack(NPC, Spawn)    -- Determines the NPC's tier for the purposes of autoattack damage.
+    NewAutoAttack(NPC, Spawn)    -- Determines the NPC's tier for the purposes of autoattack damage.
     Regen(NPC, Spawn)          -- Sets NPC's health and/or power regeneration rates or disables regeneration entirely.
     HealthPower(NPC, Spawn)    -- Calculates NPC's based on level and difficulty.
-    AddTimer(NPC, 25, "Heroic")  --  Applies heroic flag immediately after spawn in accordance with the way the server loads spawns.
+    AddTimer(NPC, 25, "Heroic")  --  Applies heroic flag immediately after spawn in accordance with the way the server loads spawns. Spawnscript functions that check heroic status should be run on a delay longer than 1000. 6000 is the standard delay to run a function after spawn.
     AddTimer(NPC, 1000, "Heroic") -- Redundant heroic check to compensate for server lag when using developer commands to reload spawns.
     
 end
@@ -1184,10 +1186,9 @@ function Named(NPC, Spawn)
 end
 
 
---[[
-New AutoAttack function.
 
-AutoAttack(NPC, Spawn)
+
+function NewAutoAttack(NPC, Spawn)
     if difficulty <= 4 then
         difMod = 0.3
     elseif difficulty == 5 then
@@ -1212,8 +1213,6 @@ AutoAttack(NPC, Spawn)
     
     damage(NPC)
 end
-
---]]
 
 function SpawnAnimations(NPC, Spawn)
     
