@@ -1,14 +1,16 @@
 --[[
-    Script Name    : SpawnScripts/Blackburrow/aridgerat.lua
-    Script Author  : Dorbin
-    Script Date    : 2022.07.09 08:07:13
+    Script Name    : SpawnScripts/Blackburrow/ascrawnySabertoothRoam.lua
+    Script Author  : lordpazuzu
+    Script Date    : 2025.07.13 07:07:01
     Script Purpose : 
                    : 
 --]]
+
 require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC, Spawn)
+function spawn(NPC)
     NPCModule(NPC, Spawn)
+    RandomMovement(NPC, Spawn, 6, -6, 2, 8, 15)
 end
 
 function hailed(NPC, Spawn)
@@ -18,6 +20,3 @@ end
 function respawn(NPC)
 	spawn(NPC)
 end
-
-
-
