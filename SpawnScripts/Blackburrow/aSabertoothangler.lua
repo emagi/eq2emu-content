@@ -10,7 +10,7 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     VoiceBox(NPC)
-    RandomMovement(NPC, Spawn, 2, -2, 2, 8, 15)
+    RandomMovement(NPC, Spawn, 3, -3, 2, 8, 15)
 end
 
 function VoiceBox(NPC)
