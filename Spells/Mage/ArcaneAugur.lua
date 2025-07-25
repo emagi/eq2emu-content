@@ -6,13 +6,17 @@
                    : 
 --]]
 
-
 function precast(Caster, Target)
    -- Must be engaged in combat
-   return IsInCombat(Caster)
+   if GetTarget(Caster) and GetID(GetTarget(Caster)) ~= GetID(Caster) then
+        local val = GetInfoStructUInt(Caster, "engaged_encounter")
+        return val ~= 0
+    else
+        return {false, 38} 
+    end
 end
 
 function cast(Caster, Target)
     -- Begins a Heroic Opportunity
-StartHeroicOpportunity(Caster, 21)
+    StartHeroicOpportunity(Caster, 21)
 end

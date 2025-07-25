@@ -6,10 +6,10 @@
                    : 
 --]]
 
-require "SpawnScripts/Generic/NPCModule"
+--require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
-    NPCModule(NPC, Spawn)
+    --NPCModule(NPC, Spawn)
 end
 
 function hailed(NPC, Spawn)

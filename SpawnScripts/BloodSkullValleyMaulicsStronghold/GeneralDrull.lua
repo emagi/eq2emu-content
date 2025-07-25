@@ -15,9 +15,12 @@ function spawn(NPC, Spawn)
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(95 + dmgMod))
     Bloodskull(NPC)
     OrcChainCommon(NPC)
+    SetTempVariable(NPC,"waveevent","nil")
 end
-function hailed(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
+
+function StartWaveEvent(NPC, Spawn)
+    Shout(NPC, "Invaders at the gate! To arms! Crush them!",player,10000)
+    SetTempVariable(NPC,"waveevent",1)
 end
 
 function respawn(NPC)
