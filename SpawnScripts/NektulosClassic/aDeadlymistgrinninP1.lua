@@ -11,6 +11,7 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC)
     NPCModule(NPC, Spawn)
     AddTimer(NPC, 6000, "waypoints")
+    IdleAlert(NPC)
 end
 
 function hailed(NPC, Spawn)
