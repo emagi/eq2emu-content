@@ -17,6 +17,10 @@ function spawn(NPC, Spawn)
     OrcChainCommon(NPC)
 end
 
+function DrullCharge(NPC,Spawn)
+    Shout(NPC,"Charge!")
+end
+
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 end

@@ -1,16 +1,22 @@
 --[[
     Script Name    : SpawnScripts/BloodSkullValleyMaulicsStronghold/GeneralDrull.lua
-    Script Author  : LordPazuzu
+    Script Author  : LordPazuzu & n3veruary
     Script Date    : 2024.01.23 10:01:55
     Script Purpose : 
                    : 
 --]]
 require "SpawnScripts/Generic/NPCModule"
 
-wave1 = {380962,380963,380961,380956,380957} -- location IDs first wave of heralds and heretics
-wave2 = {380954,380958,380960,380959,380955} -- location IDs second wave of heralds and heretics
-wave3 = {380883,380864,380865,380867,380887,380888} -- location IDs first wave of soldiers and fanatics
-wave4 = {380873,380882,380897,380892,380874,380879,380899,380901,380878} -- location IDs second wave of soliders and fanatics
+waves = {
+{380962,380963,380961,380956,380957}, -- #1 location IDs first wave of heralds and heretics
+{380954,380958,380960,380959,380955}, -- #2 location IDs second wave of heralds and heretics
+{380883,380864,380865,380867,380887,380888}, -- #3 location IDs first wave of soldiers and fanatics
+{380873,380882,380897,380892,380874,380879,380899,380901,380878}, -- #4 location IDs second wave of soliders and fanatics
+{380964, 380989, 380900, 380880, 380872, 380869}, -- #5 location IDs gorlak group
+{380966, 380967, 360972, 380971, 380970, 380968}, -- #6 location IDs first wave of heralds and heretics
+{380973,380976, 380977, 380975, 380978, 380974}, -- #7 location IDs second wave of fanatics and soldiders
+{380983,380951,380965,380981, 380982, 380969} -- #8 final wave, general drull
+}
 
 function spawn(NPC, Spawn)
     dmgMod = GetStr(NPC)/10
@@ -26,88 +32,40 @@ end
 function StartWaveEvent(NPC, player)
     Shout(NPC, "Invaders at the gate! To arms! Crush them!",player,10000)
     SetTempVariable(NPC,"waveevent",1)
-    Wave1Start(NPC, Spawn)
+    SetTempVariable(NPC,"wavecounter","1")
+    TriggerNextWave(NPC, Spawn)
 end
 
-function Wave1Start(NPC, Spawn)
+function TriggerNextWave(NPC,Spawn)
 local zone = GetZone(NPC)
 local players = GetPlayersInZone(zone)
-local closestSpawn = nil
+local closestPlayer = nil
 local closestDistance = math.huge
-    for k,v in ipairs(players) do
+    for k,v in ipairs(players) do -- determine closest player to Drull
         local distance = GetDistance(NPC, v)
         if distance < closestDistance then
             closestSpawn = v
             closestDistance = distance
-        end
+        end 
     end
-    for k,v in ipairs(wave1) do
-    local orc = GetSpawnByLocationID(zone, v)
-    Attack(orc, closestSpawn)
+    currentWave = tonumber(GetTempVariable(NPC,"wavecounter")) or 1
+    if currentWave > #waves then return end
+    if currentWave == 4 then -- set custom wave behavior
+        Shout(NPC, "FORWARD! Mount their heads on the walls!",player,10000)
+    elseif currentWave == 5 then
+        Shout(NPC, "Gorlak! Show them your might!",player,10000)
+    elseif currentWave == 7 then
+        Shout(NPC, "Still alive, are you?! Not for long!",player,10000)
+    elseif currentWave == 8 then
+        Shout(NPC, "ARGH! Fine! I'll kill you myself!",player,10000)
+        SpawnSet(NPC,"attackable","1")
+    else end
+    for k,v in ipairs(waves[currentWave]) do
+        local orc = GetSpawnByLocationID(zone, v)
+        Attack(orc, closestSpawn)
     end
-AddTimer(NPC,10000,"Wave2Start",1) -- testing value
--- AddTimer(NPC,120000,"Wave2Start",1) -- production value
-end
-
-function Wave2Start(NPC, Spawn)
-local zone = GetZone(NPC)
-local players = GetPlayersInZone(zone)
-local closestSpawn = nil
-local closestDistance = math.huge
-    for k,v in ipairs(players) do
-        local distance = GetDistance(NPC, v)
-        if distance < closestDistance then
-            closestSpawn = v
-            closestDistance = distance
-        end
-    end
-    for k,v in ipairs(wave2) do
-    local orc = GetSpawnByLocationID(zone, v)
-    Attack(orc, closestSpawn)
-    end
-AddTimer(NPC,10000,"Wave3Start",1) -- testing value
--- AddTimer(NPC,120000,"Wave3Start",1) -- production value
-end
-
-function Wave3Start(NPC, Spawn)
-local zone = GetZone(NPC)
-local players = GetPlayersInZone(zone)
-local closestSpawn = nil
-local closestDistance = math.huge
-    for k,v in ipairs(players) do
-        local distance = GetDistance(NPC, v)
-        if distance < closestDistance then
-            closestSpawn = v
-            closestDistance = distance
-        end
-    end
-    for k,v in ipairs(wave3) do
-    local orc = GetSpawnByLocationID(zone, v)
-    Attack(orc, closestSpawn)
-    end
-AddTimer(NPC,10000,"Wave4Start",1) -- testing value
--- AddTimer(NPC,120000,"Wave4Start",1) -- production value
-end
-
-function Wave4Start(NPC, Spawn)
-local zone = GetZone(NPC)
-local players = GetPlayersInZone(zone)
-local closestSpawn = nil
-local closestDistance = math.huge
-    for k,v in ipairs(players) do
-        local distance = GetDistance(NPC, v)
-        if distance < closestDistance then
-            closestSpawn = v
-            closestDistance = distance
-        end
-    end
-Shout(NPC, "FORWARD! Mount their heads on the walls!",player,10000)
-    for k,v in ipairs(wave4) do
-    local orc = GetSpawnByLocationID(zone, v)
-    Attack(orc, closestSpawn)
-    end
--- AddTimer(NPC,10000,"Wave5Start",1) -- testing value
--- AddTimer(NPC,120000,"Wave5Start",1) -- production value
+SetTempVariable(NPC,"wavecounter",tostring(currentWave +1))
+AddTimer(NPC,10000,"TriggerNextWave",1)
 end
 
 function respawn(NPC)
