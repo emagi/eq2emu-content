@@ -9,6 +9,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
+    BlackburrowGnoll(NPC)
     AddTimer(NPC,1000,"VoiceBox")
 end
 

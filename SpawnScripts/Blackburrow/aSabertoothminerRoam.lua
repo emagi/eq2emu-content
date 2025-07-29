@@ -10,6 +10,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
     NPCModule(NPC, Spawn)
+    BlackburrowGnoll(NPC)
     SpawnSet(NPC, "visual_state", 0)
     RandomMovement(NPC, Spawn, 5, -5, 2, 8, 15)
 end

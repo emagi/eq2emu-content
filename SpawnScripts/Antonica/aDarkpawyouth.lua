@@ -10,6 +10,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
+    BlackburrowGnoll(NPC)
     if GetSpawnLocationID(NPC)==  133785089 or GetSpawnLocationID(NPC)==   133785090 then
         AddTimer(NPC,MakeRandomInt(1000,3500),"Run")
     else

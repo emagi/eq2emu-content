@@ -12,6 +12,7 @@ local TheChomper = 5696
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
+    BlackburrowGnoll(NPC)
     AddTimer(NPC,math.random(2500,6000),"AttackRocks")
 end
 

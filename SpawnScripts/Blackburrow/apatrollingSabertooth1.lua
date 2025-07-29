@@ -10,6 +10,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
     NPCModule(NPC, Spawn)
+    BlackburrowGnoll(NPC)
     AddTimer(NPC, 6000, "waypoints")
 end
 
