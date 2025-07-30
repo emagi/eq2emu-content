@@ -9,6 +9,8 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
+    IdleAggressive(NPC)
+    RandomWeapons(NPC)
     VoiceBox(NPC)
 end
 

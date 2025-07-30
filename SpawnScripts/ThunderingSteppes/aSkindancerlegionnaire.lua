@@ -9,6 +9,8 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
+    BlackburrowGnoll(NPC)
+    IdleAggressive(NPC)
     RandomMovement(NPC, Spawn, 12, -12, 2, 8, 15)
 end
 

@@ -641,11 +641,11 @@ end
 --Gnolls
 
 function BlackburrowGnoll(NPC, Spawn)
-    local skin = MakeRandomInt(1,2)
+    GnollSkin = MakeRandomInt(1,2)
     
-    if skin == 1 then
+    if GnollSkin == 1 then
         SpawnSet(NPC,"model_type", 3816)
-    elseif skin == 2 then
+    elseif GnollSkin == 2 then
         SpawnSet(NPC,"model_type", 1384)
     end
 end

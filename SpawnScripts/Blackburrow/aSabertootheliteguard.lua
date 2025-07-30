@@ -10,6 +10,8 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
+    IdleAlert(NPC)
+    RandomWeapons(NPC)
     BlackburrowGnoll(NPC)
 end
 

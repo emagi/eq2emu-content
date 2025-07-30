@@ -10,6 +10,7 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     BlackburrowGnoll(NPC)
+    IdleBored(NPC)
     VoiceBox(NPC)
     RandomMovement(NPC, Spawn, 3, -3, 2, 8, 15)
 end
