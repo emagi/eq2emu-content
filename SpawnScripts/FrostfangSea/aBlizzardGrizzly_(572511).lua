@@ -4,7 +4,11 @@
 	Script Author	: theFoof
 	Script Date	: 2013.5.22
 --]]
+
+require "SpawnScripts/Generic/NPCModule"
+
 function spawn(NPC)
+    NPCModule(NPC)
     X = GetX(NPC)
 	Y = GetY(NPC)
 	Z = GetZ(NPC)
@@ -26,3 +30,6 @@ end
 function hailed(NPC, Spawn)
     FaceTarget(NPC, Spawn)
 end
+
+require "SpawnScripts/Generic/NPCModule"
+

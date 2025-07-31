@@ -7,8 +7,10 @@
 --]]
 
 local BecomingOrcbane = 81
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
 end
 
 function respawn(NPC)

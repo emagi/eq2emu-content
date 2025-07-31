@@ -6,9 +6,10 @@
 	Script Notes	:	
 --]]
 
-require"SpawnScripts/Generic/MovementCircleSmall"
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
 	SpawnChooseRandomMovement(NPC)
 	AddTimer(NPC, 20000, "Despawn")
 end

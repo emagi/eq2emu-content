@@ -6,7 +6,10 @@
 	Script Notes	:	
 --]]
 
+require "SpawnScripts/Generic/NPCModule"
+
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
 	SpawnSet(NPC, "attackable", "0")
 	SpawnSet(NPC, "show_level", "0")
 	SpawnSet(NPC, "show_command_icon", "0")

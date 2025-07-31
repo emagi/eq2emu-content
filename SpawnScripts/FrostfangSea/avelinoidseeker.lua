@@ -8,7 +8,10 @@
 
 local GoodDistraction = 61
 
+require "SpawnScripts/Generic/NPCModule"
+
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
 end
 
 function death(NPC, Spawn)

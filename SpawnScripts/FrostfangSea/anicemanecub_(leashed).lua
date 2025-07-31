@@ -6,8 +6,10 @@
 	Script Notes	:
 --]]
 local IcemanesCometh = 18
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
     AddSpawnAccess(NPC, NPC)
 	SetPlayerProximityFunction(NPC, 50, "SpawnAccess", "SpawnAccess")
 end

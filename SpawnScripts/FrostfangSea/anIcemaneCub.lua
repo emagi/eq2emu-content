@@ -5,9 +5,11 @@
 	Script Date	: 2013.05.25
 	Script Notes	: 
 --]]
-require"SpawnScripts/Generic/tiny_movement_loop"
+require "SpawnScripts/Generic/NPCModule"
+
 function spawn(NPC)
-    ChooseMovement(NPC)
+    NPCModule(NPC, Spawn)
+    RandomMovement(NPC, Spawn, 4, -4, 2, 8, 15)
 end
 
 function respawn(NPC)

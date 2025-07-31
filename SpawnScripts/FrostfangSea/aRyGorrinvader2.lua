@@ -8,7 +8,10 @@
 
 local NothingWaste = 56
 
+require "SpawnScripts/Generic/NPCModule"
+
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
 	EmoteLoop(NPC)
 end
 

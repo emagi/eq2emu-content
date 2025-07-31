@@ -8,7 +8,10 @@
 
 local GeodeCaching = 69
 
+require "SpawnScripts/Generic/NPCModule"
+
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
 end
 
 function respawn(NPC)

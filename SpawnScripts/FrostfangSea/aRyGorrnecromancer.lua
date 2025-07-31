@@ -5,8 +5,10 @@
 	Script Date		:	2013.6.6
 	Script Notes	:	
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
 end
 
 function respawn(NPC)

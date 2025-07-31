@@ -6,7 +6,9 @@
 	Script Notes	:	
 --]]
 
+require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC)
+    NPCModule(NPC)
 end
 
 function respawn(NPC)
@@ -35,3 +37,6 @@ function killed(NPC, Spawn)
 		PlayFlavor(NPC, "voiceover/english/dwarf_base_1/ft/dwarf/dwarf_base_1_1_victory_gm_d6c773c7.mp3", "I didn't think I hit em that hard.", "", 3680771732, 663911723, Spawn)
 	end
 end
+
+require "SpawnScripts/Generic/NPCModule"
+

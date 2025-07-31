@@ -7,8 +7,10 @@
 --]]
 
 local FlameOn = 5
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
 end
 
 function death(NPC, Spawn) -- updates step 2 of "Flame On!" when the encounter is killed.

@@ -5,11 +5,12 @@
 	Script Date		:	2013.6.15
 	Script Notes	:	
 --]]
-require"SpawnScripts/Generic/random_pattern_small"
-
 local NothingWaste = 56
 
+require "SpawnScripts/Generic/NPCModule"
+
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
 	ChooseMovement(NPC)
 end
 

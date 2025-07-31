@@ -6,7 +6,10 @@
 	Script Notes	: 
 --]]
 
+require "SpawnScripts/Generic/NPCModule"
+
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
 	MovementLoopAddLocation(NPC, 601.15, 62.48, 696.65, 2, 5)
 	MovementLoopAddLocation(NPC, 585.57, 49.59, 628.77, 2, 5)
 end

@@ -7,8 +7,11 @@
 --]]
 
 local NapEvigis = 64
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
+    RandomMovement(NPC, Spawn, 8, -8, 2, 8, 15)
 end
 
 function respawn(NPC)

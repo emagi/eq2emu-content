@@ -5,7 +5,10 @@
 	Script Date	: 2013.5.16
 --]]
 
-function spawn(NPC)	
+require "SpawnScripts/Generic/NPCModule"
+
+function spawn(NPC)
+    NPCModule(NPC, Spawn)	
 	MovementLoopAddLocation(NPC, -304.78 + math.random(-7,7), 18.51, -611.98, 3, math.random(2,6))
     MovementLoopAddLocation(NPC, -321.28 + math.random(-7,7), 27.91, -659.17 + math.random(-7,7), 4, math.random(2,6))
     if GetSpawnLocationID(NPC) == 572680 or GetSpawnLocationID(NPC) == 572681 then

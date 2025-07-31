@@ -6,7 +6,10 @@
 	Script Notes	:	Added Despawn so orcs don't stand around forever.
 --]]
 
+require "SpawnScripts/Generic/NPCModule"
+
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
     AddTimer(NPC,60000,"despawn")
 	local choice = math.random(1,2)
 	SetSpeed(NPC, 7)

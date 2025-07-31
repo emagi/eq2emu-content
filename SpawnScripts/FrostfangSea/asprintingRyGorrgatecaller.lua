@@ -5,8 +5,10 @@
 	Script Date		:	2013.6.2
 	Script Notes	:	
 --]]
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC)
+    NPCModule(NPC, Spawn)
 	local X = GetX(NPC)
 	local Y = GetY(NPC)
 	local Z = GetZ(NPC)

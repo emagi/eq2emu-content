@@ -5,12 +5,13 @@
 	Script Date	: 2013.5.13
 	Script Notes	:
 --]]
-require"SpawnScripts/Generic/random_pattern_small"
+require"SpawnScripts/Generic/NPCModule"
 
 local RepellingCritters = 7
 
 function spawn(NPC)
-	ChooseMovement(NPC)
+	NPCModule(NPC)
+	RandomMovement(NPC, Spawn, 8, -8, 2, 8, 15)
 end
 
 function hailed(NPC, Spawn)

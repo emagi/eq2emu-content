@@ -6,12 +6,14 @@
 	Script Notes	: 
 --]]
 
-require"SpawnScripts/Generic/MovementCircleSmall"
 
 local EssentialIngredient = 22
 
+require "SpawnScripts/Generic/NPCModule"
+
 function spawn(NPC)
-    SpawnChooseRandomMovement(NPC)
+    NPCModule(NPC, Spawn)
+    RandomMovement(NPC, Spawn, 8, -8, 2, 8, 15)
 end
 
 function respawn(NPC)
