@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Priest/Cleric/Templar/CombativeFaith.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.14 11:11:15
+    Script Author  : Image
+    Script Date    : 2025.08.01 19:54:45
     Script Purpose : 
                    : 
 --]]
@@ -13,3 +13,11 @@
 
 --]]
 
+function cast(Caster, Target, DmgType, MinVal, MaxVal, DmgType2, MinVal2, MaxVal2)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+    -- All action performed in function tick using spell tier call_frequency
+end
+
+function tick(Caster, Target, DmgType, MinVal, MaxVal, DmgType2, MinVal2, MaxVal2)
+    SpellDamage(Target, DmgType2, MinVal2, MaxVal2)
+end
