@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Priest/Cleric/Templar/WateryRespiteClassic.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.14 11:11:11
+    Script Author  : Image
+    Script Date    : 2025.08.02 07:29:42
     Script Purpose : 
                    : 
 --]]
@@ -13,3 +13,12 @@
 
 --]]
 
+function cast(Caster, Target, Amount)
+    AddSkillBonus(Target, GetSkillIDByName("swimming"), Amount)
+    BreatheUnderwater(Target, true)
+end
+
+function remove(Caster, Target)
+    RemoveSkillBonus(Target)
+    BreatheUnderwater(Target, false)
+end

@@ -17,7 +17,7 @@ function cast(Caster, Target, MinHeal)
 	-- handled on death
 end
 
-function remove(Caster, Target, MinHeal)
+function remove(Caster, Target, Reason, MinHeal)
     if Reason == "target_dead" then
         local targets = GetGroup(Caster)
         if targets ~= nil then

@@ -30,5 +30,5 @@ function proc(Caster, Target, Type, Hate)
 end
 
 function remove(Caster, Target)
-    RemoveControlEffect(Target, 3)
+    
 end

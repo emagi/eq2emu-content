@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Priest/Cleric/Templar/HealingTouch.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.14 11:11:32
+    Script Author  : Image
+    Script Date    : 2025.08.02 06:52:55
     Script Purpose : 
                    : 
 --]]
@@ -12,3 +12,6 @@
 
 --]]
 
+function cast(Caster, Target, MinHeal, MaxHeal)
+    SpellHeal("Heal", MinHeal, MaxHeal, Target, 0, 0, GetSpellName())
+end
