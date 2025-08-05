@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Priest/Druid/Fury/Cyclone.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.16 04:11:59
+    Script Author  : Image
+    Script Date    : 2025.08.04 10:31:44
     Script Purpose : 
                    : 
 --]]
@@ -14,3 +14,14 @@
 
 --]]
 
+
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+end
+
+function tick(Caster, Target, DmgType, MinVal, MaxVal)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+    if GetRaceBaseType(Target) == 250 then
+        SpellDamage(Target, DmgType, MinVal, MaxVal)
+    end
+end

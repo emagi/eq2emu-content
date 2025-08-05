@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Priest/Druid/Fury/FerocityoftheEelClassic.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.16 04:11:30
+    Script Author  : Image
+    Script Date    : 2025.08.04 10:56:45
     Script Purpose : 
                    : 
 --]]
@@ -13,3 +13,12 @@
 
 --]]
 
+function cast(Caster, Target)
+    BreatheUnderwater(Target, true)
+    SetVision(Target, 4)
+end
+
+function remove(Caster, Target)
+    BreatheUnderwater(Target, false)
+    SetVision(Target, 0)
+end

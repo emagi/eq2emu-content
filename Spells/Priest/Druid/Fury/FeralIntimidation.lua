@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Priest/Druid/Fury/FeralIntimidation.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.16 04:11:47
+    Script Author  : Image
+    Script Date    : 2025.08.03 20:51:31
     Script Purpose : 
                    : 
 --]]
@@ -12,3 +12,12 @@
 
 --]]
 
+
+function cast(Caster, Target, Amount)
+    AddSpellBonus(Target, 2, Amount)
+    AddSpellBonus(Target, 3, Amount)
+end
+
+function remove(Caster, Target)
+    RemoveSpellBonus(Target)
+end
