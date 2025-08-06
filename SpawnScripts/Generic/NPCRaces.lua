@@ -8,8 +8,6 @@
 
 --Race functions for DoF compatibility.  These are called independently in the NPC's spawn function.
 function dwarf(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",2)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",109)    
     else
@@ -20,8 +18,6 @@ function dwarf(NPC, Spawn)
 end
 
 function froglok(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",4)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",76)    
     else
@@ -33,8 +29,7 @@ end
 
 function  halfling(NPC, Spawn)
     local hair = MakeRandomInt(1,2)
-    --SpawnSet(NPC,"race_type",7)
-    
+
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",107)    
     else
@@ -51,8 +46,6 @@ function  halfling(NPC, Spawn)
 end
 
 function  highelf(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",8)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",135)    
     else
@@ -63,8 +56,6 @@ function  highelf(NPC, Spawn)
 end
 
 function woodelf(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",15)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",113)    
     else
@@ -77,8 +68,7 @@ end
 
 function barbarian(NPC, Spawn)
     local hair = MakeRandomInt(1,2)
-    --SpawnSet(NPC,"race_type",0)
-    
+
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",111)    
     else
@@ -94,8 +84,6 @@ function barbarian(NPC, Spawn)
 end
 
 function erudite(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",3)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",120)    
     else
@@ -106,8 +94,6 @@ function erudite(NPC, Spawn)
 end
 
 function gnome(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",5)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",122)    
     else
@@ -118,8 +104,6 @@ function gnome(NPC, Spawn)
 end
 
 function halfelf(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",6)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",79)    
     else
@@ -130,8 +114,6 @@ function halfelf(NPC, Spawn)
 end
 
 function human(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",9)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",132)    
     else
@@ -142,8 +124,6 @@ function human(NPC, Spawn)
 end
 
 function  kerra(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",11)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",81)    
     else
@@ -154,8 +134,6 @@ function  kerra(NPC, Spawn)
 end
 
 function darkelf(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",1)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",116)    
     else
@@ -167,8 +145,6 @@ function darkelf(NPC, Spawn)
 end
 
 function iksar(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",10)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",104)    
     else
@@ -179,8 +155,6 @@ function iksar(NPC, Spawn)
 end
 
 function ogre(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",12)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",123)    
     else
@@ -191,8 +165,6 @@ function ogre(NPC, Spawn)
 end
 
 function ratonga(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",13)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",54)    
     else
@@ -203,8 +175,6 @@ function ratonga(NPC, Spawn)
 end
 
 function  troll(NPC, Spawn)
-    --SpawnSet(NPC,"race_type",14)
-    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",105)    
     else
@@ -212,7 +182,6 @@ function  troll(NPC, Spawn)
     end
     
     hair(NPC)
-    
 end
 
 -- Classic Orcs
@@ -220,26 +189,22 @@ function Deathfist(NPC, Spawn)
     SpawnSet(NPC,"model_type",137)
     SpawnSet(NPC, "skin_color", "50 60 50")
     SpawnSet(NPC, "eye_color", "98 63 28")
-    --SpawnSet(NPC, "race_type", 20)
 end
 
 function Bloodskull(NPC, Spawn)
     SpawnSet(NPC,"model_type",137)
-    --SpawnSet(NPC, "race_type", 20)
     SpawnSet(NPC, "skin_color", "50 60 50")
     SpawnSet(NPC, "eye_color", "98 63 28")
 end
 
 function Brokentusk(NPC, Spawn)
     SpawnSet(NPC,"model_type",137)
-    --SpawnSet(NPC, "race_type", 20)
     SpawnSet(NPC, "skin_color", "110 75 75")
     SpawnSet(NPC, "eye_color", "98 63 28")
 end
 
 function Lonetusk(NPC, Spawn)
     SpawnSet(NPC,"model_type",137)
-    --SpawnSet(NPC, "race_type", 20)
     SpawnSet(NPC, "skin_color", "92 52 52")
     SpawnSet(NPC, "eye_color", "98 63 28")
 end

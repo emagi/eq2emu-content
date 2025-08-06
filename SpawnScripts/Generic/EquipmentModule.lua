@@ -26,7 +26,7 @@ function RandomWeapons(NPC, Spawn)  --randomize weapons based on class
 end
 
 function RandomFighterWeapons(NPC, Spawn)
-    local weapon = MakeRandomInt(1,10)
+    local weapon = MakeRandomInt(1,11)
     if weapon == 1 then
         SetEquipment(NPC, 0, 2228, 255, 255, 255, 255, 255, 255)
     elseif weapon == 2 then
@@ -50,6 +50,8 @@ function RandomFighterWeapons(NPC, Spawn)
     elseif weapon == 10 then
         SetEquipment(NPC, 0, 2240, 255, 255, 255, 255, 255, 255)
         SetEquipment(NPC, 1, 3255, 255, 255, 255, 255, 255, 255)
+    elseif weapon == 11 then
+        SetEquipment(NPC, 0, 3845, 255, 255, 255, 255, 255, 255)
     end
 
 end
@@ -89,7 +91,7 @@ function RandomMageWeapons(NPC, Spawn)
 end
 
 function RandomScoutWeapons(NPC, Spawn)
-    local weapon = MakeRandomInt(1,3)
+    local weapon = MakeRandomInt(1,5)
     if weapon == 1 then
         SetEquipment(NPC, 0, 2264, 255, 255, 255, 255, 255, 255)
         SetEquipment(NPC, 1, 2264, 255, 255, 255, 255, 255, 255)
@@ -99,6 +101,12 @@ function RandomScoutWeapons(NPC, Spawn)
     elseif weapon == 3 then
         SetEquipment(NPC, 0, 3286, 255, 255, 255, 255, 255, 255)
         SetEquipment(NPC, 1, 3286, 255, 255, 255, 255, 255, 255)
+    elseif weapon == 4 then
+        SetEquipment(NPC, 0, 3862, 255, 255, 255, 255, 255, 255)
+        SetEquipment(NPC, 1, 3862, 255, 255, 255, 255, 255, 255)
+    elseif weapon == 5 then
+        SetEquipment(NPC, 0, 2264, 255, 255, 255, 255, 255, 255)
+        SetEquipment(NPC, 1, 2312, 255, 255, 255, 255, 255, 255)
     end
     
 end

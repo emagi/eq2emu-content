@@ -99,7 +99,7 @@ end
 function Step10Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 10, "I've visited the inner city gates but was not allowed access.")
 	UpdateQuestTaskGroupDescription(Quest, 10, "I've visisted all four locations Slumlord Valthun has told me about.")
-	AddQuestStepChat(Quest, 11, "I need to return to my room and ask Slumlord Valthun why I can't enter the city.", 1, 100, "I should return back to my room and tell Valthun to let me know why the guard didn't allow me to enter into the city.  I also don't trust him hanging around my house.",11,1450271)
+	AddQuestStepChat(Quest, 11, "I need to return to my room and ask Slumlord Valthun why I can't enter the city.", 1, "I should return back to my room and tell Valthun to let me know why the guard didn't allow me to enter into the city.  I also don't trust him hanging around my house.",11,1450271)
 	AddQuestStepCompleteAction(Quest, 11, "Step11Complete")   
 end
 

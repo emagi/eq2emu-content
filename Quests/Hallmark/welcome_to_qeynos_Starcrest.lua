@@ -102,7 +102,7 @@ end
 function Step10Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 10, "I've visited the inner city gates but was not allowed access.")
 	UpdateQuestTaskGroupDescription(Quest, 10, "I've visisted all four locations Ms. Fairlee has told me about.")
-	AddQuestStepChat(Quest, 11, "I need to return to my room and ask Ms. Fairlee why I can't enter the city.", 1, 100, "I should return back to my room and ask Ms. Fairlee why the guard didn't allow me to enter into the city.  Hopefully she might know why.",11,2230785)
+	AddQuestStepChat(Quest, 11, "I need to return to my room and ask Ms. Fairlee why I can't enter the city.", 1, "I should return back to my room and ask Ms. Fairlee why the guard didn't allow me to enter into the city.  Hopefully she might know why.",11,2230785)
 	AddQuestStepCompleteAction(Quest, 11, "Step11Complete")   
 end
 
