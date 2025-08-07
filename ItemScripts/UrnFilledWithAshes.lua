@@ -12,7 +12,7 @@ function used(Item, Player)
 	local Y = GetY(Player)
 	local Z = GetZ(Player)
 	if GetZoneID(GetZone(Player)) == 470 then
-	    if not IsInCombat(Player) then
+	    if not (GetInfoStructUInt(Player, "engaged_encounter") == 1) then
 	        if X >= 587 and X <= 627 then
 	            if Y >= 61.2 and Y <= 71.2 then
 		            if Z >= -526 and Z <= -486 then

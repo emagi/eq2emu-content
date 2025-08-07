@@ -9,7 +9,7 @@
 function cast(Caster, Target)
 
 	canbind = GetCanBind(Caster)
-	incombat = IsInCombat(Caster)
+	incombat = (GetInfoStructUInt(Caster, "engaged_encounter") == 1)
 	
 	if ( incombat == true)
 	then

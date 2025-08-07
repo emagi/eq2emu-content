@@ -8,7 +8,7 @@
 
 -- This effect cannot be cast during combat
 function precast(Caster)
-    return not IsInCombat(Caster)
+    return not (GetInfoStructUInt(Caster, "engaged_encounter") == 1)
 end
 
 function cast(Caster, Target, ItemID)

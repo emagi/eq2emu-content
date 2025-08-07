@@ -7,7 +7,7 @@
 --]]
 
 function precast(Caster)
-    return not IsInCombat(Caster)
+    return not (GetInfoStructUInt(Caster, "engaged_encounter") == 1)
 end
 -- Applies Mystic Moppet Disguise when activated.
 function cast(Caster, Target)

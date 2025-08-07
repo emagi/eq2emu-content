@@ -8,7 +8,7 @@
 function used(Item, Player)
     target = GetTarget(Player)
     if GetName(target) == 'a snowpack' or GetName(target) == 'an iceflow' then
-	    if IsInCombat(target) then
+	    if (GetInfoStructUInt(target, "engaged_encounter") == 1) then
 		    SendMessage(Player, "You can only use this on an iceflow or snowpack that is not currently engaged in combat.", "yellow")
 		else
 		    CastEntityCommand(Player, target, 1274, "Bogchild's Iced Trap")

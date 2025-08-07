@@ -14,3 +14,10 @@
 
 --]]
 
+function cast(Caster, Target, DebuffVal)
+    AddSpellBonus(Target, 0, DebuffVal) -- STR
+end
+
+function remove(Caster, Target)
+    RemoveSpellBonus()
+end

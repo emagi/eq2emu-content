@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Priest/Cleric/Templar/BattlesReprieveClassic.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.14 11:11:41
+    Script Author  : Image
+    Script Date    : 2025.08.06 10:54:21
     Script Purpose : 
                    : 
 --]]
@@ -27,3 +27,6 @@
 
 --]]
 
+function cast(Caster, Target)
+    Resurrect(15, 15, 1, nil, "", 0, 0, 130199, 1)
+end

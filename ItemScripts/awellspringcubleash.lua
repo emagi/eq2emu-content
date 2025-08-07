@@ -11,7 +11,7 @@ local DrawUponWellsprings = 155
 function used(Item, Player)
     target = GetTarget(Player)
 	if GetName(target) == 'a wellspring cub' and GetTempVariable(Player, "cub") == nil then
-		if not IsInCombat(target) then
+		if not (GetInfoStructUInt(target, "engaged_encounter") == 1) then
 			CastEntityCommand(Player, target, 1278, "Leash")
 		end
 	elseif GetName(target) == 'a wellspring cub' and GetTempVariable(Player, "cub") ~= nil then

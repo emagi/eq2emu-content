@@ -9,7 +9,7 @@
 function cast(Caster, Target, Modifier)
     CurrHealth = GetHP(Caster)
     MaxHealth = GetMaxHP(Caster)
-    if IsInCombat(Caster) then
+    if GetInfoStructUInt(Caster, "engaged_encounter") == 1 then
         -- Do Nothing
     elseif CurrHealth < MaxHealth then
         healAmount = MaxHealth * Modifier

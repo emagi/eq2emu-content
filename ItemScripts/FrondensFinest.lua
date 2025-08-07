@@ -11,7 +11,7 @@ function used(Item, Player)
     target = GetTarget(Player)
     if GetName(target) == "pile of Ry'Gorr bones" then
         if GetQuestStep(Player, PouringSkellies) == 1 then
-            if not IsInCombat(Player) then
+            if not (GetInfoStructUInt(Player, "engaged_encounter") == 1) then
                 CastEntityCommand(Player, target, 1281, "pour one out")
             else
                 SendMessage(Player, "You must not be in combat to use this.", "yellow")

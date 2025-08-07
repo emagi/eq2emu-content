@@ -34,7 +34,7 @@ function remove(Caster, Target)
 end
 
 function precast(Caster, Target)
-    if IsInCombat(Caster) then
+    if GetInfoStructUInt(Caster, "engaged_encounter") == 1 then
         return false
     end
     return true
