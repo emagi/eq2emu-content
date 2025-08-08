@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Priest/Cleric/Templar/PiousRedoubt.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.14 11:11:28
+    Script Author  : Image
+    Script Date    : 2025.08.07 09:51:35
     Script Purpose : 
                    : 
 --]]
@@ -13,3 +13,15 @@
 
 --]]
 
+function cast(Caster, Target, Amount, SkillAmount)
+    AddSpellBonus(Target, 1, Amount)
+    AddSkillBonus(Target, GetSkillIDByName("crushing"), SkillAmount)
+    AddSkillBonus(Target, GetSkillIDByName("piercing"), SkillAmount)
+    AddSkillBonus(Target, GetSkillIDByName("slashing"), SkillAmount)
+    AddSkillBonus(Target, GetSkillIDByName("ranged"), SkillAmount)
+end
+
+function remove(Caster, Target)
+    RemoveSpellBonus(Target)
+    RemoveSkillBonus(Target)
+end
