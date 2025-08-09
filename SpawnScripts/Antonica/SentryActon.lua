@@ -5,6 +5,7 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/NPCModule"
 local Quest2 = 5783
 
     local greetingsTable = { "voiceover/english/voice_emotes/greetings/greetings_1_1034.mp3",
@@ -12,6 +13,7 @@ local Quest2 = 5783
     						 "voiceover/english/voice_emotes/greetings/greetings_3_1034.mp3"};
 
 function spawn(NPC, Spawn)
+    human(NPC)
 
 end
 
@@ -84,3 +86,6 @@ end
 function respawn(NPC)
 	spawn(NPC)
 end
+
+
+

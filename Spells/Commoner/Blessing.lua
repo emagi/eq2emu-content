@@ -19,7 +19,6 @@ function precast(Caster, Target)
         for k,v in ipairs(targets) do
             if GetID(Target) == GetID(v) then
                     return true
-                end
             end
         end
     end
