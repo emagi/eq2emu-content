@@ -15,7 +15,7 @@ require "SpawnScripts/Generic/DialogModule"
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I must kill eight of any type of scavengers in the Peat Bog.", 8, 100, "I need to kill eight scavenger rats in the Peat Bog.", 93, 8290026, 8290021)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
-    UpdateQuestZone(Quest,"Peat Bog")
+    UpdateQuestZone(Quest,"The Peat Bog")
 end
 
 function Accepted(Quest, QuestGiver, Player)

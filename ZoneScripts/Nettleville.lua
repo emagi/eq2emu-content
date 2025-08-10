@@ -13,8 +13,8 @@ function init_zone_script(zone)
 --	SetLocationProximityFunction(zone, 640.16, -24.67, 383.95, 30, "MarketRow","LeaveLocation")
 end
 
-function player_entry(zone, player)
-SendPopUpMessage(player, "Nettleville Hovel", 230, 230, 230)  
+function player_entry(zone, Player)
+SendPopUpMessage(Player, "Nettleville Hovel", 230, 230, 230)  
 if GetBoundZoneID(Player) == nil then
     if GetRace(Player) == 9 or GetRace(Player) == 11 then
         Bind(Player, GetX(Player),GetY(Player),GetZ(Player),GetHeading(Player))
