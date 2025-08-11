@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Scout/Bard/Troubador/AriaofExcitement.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.21 05:11:48
+    Script Author  : Image
+    Script Date    : 2025.08.10 15:06:12
     Script Purpose : 
                    : 
 --]]
@@ -13,3 +13,10 @@
 
 --]]
 
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
+    AddProc(Target, 21, 30.0) -- proc type 21, when hostile spell attack attempted, 30% chance of this triggering
+end
+
+function proc(Caster, Target, Type, DmgType, MinVal, MaxVal)
+    SpellDamage(Target, DmgType, MinVal, MaxVal, 0, 0)
+end

@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Scout/Bard/Troubador/AlinsMelodicRefrain.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.22 04:11:42
+    Script Author  : Image
+    Script Date    : 2025.08.10 14:45:12
     Script Purpose : 
                    : 
 --]]
@@ -13,3 +13,7 @@
 
 --]]
 
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
+    Interrupt(Caster, Target)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+end

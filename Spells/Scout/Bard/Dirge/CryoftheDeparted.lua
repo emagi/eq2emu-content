@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Scout/Bard/Dirge/CryoftheDeparted.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.20 05:11:20
+    Script Author  : Image
+    Script Date    : 2025.08.10 09:07:35
     Script Purpose : 
                    : 
 --]]
@@ -13,3 +13,7 @@
 
 --]]
 
+function cast(Caster, Target, DmgType, MinVal, MaxVal, MinHeal, MaxHeal)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+    SpellHeal("Heal", MinHeal, MaxHeal, Caster)
+end

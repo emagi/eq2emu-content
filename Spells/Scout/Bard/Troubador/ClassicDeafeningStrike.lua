@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Scout/Bard/Troubador/ClassicDeafeningStrike.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.22 04:11:39
+    Script Author  : Image
+    Script Date    : 2025.08.10 15:58:21
     Script Purpose : 
                    : 
 --]]
@@ -14,3 +14,16 @@
 
 --]]
 
+
+function cast(Caster, Target, DmgType, MinVal, MaxVal, MinDecrease, MaxDecrease, MinIncrease, MaxIncrease)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+    local decrease = MakeRandomInt(MinDecrease, MaxDecrease)
+    local increase = MakeRandomInt(MinIncrease, MaxIncrease)
+    AddSpellBonus(Target, 501, decrease)
+    AddSpellBonus(Caster, 501, increase)
+end
+
+function remove(Caster, Target)
+    RemoveSpellBonus(Target)
+    RemoveSpellBonus(Caster)
+end

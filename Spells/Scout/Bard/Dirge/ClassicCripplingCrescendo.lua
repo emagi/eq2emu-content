@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Scout/Bard/Dirge/ClassicCripplingCrescendo.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.20 04:11:00
+    Script Author  : Image
+    Script Date    : 2025.08.10 08:30:50
     Script Purpose : 
                    : 
 --]]
@@ -14,3 +14,13 @@
 
 --]]
 
+
+function cast(Caster, Target, SkillAmount, DmgType, MinVal, MaxVal)
+    Interrupt(Caster, Target)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+    AddSkillBonus(Target, GetSkillIDByName("defense"), SkillAmount)
+end
+
+function remove(Caster, Target, Reason, SkillAmount, DmgType, MinVal, MaxVal)
+    RemoveSkillBonus(Target)
+end

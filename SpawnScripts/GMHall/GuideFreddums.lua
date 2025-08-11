@@ -12,9 +12,18 @@ function spawn(NPC)
 end
 
 
+function DoSpellVisual(NPC,Spawn)
+	ClearChoice(Spawn, "select")
+	CreateChoiceWindow(NPC, Spawn, "Display Visual ID", "OK", "select", "Cancel", "", 0, 1, 1, 14)
+end
+function casted_on(NPC, Spawn, NewValue)
+    ApplySpellVisual(Spawn,NewValue)
+end
+
 function hailed(NPC, Spawn)
         Say(NPC, "Greetings.")
         OfferQuest(NPC, Spawn, 456)
+        DoSpellVisual(NPC, Spawn)
 end
 
 function respawn(NPC)

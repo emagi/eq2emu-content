@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Scout/Bard/Dirge/DissonantRhythm.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.21 03:11:38
+    Script Author  : Image
+    Script Date    : 2025.08.10 09:22:45
     Script Purpose : 
                    : 
 --]]
@@ -11,4 +11,8 @@
 *Inflicts 93 - 155 disease damage on target encounter
 
 --]]
+
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+end
 

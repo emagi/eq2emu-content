@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Scout/Bard/Dirge/MisfortunesKissClassic.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.20 04:11:31
+    Script Author  : Image
+    Script Date    : 2025.08.10 09:32:12
     Script Purpose : 
                    : 
 --]]
@@ -13,4 +13,23 @@
 *You must be sneaking to use this ability.
 
 --]]
+
+function precast(Caster, Target)
+    -- You must be sneaking to use this ability.
+    if IsStealthed(Caster) then
+        return true
+    end
+
+    SendMessage(Caster, "You must be sneaking to use this ability.", "yellow")
+    return false
+end
+
+function cast(Caster, Target, DmgType, MinVal, MaxVal, Amount)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+    AddSpellBonus(Target, 3, Amount)
+end
+
+function remove(Caster, Target)
+    RemoveSpellBonus(Target)
+end
 
