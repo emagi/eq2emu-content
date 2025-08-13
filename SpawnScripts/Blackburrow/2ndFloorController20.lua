@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/Blackburrow/2ndFloorController4.lua
+    Script Name    : SpawnScripts/Blackburrow/2ndFloorController20.lua
     Script Author  : lordpazuzu
-    Script Date    : 2025.07.28 05:07:28
+    Script Date    : 2025.08.12 07:08:16
     Script Purpose : 
                    : 
 --]]
@@ -11,16 +11,16 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC)
     local zone = GetZone(NPC)
     ControlObject = GetSpawnLocationID(NPC) -- Loc ID for spawn object
-    LevelMin = 15 -- Minium level for encounter to spawn at
+    LevelMin = 16 -- Minium level for encounter to spawn at
     LevelMax = 16 -- Maximum level for encounter to spawn at
-    Group1 = 1058290 -- Group ID
-    Group2 = 1058291 -- Group ID
-    SpawnVariant = MakeRandomInt(1,2)
+    Group1 = 1058334 -- Group ID
+    Group2 = 1058335 -- Group ID
+    SpawnVariant = MakeRandomInt(1,5)
     
-    if SpawnVariant == 1 then 
-        GroupID = Group1
-    elseif SpawnVariant == 2 then
+    if SpawnVariant == 5 then 
         GroupID = Group2
+    else
+        GroupID = Group1
     end
     
     SpawnGroupByID(zone, GroupID, MakeRandomInt(LevelMin,LevelMax))
