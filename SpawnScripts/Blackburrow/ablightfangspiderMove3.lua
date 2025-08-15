@@ -1,15 +1,16 @@
 --[[
-    Script Name    : SpawnScripts/Blackburrow/ablightfangspider.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2022.07.15 04:07:54
+    Script Name    : SpawnScripts/Blackburrow/ablightfangspiderMove3.lua
+    Script Author  : lordpazuzu
+    Script Date    : 2025.08.14 07:08:25
     Script Purpose : 
                    : 
 --]]
+
 require "SpawnScripts/Generic/NPCModule"
 
-function spawn(NPC, Spawn)
+function spawn(NPC)
     NPCModule(NPC, Spawn)
-    RandomMovement(NPC, Spawn, 6, -6, 2, 8, 15)
+    RandomMovement(NPC, Spawn, 3, -3, 2, 8, 15)
 end
 
 function hailed(NPC, Spawn)

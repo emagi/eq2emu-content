@@ -13,3 +13,14 @@
 
 --]]
 
+function cast(Caster, Target, DmgType, MinVal, MaxVal, MinPower, MaxPower)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+    local targets = GetGroup(Caster)
+    if targets ~= nil then
+        for k,v in ipairs(targets) do
+            SpellHeal("Power", MinPower, MaxPower, v, 0, 0)
+        end
+    else
+        SpellHeal("Power", MinPower, MaxPower, Caster, 0, 0)
+    end
+end

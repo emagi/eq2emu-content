@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Scout/Bard/Troubador/DissentingCantata.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.21 05:11:45
+    Script Author  : Image
+    Script Date    : 2025.08.14 08:31:12
     Script Purpose : 
                    : 
 --]]
@@ -12,3 +12,6 @@
 
 --]]
 
+function cast(Caster, Target, DmgType, MinVal, MaxVal)
+    SpellDamage(Target, DmgType, MinVal, MaxVal)
+end
