@@ -6,24 +6,25 @@
                    : 
 --]]
 
-local GnollBrew = 5638
-local BuckyID = 133773751
+--local GnollBrew = 5638
+--local BuckyID = 133798010
 
 function spawn(NPC)
-    SetRequiredQuest(NPC,GnollBrew,1,0,0,1)
+
 end
 
 function casted_on(NPC, Spawn, Command)
-if Command == 'Grab jug of brew' then
-if GetQuestStep(Spawn, GnollBrew) == 1 then
-zone = GetZone(Spawn)
-if SpawnBucky == nil then
-SpawnBucky = SpawnByLocationID(zone, BuckyID)
-SetStepComplete(Spawn, GnollBrew, 1)
+zone = GetZone(Spawn)    
+    
+    if Command == 'Grab jug of brew' then
+        if SpawnBucky == nil then
+            SpawnBucky = SpawnByLocationID(zone, 133798010)
+        end
+        if GetQuestStep(Spawn, GnollBrew) == 1 then
+            SetStepComplete(Spawn, 5638, 1)
+        end
+    end
 end
-end
-  end
-   end
 
 function respawn(NPC)
 	spawn(NPC)

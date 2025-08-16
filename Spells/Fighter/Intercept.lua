@@ -4,6 +4,14 @@
     	Script Date	: 2013.08.10 02:08:36
     	Script Notes	: Intercept damage to Target --]]
 
+function precast(Caster, Target)
+    if GetID(Caster) == GetID(Target) then
+        return false, 38
+    end
+    
+    return true
+end
+
     function cast(Caster, Target)
 
         local HalfMaxHP = GetMaxHP(Target) * .5

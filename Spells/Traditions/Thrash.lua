@@ -23,7 +23,7 @@ end
 
 function damage(Caster, Target, DmgType, MinVal, MaxVal)
     Level = GetLevel(Caster)
-    SpellLevel = 1
+    SpellLevel = 4
     Mastery = SpellLevel + 50
 
     if Level < Mastery then

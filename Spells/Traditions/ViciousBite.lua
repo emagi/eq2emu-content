@@ -8,17 +8,15 @@
 
 function cast(Caster, Target, DmgType, MainDmg, DoTDmg)
     Level = GetLevel(Caster)
-    SpellLevel = 1
+    SpellLevel = 5
     Mastery = SpellLevel + 50
-    StatBonus = GetStr(Caster) / 10
-        
+
     if Level < Mastery then
         LvlBonus = Level - SpellLevel
         else LvlBonus = Mastery - SpellLevel
     end
-    
-    DmgBonus = LvlBonus + StatBonus
-    TotalDmg = MainDmg + math.floor(DmgBonus)
+
+    TotalDmg = MainDmg + math.floor(LvlBonus)
     
     
     SpellDamage(Target, DmgType, MainDmg, MainDmg)
@@ -27,17 +25,16 @@ end
 
 function tick(Caster, Target, DmgType, MainDmg, DoTDmg)
     Level = GetLevel(Caster)
-    SpellLevel = 1
+    SpellLevel = 5
     Mastery = SpellLevel + 50
-    StatBonus = GetStr(Caster) / 10
-        
+
     if Level < Mastery then
         LvlBonus = Level - SpellLevel
         else LvlBonus = Mastery - SpellLevel
     end
     
-    DmgBonus = LvlBonus + StatBonus
-    TotalDoT = DoTDmg + math.floor(DmgBonus)
+
+    TotalDoT = DoTDmg + math.floor(LvlBonus)
     
     
     SpellDamage(Target, DmgType, TotalDoT, TotalDoT)
