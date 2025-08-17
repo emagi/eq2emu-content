@@ -21,6 +21,7 @@
 	*Decreases All Attributes of target by 5.0%
 		*If between levels 1 - 6
 *Resurrects target with 15% health and power
+*Resurrects target with Fae Fire like buff to damage target if they are attacked
 *If outside an arena
 *If outside an arena
 

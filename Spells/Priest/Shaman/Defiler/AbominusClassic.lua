@@ -9,8 +9,6 @@
 --[[ Info from spell_display_effects (remove from script when done)
 
 *Allows group members (AE) to breathe under water
-*Allows group members (AE) to jump under water
-*Allows group members (AE) to walk under water
-
+* While this spell is in effect, enemies may take Disease damage when they hit you.
 --]]
 

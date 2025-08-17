@@ -20,14 +20,18 @@ end
 
 function Study(Item,Player)
 	    CloseItemConversation(Item,Player)
-	if not HasQuest(Player, LANGUAGE_QUEST) then
+	if not HasQuest(Player, LANGUAGE_QUEST) and not HasCompletedQuest(Player, LANGUAGE_QUEST) then
 		OfferQuest(nil, Player, LANGUAGE_QUEST)
     else
 	    CloseItemConversation(Item,Player)
-        RemoveItem(Player,7832,1) --territory marker
-        SummonItem(Player,13528)-- studied territory marker
-conversation = CreateConversation()
-AddConversationOption(conversation, "Put away the studied marker.","CloseItemConversation")
-StartDialogConversation(conversation, 2, Item, Player, "With what little of the note appeared in both languages you were able to study it and gain a better understanding of the goblin language.")
-end
+	    if HasItem(Player, 7832) then
+            RemoveItem(Player,7832,1) --territory marker
+            if not HasItem(Player, 13528) then
+                SummonItem(Player,13528)-- studied territory marker
+            end
+        end
+        conversation = CreateConversation()
+        AddConversationOption(conversation, "Put away the studied marker.","CloseItemConversation")
+        StartDialogConversation(conversation, 2, Item, Player, "With what little of the note appeared in both languages you were able to study it and gain a better understanding of the goblin language.")
+    end
 end

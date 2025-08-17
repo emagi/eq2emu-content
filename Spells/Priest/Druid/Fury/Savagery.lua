@@ -8,7 +8,7 @@
 
 --[[ Info from spell_display_effects (remove from script when done)
 
-*Increases STR, AGI, WIS and INT of target by 18.2
+*Increases STR and AGI of target by 18.2
 *Adds 1.4% to base avoidance.
 *Increases Mitigation of target vs elemental, noxious and arcane damage by 129
 *On any combat or spell hit this spell may cast Battle Fury on target.  Lasts for 10.0 seconds.  Triggers about 2.0 times per minute. 

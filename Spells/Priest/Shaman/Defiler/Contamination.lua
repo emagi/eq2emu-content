@@ -9,7 +9,7 @@
 --[[ Info from spell_display_effects (remove from script when done)
 
 *Inflicts 27 poison damage on target instantly and every 4 seconds
-*Decreases WIS of target by 26.3
+*Decreases STA of target by 26.3
 
 --]]
 
