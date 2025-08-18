@@ -1,7 +1,7 @@
 --[[
     Script Name    : Spells/Priest/Druid/Fury/FierceRousingClassic.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2024.11.16 04:11:50
+    Script Author  : Image
+    Script Date    : 2025.08.17 13:47:00
     Script Purpose : 
                    : 
 --]]
@@ -27,3 +27,6 @@
 
 --]]
 
+function cast(Caster, Target)
+    Resurrect(15, 15, 1, nil, "", 0, 0, 170210, 1)
+end
