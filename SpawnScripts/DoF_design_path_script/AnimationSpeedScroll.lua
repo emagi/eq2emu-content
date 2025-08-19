@@ -15,7 +15,7 @@ function spawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-Dialog1(NPC,Spawn)
+    Dialog1(NPC, Spawn)
 end
 
 function Dialog1(NPC, Spawn)
