@@ -36,5 +36,6 @@ end
 
 function remove(Caster, Target)
     RemoveSpellBonus(Target)
+    RemoveProc(Target)
     RemoveControlEffect(Target, 2, 1)
 end

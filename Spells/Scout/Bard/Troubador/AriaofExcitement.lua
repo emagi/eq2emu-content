@@ -20,3 +20,7 @@ end
 function proc(Caster, Target, Type, DmgType, MinVal, MaxVal)
     SpellDamage(Target, DmgType, MinVal, MaxVal, 0, 0)
 end
+
+function remove(Caster, Target, Reason)
+    RemoveProc(Target)
+end

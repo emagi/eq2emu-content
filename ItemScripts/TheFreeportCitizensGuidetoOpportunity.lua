@@ -101,12 +101,12 @@ StartDialogConversation(conversation, 2, Item, Player, "Heritage\n\nThroughout N
 end
 
 function Page12(Item, Player)
+conversation = CreateConversation()
 if CanReceiveQuest(Player,5865) then
     OfferQuest(Item,Player,5865)
 elseif GetQuestStep(Player,5865) ==8 then    
 AddConversationOption(conversation, "Final Page","Page13")
 end
-endconversation = CreateConversation()
 AddConversationOption(conversation, "Previous Page","Page10")
 AddConversationOption(conversation, "Close the book.","CloseItemConversation")
 StartDialogConversation(conversation, 2, Item, Player, "Making Yourself Useful\n\nThe Overlord requires that all citizens be of some use to the city by advancing their training in their current adventuring profession. We will not have deadbeats and mendicants within the walls of Freeport.\n\nFighters report to Commandant Tychus in the Temple of War.\n\nPriests report to Priest Kelian, also within the Temple of War.\n\nMages are to speak with Arcanist Sonius within the Academy of Arcane Sciences.\n\nScouts are to seek out Emissary Millia, she can be found operating out of the Jade Tiger Inn.\n\nThese locations are all found within the North Freeport section of the city. The prosperity of Freeport will be achieved through blood and sweat! -- Grand Duke Hazran")

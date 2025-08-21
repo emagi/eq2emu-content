@@ -41,8 +41,9 @@ function proc(Caster, Target, Type, StatAmount, BaseAvoidance, MitigationAmount,
     DamageSpawn(Caster, Target, 0, 0, LowDmg, HighDmg, "Predator's Attack")
 end
 
-function remove(Caster, Target)
+function remove(Caster, Target, Reason)
     ResetIllusion(Caster)
     SetSeeHide(Caster, false)
     RemoveSpellBonus(Caster)
+    RemoveProc(Caster)
 end
