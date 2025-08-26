@@ -19,7 +19,7 @@ end
 function Accepted(Quest, QuestGiver, Player)
     FaceTarget(QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)   
- 	Dialog.AddDialog("The others will rely on you to handle most of the fighting but I know you can handle it.  You're a brave fighter after all!  Go, meet with the others in the village and give those goblins what they deserve!  While you are at it friend, fetch me some flint head spears that the goblins carry.  I figure it's the least those buggers owe me, considering all of my gear they've stole or broke in the past few weeks.  Quickly now!  Time is a wasting!")
+ 	Dialog.AddDialog("Don't be so hasty.  If it is Grimgash it won't be easily destroyed.  If you want to live, you must gather others and attack the orc as a team.  Grimgash's best defense is to hole up in a cave.  Find his cave and give him an extra dose of the whoopin' you showed his makeshift army!")
 	Dialog.AddVoiceover("voiceover/english/braksan_steelforge/tutorial_island02/braksansteelforge013.mp3", 3489827867,2503461206)
     PlayFlavor(QuestGiver, "", "", "no", 0, 0, Player)
     Dialog.AddOption("I'll put an end to this.")	
