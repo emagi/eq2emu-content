@@ -2,7 +2,7 @@
     Script Name    : SpawnScripts/Generic/ExpelNonCitizen.lua
     Script Author  : Dorbin
     Script Date    : 2022.11.03 01:11:17
-    Script Purpose : 
+    Script Purpose :  Classic Script: Used to check player Citizenship status and Class Advancenemt. Boots non-citizen/refugees back to racial hoods. Expels non-citizens outside the city that don't belong. Checks player advancement by level and class to offer guiding quests to trainers.
                    : 
 --]]
 dofile("SpawnScripts/Generic/AdvancementGaze.lua")
@@ -10,7 +10,10 @@ dofile("SpawnScripts/Generic/AdvancementGaze.lua")
 function NonCitizen(NPC,Spawn)
  if GetFactionAmount(Spawn,11)>=5000 then
     if GetLevel(Spawn) ==8 or GetLevel(Spawn)==9 then--CLASS ADVANCEMENT QUEST CHECK
-    ClassCheck(NPC,Spawn)
+    ClassCheck_Q(NPC,Spawn)
+ elseif GetFactionAmount(Spawn,12)>=5000 then
+    if GetLevel(Spawn) ==8 or GetLevel(Spawn)==9 then--CLASS ADVANCEMENT QUEST CHECK
+    ClassCheck_FP(NPC,Spawn)    
     end
 end
 
@@ -37,7 +40,7 @@ end
 	    EVIL = true
 	end
 
-	if GOOD and GetFactionAmount(Spawn,11) >0 and invul == false then
+	if GOOD and GetFactionAmount(Spawn,11) >0 and invul == false then  --GOOD CITY EXPEL
 	    if not HasCompletedQuest(Spawn,5718) and
 	    not HasCompletedQuest(Spawn,5719) and  --CITIZENSHIP TRIALS
 	    not HasCompletedQuest(Spawn,5720) and
@@ -64,6 +67,34 @@ end
         SendMessage(Spawn,"A guard has spotted you!","red")
         PlaySound(Spawn,"sounds/ui/ui_warning.wav", GetX(NPC), GetY(NPC), GetZ(NPC))       
     end
+    
+	if EVIL and GetFactionAmount(Spawn,12) >0 and invul == false then --EVIL CITY EXPEL
+	    if not HasCompletedQuest(Spawn,5866) and
+	    not HasCompletedQuest(Spawn,5867) and  --CITIZENSHIP TRIALS
+	    not HasCompletedQuest(Spawn,5868) and
+	    not HasCompletedQuest(Spawn,5869) and
+	    not HasCompletedQuest(Spawn,5870) and
+	    not HasCompletedQuest(Spawn,5871) then
+        if GetClass(Spawn) ==1 or GetClass(Spawn)==11 or GetClass(Spawn)==21 or GetClass(Spawn)==31 then --CLASS(Archetype) CHECK. THESE ARE POSSIBLE REFUGEES.
+ 
+        SetInfoStructUInt(NPC, "override_primary_weapon", 1)        -- Enables override of server autoattack damage. Set to 0 to  allow server to set damage.
+        SetInfoStructUInt(NPC, "primary_weapon_damage_low", 0) 
+        SetInfoStructUInt(NPC, "primary_weapon_damage_high", 0)
+       
+        Attack(NPC,Spawn)
+        AddTimer(NPC,500,"Expel_FP",1,Spawn)
+        SendMessage(Spawn,"A guard has spotted you!","red")
+        PlaySound(Spawn,"sounds/ui/ui_warning.wav", GetX(NPC), GetY(NPC), GetZ(NPC))
+        end
+        end
+        elseif EVIL and GetFactionAmount(Spawn,12)<1000 and invul == false then  --NON CITIZENS
+        SetInfoStructUInt(NPC, "override_primary_weapon", 0)        -- Enables override of server autoattack damage. Set to 0 to  allow server to set damage.
+        Attack(NPC,Spawn)
+        AddTimer(NPC,500,"ExpelOtherFaction_FP",1,Spawn)
+        SendPopUpMessage(Spawn,"A guard has spotted you!",250,0,0)
+        SendMessage(Spawn,"A guard has spotted you!","red")
+        PlaySound(Spawn,"sounds/ui/ui_warning.wav", GetX(NPC), GetY(NPC), GetZ(NPC))       
+    end    
 end
 
 
@@ -78,6 +109,24 @@ function Expel(NPC,Spawn)
         SetInvulnerable(Spawn)
         SendPopUpMessage(Spawn,"Refugee! You are not allowed inside the walls of Qeynos!",250,0,0)
         SendMessage(Spawn,"Refugee! You are not allowed inside the walls of Qeynos!","red")
+        PlaySound(Spawn,"sounds/ui/ui_duel_defeat.wav", GetX(NPC), GetY(NPC), GetZ(NPC))
+        End (NPC,Spawn)
+--      SetHP(Spawn,SetMaxHP(Spawn))
+    end
+end
+end
+
+function Expel_FP(NPC,Spawn)
+    local invul = IsInvulnerable(Spawn)
+    if IsInCombat(NPC) then
+    AddTimer(NPC,500,"Expel",1,Spawn)
+    if invul == false and GetDistance(Spawn,NPC) <=4 then
+        CastSpell(NPC,1225)
+        PlayAnimation(Spawn,11764)
+        ExpeltoHood_FP(NPC,Spawn)
+        SetInvulnerable(Spawn)
+        SendPopUpMessage(Spawn,"Refugee! You are not allowed inside the walls of Freeport!",250,0,0)
+        SendMessage(Spawn,"Refugee! You are not allowed inside the walls of Freeport!","red")
         PlaySound(Spawn,"sounds/ui/ui_duel_defeat.wav", GetX(NPC), GetY(NPC), GetZ(NPC))
         End (NPC,Spawn)
 --      SetHP(Spawn,SetMaxHP(Spawn))
@@ -110,6 +159,35 @@ function ExpelOtherFaction(NPC,Spawn)
         End (NPC,Spawn)
     end
 end
+end
+
+function ExpeltoOutofCity(NPC,Spawn)
+        ZoneRef = GetZone("Antonica")
+        Zone(ZoneRef,Spawn,-130.85, -15.10, -77.62, 137.28)
+end
+
+
+
+function ExpelOtherFaction_FP(NPC,Spawn)
+    local invul = IsInvulnerable(Spawn)
+    if IsInCombat(NPC) then
+    if invul == false and GetDistance(Spawn,NPC) <=5 then
+        CastSpell(NPC,1225)
+        PlayAnimation(Spawn,11764)
+        ExpeltoOutofCity_FP(NPC,Spawn)
+        SetInvulnerable(Spawn)
+        SendPopUpMessage(Spawn,"You are not allowed inside the walls of Freeport!",250,0,0)
+        SendMessage(Spawn,"You are not allowed inside the walls of Freeport!","red")
+        PlaySound(Spawn,"sounds/ui/ui_duel_defeat.wav", GetX(NPC), GetY(NPC), GetZ(NPC))
+        SetHP(Spawn,SetMaxHP(Spawn))
+        End (NPC,Spawn)
+    end
+end
+end
+
+function ExpeltoOutofCity_FP(NPC,Spawn)
+        ZoneRef = GetZone("Commonlands")
+        Zone(ZoneRef,Spawn,-382.22, -46.97, -809.45, 0)
 end
 
 function ExpeltoOutofCity(NPC,Spawn)
@@ -156,4 +234,43 @@ function ExpeltoHood(NPC,Spawn)
         ZoneRef = GetZone("Nettleville")
         Zone(ZoneRef,Spawn)    
     end
+end   
+
+ function ExpeltoHood_FP(NPC,Spawn)
+   local Race = GetRace(Spawn)
+    
+    --  Kerra / Erudite
+    if Race == 11 or Race == 3 then
+        ZoneRef = GetZone("Stonestair")
+        Zone(ZoneRef,Spawn)
+
+    -- Barbarian / Iksar
+    elseif Race == 0 or Race == 10 then
+        ZoneRef = GetZone("ScaleYard")
+        Zone(ZoneRef,Spawn)
+        
+    -- Ogre / Troll
+    elseif Race == 12 or Race == 14 then
+        ZoneRef = GetZone("BigBend")
+        Zone(ZoneRef,Spawn)
+        
+    -- Darkelf
+    elseif Race == 1 or Race == 19 then
+        ZoneRef = GetZone("Longshadow")
+        Zone(ZoneRef,Spawn)
+
+    -- Half Elf / Human
+    elseif Race == 6 or Race == 9 or Race == 20 then
+        ZoneRef = GetZone("BeggarsCourt")
+        Zone(ZoneRef,Spawn)
+
+    -- Gnome / Ratonga
+    elseif Race == 5 or Race == 13 then
+        ZoneRef = GetZone("TempleSt")
+        Zone(ZoneRef,Spawn)
+
+    else
+        ZoneRef = GetZone("BeggarsCourt")
+        Zone(ZoneRef,Spawn)    
+    end   
 end

@@ -4,7 +4,7 @@
 function cast(Item, Player)
     Spell = GetSpell(5463, 1, "Spells/Commoner/HomemadeDrinkGeneric.lua")
     SetSpellData(Spell, "name", "Scarscale Suds")
-    SetSpellData(Spell, "description", "A strangely familiar handcrafted brew.  A small label on the bottom reads "Ebb Tide Brewing Company".")
+    SetSpellData(Spell, "description", "A strangely familiar handcrafted brew.  A small label on the bottom reads \"Ebb Tide Brewing Company\".")
     newDuration = 20000.0
     SetSpellData(Spell, "duration1", newDuration)
     SetSpellData(Spell, "duration2", newDuration)
