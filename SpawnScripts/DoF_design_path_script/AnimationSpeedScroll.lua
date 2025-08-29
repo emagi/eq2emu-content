@@ -283,7 +283,6 @@ local function printVisualResults(NPC, results)
 end
 
 function casted_on(NPC, Spawn, NewValue)
-
     local filename = "visuals.txt" -- Change this if your file has a different name
     local table_data = readTable(filename)
 

@@ -57,6 +57,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 4, "I spoke with Korong.")
 	UpdateQuestTaskGroupDescription(Quest, 4, "I spoke with Korong.")
 
+    if GetClass(Player)== 1 then
+        SetInfoStructString(Player, "adventure_class_selection", "fp-5")
+    end
+
 	UpdateQuestDescription(Quest, "I took on all of the Brawler's that Korong Shatterjaw threw at me and survived.  He seemed somewhat impressed with my ability and said some day I should be ready to challenge him.")
 	GiveQuestReward(Quest, Player)
 end

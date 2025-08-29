@@ -1,3 +1,67 @@
+-- promotion_subset_router.lua
+-- Call with: PromoteByKeyStrict(Player, "fp-22") or PromoteByKeyStrict(Player, "qy-28"), etc.
+
+local PROMOTE_MAP = {
+  -- Freeport (first two)
+  ["fp-22"] = "PromoteToSorcerer",   -- 22
+  ["fp-28"] = "PromoteToSummoner",   -- 28
+
+  -- using qeynos as temp freeport holders (seem to be identical in requirements, unless we want to set something specific Qeynos/FP on the Player)
+  ["fp-35"] = "PromoteToBardQ",      -- 35
+  ["fp-5"]  = "PromoteToBrawlerQ",   -- 5
+  ["fp-12"] = "PromoteToClericQ",    -- 12
+  ["fp-8"]  = "PromoteToCrusaderQ",  -- 8
+  ["fp-15"] = "PromoteToDruidQ",     -- 15
+  ["fp-25"] = "PromoteToEnchanterQ", -- 25
+  ["fp-38"] = "PromoteToPredatorQ",  -- 38
+  ["fp-32"] = "PromoteToRogueQ",     -- 32
+  ["fp-18"] = "PromoteToShamanQ",    -- 18
+  ["fp-2"]  = "PromoteToWarriorQ",   -- 2
+  -- temp freeport placeholders
+  
+  -- Qeynos (rest)
+  ["qy-35"] = "PromoteToBardQ",      -- 35
+  ["qy-5"]  = "PromoteToBrawlerQ",   -- 5
+  ["qy-12"] = "PromoteToClericQ",    -- 12
+  ["qy-8"]  = "PromoteToCrusaderQ",  -- 8
+  ["qy-15"] = "PromoteToDruidQ",     -- 15
+  ["qy-25"] = "PromoteToEnchanterQ", -- 25
+  ["qy-38"] = "PromoteToPredatorQ",  -- 38
+  ["qy-32"] = "PromoteToRogueQ",     -- 32
+  ["qy-18"] = "PromoteToShamanQ",    -- 18
+  ["qy-22"] = "PromoteToSorcererQ",  -- 22
+  ["qy-28"] = "PromoteToSummonerQ",  -- 28
+  ["qy-2"]  = "PromoteToWarriorQ",   -- 2
+}
+
+-- Strict dispatcher for your subset
+function PromoteByKeyStrict(Player, key)
+  local fname = PROMOTE_MAP[key]
+  if not fname then
+    return false, "Unsupported promotion key '"..tostring(key).."'."
+  end
+  local fn = _G[fname]
+  if type(fn) ~= "function" then
+    return false, "Missing promotion function '"..fname.."'."
+  end
+  fn(Player)
+  SetInfoStructString(Player, "refresh_advspells", "true")
+  return true
+end
+
+-- Optional: enumerate supported keys (useful for debugging/UI)
+function ListSupportedPromotionKeys()
+  local keys = {}
+  for k,_ in pairs(PROMOTE_MAP) do table.insert(keys, k) end
+  table.sort(keys)
+  return keys
+end
+
+-- PromoteByKeyStrict(Player, "fp-22") → PromoteToSorcerer(Player)
+-- PromoteByKeyStrict(Player, "qy-28") → PromoteToSummonerQ(Player)
+-- ListSupportedPromotionKeys() → returns the full set you can expose in UI or logs.
+
+
 ------------------------------
 -- Freeport Classes
 ------------------------------
@@ -58,7 +122,6 @@ end
 -- extracted promotion logic (Freeport Summoner)
 function PromoteToSummoner(Player)
     SetAdventureClass(Player,28)
-    SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Summoner.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Summoner.",250,250,200)
     ApplySpellVisual(Player, 324)
@@ -406,7 +469,6 @@ end
 -- extracted Qeynos Druid promotion logic
 function PromoteToDruidQ(Player)
     SetAdventureClass(Player,15)
-    SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Druid.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Druid.",250,250,200)
     ApplySpellVisual(Player, 324)
@@ -480,7 +542,6 @@ end
 -- extracted promotion logic (Qeynos Enchanter)
 function PromoteToEnchanterQ(Player)
     SetAdventureClass(Player,25)
-    SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are an Enchanter.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are an Enchanter.",250,250,200)
     ApplySpellVisual(Player, 324)
@@ -615,7 +676,6 @@ end
 -- extracted Qeynos Rogue promotion logic
 function PromoteToRogueQ(Player)
     SetAdventureClass(Player,32)
-    SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Rogue.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Rogue.",250,250,200)
     ApplySpellVisual(Player, 324)
@@ -691,7 +751,6 @@ end
 -- extracted Qeynos Shaman promotion logic
 function PromoteToShamanQ(Player)
     SetAdventureClass(Player,18)
-    SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Shaman.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Shaman.",250,250,200)
     ApplySpellVisual(Player, 324)
@@ -915,7 +974,6 @@ end
 -- extracted promotion logic (Qeynos Warrior)
 function PromoteToWarriorQ(Player)
     SetAdventureClass(Player,2)
-    SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Warrior.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Warrior.",250,250,200)
     ApplySpellVisual(Player, 324)

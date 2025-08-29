@@ -41,6 +41,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 2, "I reported back to Millia.")
 	UpdateQuestTaskGroupDescription(Quest, 2, "I reported back to Millia.")
 
+    if GetClass(Player)== 31 then
+        SetInfoStructString(Player, "adventure_class_selection", "qy-38")
+    end
+    
 	UpdateQuestDescription(Quest, "I was able to take care of Captain Driftskull.  There won't be any more talk from him about going independent.  Millia was impressed with my work.  I think I am going to like being a Predator.")
 	GiveQuestReward(Quest, Player)
 end

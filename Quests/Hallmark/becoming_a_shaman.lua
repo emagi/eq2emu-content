@@ -48,6 +48,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 3, "I spoke to Priest Kelian.")
 	UpdateQuestTaskGroupDescription(Quest, 3, "I spoke to Priest Kelian.")
 
+    if GetClass(Player)== 11 then
+        SetInfoStructString(Player, "adventure_class_selection", "fp-18")
+    end
+	
 	UpdateQuestDescription(Quest, "I subdued the rebellious spirits.  They are now mine to control.  I have emerged as a master of the spirit world.  I am a Shaman.")
 	GiveQuestReward(Quest, Player)
 end

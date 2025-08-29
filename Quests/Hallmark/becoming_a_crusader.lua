@@ -63,6 +63,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
 	UpdateQuestStepDescription(Quest, 5, "I reported back to Tychus.")
 	UpdateQuestTaskGroupDescription(Quest, 5, "I reported back to Tychus.")
+    
+    if GetClass(Player)== 1 then
+        SetInfoStructString(Player, "adventure_class_selection", "fp-8")
+    end
 
 	UpdateQuestDescription(Quest, "I stopped the defection and saved the lives of the misguided.  To be a Crusader I must stand unswerving for my beliefs and that is what I have done.  The Commandant was impressed with my conviction.")
 	GiveQuestReward(Quest, Player)

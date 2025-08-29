@@ -41,6 +41,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 2, "I spoke with Priest Kelian.")
 	UpdateQuestTaskGroupDescription(Quest, 2, "I spoke with Priest Kelian.")
 
+    if GetClass(Player)== 11 then
+        SetInfoStructString(Player, "adventure_class_selection", "fp-15")
+    end
+
 	UpdateQuestDescription(Quest, "I defeated the plant beast that the mage failed to destroy after creating it.  I have demonstrated that the power of nature is greater than any mages creation.  I am now a Druid.")
 	GiveQuestReward(Quest, Player)
 end

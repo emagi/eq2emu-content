@@ -48,6 +48,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 2, "I survived the Threshing.")
 	UpdateQuestTaskGroupDescription(Quest, 2, "I survived the test and spoke to Z'Vol.")
 
+    if GetClass(Player)== 11 then
+        SetInfoStructString(Player, "adventure_class_selection", "fp-12")
+    end
+
 	UpdateQuestDescription(Quest, "I survived the pain of the Threshing.  I have emerged purified and worthy of the title I now hold.  I am a Cleric.")
 	GiveQuestReward(Quest, Player)
 end

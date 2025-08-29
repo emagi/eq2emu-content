@@ -40,7 +40,11 @@ function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
 	UpdateQuestStepDescription(Quest, 2, "I gave the ledger to Millia.")
 	UpdateQuestTaskGroupDescription(Quest, 2, "I gave the ledger back to Millia.")
-
+	
+    if GetClass(Player)== 31 then
+        SetInfoStructString(Player, "adventure_class_selection", "fp-35")
+    end
+    
 	UpdateQuestDescription(Quest, "I was able to entertain the merchants and distract them with my talents before I swiped the ledger out from under them.  Millia was quite impressed when I turned the ledger over to her.")
 	GiveQuestReward(Quest, Player)
 end

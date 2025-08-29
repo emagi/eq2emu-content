@@ -46,6 +46,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
 	UpdateQuestStepDescription(Quest, 3, "I gave the logs to Millia.")
 	UpdateQuestTaskGroupDescription(Quest, 2, "I gave the logs to Emissary Millia.")
+    
+    if GetClass(Player)== 31 then
+        SetInfoStructString(Player, "adventure_class_selection", "fp-32")
+    end
 
 	UpdateQuestDescription(Quest, "I stole the logs from the Port Authority office and handed them over to Emissary Millia.  Millia taught me that being a Rogue is not just about my skills but also how to look for opportunity in any situation.")
 	GiveQuestReward(Quest, Player)

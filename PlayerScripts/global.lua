@@ -51,12 +51,21 @@ local lowerClasses = {
     [41] = true, -- animalist
     [43] = true -- shaper
 }
+require "SpawnScripts/Generic/ClassChangeModule"
+function on_level_up_complete(Zone, Player, OldLevel, NewLevel, ExpEarned)
+    local needsRefresh = GetInfoStructString(Player, "refresh_advspells")
+    if needsRefresh == "true" then
+        SendNewAdventureSpells(Player)
+        SetInfoStructString(Player, "refresh_advspells", "") -- clear out since we set the adventure class
+    end
+end
 
 function on_level_up(Zone, Player, OldLevel, NewLevel, ExpEarned)
     local zoneID = GetZoneID(Zone)
     local playerClass = GetClass(Player)
-    if archetypeClasses[playerClass] or lowerClasses[playerClass] then
+    if (archetypeClasses[playerClass] and NewLevel > 9) or (lowerClasses[playerClass] and NewLevel > 19) then
         try_class_update(Player, NewLevel)
+        playerClass = GetClass(Player)
     end
     if GetClass(Player) == 0 then
         return validate_level_xp(
@@ -88,9 +97,8 @@ end
 
 function try_class_update(Player, NewLevel)
     local classSelect = GetInfoStructString(Player, "adventure_class_selection")
-    local classNum = tonumber(classSelect)
-    if classSelect ~= "" and classNum then
-        SetAdventureClass(Player, classNum)
+    if classSelect ~= "" then
+        PromoteByKeyStrict(Player, classSelect)
         SetInfoStructString(Player, "adventure_class_selection", "") -- clear out since we set the adventure class
     end
 end

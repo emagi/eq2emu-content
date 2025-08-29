@@ -45,6 +45,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 2, "I spoke to Arcanist Sonius.")
 	UpdateQuestTaskGroupDescription(Quest, 2, "I spoke to Arcanist Sonius.")
 
+    if GetClass(Player)== 21 then
+        SetInfoStructString(Player, "adventure_class_selection", "fp-25")
+    end
+    
 	UpdateQuestDescription(Quest, "I convinced a troll named Bulz near the Seafuries to attack the men saving me the trouble of doing it myself.  Unfortunately a member of their crew was wise to my scheme and attacked me directly.  I had to be a little more... direct with him.  I reported back to Arcanist Sonius soon afterwards.  She was pleased with my work and bestowed upon me the title of Enchanter.")
 	GiveQuestReward(Quest, Player)
 end

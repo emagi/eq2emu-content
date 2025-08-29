@@ -49,6 +49,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 3, "I spoke with Commandant Tychus about Bargiss Ranlor.")
 	UpdateQuestTaskGroupDescription(Quest, 3, "I spoke with Commandant Tychus about Bargiss Ranlor.")
 
+    if GetClass(Player)== 1 then
+        SetInfoStructString(Player, "adventure_class_selection", "fp-2")
+    end
+
 	UpdateQuestDescription(Quest, "I found out that Bargiss Ranlor was helping out the Dervish Cutthroats survive in the city.  I didn't need the Commandant's help, I took care of the problem on my own. <br>")
 	GiveQuestReward(Quest, Player)
 end
