@@ -42,6 +42,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I've defeated the brigands and freed the villager.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've defeated the thugs holding the villager hostage and set her free.")
 
+	if GetLevel(Player) < 10 then
+		SendMessage(Player, "Your class will be set when you achieve 10th level.","yellow")
+	end
+
 	if GetClass(Player)== 1 then
                 SetInfoStructString(Player, "adventure_class_selection", "qy-8")
 	end

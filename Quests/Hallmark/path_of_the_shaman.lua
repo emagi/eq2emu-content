@@ -63,6 +63,10 @@ function  QuestCheck(Quest, QuestGiver, Player)
     if QuestStepIsComplete(Player,5776,1) and QuestStepIsComplete(Player,5776,2) and QuestStepIsComplete(Player,5776,3) then
     UpdateQuestTaskGroupDescription(Quest, 1, "I have ventured into the house in South Qeynos and subdued the spirits within.")
 
+	if GetLevel(Player) < 10 then
+		SendMessage(Player, "Your class will be set when you achieve 10th level.","yellow")
+	end
+
 	if GetClass(Player)== 11 then
 		SetInfoStructString(Player, "adventure_class_selection", "qy-18")
 	end

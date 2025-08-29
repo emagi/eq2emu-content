@@ -44,6 +44,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I've subdued the mob.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've saved the other bard from the angry crowd.")
 
+	if GetLevel(Player) < 10 then
+		SendMessage(Player, "Your class will be set when you achieve 10th level.","yellow")
+	end
+
 	if GetClass(Player)== 31 then
 		SetInfoStructString(Player, "adventure_class_selection", "qy-35")
 	end

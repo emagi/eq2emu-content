@@ -49,6 +49,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I've completed the trial.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've completed Aldalad's trial and become a cleric.")
 
+	if GetLevel(Player) < 10 then
+		SendMessage(Player, "Your class will be set when you achieve 10th level.","yellow")
+	end
+
 	if GetClass(Player)== 11 then
                 SetInfoStructString(Player, "adventure_class_selection", "qy-12")
 	end

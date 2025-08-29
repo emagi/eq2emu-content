@@ -45,6 +45,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 2, "I spoke to Arcanist Sonius.")
 	UpdateQuestTaskGroupDescription(Quest, 2, "I spoke to Arcanist Sonius.")
 
+	if GetLevel(Player) < 10 then
+		SendMessage(Player, "Your class will be set when you achieve 10th level.","yellow")
+	end
+
     if GetClass(Player)== 21 then
         SetInfoStructString(Player, "adventure_class_selection", "fp-25")
     end

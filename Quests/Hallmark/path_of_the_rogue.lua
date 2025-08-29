@@ -51,6 +51,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 2, "I've spoken with Vemerik.")
 	UpdateQuestTaskGroupDescription(Quest, 2, "I've returned and spoken with Counselor Vemerik.")
 
+	if GetLevel(Player) < 10 then
+		SendMessage(Player, "Your class will be set when you achieve 10th level.","yellow")
+	end
+
 	if GetClass(Player)== 31 then
                 SetInfoStructString(Player, "adventure_class_selection", "qy-32")
 	end

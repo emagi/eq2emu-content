@@ -46,7 +46,11 @@ function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
 	UpdateQuestStepDescription(Quest, 3, "I gave the logs to Millia.")
 	UpdateQuestTaskGroupDescription(Quest, 2, "I gave the logs to Emissary Millia.")
-    
+
+    	if GetLevel(Player) < 10 then
+		SendMessage(Player, "Your class will be set when you achieve 10th level.","yellow")
+	end
+
     if GetClass(Player)== 31 then
         SetInfoStructString(Player, "adventure_class_selection", "fp-32")
     end

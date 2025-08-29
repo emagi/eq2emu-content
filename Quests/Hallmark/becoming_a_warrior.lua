@@ -49,6 +49,10 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 3, "I spoke with Commandant Tychus about Bargiss Ranlor.")
 	UpdateQuestTaskGroupDescription(Quest, 3, "I spoke with Commandant Tychus about Bargiss Ranlor.")
 
+	if GetLevel(Player) < 10 then
+		SendMessage(Player, "Your class will be set when you achieve 10th level.","yellow")
+	end
+
     if GetClass(Player)== 1 then
         SetInfoStructString(Player, "adventure_class_selection", "fp-2")
     end
