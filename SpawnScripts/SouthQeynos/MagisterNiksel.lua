@@ -29,7 +29,7 @@ end
 function hailed(NPC, Spawn)
     if GetLevel(Spawn) ==7 and  HasCompletedQuest(Spawn,Mage1) then
     DoneToday(NPC,Spawn)   
-    elseif GetLevel(Spawn) >=8 and HasCompletedQuest(Spawn,Mage2) then
+    elseif GetLevel(Spawn) <=8 and HasCompletedQuest(Spawn,Mage2) then
     DoneToday(NPC,Spawn)   
     elseif GetLevel(Spawn) >=9 and HasCompletedQuest(Spawn,Mage2) and GetClass(Spawn)==21 and not HasQuest(Spawn, Ench) and not HasQuest(Spawn, Sorc) and not HasQuest(Spawn, Summ) then
     FinalClassTest(NPC,Spawn)
