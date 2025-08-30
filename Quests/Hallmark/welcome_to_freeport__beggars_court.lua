@@ -86,12 +86,12 @@ end
 function Step8Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 8, "I've met with the district crafting trainer.")
 	UpdateQuestTaskGroupDescription(Quest, 8, "I've visisted two of four locations Valthun has told me about.")
-	AddQuestStepZoneLoc(Quest, 9, "I need to locate the grate to the Thieve's Way.",6,"\"Though most of the people who venture down into the sewers are nothing more than filthy, worthless, good-for-nothing vagabonds, I'm sure you have good reasons for traveling there yourself.  You can find the grate leading down to them if you take a close look.  After that, I'll show you one more place.\" - Valthun", 0,57.45, -6.16, 56.8,137)
+	AddQuestStepZoneLoc(Quest, 9, "I need to locate the grate to the Thieves' Way.",6,"\"Though most of the people who venture down into the sewers are nothing more than filthy, worthless, good-for-nothing vagabonds, I'm sure you have good reasons for traveling there yourself.  You can find the grate leading down to them if you take a close look.  After that, I'll show you one more place.\" - Valthun", 0,57.45, -6.16, 56.8,137)
 	AddQuestStepCompleteAction(Quest, 9, "Step9Complete")   
 end
 
 function Step9Complete(Quest, QuestGiver, Player)
-	UpdateQuestStepDescription(Quest, 9, "I've found the enterence to the Thieve's Way.")
+	UpdateQuestStepDescription(Quest, 9, "I've found the enterence to the Thieves' Way.")
 	UpdateQuestTaskGroupDescription(Quest, 9, "I've visisted three of four locations Valthun has told me about.")
 	AddQuestStepZoneLoc(Quest, 10, "I need to locate the gates to North Freeport.",10,"\"Only citizens like myself can come and go as they please.  The rest of you refugees are corralled into the districts.  If you'd like to see what door you're not allowed to travel through, take a look for the city gates.  You'll be able to find it here.  By the time you look at it, I should be done wi----- waiting for you.\" - Valthun", 0, 65.73, -7.08, 108.75, 137)
 	AddQuestStepCompleteAction(Quest, 10, "Step10Complete")   

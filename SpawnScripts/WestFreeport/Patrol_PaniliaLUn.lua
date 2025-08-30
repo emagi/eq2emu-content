@@ -6,18 +6,23 @@
 	Script Notes	:	<special-instructions>
 --]]
 require "SpawnScripts/Generic/NPCModule"
+dofile("SpawnScripts/Generic/ExpelNonCitizen.lua")
+dofile("SpawnScripts/Generic/GenericGuardVoiceOvers.lua")
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     FreeportGuard(NPC)
-	AddTimer(NPC, 6000, "waypoints")
-end
-
-function hailed(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
+    SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")
+    AddTimer(NPC, 6000, "waypoints")
 end
 
 function respawn(NPC)
+    spawn(NPC)
+end
+
+function hailed(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    GenericGuardHail(NPC, Spawn)
 end
 
 function waypoints(NPC)

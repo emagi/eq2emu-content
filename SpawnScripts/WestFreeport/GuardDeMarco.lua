@@ -6,26 +6,20 @@
                    : 
 --]]
 require "SpawnScripts/Generic/NPCModule"
+dofile("SpawnScripts/Generic/ExpelNonCitizen.lua")
+dofile("SpawnScripts/Generic/GenericGuardVoiceOvers.lua")
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     FreeportGuard(NPC)
+    SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")
 end
 
 function respawn(NPC)
-	spawn(NPC)
+    spawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-	RandomGreeting(NPC, Spawn)
-end
-
-function RandomGreeting(NPC, Spawn)
-	local choice = MakeRandomInt(1,2)
-
-	if choice == 1 then
-		PlayFlavor(NPC, "", "I'll let Commandant Tor'Val know you feel that way when we get back to the dungeons.", "scold", 0, 0, Spawn, 0)
-	elseif choice == 2 then
-		PlayFlavor(NPC, "", "I'm surprised the Overlord allows women in his militia.", "", 0, 0, Spawn, 0)
-	end
+    FaceTarget(NPC, Spawn)
+    GenericGuardHail(NPC, Spawn)
 end

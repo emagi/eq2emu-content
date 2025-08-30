@@ -1,20 +1,28 @@
 --[[
 	Script Name		:	Patrol_Follow_Panilia.lua
 	Script Purpose	:	Waypoint follw Path to Panilia L`Un in West Freeport
-	Script Author	:	Cynnar
+	Script Author	:	Cynnar/Dorbin
 	Script Date		:	01/19/2019 02:23:28 PM
 	Script Notes	:	Verus Caldus and Desia
 --]]
 require "SpawnScripts/Generic/NPCModule"
+dofile("SpawnScripts/Generic/ExpelNonCitizen.lua")
+dofile("SpawnScripts/Generic/GenericGuardVoiceOvers.lua")
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     FreeportGuard(NPC)
+    SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")
 	AddTimer(NPC, 6000, "follow_Panilia")
 end
 
 function respawn(NPC)
-	spawn(NPC)
+    spawn(NPC)
+end
+
+function hailed(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    GenericGuardHail(NPC, Spawn)
 end
 
 function follow_Panilia(NPC)
