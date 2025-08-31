@@ -14,17 +14,21 @@ require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
 	AddQuestStepChat(Quest, 1, "I need to speak to Modinite Z'Vol.", 1, "I need to find Modinite Z'Vol and tell him I am ready for the Threshing.", 11, 1440466)
-	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")	
+	SetStepComplete(Player,5907,1)
+	SetStepComplete(Player,5907,2)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-    FaceTarget(QuestGiver, Player)
-	Dialog.New(QuestGiver, Player)   
- 	Dialog.AddDialog("Well, this remains to be seen, child. The Dismal Rage requires all aspiring clerics to undergo a test of fortitude to ensure they are strong enough to stand for their faith. The Threshing will test your body and soul. Only the truly devout will emerge from the refiner's fire to take their place as clerics. ")
-	Dialog.AddVoiceover("voiceover/english/priest_kelian/fprt_north/priestkelian012.mp3", 1989505954, 504674124)
-    PlayFlavor(QuestGiver, "", "", "agree", 0, 0, Player)
-    Dialog.AddOption("If it is required of me, then it will be done.")	
-	Dialog.Start()
+    SetStepComplete(Player,5907,1)
+    SetStepComplete(Player,5907,2)
+    --FaceTarget(QuestGiver, Player)
+	--Dialog.New(QuestGiver, Player)   
+ 	--Dialog.AddDialog("Well, this remains to be seen, child. The Dismal Rage requires all aspiring clerics to undergo a test of fortitude to ensure they are strong enough to stand for their faith. The Threshing will test your body and soul. Only the truly devout will emerge from the refiner's fire to take their place as clerics. ")
+	--Dialog.AddVoiceover("voiceover/english/priest_kelian/fprt_north/priestkelian012.mp3", 1989505954, 504674124)
+    --PlayFlavor(QuestGiver, "", "", "agree", 0, 0, Player)
+    --Dialog.AddOption("If it is required of me, then it will be done.")	
+	--Dialog.Start()
 end
 
 function Declined(Quest, QuestGiver, Player)

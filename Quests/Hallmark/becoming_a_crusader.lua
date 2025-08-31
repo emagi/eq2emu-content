@@ -17,6 +17,11 @@ end
 
 function Accepted(Quest, QuestGiver, Player)
 	-- Add dialog here for when the quest is accepted
+	SetStepComplete(Player,5900,1)
+	SetStepComplete(Player,5900,2)
+	SetStepComplete(Player,5900,3)
+	SetStepComplete(Player,5900,4)
+	SetStepComplete(Player,5900,5)
 end
 
 function Declined(Quest, QuestGiver, Player)

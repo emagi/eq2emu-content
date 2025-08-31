@@ -35,7 +35,6 @@ function hailed(NPC, Spawn)
 		StartConversation(conversation, NPC, Spawn, "Oh, my, that's a gorgeous egg! Let me just put it down right over here. Our thanks, it's going to be rough for the handlers to raise all these!")
 	else
 		-- Finished Quest
-		SendPopUpMessage(Spawn, "Hello there adventurer!", 255, 0, 0)
 		PlayFlavor(NPC, "voiceover/english/voice_emotes/greetings/greetings_2_1042.mp3", "", "", 0, 0, Spawn)
 		AddConversationOption(conversation, "I would like to travel.", "dlg_1_1")
 		AddConversationOption(conversation, "Nowhere.")

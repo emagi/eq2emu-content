@@ -5,10 +5,25 @@
 	Script Date		:	6/28/2020
 	Script Notes	:	
 --]]
-
+dofile("SpawnScripts/Generic/SubClassToCommoner.lua")
 seen_step_45 = false
 
+
 function player_entry(Zone, player)
+    forceCommoner = GetRuleFlagInt32("R_Player", "ForceCommonerFarJourney")
+    if forceCommoner == 1 then
+        if GetLevel(player) == 1 and GetClass(player) > 0 then
+            NPC = GetSpawnByLocationID(Zone, 1586099)
+            RemoveGear(NPC,player)
+    	    SetAdventureClass(player,0)
+    	    SendMessage(player, "You are now a Commoner.")
+            SendPopUpMessage(player, "You are now a Commoner.", 255, 255, 255)	
+        end
+        if GetLevel(player) == 1 and GetTradeskillClass(player)>0 then
+            SetTradeskillClass(player,0)
+        end
+    end
+
     SetHeading(player,180)
 end
 

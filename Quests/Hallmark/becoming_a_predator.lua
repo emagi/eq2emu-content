@@ -17,6 +17,8 @@ function Init(Quest)
 end
 
 function Accepted(Quest, QuestGiver, Player)
+	SetStepComplete(Player,5912,1)
+	SetStepComplete(Player,5912,2)
 	-- Add dialog here for when the quest is accepted
 end
 

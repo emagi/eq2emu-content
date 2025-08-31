@@ -18,6 +18,8 @@ end
 --It's just a plant, right?  I think I can handle that.
 function Accepted(Quest, QuestGiver, Player)
 	-- Add dialog here for when the quest is accepted
+	SetStepComplete(Player,5908,1)
+	SetStepComplete(Player,5908,2)
 end
 
 function Declined(Quest, QuestGiver, Player)

@@ -17,7 +17,7 @@ function casted_on(NPC, Spawn, SpellName)
         if not HasQuest(Spawn, FallenBell) and not HasCompletedQuest(Spawn, FallenBell) then
         AddConversationOption(con, "Embrace the images.", "offer")
         AddConversationOption(con, "Leave the bell.")
-        StartDialogConversation(con, 1, NPC, Spawn, "As your hand brushes across the cool surface of the fallen bell your mind is flooded with images... \n\nRinging!... \nRinging to warn the others... \nThe sky is buring... \nThe moon torn asunder... \nCrashing and toppling this very tower! \nGnolls... \nGnolls everywhere! \nTaking advantage of the chaos... \nStriking down those trying to flee...")
+        StartDialogConversation(con, 1, NPC, Spawn, "As your hand brushes across the cool surface of the fallen bell your mind is flooded with images... \n\nRinging!... \nRinging to warn the others... \nThe sky is burning... \nThe moon torn asunder... \nCrashing and toppling this very tower! \nGnolls... \nGnolls everywhere! \nTaking advantage of the chaos... \nStriking down those trying to flee...")
         elseif HasCompletedQuest(Spawn, FallenBell) then
         AddConversationOption(con, "I hope my actions were enough to avenge the fallen.")
         StartDialogConversation(con, 1, NPC, Spawn, "The cold bell lies unresponsive to your touch. The solace of this crumbled tower is peaceful compared to the turmoil it has endured.")
