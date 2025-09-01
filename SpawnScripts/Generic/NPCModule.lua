@@ -439,6 +439,7 @@ function Named(NPC, Spawn)
     difficulty =  GetDifficulty(NPC)
     NamedMod = 1.5
     AttributeMod = NamedMod * 2
+    SpawnAnimations(NPC, Spawn)
     HealthPower(NPC)
     Attributes(NPC, Spawn)
     

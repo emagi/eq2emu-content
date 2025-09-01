@@ -42,12 +42,6 @@ function respawn(NPC)
 end
 
 
-
-function hailed(NPC, Spawn)
-Dialog1(NPC, Spawn)
-end
-
-
 function Dialog1(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
