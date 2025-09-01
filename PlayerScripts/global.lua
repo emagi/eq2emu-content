@@ -78,7 +78,6 @@ function on_level_up(Zone, Player, OldLevel, NewLevel, ExpEarned)
         )
     elseif specialZones[zoneID] then
         return validate_level_xp(Player, OldLevel, NewLevel, 6, "You must leave the Isle to gain levels.")
-    end
     elseif archetypeClasses[playerClass] then
         return validate_level_xp(Player, OldLevel, NewLevel, ExpEarned, 9, "You must choose your class to gain levels.")
     elseif lowerClasses[playerClass] then
