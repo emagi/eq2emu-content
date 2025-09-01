@@ -73,7 +73,7 @@ else
     end
 	Dialog.AddOption("Fit, but currently unwilling.")
     if GetClass(Spawn)==31 then
-    Dialog.AddOption("Can you make sure my skills are in order?","Skills")
+--    Dialog.AddOption("Can you make sure my skills are in order?","Skills")
     end
     Dialog.Start()
 end

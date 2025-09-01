@@ -95,7 +95,7 @@ else
     end
     Dialog.AddOption("Thank you for that bit of wisdom.")
     if GetClass(Spawn)==11 then
-    Dialog.AddOption("Can you make sure my skills are in order?","Skills")
+--    Dialog.AddOption("Can you make sure my skills are in order?","Skills")
     end
 	Dialog.Start()
 

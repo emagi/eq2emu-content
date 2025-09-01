@@ -75,7 +75,7 @@ function hailed(NPC, Spawn)
 	end 	
     Dialog.AddOption("I will leave you to your work.")
     if GetClass(Spawn)==1 then
-    Dialog.AddOption("Can you make sure my skills are in order?","Skills")
+--   Dialog.AddOption("Can you make sure my skills are in order?","Skills")
     end	Dialog.Start()
 end
 end
