@@ -77,7 +77,7 @@ function on_level_up(Zone, Player, OldLevel, NewLevel, ExpEarned)
             "You must select your archetype to gain levels."
         )
     elseif specialZones[zoneID] then
-        return validate_level_xp(Player, OldLevel, NewLevel, 6, "You must leave the Isle to gain levels.")
+        return validate_level_xp(Player, OldLevel, NewLevel, ExpEarned, 6, "You must leave the Isle to gain levels.")
     elseif archetypeClasses[playerClass] then
         return validate_level_xp(Player, OldLevel, NewLevel, ExpEarned, 9, "You must choose your class to gain levels.")
     elseif lowerClasses[playerClass] then
@@ -102,7 +102,7 @@ end
 
 function validate_level_xp(Player, OldLevel, NewLevel, ExpEarned, MaxLevel, Message)
     local currentXP = GetInfoStructUInt(Player, "xp")
-    local MaxLvlPlus = MaxLevel + 1
+    local MaxLvlPlus = tonumber(MaxLevel) + 1
     local maxXP =
         tonumber(GetExpRequiredByLevel(MaxLvlPlus)) + tonumber(GetExpRequiredByLevel(MaxLvlPlus)) +
         tonumber(GetExpRequiredByLevel(MaxLvlPlus) * .2) -
