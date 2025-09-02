@@ -14,9 +14,7 @@ require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
 	AddQuestStepChat(Quest, 1, "I need to speak to Modinite Z'Vol.", 1, "I need to find Modinite Z'Vol and tell him I am ready for the Threshing.", 11, 1440466)
-	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")	
-	SetStepComplete(Player,5907,1)
-	SetStepComplete(Player,5907,2)
+	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
 function Accepted(Quest, QuestGiver, Player)
