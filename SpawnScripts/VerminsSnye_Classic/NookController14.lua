@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/VerminsSnye_Classic/NookController10.lua
+    Script Name    : SpawnScripts/VerminsSnye_Classic/NookController14.lua
     Script Author  : lordpazuzu
-    Script Date    : 2025.09.05 04:09:45
+    Script Date    : 2025.09.06 02:09:08
     Script Purpose : 
                    : 
 --]]
@@ -13,9 +13,9 @@ function spawn(NPC)
     ControlObject = GetSpawnLocationID(NPC) -- Loc ID for spawn object
     LevelMin = 13 -- Minium level for encounter to spawn at
     LevelMax = 15 -- Maximum level for encounter to spawn at
-    Group1 = 1058428 -- Group ID
-    Group2 = 1058429 -- Group ID
-    Group3 = 1058430-- Group ID
+    Group1 = 1058450 -- Group ID
+    Group2 = 1058451 -- Group ID
+    Group3 = 1058452-- Group ID
     SpawnVariant = MakeRandomInt(1,100)
     
     if SpawnVariant <= 47 then 

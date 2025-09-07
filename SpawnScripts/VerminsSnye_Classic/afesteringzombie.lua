@@ -24,7 +24,7 @@ function ChooseClass(NPC)
     SetClass = MakeRandomInt(1,3)
     if SetClass == 1 then
         SpawnSet(NPC, "class", 2) -- Warrior
-        SetSpellList(NPC, 451)
+        SetSpellList(NPC, 477)
     elseif SetClass == 2 then
         SpawnSet(NPC, "class", 12) -- Cleric
         SetSpellList(NPC, 329)

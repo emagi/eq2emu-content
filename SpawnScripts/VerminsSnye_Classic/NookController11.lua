@@ -11,8 +11,8 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC)
     local zone = GetZone(NPC)
     ControlObject = GetSpawnLocationID(NPC) -- Loc ID for spawn object
-    LevelMin = 11 -- Minium level for encounter to spawn at
-    LevelMax = 12 -- Maximum level for encounter to spawn at
+    LevelMin = 13 -- Minium level for encounter to spawn at
+    LevelMax = 15 -- Maximum level for encounter to spawn at
     Group1 = 1058433 -- Group ID
     Group2 = 1058434 -- Group ID
     Group3 = 1058435-- Group ID
