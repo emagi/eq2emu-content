@@ -205,7 +205,7 @@ end
 
 
 function player_entry(zone, player)
- SendPopUpMessage(player, "Antonica", 230, 230, 230)   
+ SendPopUpMessage(player, "Antonica", 230, 230, 230)
 end
 
 function enter_location(zone, spawn, grid)
