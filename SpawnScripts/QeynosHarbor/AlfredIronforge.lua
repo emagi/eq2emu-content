@@ -25,8 +25,8 @@ if GetFactionAmount(Spawn, 11) <0 then
     PlayFlavor(NPC, "", "", "shakefist", 0, 0, Spawn)
 elseif GetTradeskillLevel(Spawn)<9 and GetTradeskillClass(Spawn)== 1 then
     NotSkilled(NPC,Spawn)
-elseif GetTradeskillLevel(Spawn)==9 and GetTradeskillClass(Spawn)== 1 then
-  Dialog1(NPC,Spawn)  
+elseif GetTradeskillLevel(Spawn)>=9 and GetTradeskillClass(Spawn)== 1 then
+    Dialog1(NPC,Spawn)  
 elseif GetTradeskillClass(Spawn)>1 then
     AlreadySkilled(NPC,Spawn)
 elseif GetTradeskillClass(Spawn)<1 then
@@ -34,7 +34,11 @@ elseif GetTradeskillClass(Spawn)<1 then
     end
 end
 
-
+function TSLevelCheck(NPC,Spawn)
+    if GetTradeskillLevel(Spawn) >10 then
+    SetTradeskillLevel(Spawn,10)
+    end
+end
 
 function NotSkilled(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
@@ -85,10 +89,14 @@ function Crafter(NPC, Spawn)
 end
 
 function CrafterYes1(NPC, Spawn)
+    if GetClientVersion(Spawn) <= 546 then
+    CrafterYes2(NPC,Spawn)
+    else
 	window = CreateOptionWindow();
 	AddOptionWindowOption(window, " Become a Crafstman", "Become proficient in the arts of a Craftsman.  You will learn to craft food, drink, furniture, staves, bows, shields, arrows, and instruments in this profession.                                                            [This can not be undone!]", 0, 26, "CrafterYes2")
 	AddOptionWindowOption(window, " Reconsider", "Stay an Artisan.  You will not advance beyond tradeskill level 9.  Return to Alfred Ironforge when you've made your decission.", 2, 13, "Cancel")
 	SendOptionWindow(window, Spawn, "Are you sure you wish to become a Craftsman?", "Cancel")
+end
 end
 
 function CrafterYes2(NPC, Spawn)
@@ -99,6 +107,7 @@ function CrafterYes2(NPC, Spawn)
     SendPopUpMessage(Spawn, "Congratulations!  You have chosen the path of the Craftsman.",250,250,200)
     PlaySound(Spawn, "sounds/test/endquest.wav", GetX(Spawn), GetY(Spawn), GetZ(Spawn), Spawn)
 	end
+	TSLevelCheck(NPC,Spawn)
     FinalHail(NPC,Spawn)
 end
 
@@ -116,10 +125,14 @@ function Outfitter(NPC, Spawn)
 end
 
 function OutfitterYes1(NPC, Spawn)
-	window = CreateOptionWindow();
+    if GetClientVersion(Spawn) <= 546 then
+    CrafterYes2(NPC,Spawn)
+    else
+    window = CreateOptionWindow();
 	AddOptionWindowOption(window, " Become a Outfitter", "Become proficient in the arts of an Outfitter.  You will learn to craft weapons and armor for all classes in this profession.                      [This can not be undone!]", 0, 32, "OutfitterYes2")
 	AddOptionWindowOption(window, " Reconsider", "Stay an Artisan.  You will not advance beyond tradeskill level 9.  Return to Alfred Ironforge when you've made your decission.", 2, 13, "Cancel")
 	SendOptionWindow(window, Spawn, "Are you sure you wish to become a Outfitter?", "Cancel")
+end
 end
 
 function OutfitterYes2(NPC, Spawn)
@@ -127,10 +140,11 @@ function OutfitterYes2(NPC, Spawn)
 
 	if GetTradeskillClass(Spawn)== 1 then
 	SetTradeskillClass(Spawn,6)
-     SendMessage(Spawn, "Congratulations!  You have chosen the path of the Outfitter.","yellow")
+    SendMessage(Spawn, "Congratulations!  You have chosen the path of the Outfitter.","yellow")
     SendPopUpMessage(Spawn, "Congratulations!  You have chosen the path of the Outfitter.",250,250,200)
     PlaySound(Spawn, "sounds/test/endquest.wav", GetX(Spawn), GetY(Spawn), GetZ(Spawn), Spawn)
 	end
+    TSLevelCheck(NPC,Spawn)
     FinalHail(NPC,Spawn)
 end
 
@@ -148,10 +162,14 @@ function Scholar(NPC, Spawn)
 end
 
 function ScholarYes1(NPC, Spawn)
-	window = CreateOptionWindow();
+    if GetClientVersion(Spawn) <= 546 then
+    CrafterYes2(NPC,Spawn)
+    else
+    window = CreateOptionWindow();
 	AddOptionWindowOption(window, " Become a Scholar", "Become proficient in the arts of a Scholar.  You will learn to craft spell scrolls, combat scrolls, potions, poisons, and jewelry in this profession.                                                                                                 [This can not be undone!]", 0, 3807, "ScholarYes2")
 	AddOptionWindowOption(window, " Reconsider", "Stay an Artisan.  You will not advance beyond tradeskill level 9.  Return to Alfred Ironforge when you've made your decission.", 2, 13, "Cancel")
 	SendOptionWindow(window, Spawn, "Are you sure you wish to become a Scholar?", "Cancel")
+end
 end
 
 function ScholarYes2(NPC, Spawn)
@@ -162,6 +180,7 @@ function ScholarYes2(NPC, Spawn)
     SendPopUpMessage(Spawn, "Congratulations!  You have chosen the path of the Scholar.",250,250,200)
     PlaySound(Spawn, "sounds/test/endquest.wav", GetX(Spawn), GetY(Spawn), GetZ(Spawn), Spawn)
     end
+    TSLevelCheck(NPC,Spawn)
     FinalHail(NPC,Spawn)
 end
 

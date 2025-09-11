@@ -11,6 +11,7 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC)
     NPCModule(NPC, Spawn)
     RandomMovement(NPC, Spawn, 3, -3, 2, 8, 15)
+    RandomWeapons(NPC)
 end
 
 function hailed(NPC, Spawn)

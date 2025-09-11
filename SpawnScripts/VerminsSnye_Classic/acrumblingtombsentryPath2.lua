@@ -11,6 +11,7 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     AddTimer(NPC, 6000, "ChoosePath")
+    RandomWeapons(NPC)
 end
 
 function hailed(NPC, Spawn)
