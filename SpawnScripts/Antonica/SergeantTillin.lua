@@ -16,17 +16,19 @@ function hailed(NPC, Spawn)
     local count = GetQuestCompleteCount(Spawn, TillinGnollWoes)
 	FaceTarget(NPC, Spawn)
 	if not HasQuest(Spawn, TillinGnollWoes) and count <= 5 then
-	local conversation = CreateConversation()
-    PlayFlavor(NPC, "voiceover/english/sergeant_tillin/antonica/sergeant_tillin001.mp3", "", "shrug", 2442572025, 2186334114, Spawn)
-	AddConversationOption(conversation, "Sure, why not?", "offer")
-	AddConversationOption(conversation, "No thanks.")
-	StartConversation(conversation, NPC, Spawn, "Hah!  We've so many adventurers out these days that I think the gnolls decided to push back a bit.  We heard that they're plotting inside Blackburrow.  Think you could help us out?")
-	elseif GetQuestStep(Spawn, TillinGnollWoes) == 1 then
-	Quest_Progress(NPC, Spawn)
-    elseif GetQuestStep(Spawn, TillinGnollWoes) == 2 then
-    Quest_Finish(NPC, Spawn)
+	    local conversation = CreateConversation()
+        PlayFlavor(NPC, "voiceover/english/sergeant_tillin/antonica/sergeant_tillin001.mp3", "", "shrug", 2442572025, 2186334114, Spawn)
+	    AddConversationOption(conversation, "Sure, why not?", "offer")
+	    AddConversationOption(conversation, "No thanks.")
+	    StartConversation(conversation, NPC, Spawn, "Hah!  We've so many adventurers out these days that I think the gnolls decided to push back a bit.  We heard that they're plotting inside Blackburrow.  Think you could help us out?")
+    else
+        if QuestStepIsComplete(Spawn, TillinGnollWoes, 1) then
+            Quest_Finish(NPC, Spawn)
+    	elseif GetQuestStep(Spawn, TillinGnollWoes) == 1 then
+    	    Quest_Progress(NPC, Spawn)
+    	end
+    end
 end
- end
  
  
 
