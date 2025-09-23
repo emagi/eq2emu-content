@@ -136,9 +136,9 @@ function NewAutoAttack(NPC, Spawn)
     end
     
     if level <= 34 then
-        MaxDmgMod = 0.01
+        MaxDmgMod = 1.01
     elseif level >= 35 then
-        MaxDmgMod = 0.015 
+        MaxDmgMod = 1.015 
     end 
     
     minDmg = (level * 0.6) * difMod
